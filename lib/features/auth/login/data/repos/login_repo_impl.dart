@@ -1,5 +1,4 @@
 import 'package:warsha2/core/utils/common_imports.dart';
-import 'package:warsha2/features/auth/login/data/models/login_response.dart';
 
 class LoginRepoImpl extends LoginRepo {
   final ApiService apiService;
@@ -18,7 +17,7 @@ class LoginRepoImpl extends LoginRepo {
       return Right(loginResponse);
     } catch (e) {
       if (e is DioException) {
-        return left(ServerFailure.fromDioExecption(e));
+        return left(ServerFailure.fromDioException(e));
       }
       return left(
         ServerFailure(
