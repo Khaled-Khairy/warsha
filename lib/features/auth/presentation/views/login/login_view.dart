@@ -17,7 +17,7 @@ class LoginView extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16).r,
               child: BlocProvider(
-                create: (context) => LoginCubit(AuthRepoImpl(ApiService(Dio()))),
+                create: (context) => LoginCubit(getIt.get<AuthRepoImpl>()),
                 child: const LoginBody(),
               ),
             ),

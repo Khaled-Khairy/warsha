@@ -5,6 +5,7 @@ export 'package:flutter_bloc/flutter_bloc.dart';
 export 'package:get_it/get_it.dart';
 export 'package:icons_plus/icons_plus.dart';
 export 'package:lottie/lottie.dart';
+export 'package:go_router/go_router.dart';
 // Errors and failures
 export 'package:warsha2/core/errors/failure.dart';
 export 'package:warsha2/core/utils/api_service.dart';
@@ -24,3 +25,7 @@ export 'package:warsha2/features/auth/presentation/views/login/widgets/login_bod
 export 'package:warsha2/features/auth/presentation/views/login/widgets/login_form.dart';
 export 'package:warsha2/features/auth/presentation/views/login/widgets/login_header.dart';
 export 'package:warsha2/features/auth/presentation/views/login/widgets/password_text_field.dart';
+export 'package:warsha2/features/home/presentation/views/widget/home_body.dart';
+export 'package:warsha2/features/home/presentation/views/home_view.dart';
+export 'package:warsha2/core/utils/app_router.dart';
+export 'package:warsha2/features/auth/presentation/views/login/widgets/custom_loading.dart';

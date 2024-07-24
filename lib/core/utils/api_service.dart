@@ -1,7 +1,7 @@
 import 'common_imports.dart';
 
 class ApiService {
-  final _baseUrl = 'http://localhost:8000/';
+  final _baseUrl = 'https://reqres.in';
   final Dio _dio;
 
   ApiService(this._dio);

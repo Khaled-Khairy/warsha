@@ -19,7 +19,7 @@ class LoginForm extends StatelessWidget {
             validator: (value) {
               if (value == null || value.isEmpty) {
                 return "Email cannot be empty";
-              } else if (!value.contains("@") || value.length > 10) {
+              } else if (!RegExp(r'^[^@]+@[^@]+\.[^@]+$').hasMatch(value)) {
                 return "Please enter a valid email";
               }
               return null;

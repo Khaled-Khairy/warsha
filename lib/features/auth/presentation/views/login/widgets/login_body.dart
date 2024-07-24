@@ -7,7 +7,19 @@ class LoginBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<LoginCubit, LoginState>(
+    return BlocConsumer<LoginCubit, LoginState>(
+      listener: (context, state) {
+        if (state is LoginSuccess) {
+          Navigator.of(context, rootNavigator: true).pop();
+          GoRouter.of(context).pushReplacement(AppRouter.kHomeView);
+        } else if (state is LoginLoading) {
+          showDialog(
+            context: context,
+            barrierDismissible: false,
+            builder: (context) => const CustomLoading(),
+          );
+        }
+      },
       builder: (context, state) {
         final cubit = BlocProvider.of<LoginCubit>(context);
         return Column(
@@ -21,18 +33,14 @@ class LoginBody extends StatelessWidget {
               height: 52.h,
               child: ElevatedButton(
                 onPressed: () {
-                  if(cubit.formKey.currentState!.validate()){
-                    print("valid");
-                    print(cubit.emailController.text);
-                    print(cubit.passwordController.text);
-                  }else{
-                    print("invalid");
+                  if (cubit.formKey.currentState!.validate()) {
+                    cubit.login(
+                      loginModel: LoginModel(
+                        email: "eve.holt@reqres.in",
+                        password: "cityslicka",
+                      ),
+                    );
                   }
-                  // cubit.login(
-                  //     loginModel: LoginModel(
-                  //         email: cubit.emailController.toString(),
-                  //         password: cubit.passwordController.toString()));
-
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blue,

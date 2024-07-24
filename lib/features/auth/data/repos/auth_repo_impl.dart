@@ -11,7 +11,7 @@ class AuthRepoImpl extends AuthRepo {
       {required LoginModel loginModel}) async {
     try {
       final response = await apiService.post(
-        endPoint: 'accounts/login/',
+        endPoint: "/api/login",
         data: loginModel.toJson(),
       );
       final loginResponse = LoginResponse.fromJson(response);

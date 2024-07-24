@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:warsha2/core/utils/app_router.dart';
 
 import 'core/utils/common_imports.dart';
 
 void main() {
+  setup();
   runApp( const Warsha());
 }
 
@@ -16,11 +18,11 @@ class Warsha extends StatelessWidget {
       designSize: const Size(360, 800),
       minTextAdapt: true,
       builder: (context, _) {
-        return MaterialApp(
+        return MaterialApp.router(
           debugShowCheckedModeBanner: false,
           theme: lightTheme,
           darkTheme: darkTheme,
-          home: const LoginView(),
+          routerConfig: AppRouter.router,
         );
       },
     );
