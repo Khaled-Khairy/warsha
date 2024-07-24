@@ -16,7 +16,10 @@ class LoginView extends StatelessWidget {
           child: SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16).r,
-              child: const LoginBody(),
+              child: BlocProvider(
+                create: (context) => LoginCubit(AuthRepoImpl(ApiService(Dio()))),
+                child: const LoginBody(),
+              ),
             ),
           ),
         ),

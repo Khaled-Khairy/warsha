@@ -1,9 +1,10 @@
+import 'package:dartz/dartz.dart';
 import 'package:warsha2/core/utils/common_imports.dart';
 
-class LoginRepoImpl extends LoginRepo {
+class AuthRepoImpl extends AuthRepo {
   final ApiService apiService;
 
-  LoginRepoImpl(this.apiService);
+  AuthRepoImpl(this.apiService);
 
   @override
   Future<Either<Failure, LoginResponse>> loginRequest(

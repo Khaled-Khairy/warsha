@@ -1,4 +1,3 @@
-import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:warsha2/core/utils/common_imports.dart';
 
@@ -6,7 +5,10 @@ part 'login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {
   LoginCubit(this.loginRepo) : super(LoginInitial());
-  final LoginRepo loginRepo;
+  final AuthRepo loginRepo;
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  var formKey = GlobalKey<FormState>();
 
   Future<void> login({required LoginModel loginModel}) async {
     emit(LoginLoading());

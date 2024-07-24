@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../../core/utils/common_imports.dart';
+import 'package:warsha2/core/utils/common_imports.dart';
 
 class LoginHeader extends StatelessWidget {
   const LoginHeader({
