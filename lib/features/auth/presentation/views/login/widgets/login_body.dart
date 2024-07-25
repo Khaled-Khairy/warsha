@@ -39,7 +39,7 @@ class LoginBody extends StatelessWidget {
                   closeKeyboard(context);
                   if (cubit.formKey.currentState!.validate()) {
                     cubit.login(
-                      loginModel: LoginModel(
+                      loginModel: LoginUser(
                         email: cubit.emailController.text,
                         password: cubit.passwordController.text,
                       ),
@@ -63,7 +63,9 @@ class LoginBody extends StatelessWidget {
               width: double.infinity,
               height: 52.h,
               child: OutlinedButton(
-                onPressed: () {},
+                onPressed: () {
+                  GoRouter.of(context).push(AppRouter.kSignUpView);
+                },
                 style: OutlinedButton.styleFrom(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12).r,
@@ -75,9 +77,10 @@ class LoginBody extends StatelessWidget {
                 child: Text(
                   "Create Account",
                   style: TextStyle(
-                      color: Theme.of(context).colorScheme.onSurface,
-                      fontSize: 18.sp,
-                      fontWeight: FontWeight.bold),
+                    color: Theme.of(context).colorScheme.onSurface,
+                    fontSize: 18.sp,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             ),

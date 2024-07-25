@@ -9,9 +9,9 @@ class LoginForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cubit = BlocProvider.of<LoginCubit>(context);
     return BlocBuilder<LoginCubit, LoginState>(
       builder: (context, state) {
+        final cubit = BlocProvider.of<LoginCubit>(context);
         return Form(
           key: cubit.formKey,
           child: Column(
@@ -34,11 +34,15 @@ class LoginForm extends StatelessWidget {
                     color: Theme.of(context).iconTheme.color,
                   ),
                   labelText: "Email",
-                  labelStyle: Styles.labelStyle,
+                  labelStyle: Styles.labelStyle(context),
                 ),
               ),
               10.verticalSpace,
-              PasswordTextField(passwordController: cubit.passwordController),
+              PasswordTextField(
+                label: "Password",
+                passwordController: cubit.passwordController,
+                originalPasswordController: cubit.passwordController,
+              ),
               Row(
                 children: [
                   Transform.scale(

@@ -10,7 +10,7 @@ class LoginCubit extends Cubit<LoginState> {
   TextEditingController passwordController = TextEditingController();
   var formKey = GlobalKey<FormState>();
 
-  Future<void> login({required LoginModel loginModel}) async {
+  Future<void> login({required LoginUser loginModel}) async {
     emit(LoginLoading());
     var result = await loginRepo.loginRequest(loginModel: loginModel);
     result.fold(

@@ -16,10 +16,12 @@ abstract class Styles {
     );
   }
 
-  static TextStyle labelStyle = TextStyle(
-    fontSize: 14.sp,
-    color: Colors.white,
-  );
+  static TextStyle labelStyle(BuildContext context) {
+    return TextStyle(
+      fontSize: 16.sp,
+      color: Theme.of(context).colorScheme.onSurface,
+    );
+  }
 
   static TextStyle bodyBold = TextStyle(
       color: AppColors.darkPrimaryTextColor,

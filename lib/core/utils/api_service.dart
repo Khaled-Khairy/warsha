@@ -19,8 +19,6 @@ class ApiService {
       "$_baseUrl$endPoint",
       data: data,
     );
-    print("Response Status Code: ${response.statusCode}");
-    print("Response Data: ${response.data}");
     return response.data;
   }
 }

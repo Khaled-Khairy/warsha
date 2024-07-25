@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:icons_plus/icons_plus.dart';
-import 'package:warsha2/core/utils/styles.dart';
+import 'package:warsha2/core/utils/common_imports.dart';
 
 class PasswordTextField extends StatefulWidget {
-  const PasswordTextField({super.key, required this.passwordController});
+  const PasswordTextField({
+    super.key,
+    required this.label,
+    required this.passwordController,
+    required this.originalPasswordController,
+  });
 
+  final String label;
   final TextEditingController passwordController;
+  final TextEditingController originalPasswordController;
 
   @override
   State<PasswordTextField> createState() => _PasswordTextFieldState();
@@ -22,6 +28,25 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
       validator: (value) {
         if (value == null || value.isEmpty) {
           return 'Password cannot be empty';
+        }
+        // if (value.length < 8) {
+        //   return 'Password must be at least 8 chars long';
+        // }
+        // final RegExp hasUpperCase = RegExp(r'(?=.*[A-Z])');
+        // final RegExp hasLowerCase = RegExp(r'(?=.*[a-z])');
+        // final RegExp hasDigit = RegExp(r'(?=.*\d)');
+        // if (!hasUpperCase.hasMatch(value)) {
+        //   return 'Password must include an uppercase letter';
+        // }
+        // if (!hasLowerCase.hasMatch(value)) {
+        //   return 'Password must include a lowercase letter';
+        // }
+        // if (!hasDigit.hasMatch(value)) {
+        //   return 'Password must include a number';
+        // }
+        if (widget.originalPasswordController!.text !=
+            widget.passwordController.text) {
+          return 'Passwords do not match';
         }
         return null;
       },
@@ -45,8 +70,8 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
             color: Theme.of(context).iconTheme.color,
           ),
         ),
-        labelText: "Password",
-        labelStyle: Styles.labelStyle,
+        labelText: widget.label,
+        labelStyle: Styles.labelStyle(context),
       ),
     );
   }

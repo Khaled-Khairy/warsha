@@ -3,5 +3,5 @@ import 'package:warsha2/core/utils/common_imports.dart';
 
 abstract class AuthRepo {
   Future<Either<Failure, LoginResponse>> loginRequest(
-      {required LoginModel loginModel});
+      {required LoginUser loginModel});
 }
