@@ -19,7 +19,7 @@ export 'package:warsha2/core/utils/styles.dart';
 export 'package:warsha2/core/utils/theme.dart';
 export 'package:warsha2/core/widgets/custom_loading.dart';
 // Feature-specific views and data
-export 'package:warsha2/features/auth/data/models/login_data/login_model.dart';
+export 'package:warsha2/features/auth/data/models/login_data/login_user.dart';
 export 'package:warsha2/features/auth/data/models/login_data/login_response.dart';
 export 'package:warsha2/features/auth/data/repos/auth_repo.dart';
 export 'package:warsha2/features/auth/data/repos/auth_repo_impl.dart';
