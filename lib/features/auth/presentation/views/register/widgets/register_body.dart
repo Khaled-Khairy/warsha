@@ -1,26 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:warsha2/core/utils/common_imports.dart';
-import 'package:warsha2/features/auth/presentation/views/signup/widgets/signup_form.dart';
-import 'package:warsha2/features/auth/presentation/views/signup/widgets/signup_header.dart';
 
-class SignupBody extends StatelessWidget {
-  const SignupBody({super.key});
+class RegisterBody extends StatelessWidget {
+  const RegisterBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<SignUpCubit, SignUpState>(
+    return BlocConsumer<RegisterCubit, RegisterState>(
       listener: (context, state) {
         // TODO: implement listener
       },
       builder: (context, state) {
-        final cubit = BlocProvider.of<SignUpCubit>(context);
+        final cubit = BlocProvider.of<RegisterCubit>(context);
         return Column(
           children: [
             Column(
               children: [
-                const SignupHeader(),
-                const SignupForm(),
+                const RegisterHeader(),
+                const RegisterForm(),
                 10.verticalSpace,
                 SizedBox(
                   width: double.infinity,

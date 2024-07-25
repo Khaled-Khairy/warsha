@@ -7,7 +7,8 @@ class AuthRepoImpl extends AuthRepo {
   AuthRepoImpl(this.apiService);
 
   @override
-  Future<Either<Failure, LoginResponse>> loginRequest({required LoginUser loginModel}) async {
+  Future<Either<Failure, LoginResponse>> loginRequest(
+      {required LoginUser loginModel}) async {
     try {
       final response = await apiService.post(
         endPoint: "/accounts/login/",
@@ -25,5 +26,12 @@ class AuthRepoImpl extends AuthRepo {
         ),
       );
     }
+  }
+
+  @override
+  Future<Either<Failure, LoginResponse>> registerRequest(
+      {required LoginUser loginModel}) {
+    // TODO: implement registerRequest
+    throw UnimplementedError();
   }
 }

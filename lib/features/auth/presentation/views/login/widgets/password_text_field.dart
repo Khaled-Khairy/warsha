@@ -44,7 +44,7 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
         // if (!hasDigit.hasMatch(value)) {
         //   return 'Password must include a number';
         // }
-        if (widget.originalPasswordController!.text !=
+        if (widget.originalPasswordController.text !=
             widget.passwordController.text) {
           return 'Passwords do not match';
         }

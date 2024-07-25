@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:warsha2/core/utils/common_imports.dart';
 
-class SignupHeader extends StatelessWidget {
-  const SignupHeader({super.key});
+class RegisterHeader extends StatelessWidget {
+  const RegisterHeader({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,10 @@ class SignupHeader extends StatelessWidget {
               onPressed: () {
                 GoRouter.of(context).push("/");
               },
-              icon:  Icon(Icons.arrow_back,size: 24.r,),
+              icon: Icon(
+                Icons.arrow_back,
+                size: 24.r,
+              ),
             ),
           ],
         ),

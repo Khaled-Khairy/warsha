@@ -3,14 +3,14 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:warsha2/core/utils/common_imports.dart';
 
-class SignupForm extends StatelessWidget {
-  const SignupForm({super.key});
+class RegisterForm extends StatelessWidget {
+  const RegisterForm({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<SignUpCubit, SignUpState>(
+    return BlocBuilder<RegisterCubit, RegisterState>(
       builder: (context, state) {
-        final cubit = BlocProvider.of<SignUpCubit>(context);
+        final cubit = BlocProvider.of<RegisterCubit>(context);
         return Form(
           key: cubit.formKey,
           child: Column(

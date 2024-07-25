@@ -26,7 +26,8 @@ class ServerFailure extends Failure {
       case DioExceptionType.connectionError:
         return ServerFailure('Connection Error');
       case DioExceptionType.unknown:
-        if (dioException.message != null && dioException.message!.contains('SocketException')) {
+        if (dioException.message != null &&
+            dioException.message!.contains('SocketException')) {
           return ServerFailure('No Internet Connection');
         }
         return ServerFailure('Unexpected Error, Please try again!');
@@ -41,7 +42,9 @@ class ServerFailure extends Failure {
       final errorMessage = errorResponse.getErrorMessages();
       return ServerFailure(errorMessage);
     }
-    if (response?.statusCode == 400 || response?.statusCode == 401 || response?.statusCode == 403) {
+    if (response?.statusCode == 400 ||
+        response?.statusCode == 401 ||
+        response?.statusCode == 403) {
       return ServerFailure('Your request not found, Please try later!');
     } else if (response?.statusCode == 404) {
       return ServerFailure('Your request not found, Please try later!');
@@ -67,6 +70,7 @@ class ErrorResponse {
     }
     return ErrorResponse(errors: errors);
   }
+
   String getErrorMessages() {
     return errors.values.expand((messages) => messages).join(', ');
   }
