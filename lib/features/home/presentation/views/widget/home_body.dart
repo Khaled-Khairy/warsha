@@ -8,9 +8,7 @@ class HomeBody extends StatelessWidget {
     return const Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text("Home Page")
-        ],
+        children: [Text("Home Page")],
       ),
     );
   }

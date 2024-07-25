@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:warsha2/core/utils/app_router.dart';
 
 import 'core/utils/common_imports.dart';
 
 void main() {
   setup();
-  runApp( const Warsha());
+  runApp(const Warsha());
 }
 
 class Warsha extends StatelessWidget {

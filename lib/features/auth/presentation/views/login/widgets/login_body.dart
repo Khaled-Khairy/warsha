@@ -18,6 +18,9 @@ class LoginBody extends StatelessWidget {
             barrierDismissible: false,
             builder: (context) => const CustomLoading(),
           );
+        } else if (state is LoginFailed) {
+          Navigator.of(context, rootNavigator: true).pop();
+          showCustomSnackBar(context, state.errMessage);
         }
       },
       builder: (context, state) {
@@ -33,11 +36,12 @@ class LoginBody extends StatelessWidget {
               height: 52.h,
               child: ElevatedButton(
                 onPressed: () {
+                  closeKeyboard(context);
                   if (cubit.formKey.currentState!.validate()) {
                     cubit.login(
                       loginModel: LoginModel(
-                        email: "eve.holt@reqres.in",
-                        password: "cityslicka",
+                        email: cubit.emailController.text,
+                        password: cubit.passwordController.text,
                       ),
                     );
                   }

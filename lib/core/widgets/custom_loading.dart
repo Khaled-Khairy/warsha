@@ -12,7 +12,7 @@ class CustomLoading extends StatelessWidget {
         width: 100.w,
         height: 100.h,
         decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.surface,
+            color: Theme.of(context).colorScheme.surface.withOpacity(0.7),
             borderRadius: BorderRadius.circular(20).r),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

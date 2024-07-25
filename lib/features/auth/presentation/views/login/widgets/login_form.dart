@@ -10,64 +10,68 @@ class LoginForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cubit = BlocProvider.of<LoginCubit>(context);
-    return Form(
-      key: cubit.formKey,
-      child: Column(
-        children: [
-          TextFormField(
-            controller: cubit.emailController,
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return "Email cannot be empty";
-              } else if (!RegExp(r'^[^@]+@[^@]+\.[^@]+$').hasMatch(value)) {
-                return "Please enter a valid email";
-              }
-              return null;
-            },
-            style: Styles.bodyNormal(context),
-            decoration: InputDecoration(
-              prefixIcon: Icon(
-                size: 24.r,
-                Clarity.email_line,
-                color: Theme.of(context).iconTheme.color,
-              ),
-              labelText: "Email",
-              labelStyle: Styles.labelStyle,
-            ),
-          ),
-          10.verticalSpace,
-          PasswordTextField(passwordController: cubit.passwordController),
-          Row(
+    return BlocBuilder<LoginCubit, LoginState>(
+      builder: (context, state) {
+        return Form(
+          key: cubit.formKey,
+          child: Column(
             children: [
-              Transform.scale(
-                scale: 1.r,
-                child: Checkbox(
-                  value: true,
-                  onChanged: (value) {},
-                  visualDensity: VisualDensity.compact,
-                  activeColor: Colors.blue,
-                  checkColor: Colors.white,
-                ),
-              ),
-              Text(
-                "Remember me",
+              TextFormField(
+                controller: cubit.emailController,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "Email cannot be empty";
+                  } else if (!RegExp(r'^[^@]+@[^@]+\.[^@]+$').hasMatch(value)) {
+                    return "Please enter a valid email";
+                  }
+                  return null;
+                },
                 style: Styles.bodyNormal(context),
-              ),
-              const Spacer(),
-              TextButton(
-                onPressed: () {},
-                child: Text(
-                  "Forget Password?",
-                  style: TextStyle(
-                    fontSize: 15.sp,
-                    color: Colors.blue.withOpacity(0.9),
+                decoration: InputDecoration(
+                  prefixIcon: Icon(
+                    size: 24.r,
+                    Clarity.email_line,
+                    color: Theme.of(context).iconTheme.color,
                   ),
+                  labelText: "Email",
+                  labelStyle: Styles.labelStyle,
                 ),
+              ),
+              10.verticalSpace,
+              PasswordTextField(passwordController: cubit.passwordController),
+              Row(
+                children: [
+                  Transform.scale(
+                    scale: 1.r,
+                    child: Checkbox(
+                      value: true,
+                      onChanged: (value) {},
+                      visualDensity: VisualDensity.compact,
+                      activeColor: Colors.blue,
+                      checkColor: Colors.white,
+                    ),
+                  ),
+                  Text(
+                    "Remember me",
+                    style: Styles.bodyNormal(context),
+                  ),
+                  const Spacer(),
+                  TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      "Forget Password?",
+                      style: TextStyle(
+                        fontSize: 15.sp,
+                        color: Colors.blue.withOpacity(0.9),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
-        ],
-      ),
+        );
+      },
     );
   }
 }

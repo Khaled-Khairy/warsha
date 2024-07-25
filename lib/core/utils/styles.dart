@@ -15,6 +15,7 @@ abstract class Styles {
       fontWeight: FontWeight.w500,
     );
   }
+
   static TextStyle labelStyle = TextStyle(
     fontSize: 14.sp,
     color: Colors.white,

@@ -4,10 +4,7 @@ import 'package:icons_plus/icons_plus.dart';
 import 'package:warsha2/core/utils/styles.dart';
 
 class PasswordTextField extends StatefulWidget {
-  const PasswordTextField({
-    super.key,
-    required this.passwordController,
-  });
+  const PasswordTextField({super.key, required this.passwordController});
 
   final TextEditingController passwordController;
 

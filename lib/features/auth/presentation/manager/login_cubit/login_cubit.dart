@@ -13,10 +13,13 @@ class LoginCubit extends Cubit<LoginState> {
   Future<void> login({required LoginModel loginModel}) async {
     emit(LoginLoading());
     var result = await loginRepo.loginRequest(loginModel: loginModel);
-    result.fold((failure) {
-      emit(LoginFailed(failure.errMessage));
-    }, (loginResponse) {
-      emit(LoginSuccess(loginResponse));
-    });
+    result.fold(
+      (failure) {
+        emit(LoginFailed(failure.errMessage));
+      },
+      (loginResponse) {
+        emit(LoginSuccess(loginResponse));
+      },
+    );
   }
 }

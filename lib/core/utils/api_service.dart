@@ -1,7 +1,7 @@
 import 'common_imports.dart';
 
 class ApiService {
-  final _baseUrl = 'https://reqres.in';
+  final _baseUrl = "http://192.168.1.2:8000";
   final Dio _dio;
 
   ApiService(this._dio);
@@ -19,6 +19,8 @@ class ApiService {
       "$_baseUrl$endPoint",
       data: data,
     );
+    print("Response Status Code: ${response.statusCode}");
+    print("Response Data: ${response.data}");
     return response.data;
   }
 }
