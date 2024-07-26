@@ -38,7 +38,7 @@ class LoginForm extends StatelessWidget {
                 ),
               ),
               10.verticalSpace,
-              PasswordTextField(
+              LoginPassword(
                 label: "Password",
                 passwordController: cubit.passwordController,
                 originalPasswordController: cubit.passwordController,

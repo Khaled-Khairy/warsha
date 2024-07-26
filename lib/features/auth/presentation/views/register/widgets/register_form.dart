@@ -96,13 +96,13 @@ class RegisterForm extends StatelessWidget {
                 ],
               ),
               10.verticalSpace,
-              PasswordTextField(
+              RegisterPassword(
                 label: "Password",
                 passwordController: cubit.passwordController,
                 originalPasswordController: cubit.passwordController,
               ),
               10.verticalSpace,
-              PasswordTextField(
+              RegisterPassword(
                 label: "Confirm Password",
                 passwordController: cubit.confirmPasswordController,
                 originalPasswordController: cubit.passwordController,
