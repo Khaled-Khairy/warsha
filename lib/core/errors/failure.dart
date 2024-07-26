@@ -1,13 +1,13 @@
 import 'package:dio/dio.dart';
 
 abstract class Failure {
-  final String errMessage;
+  final String errorMessage;
 
-  Failure(this.errMessage);
+  Failure(this.errorMessage);
 }
 
 class ServerFailure extends Failure {
-  ServerFailure(super.errMessage);
+  ServerFailure(super.errorMessage);
 
   factory ServerFailure.fromDioException(DioException dioException) {
     switch (dioException.type) {
@@ -42,9 +42,7 @@ class ServerFailure extends Failure {
       final errorMessage = errorResponse.getErrorMessages();
       return ServerFailure(errorMessage);
     }
-    if (response?.statusCode == 400 ||
-        response?.statusCode == 401 ||
-        response?.statusCode == 403) {
+    if (response?.statusCode == 400 || response?.statusCode == 401 || response?.statusCode == 403) {
       return ServerFailure('Your request not found, Please try later!');
     } else if (response?.statusCode == 404) {
       return ServerFailure('Your request not found, Please try later!');

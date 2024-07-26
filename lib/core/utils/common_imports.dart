@@ -6,18 +6,21 @@ export 'package:get_it/get_it.dart';
 export 'package:go_router/go_router.dart';
 export 'package:icons_plus/icons_plus.dart';
 export 'package:lottie/lottie.dart';
+
 // Errors and failures
 export 'package:warsha2/core/errors/failure.dart';
 export 'package:warsha2/core/functions/close_keyboard.dart';
-export 'package:warsha2/core/functions/custom_snack_bar.dart';
+export 'package:warsha2/core/functions/show_custom_snack_bar.dart';
 export 'package:warsha2/core/utils/api_service.dart';
 export 'package:warsha2/core/utils/app_router.dart';
+
 // Core utilities and functions
 export 'package:warsha2/core/utils/colors.dart';
 export 'package:warsha2/core/utils/service_locator.dart';
 export 'package:warsha2/core/utils/styles.dart';
 export 'package:warsha2/core/utils/theme.dart';
 export 'package:warsha2/core/widgets/custom_loading.dart';
+
 // Feature-specific views and data
 export 'package:warsha2/features/auth/data/models/login_data/login_user.dart';
 export 'package:warsha2/features/auth/data/models/login_data/login_response.dart';
@@ -36,3 +39,4 @@ export 'package:warsha2/features/auth/presentation/views/register/widgets/regist
 export 'package:warsha2/features/auth/presentation/views/register/widgets/register_header.dart';
 export 'package:warsha2/features/home/presentation/views/home_view.dart';
 export 'package:warsha2/features/home/presentation/views/widget/home_body.dart';
+export 'package:warsha2/features/auth/data/models/register_data/register_user.dart';

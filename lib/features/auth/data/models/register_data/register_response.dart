@@ -1,14 +1,14 @@
-class LoginResponse {
+class RegisterResponse {
   final Token token;
   final String msg;
 
-  LoginResponse({
+  RegisterResponse({
     required this.token,
     required this.msg,
   });
 
-  factory LoginResponse.fromJson(Map<String, dynamic> json) {
-    return LoginResponse(
+  factory RegisterResponse.fromJson(Map<String, dynamic> json) {
+    return RegisterResponse(
       token: Token.fromJson(json['token']),
       msg: json['msg'],
     );

@@ -20,7 +20,12 @@ class LoginBody extends StatelessWidget {
           );
         } else if (state is LoginFailed) {
           Navigator.of(context, rootNavigator: true).pop();
-          showCustomSnackBar(context, state.errMessage);
+          showCustomSnackBar(
+            context,
+            state.errorMessage,
+            AppColors.errorColor,
+            Iconsax.info_circle_outline,
+          );
         }
       },
       builder: (context, state) {
@@ -39,7 +44,7 @@ class LoginBody extends StatelessWidget {
                   closeKeyboard(context);
                   if (cubit.formKey.currentState!.validate()) {
                     cubit.login(
-                      loginModel: LoginUser(
+                      loginUser: LoginUser(
                         email: cubit.emailController.text,
                         password: cubit.passwordController.text,
                       ),

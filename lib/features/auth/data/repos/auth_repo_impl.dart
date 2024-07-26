@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:warsha2/core/utils/common_imports.dart';
+import 'package:warsha2/features/auth/data/models/register_data/register_response.dart';
 
 class AuthRepoImpl extends AuthRepo {
   final ApiService apiService;
@@ -8,11 +9,11 @@ class AuthRepoImpl extends AuthRepo {
 
   @override
   Future<Either<Failure, LoginResponse>> loginRequest(
-      {required LoginUser loginModel}) async {
+      {required LoginUser loginUser}) async {
     try {
       final response = await apiService.post(
         endPoint: "/accounts/login/",
-        data: loginModel.toJson(),
+        data: loginUser.toJson(),
       );
       final loginResponse = LoginResponse.fromJson(response);
       return Right(loginResponse);
@@ -29,9 +30,24 @@ class AuthRepoImpl extends AuthRepo {
   }
 
   @override
-  Future<Either<Failure, LoginResponse>> registerRequest(
-      {required LoginUser loginModel}) {
-    // TODO: implement registerRequest
-    throw UnimplementedError();
+  Future<Either<Failure, RegisterResponse>> registerRequest(
+      {required RegisterUser registerUser}) async {
+    try {
+      final response = await apiService.post(
+        endPoint: "/accounts/register/",
+        data: registerUser.toJson(),
+      );
+      final registerResponse = RegisterResponse.fromJson(response);
+      return right(registerResponse);
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioException(e));
+      }
+      return left(
+        ServerFailure(
+          e.toString(),
+        ),
+      );
+    }
   }
 }

@@ -24,12 +24,12 @@ class RegisterForm extends StatelessWidget {
                   if (value.length < 3) {
                     return "Username must be at least 3 characters long";
                   }
-                  if (value.length > 20) {
+                  if (value.length > 30) {
                     return "Username cannot be more than 20 characters long";
                   }
-                  final RegExp validCharacters = RegExp(r'^[a-zA-Z0-9_]+$');
+                  final RegExp validCharacters = RegExp(r'^[a-zA-Z0-9_ ]+$');
                   if (!validCharacters.hasMatch(value)) {
-                    return "Please enter a valid user name";
+                    return "Please enter a valid username";
                   }
                   return null;
                 },

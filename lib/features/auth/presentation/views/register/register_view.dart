@@ -17,7 +17,7 @@ class RegisterView extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16).r,
               child: BlocProvider(
-                create: (context) => RegisterCubit(),
+                create: (context) => RegisterCubit(getIt.get<AuthRepoImpl>()),
                 child: const RegisterBody(),
               ),
             ),

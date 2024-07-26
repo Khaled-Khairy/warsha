@@ -9,7 +9,37 @@ class RegisterBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<RegisterCubit, RegisterState>(
       listener: (context, state) {
-        // TODO: implement listener
+        if (state is RegisterLoading) {
+          showDialog(
+            context: context,
+            barrierDismissible: false,
+            builder: (context) => const CustomLoading(),
+          );
+        } else if (state is RegisterSuccess) {
+          Navigator.of(context, rootNavigator: true).pop();
+          if(context.mounted){
+            showCustomSnackBar(
+              context,
+              "Registration Success\nPlease login",
+              AppColors.successColor,
+              Icons.check_circle_outline,
+            );
+          }
+          Future.delayed(
+            const Duration(seconds: 2),
+            () {
+              GoRouter.of(context).pop();
+            },
+          );
+        } else if (state is RegisterFailed) {
+          Navigator.of(context, rootNavigator: true).pop();
+          showCustomSnackBar(
+            context,
+            state.errorMessage,
+            AppColors.errorColor,
+            Iconsax.info_circle_outline,
+          );
+        }
       },
       builder: (context, state) {
         final cubit = BlocProvider.of<RegisterCubit>(context);
@@ -26,7 +56,18 @@ class RegisterBody extends StatelessWidget {
                   child: ElevatedButton(
                     onPressed: () {
                       closeKeyboard(context);
-                      cubit.formKey.currentState!.validate();
+                      if (cubit.formKey.currentState!.validate()) {
+                        cubit.register(
+                          registerUser: RegisterUser(
+                            username: cubit.userNameController.text,
+                            email: cubit.emailController.text,
+                            phone: cubit.phoneNumberController.text,
+                            password: cubit.passwordController.text,
+                            confirmPassword:
+                                cubit.confirmPasswordController.text,
+                          ),
+                        );
+                      }
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.blue,

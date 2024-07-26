@@ -13,4 +13,5 @@ abstract class AppColors {
   static const lightSecondaryTextColor = Color(0xFF616161);
   static const lightBorderColor = Color(0xFF424242);
   static const errorColor = Color(0xffDC143C);
+  static const successColor = Color(0xff4CAF50);
 }
