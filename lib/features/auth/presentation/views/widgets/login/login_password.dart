@@ -5,14 +5,10 @@ import 'package:warsha2/core/utils/common_imports.dart';
 class LoginPassword extends StatefulWidget {
   const LoginPassword({
     super.key,
-    required this.label,
     required this.passwordController,
-    required this.originalPasswordController,
   });
 
-  final String label;
   final TextEditingController passwordController;
-  final TextEditingController originalPasswordController;
 
   @override
   State<LoginPassword> createState() => _LoginPasswordState();
@@ -51,7 +47,7 @@ class _LoginPasswordState extends State<LoginPassword> {
             color: Theme.of(context).iconTheme.color,
           ),
         ),
-        labelText: widget.label,
+        labelText: "Password",
         labelStyle: Styles.labelStyle(context),
       ),
     );

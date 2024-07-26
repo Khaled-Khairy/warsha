@@ -21,7 +21,7 @@ class CustomSnackBarContent extends StatelessWidget {
         color: color,
         borderRadius: BorderRadius.circular(12).r,
       ),
-      padding: EdgeInsets.symmetric(horizontal: 8.w,vertical: 12),
+      padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 12),
       child: Row(
         children: [
           Icon(

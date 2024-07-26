@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:warsha2/core/utils/common_imports.dart';
 
-class RegisterPassword extends StatefulWidget {
-  const RegisterPassword({
+class CustomPasswordField extends StatefulWidget {
+  const CustomPasswordField({
     super.key,
     required this.label,
     required this.passwordController,
@@ -15,10 +15,10 @@ class RegisterPassword extends StatefulWidget {
   final TextEditingController originalPasswordController;
 
   @override
-  State<RegisterPassword> createState() => _RegisterPasswordState();
+  State<CustomPasswordField> createState() => _CustomPasswordFieldState();
 }
 
-class _RegisterPasswordState extends State<RegisterPassword> {
+class _CustomPasswordFieldState extends State<CustomPasswordField> {
   bool isObscure = true;
 
   @override

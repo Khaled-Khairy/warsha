@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:warsha2/core/utils/common_imports.dart';
+import 'package:warsha2/features/auth/presentation/views/widgets/custom_email_field.dart';
 
 class RegisterForm extends StatelessWidget {
   const RegisterForm({super.key});
@@ -44,26 +45,8 @@ class RegisterForm extends StatelessWidget {
                 ),
               ),
               10.verticalSpace,
-              TextFormField(
-                controller: cubit.emailController,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return "Email cannot be empty";
-                  } else if (!RegExp(r'^[^@]+@[^@]+\.[^@]+$').hasMatch(value)) {
-                    return "Please enter a valid email";
-                  }
-                  return null;
-                },
-                style: Styles.bodyNormal(context),
-                decoration: InputDecoration(
-                  prefixIcon: Icon(
-                    size: 24.r,
-                    Clarity.email_line,
-                    color: Theme.of(context).iconTheme.color,
-                  ),
-                  labelText: "Email",
-                  labelStyle: Styles.labelStyle(context),
-                ),
+              CustomEmailField(
+                emailController: cubit.emailController,
               ),
               10.verticalSpace,
               TextFormField(
@@ -96,13 +79,13 @@ class RegisterForm extends StatelessWidget {
                 ],
               ),
               10.verticalSpace,
-              RegisterPassword(
+              CustomPasswordField(
                 label: "Password",
                 passwordController: cubit.passwordController,
                 originalPasswordController: cubit.passwordController,
               ),
               10.verticalSpace,
-              RegisterPassword(
+              CustomPasswordField(
                 label: "Confirm Password",
                 passwordController: cubit.confirmPasswordController,
                 originalPasswordController: cubit.passwordController,

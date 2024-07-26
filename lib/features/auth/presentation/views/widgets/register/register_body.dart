@@ -17,7 +17,7 @@ class RegisterBody extends StatelessWidget {
           );
         } else if (state is RegisterSuccess) {
           Navigator.of(context, rootNavigator: true).pop();
-          if(context.mounted){
+          if (context.mounted) {
             showCustomSnackBar(
               context,
               "Registration Success\nPlease login",
