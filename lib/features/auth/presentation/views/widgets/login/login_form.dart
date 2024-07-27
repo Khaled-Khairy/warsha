@@ -50,7 +50,9 @@ class LoginForm extends StatelessWidget {
                   // ),
                   const Spacer(),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      GoRouter.of(context).push(AppRouter.kSendResetPassword);
+                    },
                     child: Text(
                       "Forget Password?",
                       style: TextStyle(

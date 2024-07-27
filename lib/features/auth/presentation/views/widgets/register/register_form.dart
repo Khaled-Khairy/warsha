@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:warsha2/core/utils/common_imports.dart';
-import 'package:warsha2/features/auth/presentation/views/widgets/custom_email_field.dart';
 
 class RegisterForm extends StatelessWidget {
   const RegisterForm({super.key});
