@@ -24,6 +24,12 @@ class SendResetPasswordBody extends StatelessWidget {
               AppColors.successColor,
               Icons.check_circle_outline,
             );
+            Future.delayed(
+              const Duration(seconds: 4),
+                  () {
+                GoRouter.of(context).pushReplacement(AppRouter.kResetPassword);
+              },
+            );
           }
         } else if (state is SendResetPasswordFailed) {
           Navigator.of(context, rootNavigator: true).pop();

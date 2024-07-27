@@ -26,7 +26,7 @@ class RegisterBody extends StatelessWidget {
             );
           }
           Future.delayed(
-            const Duration(seconds: 2),
+            const Duration(seconds: 4),
             () {
               GoRouter.of(context).pop();
             },

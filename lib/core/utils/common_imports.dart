@@ -35,6 +35,7 @@ export 'package:warsha2/features/auth/presentation/manager/register_cubit/regist
 export 'package:warsha2/features/auth/presentation/manager/send_reset_password_cubit/send_reset_password_cubit.dart';
 export 'package:warsha2/features/auth/presentation/views/login_view.dart';
 export 'package:warsha2/features/auth/presentation/views/register_view.dart';
+export 'package:warsha2/features/auth/presentation/views/reset_password_view.dart';
 export 'package:warsha2/features/auth/presentation/views/send_reset_password_view.dart';
 export 'package:warsha2/features/auth/presentation/views/widgets/custom_email_field.dart';
 export 'package:warsha2/features/auth/presentation/views/widgets/custom_password_field.dart';
@@ -45,7 +46,10 @@ export 'package:warsha2/features/auth/presentation/views/widgets/login/login_pas
 export 'package:warsha2/features/auth/presentation/views/widgets/register/register_body.dart';
 export 'package:warsha2/features/auth/presentation/views/widgets/register/register_form.dart';
 export 'package:warsha2/features/auth/presentation/views/widgets/register/register_header.dart';
+export 'package:warsha2/features/auth/presentation/views/widgets/reset_password/custom_pin_put.dart';
 export 'package:warsha2/features/auth/presentation/views/widgets/reset_password/reset_password_body.dart';
+export 'package:warsha2/features/auth/presentation/views/widgets/reset_password/reset_password_form.dart';
+export 'package:warsha2/features/auth/presentation/views/widgets/reset_password/reset_password_header.dart';
 export 'package:warsha2/features/auth/presentation/views/widgets/send_reset_password/send_reset_password_body.dart';
 export 'package:warsha2/features/auth/presentation/views/widgets/send_reset_password/send_reset_password_header.dart';
 // Home feature

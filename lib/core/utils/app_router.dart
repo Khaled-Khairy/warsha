@@ -4,6 +4,7 @@ abstract class AppRouter {
   static const kHomeView = "/loginView";
   static const kSignUpView = "/signupView";
   static const kSendResetPassword = "/sendResetPassword";
+  static const kResetPassword = "/resetPassword";
   static final router = GoRouter(
     routes: [
       GoRoute(path: "/", builder: (context, state) => const LoginView()),
@@ -13,6 +14,8 @@ abstract class AppRouter {
       GoRoute(
           path: kSendResetPassword,
           builder: (context, state) => const SendResetPasswordView()),
+      GoRoute(path: kResetPassword, builder: (context, state) => const ResetPasswordView()),
+
     ],
     redirect: (context, state) {
       final CacheNetwork cacheNetwork = GetIt.instance<CacheNetwork>();

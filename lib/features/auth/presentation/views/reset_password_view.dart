@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:warsha2/core/utils/common_imports.dart';
+import 'package:warsha2/features/auth/presentation/manager/reset_password/reset_password_cubit.dart';
 
-class ResetPassword extends StatelessWidget {
-  const ResetPassword({super.key});
+class ResetPasswordView extends StatelessWidget {
+  const ResetPasswordView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,10 @@ class ResetPassword extends StatelessWidget {
           child: SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16).r,
-              child: const ResetPasswordBody(),
+              child: BlocProvider(
+                create: (context) => ResetPasswordCubit(),
+                child: const ResetPasswordBody(),
+              ),
             ),
           ),
         ),
