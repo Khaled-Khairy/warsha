@@ -1,12 +1,24 @@
-import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:warsha2/core/utils/common_imports.dart';
 
 part 'reset_password_state.dart';
 
 class ResetPasswordCubit extends Cubit<ResetPasswordState> {
-  ResetPasswordCubit() : super(ResetPasswordInitial());
-  final TextEditingController passwordController = TextEditingController();
-  final TextEditingController confirmPasswordController = TextEditingController();
-  final TextEditingController otp = TextEditingController();
-  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  ResetPasswordCubit(this.authRepo) : super(ResetPasswordInitial());
+  final AuthRepo authRepo;
+
+  Future<void> resetPassword(
+      {required ResetPasswordData resetPasswordData}) async {
+    emit(ResetPasswordLoading());
+    final result =
+        await authRepo.resetPassword(resetPasswordData: resetPasswordData);
+    result.fold(
+      (failure) {
+        emit(ResetPasswordFailed(failure.errorMessage));
+      },
+      (resetPasswordResponse) {
+        emit(ResetPasswordSuccess(resetPasswordResponse));
+      },
+    );
+  }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:warsha2/core/utils/common_imports.dart';
+import 'package:warsha2/features/auth/presentation/views/widgets/register/register_form.dart';
 
 class RegisterBody extends StatelessWidget {
   const RegisterBody({super.key});
@@ -42,7 +43,6 @@ class RegisterBody extends StatelessWidget {
         }
       },
       builder: (context, state) {
-        final cubit = BlocProvider.of<RegisterCubit>(context);
         return Column(
           children: [
             Column(
@@ -50,38 +50,7 @@ class RegisterBody extends StatelessWidget {
                 const RegisterHeader(),
                 const RegisterForm(),
                 10.verticalSpace,
-                SizedBox(
-                  width: double.infinity,
-                  height: 52.h,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      closeKeyboard(context);
-                      if (cubit.formKey.currentState!.validate()) {
-                        cubit.register(
-                          registerUser: RegisterUser(
-                            username: cubit.userNameController.text,
-                            email: cubit.emailController.text,
-                            phone: cubit.phoneNumberController.text,
-                            password: cubit.passwordController.text,
-                            confirmPassword:
-                                cubit.confirmPasswordController.text,
-                          ),
-                        );
-                      }
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blue,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12).r,
-                      ),
-                    ),
-                    child: Text(
-                      "Create Account",
-                      style: Styles.bodyBold,
-                    ),
-                  ),
-                ),
-                10.verticalSpace,
+
               ],
             ),
           ],

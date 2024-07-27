@@ -18,7 +18,7 @@ class ResetPasswordView extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16).r,
               child: BlocProvider(
-                create: (context) => ResetPasswordCubit(),
+                create: (context) => ResetPasswordCubit(getIt.get<AuthRepoImpl>()),
                 child: const ResetPasswordBody(),
               ),
             ),

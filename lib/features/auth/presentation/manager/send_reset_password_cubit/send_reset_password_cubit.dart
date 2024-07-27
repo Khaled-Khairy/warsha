@@ -6,9 +6,6 @@ part 'send_reset_password_state.dart';
 class SendResetPasswordCubit extends Cubit<SendResetPasswordState> {
   SendResetPasswordCubit(this.authRepo) : super(SendResetPasswordInitial());
   final AuthRepo authRepo;
-  final TextEditingController emailController = TextEditingController();
-  final formKey = GlobalKey<FormState>();
-
   Future<void> sendResetPassword(
       {required SendResetPasswordData sendResetPasswordData}) async {
     emit(SendResetPasswordLoading());

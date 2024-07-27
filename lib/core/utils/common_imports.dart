@@ -44,7 +44,6 @@ export 'package:warsha2/features/auth/presentation/views/widgets/login/login_for
 export 'package:warsha2/features/auth/presentation/views/widgets/login/login_header.dart';
 export 'package:warsha2/features/auth/presentation/views/widgets/login/login_password.dart';
 export 'package:warsha2/features/auth/presentation/views/widgets/register/register_body.dart';
-export 'package:warsha2/features/auth/presentation/views/widgets/register/register_form.dart';
 export 'package:warsha2/features/auth/presentation/views/widgets/register/register_header.dart';
 export 'package:warsha2/features/auth/presentation/views/widgets/reset_password/custom_pin_put.dart';
 export 'package:warsha2/features/auth/presentation/views/widgets/reset_password/reset_password_body.dart';
@@ -55,3 +54,5 @@ export 'package:warsha2/features/auth/presentation/views/widgets/send_reset_pass
 // Home feature
 export 'package:warsha2/features/home/presentation/views/home_view.dart';
 export 'package:warsha2/features/home/presentation/views/widget/home_body.dart';
+export 'package:warsha2/features/auth/data/models/reset_password_data/reset_password_data.dart';
+export 'package:warsha2/features/auth/data/models/reset_password_data/reset_password_response.dart';

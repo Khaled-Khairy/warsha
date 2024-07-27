@@ -14,7 +14,7 @@ class AuthRepoImpl extends AuthRepo {
       {required LoginUser loginUser}) async {
     try {
       final response = await apiService.post(
-        endPoint: "/accounts/login/",
+        endPoint: "accounts/login/",
         data: loginUser.toJson(),
       );
       final loginResponse = LoginResponse.fromJson(response);
@@ -37,7 +37,7 @@ class AuthRepoImpl extends AuthRepo {
       {required RegisterUser registerUser}) async {
     try {
       final response = await apiService.post(
-        endPoint: "/accounts/register/",
+        endPoint: "accounts/register/",
         data: registerUser.toJson(),
       );
       final registerResponse = RegisterResponse.fromJson(response);
@@ -60,7 +60,7 @@ class AuthRepoImpl extends AuthRepo {
       {required SendResetPasswordData sendResetPasswordData}) async {
     try {
       final response = await apiService.post(
-        endPoint: "/accounts/send-reset-password-email/",
+        endPoint: "accounts/send-reset-password-email/",
         data: sendResetPasswordData.toJson(),
       );
       final sendResetPasswordResponse =
@@ -68,6 +68,30 @@ class AuthRepoImpl extends AuthRepo {
       return Right(sendResetPasswordResponse);
     } catch (e) {
       if (e is DioException) {
+        return left(ServerFailure.fromDioException(e));
+      }
+      return left(
+        ServerFailure(
+          e.toString(),
+        ),
+      );
+    }
+  }
+
+  @override
+  Future<Either<Failure, ResetPasswordResponse>> resetPassword(
+      {required ResetPasswordData resetPasswordData}) async {
+    try {
+      final response = await apiService.post(
+          endPoint: "accounts/reset-password/",
+          data: resetPasswordData.toJson());
+      final resetPasswordResponse = ResetPasswordResponse.fromJson(response);
+      return Right(resetPasswordResponse);
+    } catch (e) {
+      if (e is DioException) {
+        print("DioException: ${e.message}");
+        print("Response data: ${e.response?.data}");
+        print("Status code: ${e.response?.statusCode}");
         return left(ServerFailure.fromDioException(e));
       }
       return left(

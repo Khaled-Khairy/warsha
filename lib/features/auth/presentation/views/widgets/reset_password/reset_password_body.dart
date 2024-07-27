@@ -10,10 +10,39 @@ class ResetPasswordBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<ResetPasswordCubit, ResetPasswordState>(
       listener: (context, state) {
-        // TODO: implement listener
+        if (state is ResetPasswordLoading) {
+          showDialog(
+            context: context,
+            barrierDismissible: false,
+            builder: (context) => const CustomLoading(),
+          );
+        } else if (state is ResetPasswordSuccess) {
+          Navigator.of(context, rootNavigator: true).pop();
+          if (context.mounted) {
+            showCustomSnackBar(
+              context,
+              "Password Reset Successfully\nPlease login",
+              AppColors.successColor,
+              Icons.check_circle_outline,
+            );
+          }
+          Future.delayed(
+            const Duration(seconds: 4),
+            () {
+              GoRouter.of(context).pop();
+            },
+          );
+        } else if (state is ResetPasswordFailed) {
+          Navigator.of(context, rootNavigator: true).pop();
+          showCustomSnackBar(
+            context,
+            state.errorMessage,
+            AppColors.errorColor,
+            Iconsax.info_circle_outline,
+          );
+        }
       },
       builder: (context, state) {
-        final cubit = BlocProvider.of<ResetPasswordCubit>(context);
         return Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -24,28 +53,6 @@ class ResetPasswordBody extends StatelessWidget {
                 const ResetPasswordHeader(),
                 10.verticalSpace,
                 const ResetPasswordForm(),
-                10.verticalSpace,
-                SizedBox(
-                  width: double.infinity,
-                  height: 52.h,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      cubit.formKey.currentState!.validate();
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blue,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius
-                            .circular(12)
-                            .r,
-                      ),
-                    ),
-                    child: Text(
-                      "Continue",
-                      style: Styles.bodyBold,
-                    ),
-                  ),
-                ),
                 10.verticalSpace,
               ],
             ),

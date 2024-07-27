@@ -2,8 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:warsha2/core/utils/common_imports.dart';
 
-class SendResetPasswordBody extends StatelessWidget {
+class SendResetPasswordBody extends StatefulWidget {
   const SendResetPasswordBody({super.key});
+
+  @override
+  State<SendResetPasswordBody> createState() => _SendResetPasswordBodyState();
+}
+
+class _SendResetPasswordBodyState extends State<SendResetPasswordBody> {
+  final TextEditingController emailController = TextEditingController();
+  final formKey = GlobalKey<FormState>();
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +40,7 @@ class SendResetPasswordBody extends StatelessWidget {
             );
             Future.delayed(
               const Duration(seconds: 4),
-                  () {
+              () {
                 GoRouter.of(context).pushReplacement(AppRouter.kResetPassword);
               },
             );
@@ -49,9 +63,8 @@ class SendResetPasswordBody extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 20),
               child: Form(
-                  key: cubit.formKey,
-                  child:
-                      CustomEmailField(emailController: cubit.emailController)),
+                  key: formKey,
+                  child: CustomEmailField(emailController: emailController)),
             ),
             SizedBox(
               width: double.infinity,
@@ -59,10 +72,10 @@ class SendResetPasswordBody extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () {
                   closeKeyboard(context);
-                  if (cubit.formKey.currentState!.validate()) {
+                  if (formKey.currentState!.validate()) {
                     cubit.sendResetPassword(
                       sendResetPasswordData: SendResetPasswordData(
-                        email: cubit.emailController.text,
+                        email: emailController.text,
                       ),
                     );
                   }

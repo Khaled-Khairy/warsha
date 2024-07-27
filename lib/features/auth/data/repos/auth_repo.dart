@@ -1,6 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:warsha2/core/utils/common_imports.dart';
 import 'package:warsha2/features/auth/data/models/register_data/register_response.dart';
+
+
 abstract class AuthRepo {
   Future<Either<Failure, LoginResponse>> loginRequest(
       {required LoginUser loginUser});
@@ -10,4 +12,7 @@ abstract class AuthRepo {
 
   Future<Either<Failure, SendResetPasswordResponse>> sendResetPassword(
       {required SendResetPasswordData sendResetPasswordData});
+
+  Future<Either<Failure, ResetPasswordResponse>> resetPassword(
+      {required ResetPasswordData resetPasswordData});
 }

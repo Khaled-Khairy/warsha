@@ -4,3 +4,17 @@ part of 'reset_password_cubit.dart';
 sealed class ResetPasswordState {}
 
 final class ResetPasswordInitial extends ResetPasswordState {}
+
+final class ResetPasswordLoading extends ResetPasswordState {}
+
+final class ResetPasswordSuccess extends ResetPasswordState {
+  final ResetPasswordResponse resetPasswordResponse;
+
+  ResetPasswordSuccess(this.resetPasswordResponse);
+}
+
+final class ResetPasswordFailed extends ResetPasswordState {
+  final String errorMessage;
+
+  ResetPasswordFailed(this.errorMessage);
+}

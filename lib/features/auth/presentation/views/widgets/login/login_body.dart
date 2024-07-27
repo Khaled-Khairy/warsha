@@ -29,40 +29,11 @@ class LoginBody extends StatelessWidget {
         }
       },
       builder: (context, state) {
-        final cubit = BlocProvider.of<LoginCubit>(context);
         return Column(
           children: [
             const LoginHeader(),
             20.verticalSpace,
             const LoginForm(),
-            10.verticalSpace,
-            SizedBox(
-              width: double.infinity,
-              height: 52.h,
-              child: ElevatedButton(
-                onPressed: () {
-                  closeKeyboard(context);
-                  if (cubit.formKey.currentState!.validate()) {
-                    cubit.login(
-                      loginUser: LoginUser(
-                        email: cubit.emailController.text,
-                        password: cubit.passwordController.text,
-                      ),
-                    );
-                  }
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12).r,
-                  ),
-                ),
-                child: Text(
-                  "Login",
-                  style: Styles.bodyBold,
-                ),
-              ),
-            ),
             10.verticalSpace,
             SizedBox(
               width: double.infinity,
@@ -73,16 +44,24 @@ class LoginBody extends StatelessWidget {
                 },
                 style: OutlinedButton.styleFrom(
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12).r,
+                    borderRadius: BorderRadius
+                        .circular(12)
+                        .r,
                   ),
                   side: BorderSide(
-                    color: Theme.of(context).colorScheme.primary,
+                    color: Theme
+                        .of(context)
+                        .colorScheme
+                        .primary,
                   ),
                 ),
                 child: Text(
                   "Create Account",
                   style: TextStyle(
-                    color: Theme.of(context).colorScheme.onSurface,
+                    color: Theme
+                        .of(context)
+                        .colorScheme
+                        .onSurface,
                     fontSize: 18.sp,
                     fontWeight: FontWeight.bold,
                   ),
@@ -90,7 +69,6 @@ class LoginBody extends StatelessWidget {
               ),
             ),
             10.verticalSpace,
-
           ],
         );
       },
