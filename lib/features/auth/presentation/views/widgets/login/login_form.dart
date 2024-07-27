@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:warsha2/core/utils/common_imports.dart';
-import 'package:warsha2/features/auth/presentation/views/widgets/login/custom_check_box.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({
