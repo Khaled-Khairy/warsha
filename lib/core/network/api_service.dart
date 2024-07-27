@@ -1,4 +1,4 @@
-import 'common_imports.dart';
+import '../utils/common_imports.dart';
 
 class ApiService {
   final _baseUrl = "http://192.168.1.2:8000";

@@ -12,11 +12,11 @@ export 'package:warsha2/core/errors/failure.dart';
 export 'package:warsha2/core/functions/close_keyboard.dart';
 export 'package:warsha2/core/functions/show_custom_snack_bar.dart';
 // Core utilities and services
-export 'package:warsha2/core/utils/api_service.dart';
+export 'package:warsha2/core/network/api_service.dart';
 export 'package:warsha2/core/utils/app_router.dart';
-export 'package:warsha2/core/utils/cache_network.dart';
+export 'package:warsha2/core/network/cache_network.dart';
 export 'package:warsha2/core/utils/colors.dart';
-export 'package:warsha2/core/utils/service_locator.dart';
+export 'package:warsha2/core/network/service_locator.dart';
 export 'package:warsha2/core/utils/styles.dart';
 export 'package:warsha2/core/utils/theme.dart';
 // Core widgets

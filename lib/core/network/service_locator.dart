@@ -1,5 +1,5 @@
 
-import 'common_imports.dart';
+import '../utils/common_imports.dart';
 
 final getIt = GetIt.instance;
 

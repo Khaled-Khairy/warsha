@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pinput/pinput.dart';
 import 'package:warsha2/core/utils/common_imports.dart';
-import 'package:warsha2/features/auth/presentation/manager/reset_password/reset_password_cubit.dart';
 
 class CustomPinPut extends StatelessWidget {
   const CustomPinPut({super.key});
