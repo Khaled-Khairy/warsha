@@ -27,26 +27,26 @@ class _CustomPasswordFieldState extends State<CustomPasswordField> {
       controller: widget.passwordController,
       validator: (value) {
         if (value == null || value.isEmpty) {
-          return 'Password cannot be empty';
+          return 'Password cannot be empty!';
         }
         if (value.length < 8) {
-          return 'Password must be at least 8 chars long';
+          return 'Password must be at least 8 chars long!';
         }
         final RegExp hasUpperCase = RegExp(r'(?=.*[A-Z])');
         final RegExp hasLowerCase = RegExp(r'(?=.*[a-z])');
         final RegExp hasDigit = RegExp(r'(?=.*\d)');
         if (!hasUpperCase.hasMatch(value)) {
-          return 'Password must include an uppercase letter';
+          return 'Password must include an uppercase letter!';
         }
         if (!hasLowerCase.hasMatch(value)) {
-          return 'Password must include a lowercase letter';
+          return 'Password must include a lowercase letter!';
         }
         if (!hasDigit.hasMatch(value)) {
-          return 'Password must include a number';
+          return 'Password must include a number!';
         }
         if (widget.originalPasswordController.text !=
             widget.passwordController.text) {
-          return 'Passwords do not match';
+          return 'Passwords do not match!';
         }
         return null;
       },

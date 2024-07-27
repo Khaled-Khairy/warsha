@@ -7,6 +7,8 @@ class AuthRepoImpl extends AuthRepo {
 
   AuthRepoImpl(this.apiService);
 
+  final CacheNetwork cacheNetwork = GetIt.instance<CacheNetwork>();
+
   @override
   Future<Either<Failure, LoginResponse>> loginRequest(
       {required LoginUser loginUser}) async {
@@ -16,6 +18,8 @@ class AuthRepoImpl extends AuthRepo {
         data: loginUser.toJson(),
       );
       final loginResponse = LoginResponse.fromJson(response);
+      cacheNetwork.saveData(key: "token", value: loginResponse.token.access);
+      print("Token: ${cacheNetwork.getData(key: "token")}");
       return Right(loginResponse);
     } catch (e) {
       if (e is DioException) {
@@ -38,6 +42,7 @@ class AuthRepoImpl extends AuthRepo {
         data: registerUser.toJson(),
       );
       final registerResponse = RegisterResponse.fromJson(response);
+      cacheNetwork.saveData(key: "token", value: registerResponse.token.access);
       return right(registerResponse);
     } catch (e) {
       if (e is DioException) {

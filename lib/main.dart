@@ -3,8 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'core/utils/common_imports.dart';
 
-void main() {
-  setup();
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await setup();
   runApp(const Warsha());
 }
 

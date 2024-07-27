@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:warsha2/core/utils/common_imports.dart';
+import 'package:warsha2/features/auth/presentation/views/widgets/login/custom_check_box.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({
@@ -43,20 +44,11 @@ class LoginForm extends StatelessWidget {
               ),
               Row(
                 children: [
-                  Transform.scale(
-                    scale: 1.r,
-                    child: Checkbox(
-                      value: true,
-                      onChanged: (value) {},
-                      visualDensity: VisualDensity.compact,
-                      activeColor: Colors.blue,
-                      checkColor: Colors.white,
-                    ),
-                  ),
-                  Text(
-                    "Remember me",
-                    style: Styles.bodyNormal(context),
-                  ),
+                  // const CustomCheckBox(),
+                  // Text(
+                  //   "Remember me",
+                  //   style: Styles.bodyNormal(context),
+                  // ),
                   const Spacer(),
                   TextButton(
                     onPressed: () {},

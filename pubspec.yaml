@@ -37,7 +37,6 @@ dependencies:
   cupertino_icons: ^1.0.6
   google_fonts:
   lottie:
-  device_preview:
   icons_plus:
   flutter_screenutil: ^5.9.3
   dio:
@@ -46,7 +45,7 @@ dependencies:
   flutter_bloc:
   get_it: ^7.7.0
   go_router: ^14.2.1
-  awesome_snackbar_content: ^0.1.3
+  shared_preferences: ^2.2.3
 
 dev_dependencies:
   flutter_test:

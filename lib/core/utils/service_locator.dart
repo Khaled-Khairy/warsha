@@ -1,8 +1,12 @@
+
 import 'common_imports.dart';
 
 final getIt = GetIt.instance;
 
-void setup() {
+ setup() async {
+  final SharedPreferences preferences = await SharedPreferences.getInstance();
+  getIt.registerSingleton<SharedPreferences>(preferences);
+  getIt.registerSingleton<CacheNetwork>(CacheNetwork(preferences));
   getIt.registerSingleton<ApiService>(ApiService(Dio()));
   getIt.registerSingleton<AuthRepoImpl>(AuthRepoImpl(getIt.get<ApiService>()));
 }

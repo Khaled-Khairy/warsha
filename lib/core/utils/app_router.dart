@@ -3,10 +3,21 @@ import 'package:warsha2/core/utils/common_imports.dart';
 abstract class AppRouter {
   static const kHomeView = "/loginView";
   static const kSignUpView = "/signupView";
-  static final router = GoRouter(routes: [
-    GoRoute(path: "/", builder: (context, state) => const LoginView()),
-    GoRoute(path: kHomeView, builder: (context, state) => const HomeView()),
-    GoRoute(
-        path: kSignUpView, builder: (context, state) => const RegisterView()),
-  ]);
+  static final router = GoRouter(
+    routes: [
+      GoRoute(path: "/", builder: (context, state) => const LoginView()),
+      GoRoute(path: kHomeView, builder: (context, state) => const HomeView()),
+      GoRoute(
+          path: kSignUpView, builder: (context, state) => const RegisterView()),
+    ],
+    redirect: (context, state) {
+      final CacheNetwork cacheNetwork = GetIt.instance<CacheNetwork>();
+      final token = cacheNetwork.getData(key: "token");
+      if (token.isNotEmpty) {
+        return AppRouter.kHomeView;
+      } else {
+        return null;
+      }
+    },
+  );
 }

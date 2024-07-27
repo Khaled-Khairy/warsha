@@ -1,11 +1,11 @@
 // External packages
-export 'package:device_preview/device_preview.dart';
 export 'package:dio/dio.dart';
 export 'package:flutter_bloc/flutter_bloc.dart';
 export 'package:get_it/get_it.dart';
 export 'package:go_router/go_router.dart';
 export 'package:icons_plus/icons_plus.dart';
 export 'package:lottie/lottie.dart';
+export 'package:shared_preferences/shared_preferences.dart';
 // Errors and failures
 export 'package:warsha2/core/errors/failure.dart';
 // Core functions
@@ -14,6 +14,7 @@ export 'package:warsha2/core/functions/show_custom_snack_bar.dart';
 // Core utilities and services
 export 'package:warsha2/core/utils/api_service.dart';
 export 'package:warsha2/core/utils/app_router.dart';
+export 'package:warsha2/core/utils/cache_network.dart';
 export 'package:warsha2/core/utils/colors.dart';
 export 'package:warsha2/core/utils/service_locator.dart';
 export 'package:warsha2/core/utils/styles.dart';

@@ -15,9 +15,9 @@ class CustomEmailField extends StatelessWidget {
       controller: emailController,
       validator: (value) {
         if (value == null || value.isEmpty) {
-          return "Email cannot be empty";
+          return "Email cannot be empty!";
         } else if (!RegExp(r'^[^@]+@[^@]+\.[^@]+$').hasMatch(value)) {
-          return "Please enter a valid email";
+          return "Please enter a valid email!";
         }
         return null;
       },

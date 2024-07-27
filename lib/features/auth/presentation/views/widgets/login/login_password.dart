@@ -23,7 +23,7 @@ class _LoginPasswordState extends State<LoginPassword> {
       controller: widget.passwordController,
       validator: (value) {
         if (value == null || value.isEmpty) {
-          return 'Password cannot be empty';
+          return 'Password cannot be empty!';
         }
         return null;
       },
