@@ -14,7 +14,10 @@ abstract class AppRouter {
       GoRoute(
           path: kSendResetPassword,
           builder: (context, state) => const SendResetPasswordView()),
-      GoRoute(path: kResetPassword, builder: (context, state) => const ResetPasswordView()),
+      GoRoute(path: kResetPassword, builder: (context, state){
+        final email = state.extra as String;
+        return ResetPasswordView(email: email,);
+      }),
 
     ],
     redirect: (context, state) {

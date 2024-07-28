@@ -1,7 +1,7 @@
 import '../utils/common_imports.dart';
 
 class ApiService {
-  final _baseUrl = "http://192.168.1.2:8000/";
+  final _baseUrl = "http://192.168.1.17:8000/";
   final Dio _dio;
 
   ApiService(this._dio);

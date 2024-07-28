@@ -4,8 +4,8 @@ import 'package:warsha2/core/utils/common_imports.dart';
 import 'package:warsha2/features/auth/presentation/manager/reset_password/reset_password_cubit.dart';
 
 class ResetPasswordBody extends StatelessWidget {
-  const ResetPasswordBody({super.key});
-
+  const ResetPasswordBody({super.key, required this.email});
+  final String email;
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<ResetPasswordCubit, ResetPasswordState>(
@@ -52,7 +52,7 @@ class ResetPasswordBody extends StatelessWidget {
               children: [
                 const ResetPasswordHeader(),
                 10.verticalSpace,
-                const ResetPasswordForm(),
+                 ResetPasswordForm(email: email,),
                 10.verticalSpace,
               ],
             ),
