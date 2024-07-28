@@ -93,6 +93,7 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
                     cubit.resetPassword(
                       resetPasswordData: ResetPasswordData(
                           otp: otp.text,
+                          email: widget.email,
                           newPassword: passwordController.text,
                           confirmPassword: confirmPasswordController.text),
                     );

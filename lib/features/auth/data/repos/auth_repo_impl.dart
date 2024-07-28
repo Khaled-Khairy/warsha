@@ -14,7 +14,7 @@ class AuthRepoImpl extends AuthRepo {
       {required LoginUser loginUser}) async {
     try {
       final response = await apiService.post(
-        endPoint: "accounts/login/",
+        endPoint: "user/login/",
         data: loginUser.toJson(),
       );
       final loginResponse = LoginResponse.fromJson(response);
@@ -37,14 +37,19 @@ class AuthRepoImpl extends AuthRepo {
       {required RegisterUser registerUser}) async {
     try {
       final response = await apiService.post(
-        endPoint: "accounts/register/",
+        endPoint: "http://192.168.1.5:8000/api/user/signup/",
         data: registerUser.toJson(),
       );
       final registerResponse = RegisterResponse.fromJson(response);
+      print(response);
+      print("========================================================${registerResponse.msg}");
       cacheNetwork.saveData(key: "token", value: registerResponse.token.access);
       return right(registerResponse);
     } catch (e) {
       if (e is DioException) {
+        print(e.response!.statusCode);
+        print(e.response!.statusMessage);
+        print(e.response!.data);
         return left(ServerFailure.fromDioException(e));
       }
       return left(
@@ -60,7 +65,7 @@ class AuthRepoImpl extends AuthRepo {
       {required SendResetPasswordData sendResetPasswordData}) async {
     try {
       final response = await apiService.post(
-        endPoint: "accounts/send-reset-password-email/",
+        endPoint: "user/send-reset-password-email/",
         data: sendResetPasswordData.toJson(),
       );
       final sendResetPasswordResponse =
@@ -83,7 +88,7 @@ class AuthRepoImpl extends AuthRepo {
       {required ResetPasswordData resetPasswordData}) async {
     try {
       final response = await apiService.post(
-          endPoint: "accounts/reset-password/",
+          endPoint: "user/ipreset-password/",
           data: resetPasswordData.toJson());
       final resetPasswordResponse = ResetPasswordResponse.fromJson(response);
       return Right(resetPasswordResponse);

@@ -9,15 +9,15 @@ class RegisterResponse {
 
   factory RegisterResponse.fromJson(Map<String, dynamic> json) {
     return RegisterResponse(
-      token: Token.fromJson(json['token']),
-      msg: json['msg'],
+      token: Token.fromJson(json['tokens']),
+      msg: json['message'],
     );
   }
 
   Map<String, dynamic> toJson() {
     return {
-      'token': token.toJson(),
-      'msg': msg,
+      'tokens': token.toJson(),
+      'message': msg,
     };
   }
 }

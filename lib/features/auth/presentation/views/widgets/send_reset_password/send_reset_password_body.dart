@@ -93,6 +93,7 @@ class _SendResetPasswordBodyState extends State<SendResetPasswordBody> {
                 ),
               ),
             ),
+            10.verticalSpace,
           ],
         );
       },
