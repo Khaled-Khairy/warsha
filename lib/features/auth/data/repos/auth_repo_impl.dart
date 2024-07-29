@@ -37,19 +37,14 @@ class AuthRepoImpl extends AuthRepo {
       {required RegisterUser registerUser}) async {
     try {
       final response = await apiService.post(
-        endPoint: "http://192.168.1.5:8000/api/user/signup/",
+        endPoint: "user/signup/",
         data: registerUser.toJson(),
       );
       final registerResponse = RegisterResponse.fromJson(response);
-      print(response);
-      print("========================================================${registerResponse.msg}");
       cacheNetwork.saveData(key: "token", value: registerResponse.token.access);
       return right(registerResponse);
     } catch (e) {
       if (e is DioException) {
-        print(e.response!.statusCode);
-        print(e.response!.statusMessage);
-        print(e.response!.data);
         return left(ServerFailure.fromDioException(e));
       }
       return left(
@@ -88,15 +83,11 @@ class AuthRepoImpl extends AuthRepo {
       {required ResetPasswordData resetPasswordData}) async {
     try {
       final response = await apiService.post(
-          endPoint: "user/ipreset-password/",
-          data: resetPasswordData.toJson());
+          endPoint: "user/reset-password/", data: resetPasswordData.toJson());
       final resetPasswordResponse = ResetPasswordResponse.fromJson(response);
       return Right(resetPasswordResponse);
     } catch (e) {
       if (e is DioException) {
-        print("DioException: ${e.message}");
-        print("Response data: ${e.response?.data}");
-        print("Status code: ${e.response?.statusCode}");
         return left(ServerFailure.fromDioException(e));
       }
       return left(

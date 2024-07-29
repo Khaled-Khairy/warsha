@@ -5,7 +5,9 @@ import 'package:warsha2/features/auth/presentation/manager/reset_password/reset_
 
 class ResetPasswordBody extends StatelessWidget {
   const ResetPasswordBody({super.key, required this.email});
+
   final String email;
+
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<ResetPasswordCubit, ResetPasswordState>(
@@ -52,7 +54,9 @@ class ResetPasswordBody extends StatelessWidget {
               children: [
                 const ResetPasswordHeader(),
                 10.verticalSpace,
-                 ResetPasswordForm(email: email,),
+                ResetPasswordForm(
+                  email: email,
+                ),
                 10.verticalSpace,
               ],
             ),

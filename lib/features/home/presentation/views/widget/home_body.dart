@@ -15,14 +15,15 @@ class HomeBody extends StatelessWidget {
           const Text("Home Page"),
           10.verticalSpace,
           InkWell(
-            onTap: (){
+            onTap: () {
               print("Token: ${cacheNetwork.getData(key: "token")}");
               cacheNetwork.deleteData(key: "token");
             },
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
               decoration: BoxDecoration(
-                  color: Colors.grey, borderRadius: BorderRadius.circular(12).r),
+                  color: Colors.grey,
+                  borderRadius: BorderRadius.circular(12).r),
               child: const Text(
                 "Log out",
                 style: TextStyle(fontSize: 18),

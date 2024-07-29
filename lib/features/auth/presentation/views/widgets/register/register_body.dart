@@ -50,7 +50,6 @@ class RegisterBody extends StatelessWidget {
                 const RegisterHeader(),
                 const RegisterForm(),
                 10.verticalSpace,
-
               ],
             ),
           ],

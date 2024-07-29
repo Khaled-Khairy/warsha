@@ -4,7 +4,8 @@ import 'package:warsha2/core/utils/common_imports.dart';
 
 class CustomEmailField extends StatelessWidget {
   const CustomEmailField({
-    super.key, required this.emailController,
+    super.key,
+    required this.emailController,
   });
 
   final TextEditingController emailController;

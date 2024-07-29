@@ -127,7 +127,8 @@ class _RegisterFormState extends State<RegisterForm> {
                 onPressed: () {
                   closeKeyboard(context);
                   if (formKey.currentState!.validate()) {
-                    print("username: ${userNameController.text},Email: ${emailController.text},Phone Number:${phoneNumberController.text},Password:${passwordController.text},ConfirmPassword:${confirmPasswordController.text}");
+                    print(
+                        "username: ${userNameController.text},Email: ${emailController.text},Phone Number:${phoneNumberController.text},Password:${passwordController.text},ConfirmPassword:${confirmPasswordController.text}");
                     cubit.register(
                       registerUser: RegisterUser(
                         username: userNameController.text,

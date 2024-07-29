@@ -5,6 +5,7 @@ import 'package:warsha2/core/utils/common_imports.dart';
 
 class CustomPinPut extends StatelessWidget {
   const CustomPinPut({super.key});
+
   @override
   Widget build(BuildContext context) {
     final defaultPinTheme = PinTheme(
@@ -21,7 +22,7 @@ class CustomPinPut extends StatelessWidget {
     );
 
     final focusedPinTheme = defaultPinTheme.copyDecorationWith(
-      border: Border.all(color: Colors.blue,width: 2),
+      border: Border.all(color: Colors.blue, width: 2),
       borderRadius: BorderRadius.circular(20),
     );
     final errorPinTheme = defaultPinTheme.copyDecorationWith(
@@ -34,14 +35,14 @@ class CustomPinPut extends StatelessWidget {
       focusedPinTheme: focusedPinTheme,
       errorPinTheme: errorPinTheme,
       pinputAutovalidateMode: PinputAutovalidateMode.onSubmit,
-      validator: (value){
-        if(value!.length > 6){
+      validator: (value) {
+        if (value!.length > 6) {
           return "Wrong OTP";
-        }else{
+        } else {
           return null;
         }
       },
-      onCompleted: (pin){},
+      onCompleted: (pin) {},
     );
   }
 }

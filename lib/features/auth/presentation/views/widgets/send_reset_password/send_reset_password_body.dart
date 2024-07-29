@@ -41,8 +41,10 @@ class _SendResetPasswordBodyState extends State<SendResetPasswordBody> {
             Future.delayed(
               const Duration(seconds: 4),
               () {
-                GoRouter.of(context).pushReplacement(AppRouter.kResetPassword,
-                    extra: emailController.text);
+                GoRouter.of(context).pushReplacement(
+                  AppRouter.kResetPassword,
+                  extra: emailController.text,
+                );
               },
             );
           }

@@ -6,7 +6,9 @@ import 'package:warsha2/features/auth/presentation/manager/reset_password/reset_
 
 class ResetPasswordForm extends StatefulWidget {
   const ResetPasswordForm({super.key, required this.email});
+
   final String email;
+
   @override
   State<ResetPasswordForm> createState() => _ResetPasswordFormState();
 }
@@ -88,7 +90,6 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
               height: 52.h,
               child: ElevatedButton(
                 onPressed: () {
-                  print("The email comming is: ${widget.email}");
                   if (formKey.currentState!.validate()) {
                     cubit.resetPassword(
                       resetPasswordData: ResetPasswordData(

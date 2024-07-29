@@ -6,6 +6,7 @@ part 'send_reset_password_state.dart';
 class SendResetPasswordCubit extends Cubit<SendResetPasswordState> {
   SendResetPasswordCubit(this.authRepo) : super(SendResetPasswordInitial());
   final AuthRepo authRepo;
+
   Future<void> sendResetPassword(
       {required SendResetPasswordData sendResetPasswordData}) async {
     emit(SendResetPasswordLoading());

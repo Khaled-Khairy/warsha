@@ -44,24 +44,16 @@ class LoginBody extends StatelessWidget {
                 },
                 style: OutlinedButton.styleFrom(
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius
-                        .circular(12)
-                        .r,
+                    borderRadius: BorderRadius.circular(12).r,
                   ),
                   side: BorderSide(
-                    color: Theme
-                        .of(context)
-                        .colorScheme
-                        .primary,
+                    color: Theme.of(context).colorScheme.primary,
                   ),
                 ),
                 child: Text(
                   "Create Account",
                   style: TextStyle(
-                    color: Theme
-                        .of(context)
-                        .colorScheme
-                        .onSurface,
+                    color: Theme.of(context).colorScheme.onSurface,
                     fontSize: 18.sp,
                     fontWeight: FontWeight.bold,
                   ),
