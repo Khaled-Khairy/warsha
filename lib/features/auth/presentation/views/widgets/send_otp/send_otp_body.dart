@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:warsha2/core/utils/common_imports.dart';
-
+import 'package:warsha2/features/auth/presentation/views/widgets/custom_auth_button.dart';
 
 class SendOtpBody extends StatefulWidget {
   const SendOtpBody({super.key});
@@ -38,17 +38,17 @@ class _SendOtpBodyState extends State<SendOtpBody> {
               state.sendOtpResponse.message,
               AppColors.successColor,
               Icons.check_circle_outline,
-              3,
+              2,
             );
-            // Future.delayed(
-            //   const Duration(seconds: 4),
-            //   () {
-            //     GoRouter.of(context).pushReplacement(
-            //       AppRouter.kResetPassword,
-            //       extra: emailController.text,
-            //     );
-            //   },
-            // );
+            Future.delayed(
+              const Duration(seconds: 3),
+              () {
+                GoRouter.of(context).pushReplacement(
+                  AppRouter.kValidateOtp,
+                  extra: emailController.text,
+                );
+              },
+            );
           }
         } else if (state is SendOtpFailed) {
           Navigator.of(context, rootNavigator: true).pop();
@@ -69,34 +69,24 @@ class _SendOtpBodyState extends State<SendOtpBody> {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 20),
               child: Form(
-                  key: formKey,
-                  child: CustomEmailField(emailController: emailController)),
-            ),
-            SizedBox(
-              width: double.infinity,
-              height: 52.h,
-              child: ElevatedButton(
-                onPressed: () {
-                  closeKeyboard(context);
-                  if (formKey.currentState!.validate()) {
-                    cubit.sendOtp(
-                      sendOtpData: SendOtpData(
-                        email: emailController.text,
-                      ),
-                    );
-                  }
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12).r,
-                  ),
-                ),
-                child: Text(
-                  "Continue",
-                  style: Styles.bodyBold,
+                key: formKey,
+                child: CustomEmailField(
+                  emailController: emailController,
                 ),
               ),
+            ),
+            CustomAuthButton(
+              label: "Continue",
+              onPressed: () {
+                closeKeyboard(context);
+                if (formKey.currentState!.validate()) {
+                  cubit.sendOtp(
+                    sendOtpData: SendOtpRequest(
+                      email: emailController.text,
+                    ),
+                  );
+                }
+              },
             ),
             10.verticalSpace,
           ],

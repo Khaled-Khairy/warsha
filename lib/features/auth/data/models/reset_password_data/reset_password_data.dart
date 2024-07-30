@@ -1,20 +1,17 @@
-class ResetPasswordData {
-  final String otp;
-  final String email;
+class ResetPasswordRequest {
+  final String token;
   final String newPassword;
   final String confirmPassword;
 
-  ResetPasswordData({
-    required this.otp,
-    required this.email,
+  ResetPasswordRequest({
+    required this.token,
     required this.newPassword,
     required this.confirmPassword,
   });
 
-  factory ResetPasswordData.fromJson(Map<String, dynamic> json) {
-    return ResetPasswordData(
-      otp: json['otp'],
-      email: json['email'],
+  factory ResetPasswordRequest.fromJson(Map<String, dynamic> json) {
+    return ResetPasswordRequest(
+      token: json['token'],
       newPassword: json['new_password'],
       confirmPassword: json['confirm_password'],
     );
@@ -22,8 +19,7 @@ class ResetPasswordData {
 
   Map<String, dynamic> toJson() {
     return {
-      'otp': otp,
-      'email': email,
+      'token': token,
       'new_password': newPassword,
       'confirm_password': confirmPassword,
     };

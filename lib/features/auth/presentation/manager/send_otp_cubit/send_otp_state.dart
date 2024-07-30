@@ -8,7 +8,7 @@ final class SendOtpInitial extends SendOtpState {}
 final class SendOtpLoading extends SendOtpState {}
 
 final class SendOtpSuccess extends SendOtpState {
-  final SendOtpResponse sendOtpResponse;
+  final ResetPasswordResponse sendOtpResponse;
 
   SendOtpSuccess(this.sendOtpResponse);
 }

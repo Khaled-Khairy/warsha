@@ -1,6 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:warsha2/core/utils/common_imports.dart';
 import 'package:warsha2/features/auth/data/models/register_data/register_response.dart';
+import 'package:warsha2/features/auth/data/models/validate_otp/validate_otp_request.dart';
+import 'package:warsha2/features/auth/data/models/validate_otp/validate_otp_response.dart';
 
 abstract class AuthRepo {
   Future<Either<Failure, LoginResponse>> loginRequest(
@@ -9,9 +11,12 @@ abstract class AuthRepo {
   Future<Either<Failure, RegisterResponse>> registerRequest(
       {required RegisterUser registerUser});
 
-  Future<Either<Failure, SendOtpResponse>> sendOtp(
-      {required SendOtpData sendOtpData});
+  Future<Either<Failure, ResetPasswordResponse>> sendOtp(
+      {required SendOtpRequest sendOtpData});
+
+  Future<Either<Failure, ValidateOtpResponse>> validateOtp(
+      {required ValidateOtpRequest validateOtpRequest});
 
   Future<Either<Failure, ResetPasswordResponse>> resetPassword(
-      {required ResetPasswordData resetPasswordData});
+      {required ResetPasswordRequest resetPasswordRequest});
 }

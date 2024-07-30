@@ -15,12 +15,12 @@ class SendOtpView extends StatelessWidget {
           height: double.infinity,
           child: SingleChildScrollView(
             child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16).r,
-                child: BlocProvider(
-                  create: (context) =>
-                      SendOtpCubit(getIt.get<AuthRepoImpl>()),
-                  child: const SendOtpBody(),
-                )),
+              padding: const EdgeInsets.symmetric(horizontal: 16).r,
+              child: BlocProvider(
+                create: (context) => SendOtpCubit(getIt.get<AuthRepoImpl>()),
+                child: const SendOtpBody(),
+              ),
+            ),
           ),
         ),
       ),

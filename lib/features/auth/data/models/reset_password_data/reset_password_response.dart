@@ -1,15 +1,15 @@
 class ResetPasswordResponse {
-  final String msg;
+  final String message;
 
-  ResetPasswordResponse({required this.msg});
+  ResetPasswordResponse({required this.message});
 
   factory ResetPasswordResponse.fromJson(Map<String, dynamic> json) {
-    return ResetPasswordResponse(msg: json["msg"]);
+    return ResetPasswordResponse(message: json["message"]);
   }
 
   Map<String, dynamic> toJson() {
     return {
-      "msg": msg,
+      "message": message,
     };
   }
 }

@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:warsha2/core/utils/common_imports.dart';
 
-class ResetPasswordView extends StatelessWidget {
-  const ResetPasswordView({super.key, required this.token});
+class ValidateOtpView extends StatelessWidget {
+  const ValidateOtpView({super.key, required this.email});
 
-  final String token;
+  final String email;
 
   @override
   Widget build(BuildContext context) {
@@ -19,10 +19,9 @@ class ResetPasswordView extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16).r,
               child: BlocProvider(
-                create: (context) =>
-                    ResetPasswordCubit(getIt.get<AuthRepoImpl>()),
-                child: ResetPasswordBody(
-                  token: token,
+                create: (context) => ValidateOtpCubit(getIt.get<AuthRepoImpl>()),
+                child: ValidateOtpBody(
+                  email: email,
                 ),
               ),
             ),

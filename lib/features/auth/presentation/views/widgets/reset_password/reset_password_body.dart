@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:warsha2/core/utils/common_imports.dart';
-import 'package:warsha2/features/auth/presentation/manager/reset_password/reset_password_cubit.dart';
 
 class ResetPasswordBody extends StatelessWidget {
-  const ResetPasswordBody({super.key, required this.email});
+  const ResetPasswordBody({super.key, required this.token});
 
-  final String email;
+  final String token;
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +57,7 @@ class ResetPasswordBody extends StatelessWidget {
                 const ResetPasswordHeader(),
                 10.verticalSpace,
                 ResetPasswordForm(
-                  email: email,
+                  token: token,
                 ),
                 10.verticalSpace,
               ],

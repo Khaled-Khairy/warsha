@@ -1,10 +1,12 @@
 import 'package:warsha2/core/utils/common_imports.dart';
 import 'package:warsha2/features/auth/presentation/views/send_otp_view.dart';
+import 'package:warsha2/features/auth/presentation/views/validate_otp_view.dart';
 
 abstract class AppRouter {
   static const kHomeView = "/loginView";
   static const kSignUpView = "/signupView";
-  static const kSendResetPassword = "/sendResetPassword";
+  static const kSendOtp = "/sendOtp";
+  static const kValidateOtp = "/validateOtp";
   static const kResetPassword = "/resetPassword";
   static final router = GoRouter(
     routes: [
@@ -21,15 +23,24 @@ abstract class AppRouter {
         builder: (context, state) => const RegisterView(),
       ),
       GoRoute(
-        path: kSendResetPassword,
+        path: kSendOtp,
         builder: (context, state) => const SendOtpView(),
+      ),
+      GoRoute(
+        path: kValidateOtp,
+        builder: (context, state) {
+          final email = state.extra as String;
+          return ValidateOtpView(
+            email: email,
+          );
+        },
       ),
       GoRoute(
         path: kResetPassword,
         builder: (context, state) {
-          final email = state.extra as String;
+          final token = state.extra as String;
           return ResetPasswordView(
-            email: email,
+            token: token,
           );
         },
       ),

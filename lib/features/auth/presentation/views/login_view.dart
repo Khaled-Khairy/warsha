@@ -8,7 +8,6 @@ class LoginView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: true,
       body: SafeArea(
         child: SizedBox(
           width: double.infinity,

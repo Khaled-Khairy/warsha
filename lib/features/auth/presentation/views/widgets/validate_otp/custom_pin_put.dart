@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:pinput/pinput.dart';
 import 'package:warsha2/core/utils/common_imports.dart';
 
 class CustomPinPut extends StatelessWidget {
-  const CustomPinPut({super.key});
+  const CustomPinPut({super.key, required this.otpController});
+
+  final TextEditingController otpController;
 
   @override
   Widget build(BuildContext context) {
@@ -30,19 +31,21 @@ class CustomPinPut extends StatelessWidget {
       borderRadius: BorderRadius.circular(16),
     );
     return Pinput(
+      controller: otpController,
       length: 6,
       defaultPinTheme: defaultPinTheme,
       focusedPinTheme: focusedPinTheme,
       errorPinTheme: errorPinTheme,
       pinputAutovalidateMode: PinputAutovalidateMode.onSubmit,
       validator: (value) {
-        if (value!.length > 6) {
-          return "Wrong OTP";
+        if (value!.length < 6) {
+          return "Please enter a valid OTP";
+        } else if (value.isEmpty) {
+          return "OTP cannot be empty!";
         } else {
           return null;
         }
       },
-      onCompleted: (pin) {},
     );
   }
 }
