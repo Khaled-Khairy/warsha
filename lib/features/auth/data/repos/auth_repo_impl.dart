@@ -18,7 +18,7 @@ class AuthRepoImpl extends AuthRepo {
         data: loginUser.toJson(),
       );
       final loginResponse = LoginResponse.fromJson(response);
-      cacheNetwork.saveData(key: "token", value: loginResponse.token.access);
+      cacheNetwork.saveData(key: "access", value: loginResponse.tokens.access);
       return Right(loginResponse);
     } catch (e) {
       if (e is DioException) {

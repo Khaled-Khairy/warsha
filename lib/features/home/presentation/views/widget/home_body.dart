@@ -16,7 +16,7 @@ class HomeBody extends StatelessWidget {
           10.verticalSpace,
           InkWell(
             onTap: () {
-              print("Token: ${cacheNetwork.getData(key: "token")}");
+              print("Token: ${cacheNetwork.getData(key: "access")}");
               cacheNetwork.deleteData(key: "token");
             },
             child: Container(
