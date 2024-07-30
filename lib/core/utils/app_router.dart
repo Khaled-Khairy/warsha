@@ -1,4 +1,5 @@
 import 'package:warsha2/core/utils/common_imports.dart';
+import 'package:warsha2/features/auth/presentation/views/send_otp_view.dart';
 
 abstract class AppRouter {
   static const kHomeView = "/loginView";
@@ -21,7 +22,7 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: kSendResetPassword,
-        builder: (context, state) => const SendResetPasswordView(),
+        builder: (context, state) => const SendOtpView(),
       ),
       GoRoute(
         path: kResetPassword,

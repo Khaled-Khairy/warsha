@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:warsha2/core/utils/common_imports.dart';
 
-class SendResetPasswordHeader extends StatelessWidget {
-  const SendResetPasswordHeader({super.key});
+class SendOtpHeader extends StatelessWidget {
+  const SendOtpHeader({super.key});
 
   @override
   Widget build(BuildContext context) {

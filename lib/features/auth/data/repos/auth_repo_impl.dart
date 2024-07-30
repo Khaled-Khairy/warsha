@@ -19,7 +19,8 @@ class AuthRepoImpl extends AuthRepo {
       );
       final loginResponse = LoginResponse.fromJson(response);
       cacheNetwork.saveData(key: "access", value: loginResponse.tokens.access);
-      cacheNetwork.saveData(key: "refresh", value: loginResponse.tokens.refresh);
+      cacheNetwork.saveData(
+          key: "refresh", value: loginResponse.tokens.refresh);
       return Right(loginResponse);
     } catch (e) {
       if (e is DioException) {
@@ -42,8 +43,10 @@ class AuthRepoImpl extends AuthRepo {
         data: registerUser.toJson(),
       );
       final registerResponse = RegisterResponse.fromJson(response);
-      cacheNetwork.saveData(key: "token", value: registerResponse.tokens.access);
-      cacheNetwork.saveData(key: "refresh", value: registerResponse.tokens.refresh);
+      cacheNetwork.saveData(
+          key: "token", value: registerResponse.tokens.access);
+      cacheNetwork.saveData(
+          key: "refresh", value: registerResponse.tokens.refresh);
       return right(registerResponse);
     } catch (e) {
       if (e is DioException) {
@@ -58,16 +61,15 @@ class AuthRepoImpl extends AuthRepo {
   }
 
   @override
-  Future<Either<Failure, SendResetPasswordResponse>> sendResetPassword(
-      {required SendResetPasswordData sendResetPasswordData}) async {
+  Future<Either<Failure, SendOtpResponse>> sendOtp(
+      {required SendOtpData sendOtpData}) async {
     try {
       final response = await apiService.post(
-        endPoint: "user/send-reset-password-email/",
-        data: sendResetPasswordData.toJson(),
+        endPoint: "user/send-otp/",
+        data: sendOtpData.toJson(),
       );
-      final sendResetPasswordResponse =
-          SendResetPasswordResponse.fromJson(response);
-      return Right(sendResetPasswordResponse);
+      final sendOtpResponse = SendOtpResponse.fromJson(response);
+      return Right(sendOtpResponse);
     } catch (e) {
       if (e is DioException) {
         return left(ServerFailure.fromDioException(e));

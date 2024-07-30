@@ -2,14 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:warsha2/core/utils/common_imports.dart';
 
-class SendResetPasswordBody extends StatefulWidget {
-  const SendResetPasswordBody({super.key});
+
+class SendOtpBody extends StatefulWidget {
+  const SendOtpBody({super.key});
 
   @override
-  State<SendResetPasswordBody> createState() => _SendResetPasswordBodyState();
+  State<SendOtpBody> createState() => _SendOtpBodyState();
 }
 
-class _SendResetPasswordBodyState extends State<SendResetPasswordBody> {
+class _SendOtpBodyState extends State<SendOtpBody> {
   final TextEditingController emailController = TextEditingController();
   final formKey = GlobalKey<FormState>();
 
@@ -21,35 +22,35 @@ class _SendResetPasswordBodyState extends State<SendResetPasswordBody> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<SendResetPasswordCubit, SendResetPasswordState>(
+    return BlocConsumer<SendOtpCubit, SendOtpState>(
       listener: (context, state) {
-        if (state is SendResetPasswordLoading) {
+        if (state is SendOtpLoading) {
           showDialog(
             context: context,
             barrierDismissible: false,
             builder: (context) => const CustomLoading(),
           );
-        } else if (state is SendResetPasswordSuccess) {
+        } else if (state is SendOtpSuccess) {
           Navigator.of(context, rootNavigator: true).pop();
           if (context.mounted) {
             showCustomSnackBar(
               context,
-              state.sendResetPasswordResponse.msg,
+              state.sendOtpResponse.message,
               AppColors.successColor,
               Icons.check_circle_outline,
               3,
             );
-            Future.delayed(
-              const Duration(seconds: 4),
-              () {
-                GoRouter.of(context).pushReplacement(
-                  AppRouter.kResetPassword,
-                  extra: emailController.text,
-                );
-              },
-            );
+            // Future.delayed(
+            //   const Duration(seconds: 4),
+            //   () {
+            //     GoRouter.of(context).pushReplacement(
+            //       AppRouter.kResetPassword,
+            //       extra: emailController.text,
+            //     );
+            //   },
+            // );
           }
-        } else if (state is SendResetPasswordFailed) {
+        } else if (state is SendOtpFailed) {
           Navigator.of(context, rootNavigator: true).pop();
           showCustomSnackBar(
             context,
@@ -61,10 +62,10 @@ class _SendResetPasswordBodyState extends State<SendResetPasswordBody> {
         }
       },
       builder: (context, state) {
-        final cubit = BlocProvider.of<SendResetPasswordCubit>(context);
+        final cubit = BlocProvider.of<SendOtpCubit>(context);
         return Column(
           children: [
-            const SendResetPasswordHeader(),
+            const SendOtpHeader(),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 20),
               child: Form(
@@ -78,8 +79,8 @@ class _SendResetPasswordBodyState extends State<SendResetPasswordBody> {
                 onPressed: () {
                   closeKeyboard(context);
                   if (formKey.currentState!.validate()) {
-                    cubit.sendResetPassword(
-                      sendResetPasswordData: SendResetPasswordData(
+                    cubit.sendOtp(
+                      sendOtpData: SendOtpData(
                         email: emailController.text,
                       ),
                     );

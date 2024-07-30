@@ -9,8 +9,8 @@ abstract class AuthRepo {
   Future<Either<Failure, RegisterResponse>> registerRequest(
       {required RegisterUser registerUser});
 
-  Future<Either<Failure, SendResetPasswordResponse>> sendResetPassword(
-      {required SendResetPasswordData sendResetPasswordData});
+  Future<Either<Failure, SendOtpResponse>> sendOtp(
+      {required SendOtpData sendOtpData});
 
   Future<Either<Failure, ResetPasswordResponse>> resetPassword(
       {required ResetPasswordData resetPasswordData});
