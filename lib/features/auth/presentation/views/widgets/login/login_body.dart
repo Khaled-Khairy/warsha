@@ -11,7 +11,23 @@ class LoginBody extends StatelessWidget {
       listener: (context, state) {
         if (state is LoginSuccess) {
           Navigator.of(context, rootNavigator: true).pop();
-          GoRouter.of(context).pushReplacement(AppRouter.kHomeView);
+          if (context.mounted) {
+            showCustomSnackBar(
+              context,
+              state.loginResponse.message,
+              AppColors.successColor,
+              Icons.check_circle_outline,
+              1,
+            );
+          }
+          Future.delayed(
+            const Duration(
+              seconds:2,
+            ),
+            () {
+              GoRouter.of(context).pushReplacement(AppRouter.kHomeView);
+            },
+          );
         } else if (state is LoginLoading) {
           showDialog(
             context: context,
@@ -25,6 +41,7 @@ class LoginBody extends StatelessWidget {
             state.errorMessage,
             AppColors.errorColor,
             Iconsax.info_circle_outline,
+            3,
           );
         }
       },

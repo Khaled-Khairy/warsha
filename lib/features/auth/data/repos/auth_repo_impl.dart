@@ -18,7 +18,9 @@ class AuthRepoImpl extends AuthRepo {
         data: loginUser.toJson(),
       );
       final loginResponse = LoginResponse.fromJson(response);
+      print(response);
       cacheNetwork.saveData(key: "access", value: loginResponse.tokens.access);
+      cacheNetwork.saveData(key: "refresh", value: loginResponse.tokens.refresh);
       return Right(loginResponse);
     } catch (e) {
       if (e is DioException) {
@@ -41,7 +43,8 @@ class AuthRepoImpl extends AuthRepo {
         data: registerUser.toJson(),
       );
       final registerResponse = RegisterResponse.fromJson(response);
-      cacheNetwork.saveData(key: "token", value: registerResponse.token.access);
+      cacheNetwork.saveData(key: "token", value: registerResponse.tokens.access);
+      cacheNetwork.saveData(key: "refresh", value: registerResponse.tokens.refresh);
       return right(registerResponse);
     } catch (e) {
       if (e is DioException) {

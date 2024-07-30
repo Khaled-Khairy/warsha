@@ -26,6 +26,8 @@ class ResetPasswordBody extends StatelessWidget {
               "Password Reset Successfully\nPlease login",
               AppColors.successColor,
               Icons.check_circle_outline,
+              3,
+
             );
           }
           Future.delayed(
@@ -41,6 +43,7 @@ class ResetPasswordBody extends StatelessWidget {
             state.errorMessage,
             AppColors.errorColor,
             Iconsax.info_circle_outline,
+            3,
           );
         }
       },

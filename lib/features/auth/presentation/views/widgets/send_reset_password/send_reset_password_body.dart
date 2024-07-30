@@ -37,6 +37,7 @@ class _SendResetPasswordBodyState extends State<SendResetPasswordBody> {
               state.sendResetPasswordResponse.msg,
               AppColors.successColor,
               Icons.check_circle_outline,
+              3,
             );
             Future.delayed(
               const Duration(seconds: 4),
@@ -55,6 +56,7 @@ class _SendResetPasswordBodyState extends State<SendResetPasswordBody> {
             state.errorMessage,
             AppColors.errorColor,
             Iconsax.info_circle_outline,
+            3,
           );
         }
       },

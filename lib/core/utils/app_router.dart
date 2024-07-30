@@ -35,7 +35,7 @@ abstract class AppRouter {
     ],
     redirect: (context, state) {
       final CacheNetwork cacheNetwork = GetIt.instance<CacheNetwork>();
-      final token = cacheNetwork.getData(key: "token");
+      final token = cacheNetwork.getData(key: "access");
       if (token.isNotEmpty) {
         return AppRouter.kHomeView;
       } else {

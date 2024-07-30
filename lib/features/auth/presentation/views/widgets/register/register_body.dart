@@ -24,6 +24,7 @@ class RegisterBody extends StatelessWidget {
               "Registration Success\nPlease login",
               AppColors.successColor,
               Icons.check_circle_outline,
+              3,
             );
           }
           Future.delayed(
@@ -39,6 +40,7 @@ class RegisterBody extends StatelessWidget {
             state.errorMessage,
             AppColors.errorColor,
             Iconsax.info_circle_outline,
+            3,
           );
         }
       },

@@ -1,38 +1,38 @@
 class RegisterResponse {
-  final Token token;
-  final String msg;
+  final Tokens tokens;
+  final String message;
 
   RegisterResponse({
-    required this.token,
-    required this.msg,
+    required this.tokens,
+    required this.message,
   });
 
   factory RegisterResponse.fromJson(Map<String, dynamic> json) {
     return RegisterResponse(
-      token: Token.fromJson(json['tokens']),
-      msg: json['message'],
+      tokens: Tokens.fromJson(json['tokens']),
+      message: json['message'],
     );
   }
 
   Map<String, dynamic> toJson() {
     return {
-      'tokens': token.toJson(),
-      'message': msg,
+      'tokens': tokens.toJson(),
+      'message': message,
     };
   }
 }
 
-class Token {
+class Tokens {
   final String refresh;
   final String access;
 
-  Token({
+  Tokens({
     required this.refresh,
     required this.access,
   });
 
-  factory Token.fromJson(Map<String, dynamic> json) {
-    return Token(
+  factory Tokens.fromJson(Map<String, dynamic> json) {
+    return Tokens(
       refresh: json['refresh'],
       access: json['access'],
     );
