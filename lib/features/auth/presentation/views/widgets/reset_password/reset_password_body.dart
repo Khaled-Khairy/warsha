@@ -26,7 +26,6 @@ class ResetPasswordBody extends StatelessWidget {
               AppColors.successColor,
               Icons.check_circle_outline,
               3,
-
             );
           }
           Future.delayed(

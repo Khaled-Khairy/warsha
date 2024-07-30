@@ -2,7 +2,6 @@ import 'package:dartz/dartz.dart';
 import 'package:warsha2/core/utils/common_imports.dart';
 import 'package:warsha2/features/auth/data/models/register_models/register_response.dart';
 
-
 class AuthRepoImpl extends AuthRepo {
   final ApiService apiService;
 
@@ -110,7 +109,8 @@ class AuthRepoImpl extends AuthRepo {
       {required ResetPasswordRequest resetPasswordRequest}) async {
     try {
       final response = await apiService.post(
-          endPoint: "user/reset-password/", data: resetPasswordRequest.toJson());
+          endPoint: "user/reset-password/",
+          data: resetPasswordRequest.toJson());
       final resetPasswordResponse = ResetPasswordResponse.fromJson(response);
       return Right(resetPasswordResponse);
     } catch (e) {

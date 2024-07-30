@@ -19,7 +19,8 @@ class ValidateOtpView extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16).r,
               child: BlocProvider(
-                create: (context) => ValidateOtpCubit(getIt.get<AuthRepoImpl>()),
+                create: (context) =>
+                    ValidateOtpCubit(getIt.get<AuthRepoImpl>()),
                 child: ValidateOtpBody(
                   email: email,
                 ),
