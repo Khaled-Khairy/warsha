@@ -1,8 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:warsha2/core/utils/common_imports.dart';
-import 'package:warsha2/features/auth/data/models/register_data/register_response.dart';
-import 'package:warsha2/features/auth/data/models/validate_otp/validate_otp_request.dart';
-import 'package:warsha2/features/auth/data/models/validate_otp/validate_otp_response.dart';
+import 'package:warsha2/features/auth/data/models/register_models/register_response.dart';
+
 
 class AuthRepoImpl extends AuthRepo {
   final ApiService apiService;

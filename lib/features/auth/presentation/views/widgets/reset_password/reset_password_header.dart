@@ -22,7 +22,7 @@ class ResetPasswordHeader extends StatelessWidget {
           ],
         ),
         Lottie.asset(
-          "assets/animation/verification.json",
+          "assets/animation/new_password.json",
           width: double.infinity,
           height: 280.h,
           backgroundLoading: true,
@@ -33,7 +33,7 @@ class ResetPasswordHeader extends StatelessWidget {
           style: Styles.headLines,
         ),
         Text(
-          "We have sent you an email with a password reset code please check your inbox.",
+          "Enter your new password must be at least 8 characters long with letters, numbers, and special characters.",
           style: Styles.underHeadlines(context),
           textAlign: TextAlign.center,
         ),

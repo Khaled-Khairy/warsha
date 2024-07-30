@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:warsha2/core/utils/common_imports.dart';
-import 'package:warsha2/features/auth/presentation/views/widgets/custom_auth_button.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({
@@ -48,7 +47,9 @@ class _LoginFormState extends State<LoginForm> {
                   const Spacer(),
                   TextButton(
                     onPressed: () {
-                      GoRouter.of(context).push(AppRouter.kSendOtp);
+                      GoRouter.of(context).push(
+                        AppRouter.kSendOtp,
+                      );
                     },
                     child: Text(
                       "Forget Password?",

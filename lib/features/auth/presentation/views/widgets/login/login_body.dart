@@ -28,13 +28,15 @@ class LoginBody extends StatelessWidget {
               GoRouter.of(context).pushReplacement(AppRouter.kHomeView);
             },
           );
-        } else if (state is LoginLoading) {
+        }
+        else if (state is LoginLoading) {
           showDialog(
             context: context,
             barrierDismissible: false,
             builder: (context) => const CustomLoading(),
           );
-        } else if (state is LoginFailed) {
+        }
+        else if (state is LoginFailed) {
           Navigator.of(context, rootNavigator: true).pop();
           showCustomSnackBar(
             context,

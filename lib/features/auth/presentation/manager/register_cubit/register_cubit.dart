@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:warsha2/core/utils/common_imports.dart';
-import 'package:warsha2/features/auth/data/models/register_data/register_response.dart';
+import 'package:warsha2/features/auth/data/models/register_models/register_response.dart';
 
 part 'register_state.dart';
 
