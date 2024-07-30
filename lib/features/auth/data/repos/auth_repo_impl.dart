@@ -18,7 +18,6 @@ class AuthRepoImpl extends AuthRepo {
         data: loginUser.toJson(),
       );
       final loginResponse = LoginResponse.fromJson(response);
-      print(response);
       cacheNetwork.saveData(key: "access", value: loginResponse.tokens.access);
       cacheNetwork.saveData(key: "refresh", value: loginResponse.tokens.refresh);
       return Right(loginResponse);
