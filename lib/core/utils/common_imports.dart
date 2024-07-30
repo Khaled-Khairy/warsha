@@ -20,6 +20,7 @@ export 'package:warsha2/core/utils/app_router.dart';
 export 'package:warsha2/core/utils/colors.dart';
 export 'package:warsha2/core/utils/styles.dart';
 export 'package:warsha2/core/utils/theme.dart';
+export 'package:warsha2/core/utils/transitions.dart';
 // Core widgets
 export 'package:warsha2/core/widgets/custom_loading.dart';
 // Feature-specific views and data models
@@ -42,6 +43,9 @@ export 'package:warsha2/features/auth/presentation/manager/validate_otp_cubit/va
 export 'package:warsha2/features/auth/presentation/views/login_view.dart';
 export 'package:warsha2/features/auth/presentation/views/register_view.dart';
 export 'package:warsha2/features/auth/presentation/views/reset_password_view.dart';
+export 'package:warsha2/features/auth/presentation/views/send_otp_view.dart';
+export 'package:warsha2/features/auth/presentation/views/validate_otp_view.dart';
+export 'package:warsha2/features/auth/presentation/views/widgets/custom_auth_button.dart';
 export 'package:warsha2/features/auth/presentation/views/widgets/custom_email_field.dart';
 export 'package:warsha2/features/auth/presentation/views/widgets/custom_password_field.dart';
 export 'package:warsha2/features/auth/presentation/views/widgets/login/login_body.dart';
@@ -62,4 +66,3 @@ export 'package:warsha2/features/auth/presentation/views/widgets/validate_otp/va
 // Home feature
 export 'package:warsha2/features/home/presentation/views/home_view.dart';
 export 'package:warsha2/features/home/presentation/views/widget/home_body.dart';
-export 'package:warsha2/features/auth/presentation/views/widgets/custom_auth_button.dart';

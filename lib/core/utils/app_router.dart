@@ -1,6 +1,4 @@
 import 'package:warsha2/core/utils/common_imports.dart';
-import 'package:warsha2/features/auth/presentation/views/send_otp_view.dart';
-import 'package:warsha2/features/auth/presentation/views/validate_otp_view.dart';
 
 abstract class AppRouter {
   static const kHomeView = "/loginView";
@@ -8,40 +6,42 @@ abstract class AppRouter {
   static const kSendOtp = "/sendOtp";
   static const kValidateOtp = "/validateOtp";
   static const kResetPassword = "/resetPassword";
+
   static final router = GoRouter(
     routes: [
       GoRoute(
         path: "/",
-        builder: (context, state) => const LoginView(),
+        pageBuilder: (context, state) =>
+            Transitions.noTransition(child: const LoginView()),
       ),
       GoRoute(
         path: kHomeView,
-        builder: (context, state) => const HomeView(),
+        pageBuilder: (context, state) =>
+            Transitions.noTransition(child: const HomeView()),
       ),
       GoRoute(
         path: kSignUpView,
-        builder: (context, state) => const RegisterView(),
+        pageBuilder: (context, state) =>
+            Transitions.noTransition(child: const RegisterView()),
       ),
       GoRoute(
         path: kSendOtp,
-        builder: (context, state) => const SendOtpView(),
+        pageBuilder: (context, state) =>
+            Transitions.noTransition(child: const SendOtpView()),
       ),
       GoRoute(
         path: kValidateOtp,
-        builder: (context, state) {
+        pageBuilder: (context, state) {
           final email = state.extra as String;
-          return ValidateOtpView(
-            email: email,
-          );
+          return Transitions.noTransition(child: ValidateOtpView(email: email));
         },
       ),
       GoRoute(
         path: kResetPassword,
-        builder: (context, state) {
+        pageBuilder: (context, state) {
           final token = state.extra as String;
-          return ResetPasswordView(
-            token: token,
-          );
+          return Transitions.noTransition(
+              child: ResetPasswordView(token: token));
         },
       ),
     ],

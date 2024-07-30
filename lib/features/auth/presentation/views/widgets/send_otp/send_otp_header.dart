@@ -9,6 +9,20 @@ class SendOtpHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            IconButton(
+              onPressed: () {
+                GoRouter.of(context).pop();
+              },
+              icon: Icon(
+                Icons.arrow_back,
+                size: 24.r,
+              ),
+            ),
+          ],
+        ),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 16),
           child: Lottie.asset("assets/animation/forget.json", height: 250.h),

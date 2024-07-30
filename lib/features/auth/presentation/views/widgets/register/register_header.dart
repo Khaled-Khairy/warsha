@@ -14,7 +14,7 @@ class RegisterHeader extends StatelessWidget {
           children: [
             IconButton(
               onPressed: () {
-                GoRouter.of(context).push("/");
+                GoRouter.of(context).pop();
               },
               icon: Icon(
                 Icons.arrow_back,
