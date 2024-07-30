@@ -28,12 +28,7 @@ class ResetPasswordBody extends StatelessWidget {
               3,
             );
           }
-          Future.delayed(
-            const Duration(seconds: 4),
-            () {
-              GoRouter.of(context).pop();
-            },
-          );
+          GoRouter.of(context).pop();
         } else if (state is ResetPasswordFailed) {
           Navigator.of(context, rootNavigator: true).pop();
           showCustomSnackBar(

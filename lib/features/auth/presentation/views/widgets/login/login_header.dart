@@ -22,7 +22,7 @@ class LoginHeader extends StatelessWidget {
           style: Styles.headLines,
         ),
         Text(
-          "Discover our app and enjoy free content!",
+          "Just Enjoy",
           style: Styles.underHeadlines(context),
         ),
       ],

@@ -17,7 +17,7 @@ class ValidateOtpHeader extends StatelessWidget {
               onPressed: () {
                 GoRouter.of(context).pop();
               },
-              icon: const Icon(CupertinoIcons.clear),
+              icon:  Icon(CupertinoIcons.clear,size: 24.r,),
             ),
           ],
         ),

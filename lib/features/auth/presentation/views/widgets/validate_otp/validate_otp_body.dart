@@ -27,7 +27,7 @@ class ValidateOtpBody extends StatelessWidget {
           Navigator.of(context, rootNavigator: true).pop();
           showCustomSnackBar(
             context,
-            "OTP is not valid",
+            state.errorMessage,
             AppColors.errorColor,
             Iconsax.info_circle_outline,
             3,

@@ -24,11 +24,11 @@ class CustomPinPut extends StatelessWidget {
 
     final focusedPinTheme = defaultPinTheme.copyDecorationWith(
       border: Border.all(color: Colors.blue, width: 2),
-      borderRadius: BorderRadius.circular(20),
+      borderRadius: BorderRadius.circular(20).r,
     );
     final errorPinTheme = defaultPinTheme.copyDecorationWith(
       border: Border.all(color: AppColors.errorColor),
-      borderRadius: BorderRadius.circular(16),
+      borderRadius: BorderRadius.circular(16).r,
     );
     return Pinput(
       controller: otpController,

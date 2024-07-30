@@ -39,14 +39,9 @@ class _SendOtpBodyState extends State<SendOtpBody> {
               Icons.check_circle_outline,
               2,
             );
-            Future.delayed(
-              const Duration(seconds: 3),
-              () {
-                GoRouter.of(context).pushReplacement(
-                  AppRouter.kValidateOtp,
-                  extra: emailController.text,
-                );
-              },
+            GoRouter.of(context).pushReplacement(
+              AppRouter.kValidateOtp,
+              extra: emailController.text,
             );
           }
         } else if (state is SendOtpFailed) {

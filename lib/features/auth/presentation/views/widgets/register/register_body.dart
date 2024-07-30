@@ -16,7 +16,8 @@ class RegisterBody extends StatelessWidget {
             barrierDismissible: false,
             builder: (context) => const CustomLoading(),
           );
-        } else if (state is RegisterSuccess) {
+        }
+        else if (state is RegisterSuccess) {
           Navigator.of(context, rootNavigator: true).pop();
           if (context.mounted) {
             showCustomSnackBar(
@@ -27,13 +28,9 @@ class RegisterBody extends StatelessWidget {
               3,
             );
           }
-          Future.delayed(
-            const Duration(seconds: 4),
-            () {
-              GoRouter.of(context).pop();
-            },
-          );
-        } else if (state is RegisterFailed) {
+          GoRouter.of(context).pop();
+        }
+        else if (state is RegisterFailed) {
           Navigator.of(context, rootNavigator: true).pop();
           showCustomSnackBar(
             context,
