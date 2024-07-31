@@ -7,7 +7,7 @@ class AuthRepoImpl extends AuthRepo {
 
   AuthRepoImpl(this.apiService);
 
-  final CacheNetwork cacheNetwork = GetIt.instance<CacheNetwork>();
+  final CacheNetwork cacheNetwork = getIt.get<CacheNetwork>();
 
   @override
   Future<Either<Failure, LoginResponse>> loginRequest(
