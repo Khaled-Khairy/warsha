@@ -14,8 +14,11 @@ class DoctorImageAndText extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.only(right: 12.w),
-          child: SvgPicture.asset(
-            Assets.docDocLogoLowOpacity,
+          child: AspectRatio(
+            aspectRatio: 0.8,
+            child: SvgPicture.asset(
+              Assets.docDocLogoLowOpacity,
+            ),
           ),
         ),
         Container(
@@ -30,8 +33,11 @@ class DoctorImageAndText extends StatelessWidget {
               stops: const [0.14, 0.5],
             ),
           ),
-          child: Image.asset(
-            Assets.onboardingDoctor,
+          child: AspectRatio(
+            aspectRatio: 0.8,
+            child: Image.asset(
+              Assets.onboardingDoctor,
+            ),
           ),
         ),
         Positioned(
