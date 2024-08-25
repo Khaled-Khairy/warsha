@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:warsha/core/utils/helpers/extensions.dart';
 import 'package:warsha/core/utils/resources/styles.dart';
-import 'package:warsha/core/utils/routing/routes.dart';
+import 'package:warsha/core/routing/routes.dart';
 import 'package:warsha/core/widgets/app_body.dart';
 import 'package:warsha/features/auth/presentation/views/widgets/login/login_form.dart';
 import 'package:warsha/features/auth/presentation/views/widgets/login/login_header.dart';

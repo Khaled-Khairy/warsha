@@ -4,7 +4,7 @@ import 'package:icons_plus/icons_plus.dart';
 import 'package:warsha/core/utils/helpers/extensions.dart';
 import 'package:warsha/core/utils/resources/colors.dart';
 import 'package:warsha/core/utils/resources/styles.dart';
-import 'package:warsha/core/utils/routing/routes.dart';
+import 'package:warsha/core/routing/routes.dart';
 import 'package:warsha/core/widgets/app_text_form_field.dart';
 import 'package:warsha/core/widgets/get_started_button.dart';
 

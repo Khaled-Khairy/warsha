@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:warsha/core/utils/resources/colors.dart';
-import 'package:warsha/core/utils/routing/app_router.dart';
+import 'package:warsha/core/routing/app_router.dart';
 import 'package:warsha/warsha.dart';
 
 void main() {

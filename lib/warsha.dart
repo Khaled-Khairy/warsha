@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:warsha/core/utils/resources/colors.dart';
-import 'package:warsha/core/utils/routing/app_router.dart';
-import 'package:warsha/core/utils/routing/routes.dart';
+import 'package:warsha/core/routing/app_router.dart';
+import 'package:warsha/core/routing/routes.dart';
 
 class Warsha extends StatelessWidget {
   final AppRouter appRouter;
