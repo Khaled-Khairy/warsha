@@ -14,8 +14,8 @@ class ValidateOtpPinPut extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final defaultPinTheme = PinTheme(
-      width: 56,
-      height: 56,
+      width: 56.w,
+      height: 56.h,
       textStyle: TextStyles.font20offWhiteSemiBold,
       decoration: BoxDecoration(
         border: Border.all(

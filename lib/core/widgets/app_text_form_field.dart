@@ -47,7 +47,13 @@ class AppTextFormField extends StatelessWidget {
           hintText: hintText,
           hintStyle: hintTextStyle ?? TextStyles.font16GreyMedium,
           suffixIcon: suffixIcon,
+          suffixIconConstraints: BoxConstraints(
+            minWidth: 48.w,
+          ),
           prefixIcon: prefixIcon,
+          prefixIconConstraints: BoxConstraints(
+            minWidth: 48.w,
+          ),
           contentPadding: contentPadding ??
               EdgeInsets.symmetric(
                 horizontal: 20.w,
