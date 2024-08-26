@@ -17,7 +17,7 @@ class AppTextButton extends StatelessWidget {
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(12.w),
         ),
         elevation: 0,
         backgroundColor: backgroundColor ?? ColorsManager.mainGreen,

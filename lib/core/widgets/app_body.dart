@@ -13,8 +13,9 @@ class AppBody extends StatelessWidget {
     return SafeArea(
       child: SingleChildScrollView(
         child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
-            child: child),
+          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
+          child: child,
+        ),
       ),
     );
   }

@@ -65,7 +65,7 @@ class AppTextFormField extends StatelessWidget {
 
   OutlineInputBorder _defaultEnabledBorder() {
     return OutlineInputBorder(
-      borderRadius: BorderRadius.circular(12),
+      borderRadius: BorderRadius.circular(12.w),
       borderSide: const BorderSide(
         color: ColorsManager.lightGrey,
       ),
@@ -74,7 +74,7 @@ class AppTextFormField extends StatelessWidget {
 
   OutlineInputBorder _defaultErrorBorder() {
     return OutlineInputBorder(
-      borderRadius: BorderRadius.circular(12),
+      borderRadius: BorderRadius.circular(12.w),
       borderSide: const BorderSide(
         color: ColorsManager.errorColor,
         width: 1.3,
@@ -84,7 +84,7 @@ class AppTextFormField extends StatelessWidget {
 
   OutlineInputBorder _defaultFocusedBorder() {
     return OutlineInputBorder(
-      borderRadius: BorderRadius.circular(16),
+      borderRadius: BorderRadius.circular(16.w),
       borderSide: const BorderSide(
         color: ColorsManager.mainGreen,
         width: 1.3,
