@@ -44,4 +44,3 @@ export 'package:warsha/features/onboarding/presentation/views/widgets/doc_logo_a
 export 'package:warsha/features/onboarding/presentation/views/widgets/doctor_image_and_text.dart';
 export 'package:warsha/features/onboarding/presentation/views/widgets/onboarding_body.dart';
 export 'package:warsha/features/onboarding/presentation/views/widgets/onboarding_footer.dart';
-export 'package:warsha/warsha.dart';
