@@ -1,10 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:icons_plus/icons_plus.dart';
-import 'package:warsha/core/utils/resources/colors.dart';
-import 'package:warsha/core/widgets/app_text_form_field.dart';
-import 'package:warsha/core/widgets/get_started_button.dart';
+import 'package:warsha/core/helpers/common_imports.dart';
 
 class SignUpForm extends StatefulWidget {
   const SignUpForm({super.key});
@@ -27,7 +21,7 @@ class _SignUpFormState extends State<SignUpForm> {
             hintText: "Username",
             prefixIcon: Icon(
               Iconsax.user_outline,
-              size: 24.r,
+              size: 24.w,
               color: ColorsManager.grey,
             ),
           ),
@@ -36,7 +30,7 @@ class _SignUpFormState extends State<SignUpForm> {
             hintText: "Email",
             prefixIcon: Icon(
               Clarity.email_line,
-              size: 24.r,
+              size: 24.w,
               color: ColorsManager.grey,
             ),
           ),
@@ -45,12 +39,14 @@ class _SignUpFormState extends State<SignUpForm> {
             hintText: "Phone Number",
             prefixIcon: Icon(
               Bootstrap.telephone,
-              size: 24.r,
+              size: 24.w,
               color: ColorsManager.grey,
             ),
             textInputType: TextInputType.phone,
-            textInputFormatter: [FilteringTextInputFormatter.digitsOnly,
-              LengthLimitingTextInputFormatter(11),],
+            textInputFormatter: [
+              FilteringTextInputFormatter.digitsOnly,
+              LengthLimitingTextInputFormatter(11),
+            ],
           ),
           10.verticalSpace,
           AppTextFormField(
@@ -58,7 +54,7 @@ class _SignUpFormState extends State<SignUpForm> {
             isObscureText: isObscureText,
             prefixIcon: Icon(
               Iconsax.lock_outline,
-              size: 24.r,
+              size: 24.w,
               color: ColorsManager.grey,
             ),
             suffixIcon: GestureDetector(
@@ -69,7 +65,7 @@ class _SignUpFormState extends State<SignUpForm> {
               },
               child: Icon(
                 isObscureText ? Iconsax.eye_slash_outline : Iconsax.eye_outline,
-                size: 24.r,
+                size: 24.w,
                 color: ColorsManager.grey,
               ),
             ),
@@ -80,7 +76,7 @@ class _SignUpFormState extends State<SignUpForm> {
             isObscureText: isObscureText,
             prefixIcon: Icon(
               Iconsax.lock_outline,
-              size: 24.r,
+              size: 24.w,
               color: ColorsManager.grey,
             ),
             suffixIcon: GestureDetector(
@@ -91,7 +87,7 @@ class _SignUpFormState extends State<SignUpForm> {
               },
               child: Icon(
                 isObscureText ? Iconsax.eye_slash_outline : Iconsax.eye_outline,
-                size: 24.r,
+                size: 24.w,
                 color: ColorsManager.grey,
               ),
             ),

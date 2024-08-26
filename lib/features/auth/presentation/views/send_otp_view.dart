@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:warsha/features/auth/presentation/views/widgets/send_otp/send_otp_body.dart';
+import 'package:warsha/core/helpers/common_imports.dart';
 
 class SendOtpView extends StatelessWidget {
   const SendOtpView({super.key});

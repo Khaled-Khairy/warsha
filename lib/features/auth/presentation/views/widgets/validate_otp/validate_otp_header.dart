@@ -1,9 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:lottie/lottie.dart';
-import 'package:warsha/core/utils/helpers/extensions.dart';
-import 'package:warsha/core/utils/resources/styles.dart';
+import 'package:warsha/core/helpers/common_imports.dart';
 
 class ValidateOtpHeader extends StatelessWidget {
   const ValidateOtpHeader({super.key});
@@ -20,7 +16,10 @@ class ValidateOtpHeader extends StatelessWidget {
               onPressed: () {
                 context.pop();
               },
-              icon:  Icon(CupertinoIcons.clear,size: 24.r,),
+              icon: Icon(
+                CupertinoIcons.clear,
+                size: 24.w,
+              ),
             ),
           ],
         ),

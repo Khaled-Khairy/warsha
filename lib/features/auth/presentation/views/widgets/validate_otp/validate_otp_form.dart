@@ -1,9 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:warsha/core/utils/helpers/extensions.dart';
-import 'package:warsha/core/routing/routes.dart';
-import 'package:warsha/core/widgets/get_started_button.dart';
-import 'package:warsha/features/auth/presentation/views/widgets/validate_otp/validate_otp_pin_put.dart';
+import 'package:warsha/core/helpers/common_imports.dart';
 
 class ValidateOtpForm extends StatefulWidget {
   const ValidateOtpForm({super.key});

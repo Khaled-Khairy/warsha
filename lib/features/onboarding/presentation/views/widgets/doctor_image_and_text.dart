@@ -1,9 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:warsha/core/utils/resources/assets.dart';
-import 'package:warsha/core/utils/resources/colors.dart';
-import 'package:warsha/core/utils/resources/styles.dart';
+import 'package:warsha/core/helpers/common_imports.dart';
 
 class DoctorImageAndText extends StatelessWidget {
   const DoctorImageAndText({super.key});

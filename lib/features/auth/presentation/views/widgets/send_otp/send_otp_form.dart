@@ -1,11 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:icons_plus/icons_plus.dart';
-import 'package:warsha/core/utils/helpers/extensions.dart';
-import 'package:warsha/core/utils/resources/colors.dart';
-import 'package:warsha/core/routing/routes.dart';
-import 'package:warsha/core/widgets/app_text_form_field.dart';
-import 'package:warsha/core/widgets/get_started_button.dart';
+import 'package:warsha/core/helpers/common_imports.dart';
 
 class SendOtpForm extends StatefulWidget {
   const SendOtpForm({super.key});
@@ -27,14 +20,16 @@ class _SendOtpFormState extends State<SendOtpForm> {
             hintText: "Email",
             prefixIcon: Icon(
               Clarity.email_line,
-              size: 24.r,
+              size: 24.w,
               color: ColorsManager.grey,
             ),
           ),
           20.verticalSpace,
-          AppTextButton(onPressed: () {
-            context.pushReplacementNamed(Routes.validateOtpScreen);
-          }, text: "Continue"),
+          AppTextButton(
+              onPressed: () {
+                context.pushReplacementNamed(Routes.validateOtpScreen);
+              },
+              text: "Continue"),
         ],
       ),
     );

@@ -1,9 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:icons_plus/icons_plus.dart';
-import 'package:warsha/core/utils/resources/colors.dart';
-import 'package:warsha/core/widgets/app_text_form_field.dart';
-import 'package:warsha/core/widgets/get_started_button.dart';
+import 'package:warsha/core/helpers/common_imports.dart';
 
 class ResetPasswordForm extends StatefulWidget {
   const ResetPasswordForm({super.key});
@@ -27,7 +22,7 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
             isObscureText: isObscureText,
             prefixIcon: Icon(
               Iconsax.lock_outline,
-              size: 24.r,
+              size: 24.w,
               color: ColorsManager.grey,
             ),
             suffixIcon: GestureDetector(
@@ -38,7 +33,7 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
               },
               child: Icon(
                 isObscureText ? Iconsax.eye_slash_outline : Iconsax.eye_outline,
-                size: 24.r,
+                size: 24.w,
                 color: ColorsManager.grey,
               ),
             ),
@@ -49,7 +44,7 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
             isObscureText: isObscureText,
             prefixIcon: Icon(
               Iconsax.lock_outline,
-              size: 24.r,
+              size: 24.w,
               color: ColorsManager.grey,
             ),
             suffixIcon: GestureDetector(
@@ -60,7 +55,7 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
               },
               child: Icon(
                 isObscureText ? Iconsax.eye_slash_outline : Iconsax.eye_outline,
-                size: 24.r,
+                size: 24.w,
                 color: ColorsManager.grey,
               ),
             ),

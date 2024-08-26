@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:warsha/features/auth/presentation/views/widgets/reset_password/reset_password_body.dart';
+import 'package:warsha/core/helpers/common_imports.dart';
 
 class ResetPasswordView extends StatelessWidget {
   const ResetPasswordView({super.key});

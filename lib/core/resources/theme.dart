@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:warsha/core/utils/resources/colors.dart';
+import 'package:warsha/core/helpers/common_imports.dart';
 
 ThemeData theme = ThemeData(
   primaryColor: ColorsManager.mainGreen,

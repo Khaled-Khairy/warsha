@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:lottie/lottie.dart';
-import 'package:warsha/core/utils/resources/styles.dart';
+import 'package:warsha/core/helpers/common_imports.dart';
 
 class SignUpHeader extends StatelessWidget {
   const SignUpHeader({super.key});
@@ -11,6 +8,15 @@ class SignUpHeader extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        IconButton(
+          onPressed: () {
+            context.pop();
+          },
+          icon: Icon(
+            Icons.arrow_back,
+            size: 24.w,
+          ),
+        ),
         Center(
           child: Lottie.asset(
             "assets/lotties/signup.json",

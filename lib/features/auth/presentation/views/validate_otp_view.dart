@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:warsha/features/auth/presentation/views/widgets/validate_otp/validate_otp_body.dart';
+import 'package:warsha/core/helpers/common_imports.dart';
 
 class ValidateOtpView extends StatelessWidget {
   const ValidateOtpView({super.key});

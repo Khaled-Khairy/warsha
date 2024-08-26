@@ -1,8 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:warsha/core/widgets/app_body.dart';
-import 'package:warsha/features/auth/presentation/views/widgets/sign_up/sign_up_form.dart';
-import 'package:warsha/features/auth/presentation/views/widgets/sign_up/sign_up_header.dart';
+import 'package:warsha/core/helpers/common_imports.dart';
 
 class SignUpBody extends StatelessWidget {
   const SignUpBody({super.key});

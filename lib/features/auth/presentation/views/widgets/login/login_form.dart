@@ -1,12 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:icons_plus/icons_plus.dart';
-import 'package:warsha/core/utils/helpers/extensions.dart';
-import 'package:warsha/core/utils/resources/colors.dart';
-import 'package:warsha/core/utils/resources/styles.dart';
-import 'package:warsha/core/routing/routes.dart';
-import 'package:warsha/core/widgets/app_text_form_field.dart';
-import 'package:warsha/core/widgets/get_started_button.dart';
+import 'package:warsha/core/helpers/common_imports.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key});
@@ -29,7 +21,7 @@ class _LoginFormState extends State<LoginForm> {
             hintText: "Email",
             prefixIcon: Icon(
               Clarity.email_line,
-              size: 24.r,
+              size: 24.w,
               color: ColorsManager.grey,
             ),
           ),
@@ -39,7 +31,7 @@ class _LoginFormState extends State<LoginForm> {
             isObscureText: isObscureText,
             prefixIcon: Icon(
               Iconsax.lock_outline,
-              size: 24.r,
+              size: 24.w,
               color: ColorsManager.grey,
             ),
             suffixIcon: GestureDetector(
@@ -50,7 +42,7 @@ class _LoginFormState extends State<LoginForm> {
               },
               child: Icon(
                 isObscureText ? Iconsax.eye_slash_outline : Iconsax.eye_outline,
-                size: 24.r,
+                size: 24.w,
                 color: ColorsManager.grey,
               ),
             ),

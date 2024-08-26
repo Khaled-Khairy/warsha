@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:warsha/features/auth/presentation/views/widgets/login/login_body.dart';
+import 'package:warsha/core/helpers/common_imports.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});

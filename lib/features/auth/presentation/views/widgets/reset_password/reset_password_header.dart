@@ -1,9 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:lottie/lottie.dart';
-import 'package:warsha/core/utils/helpers/extensions.dart';
-import 'package:warsha/core/utils/resources/styles.dart';
+import 'package:warsha/core/helpers/common_imports.dart';
 
 class ResetPasswordHeader extends StatelessWidget {
   const ResetPasswordHeader({super.key});
@@ -13,16 +9,14 @@ class ResetPasswordHeader extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            IconButton(
-              onPressed: () {
-                context.pop();
-              },
-              icon: const Icon(CupertinoIcons.clear),
-            ),
-          ],
+        IconButton(
+          onPressed: () {
+            context.pop();
+          },
+          icon: Icon(
+            CupertinoIcons.clear,
+            size: 24.w,
+          ),
         ),
         Lottie.asset(
           "assets/lotties/account_created.json",

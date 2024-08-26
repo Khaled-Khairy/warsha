@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:animations/animations.dart';
+import 'package:warsha/core/helpers/common_imports.dart';
 
 enum TransitionType {
   slideFromBottom,

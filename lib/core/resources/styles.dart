@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:warsha/core/utils/helpers/font_weight_helper.dart';
-import 'package:warsha/core/utils/resources/colors.dart';
+import 'package:warsha/core/helpers/common_imports.dart';
 
 abstract class TextStyles {
   // Font Size: 32

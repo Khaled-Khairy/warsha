@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:warsha/features/auth/presentation/views/widgets/sign_up/sign_up_body.dart';
+import 'package:warsha/core/helpers/common_imports.dart';
 
 class SignUpView extends StatelessWidget {
   const SignUpView({super.key});

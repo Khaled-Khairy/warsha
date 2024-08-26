@@ -1,8 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:warsha/core/utils/resources/colors.dart';
-import 'package:warsha/core/utils/resources/styles.dart';
+import 'package:warsha/core/helpers/common_imports.dart';
 
 class AppTextFormField extends StatelessWidget {
   final String hintText;

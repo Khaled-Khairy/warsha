@@ -1,8 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:pinput/pinput.dart';
-import 'package:warsha/core/utils/resources/colors.dart';
-import 'package:warsha/core/utils/resources/styles.dart';
+import 'package:warsha/core/helpers/common_imports.dart';
 
 class ValidateOtpPinPut extends StatelessWidget {
   const ValidateOtpPinPut({
@@ -21,7 +17,7 @@ class ValidateOtpPinPut extends StatelessWidget {
         border: Border.all(
           color: ColorsManager.grey,
         ),
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(12.r),
       ),
     );
 
@@ -30,13 +26,13 @@ class ValidateOtpPinPut extends StatelessWidget {
         color: ColorsManager.mainGreen,
         width: 1.4,
       ),
-      borderRadius: BorderRadius.circular(16).r,
+      borderRadius: BorderRadius.circular(16.r),
     );
     final errorPinTheme = defaultPinTheme.copyDecorationWith(
       border: Border.all(
         color: ColorsManager.errorColor,
       ),
-      borderRadius: BorderRadius.circular(12).r,
+      borderRadius: BorderRadius.circular(12.r),
     );
     return Pinput(
       // controller: otpController,

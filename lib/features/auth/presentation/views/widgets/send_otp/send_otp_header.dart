@@ -1,8 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:lottie/lottie.dart';
-import 'package:warsha/core/utils/helpers/extensions.dart';
-import 'package:warsha/core/utils/resources/styles.dart';
+import 'package:warsha/core/helpers/common_imports.dart';
 
 class SendOtpHeader extends StatelessWidget {
   const SendOtpHeader({super.key});
@@ -11,19 +7,17 @@ class SendOtpHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            IconButton(
-              onPressed: () {
-                context.pop();
-              },
-              icon: Icon(
-                Icons.arrow_back,
-                size: 24.r,
-              ),
+        Align(
+          alignment: Alignment.topLeft,
+          child: IconButton(
+            onPressed: () {
+              context.pop();
+            },
+            icon: Icon(
+              Icons.arrow_back,
+              size: 24.w,
             ),
-          ],
+          ),
         ),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 16),

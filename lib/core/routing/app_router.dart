@@ -1,13 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:warsha/core/routing/routes.dart';
-import 'package:warsha/features/auth/presentation/views/login_view.dart';
-import 'package:warsha/features/auth/presentation/views/reset_password_view.dart';
-import 'package:warsha/features/auth/presentation/views/send_otp_view.dart';
-import 'package:warsha/features/auth/presentation/views/sign_up_view.dart';
-import 'package:warsha/features/auth/presentation/views/validate_otp_view.dart';
-import 'package:warsha/features/onboarding/presentation/views/onboarding_view.dart';
-
-import 'route_animations.dart';
+import 'package:warsha/core/helpers/common_imports.dart';
 
 class AppRouter {
   Route<dynamic> generateRouter(RouteSettings settings) {
