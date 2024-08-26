@@ -58,6 +58,8 @@ dependencies:
   icons_plus:
   animations:
   pinput:
+  build_runner:
+  dartz:
 dev_dependencies:
   flutter_test:
     sdk: flutter

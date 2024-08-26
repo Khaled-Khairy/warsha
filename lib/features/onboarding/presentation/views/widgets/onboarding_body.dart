@@ -7,14 +7,19 @@ class OnboardingBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppBody(
-      child: Column(
-        children: [
-          const DocLogoAndName(),
-          30.verticalSpace,
-          const DoctorImageAndText(),
-          const OnboardingFooter(),
-        ],
+    return SafeArea(
+      child: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.symmetric( vertical: 30.h),
+          child: Column(
+            children: [
+              const DocLogoAndName(),
+              30.verticalSpace,
+              const DoctorImageAndText(),
+              const OnboardingFooter(),
+            ],
+          ),
+        ),
       ),
     );
   }
