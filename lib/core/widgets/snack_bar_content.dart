@@ -3,9 +3,12 @@ import 'package:warsha/core/helpers/common_imports.dart';
 
 class SnackBarContent extends StatelessWidget {
   const SnackBarContent({
-    super.key, required this.message,
+    super.key,
+    required this.message,
   });
+
   final String message;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -18,22 +21,24 @@ class SnackBarContent extends StatelessWidget {
         borderRadius: BorderRadius.circular(12.w),
       ),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Icon(
             Iconsax.info_circle_outline,
             size: 30.w,
           ),
           10.horizontalSpace,
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                message,
-                style: TextStyles.font18offWhiteSemiBold,
-              ),
-            ],
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  message,
+                  style: TextStyles.font16offWhiteMedium,
+                ),
+              ],
+            ),
           ),
-          const Spacer(),
           IconButton(
             onPressed: () {
               ScaffoldMessenger.of(context).hideCurrentSnackBar();

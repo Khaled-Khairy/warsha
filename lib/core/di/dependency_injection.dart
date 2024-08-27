@@ -6,7 +6,7 @@ final getIt = GetIt.instance;
 Future<void> setupGetIt() async {
   // Dio & ApiService
   Dio dio = await DioFactory.getDio();
-  getIt.registerSingleton<ApiService>(ApiService(Dio()));
+  getIt.registerSingleton<ApiService>(ApiService(dio));
   // Auth
   getIt.registerSingleton<AuthRepoImpl>(AuthRepoImpl(getIt.get<ApiService>()));
 }

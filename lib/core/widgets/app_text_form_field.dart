@@ -13,22 +13,11 @@ class AppTextFormField extends StatelessWidget {
   final Widget? prefixIcon;
   final TextInputType? textInputType;
   final List<TextInputFormatter>? textInputFormatter;
+  final TextEditingController? controller;
 
-  const AppTextFormField({
-    super.key,
-    required this.hintText,
-    this.isObscureText,
-    this.contentPadding,
-    this.focusedBorder,
-    this.enabledBorder,
-    this.errorBorder,
-    this.inputTextStyle,
-    this.hintTextStyle,
-    this.suffixIcon,
-    this.prefixIcon,
-    this.textInputType,
-    this.textInputFormatter,
-  });
+  const AppTextFormField({super.key, required this.hintText, this.isObscureText, this.contentPadding, this.focusedBorder, this.enabledBorder, this.errorBorder, this.inputTextStyle, this.hintTextStyle, this.suffixIcon, this.prefixIcon, this.textInputType, this.textInputFormatter, this.controller});
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -36,6 +25,7 @@ class AppTextFormField extends StatelessWidget {
         obscureText: isObscureText ?? false,
         style: inputTextStyle ?? TextStyles.font16offWhiteMedium,
         cursorColor: ColorsManager.mainGreen,
+        controller: controller,
         decoration: InputDecoration(
           isDense: true,
           filled: true,

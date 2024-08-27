@@ -13,16 +13,20 @@ class LoginBody extends StatelessWidget {
             builder: (context) => const CustomLoading(),
           );
         } else if (state is LoginSuccess) {
-          const SnackBar(
-            elevation: 0,
-            behavior: SnackBarBehavior.floating,
-            backgroundColor: Colors.transparent,
-            duration: Duration(seconds: 5),
-            content: SnackBarContent(
-              message: "Login Success",
+          context.pop();
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              elevation: 0,
+              behavior: SnackBarBehavior.floating,
+              backgroundColor: Colors.transparent,
+              duration: Duration(seconds: 5),
+              content: SnackBarContent(
+                message: "Login Success",
+              ),
             ),
           );
         } else if (state is LoginFailed) {
+          context.pop();
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               elevation: 0,

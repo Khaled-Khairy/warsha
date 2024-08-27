@@ -8,8 +8,17 @@ class LoginForm extends StatefulWidget {
 }
 
 class _LoginFormState extends State<LoginForm> {
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
   final formKey = GlobalKey<FormState>();
   bool isObscureText = true;
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +29,7 @@ class _LoginFormState extends State<LoginForm> {
         children: [
           AppTextFormField(
             hintText: "Email",
+            controller: emailController,
             prefixIcon: Icon(
               Clarity.email_line,
               size: 24.w,
@@ -29,6 +39,7 @@ class _LoginFormState extends State<LoginForm> {
           10.verticalSpace,
           AppTextFormField(
             hintText: "Password",
+            controller: passwordController,
             isObscureText: isObscureText,
             prefixIcon: Icon(
               Iconsax.lock_outline,
@@ -64,7 +75,12 @@ class _LoginFormState extends State<LoginForm> {
           20.verticalSpace,
           AppTextButton(
             onPressed: () {
-              cubit.login(loginRequest: LoginRequest(email: "khaled@gmail.com", password: "khaled777"));
+              cubit.login(
+                loginRequest: LoginRequest(
+                  email: emailController.text,
+                  password: passwordController.text,
+                ),
+              );
             },
             text: "Login",
           ),

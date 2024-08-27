@@ -8,7 +8,7 @@ class ApiService {
 
   Future<Map<String, dynamic>> post({required String endPoint, required Map<String, dynamic> data,}) async {
     var response = await dio.post(
-      "${ApiEndpoints.baseUrl}$endPoint",
+      ApiEndpoints.baseUrl + endPoint,
       data: data,
     );
 

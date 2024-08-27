@@ -1,4 +1,3 @@
-import 'package:warsha/core/di/dependency_injection.dart';
 import 'package:warsha/core/helpers/common_imports.dart';
 
 void main() async {

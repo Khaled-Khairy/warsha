@@ -7,10 +7,11 @@ class AuthRepoImpl extends AuthRepo {
   AuthRepoImpl(this.apiService);
 
   @override
-  Future<Either<Failure, LoginResponse>> loginRequest({required LoginRequest loginRequest}) async {
+  Future<Either<Failure, LoginResponse>> loginRequest(
+      {required LoginRequest loginRequest}) async {
     try {
       final response = await apiService.post(
-        endPoint: "user/login/",
+        endPoint: ApiEndpoints.login,
         data: loginRequest.toJson(),
       );
       final loginResponse = LoginResponse.fromJson(response);
@@ -26,6 +27,4 @@ class AuthRepoImpl extends AuthRepo {
       );
     }
   }
-
-
 }
