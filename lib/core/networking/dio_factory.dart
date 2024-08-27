@@ -2,21 +2,30 @@ import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 class DioFactory {
-  static void configureDio(Dio dio) {
-    const Duration timeOut = Duration(seconds: 30);
+  DioFactory._();
 
-    dio
-      ..options.connectTimeout = timeOut
-      ..options.receiveTimeout = timeOut;
+  static Dio? dio;
 
-    if (!dio.interceptors.any((i) => i is PrettyDioLogger)) {
-      dio.interceptors.add(
-        PrettyDioLogger(
-          requestBody: true,
-          requestHeader: true,
-          responseHeader: true,
-        ),
-      );
+  static Future<Dio> getDio() async {
+    Duration timeOut = const Duration(seconds: 30);
+    if (dio == null) {
+      dio = Dio();
+      dio!
+        ..options.receiveTimeout = timeOut
+        ..options.connectTimeout = timeOut;
+      addDioInterceptors();
     }
+    return dio!;
+  }
+
+  static void addDioInterceptors() {
+    dio?.interceptors.add(
+      PrettyDioLogger(
+        requestHeader: true,
+        requestBody: true,
+        responseBody: true,
+        responseHeader: true,
+      ),
+    );
   }
 }

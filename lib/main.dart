@@ -1,13 +1,11 @@
-import 'package:dio/dio.dart';
+import 'package:warsha/core/di/dependency_injection.dart';
 import 'package:warsha/core/helpers/common_imports.dart';
-import 'package:warsha/core/networking/api_endpoints.dart';
-import 'package:warsha/core/networking/api_service.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await setupGetIt();
   runApp(
-    Warsha(
-      appRouter: AppRouter(),
-    ),
+    Warsha(appRouter: AppRouter()),
   );
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(

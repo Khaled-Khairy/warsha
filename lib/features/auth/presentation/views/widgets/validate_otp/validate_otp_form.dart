@@ -20,7 +20,7 @@ class _ValidateOtpFormState extends State<ValidateOtpForm> {
           20.verticalSpace,
           AppTextButton(
             onPressed: () {
-              context.pushNamed(Routes.resetPasswordScreen);
+              context.pushReplacementNamed(Routes.resetPasswordScreen);
             },
             text: "Continue",
           ),
