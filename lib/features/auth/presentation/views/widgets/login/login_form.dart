@@ -13,6 +13,7 @@ class _LoginFormState extends State<LoginForm> {
 
   @override
   Widget build(BuildContext context) {
+    final cubit = BlocProvider.of<LoginCubit>(context);
     return Form(
       key: formKey,
       child: Column(
@@ -61,7 +62,12 @@ class _LoginFormState extends State<LoginForm> {
             ),
           ),
           20.verticalSpace,
-          AppTextButton(onPressed: () {}, text: "Login"),
+          AppTextButton(
+            onPressed: () {
+              cubit.login(loginRequest: LoginRequest(email: "khaled@gmail.com", password: "khaled777"));
+            },
+            text: "Login",
+          ),
         ],
       ),
     );

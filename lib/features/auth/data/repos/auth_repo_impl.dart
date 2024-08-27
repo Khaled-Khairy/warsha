@@ -10,16 +10,22 @@ class AuthRepoImpl extends AuthRepo {
   Future<Either<Failure, LoginResponse>> loginRequest({required LoginRequest loginRequest}) async {
     try {
       final response = await apiService.post(
-        endPoint: ApiEndpoints.login,
+        endPoint: "user/login/",
         data: loginRequest.toJson(),
       );
       final loginResponse = LoginResponse.fromJson(response);
       return Right(loginResponse);
     } catch (e) {
       if (e is DioException) {
-        return Left(ServerFailure.fromDioException(e));
+        return left(ServerFailure.fromDioException(e));
       }
-      return Left(ServerFailure(e.toString()));
+      return left(
+        ServerFailure(
+          e.toString(),
+        ),
+      );
     }
   }
+
+
 }

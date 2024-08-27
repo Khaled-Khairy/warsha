@@ -48,6 +48,7 @@ dependencies:
   pretty_dio_logger:
   intl:
   easy_localization:
+  awesome_snackbar_content: ^0.1.3
   flutter_native_splash:
   lottie:
   url_launcher:

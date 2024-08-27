@@ -25,6 +25,23 @@ abstract class TextStyles {
     fontSize: 20.sp,
     color: ColorsManager.offWhite,
     fontWeight: FontWeightHelper.semiBold,
+  );static TextStyle font18offWhiteSemiBold = TextStyle(
+    fontSize: 18.sp,
+    color: ColorsManager.offWhite,
+    fontWeight: FontWeightHelper.semiBold,
+  );static TextStyle font12offWhiteSemiBold = TextStyle(
+    fontSize: 12.sp,
+    color: ColorsManager.offWhite,
+    fontWeight: FontWeightHelper.semiBold,
+  );
+  static TextStyle font16offWhiteSemiBold = TextStyle(
+    fontSize: 16.sp,
+    color: ColorsManager.offWhite,
+    fontWeight: FontWeightHelper.semiBold,
+  );static TextStyle font14offWhiteRegular = TextStyle(
+    fontSize: 14.sp,
+    color: ColorsManager.offWhite,
+    fontWeight: FontWeightHelper.regular,
   );
 
   // Font Size: 16

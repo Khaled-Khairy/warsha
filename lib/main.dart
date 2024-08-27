@@ -28,7 +28,7 @@ class Warsha extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: theme,
-        initialRoute: Routes.onboardingScreen,
+        initialRoute: Routes.loginScreen,
         onGenerateRoute: appRouter.generateRouter,
       ),
     );

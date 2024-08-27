@@ -5,36 +5,51 @@ class LoginBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppBody(
-      child: Column(
-        children: [
-          const LoginHeader(),
-          30.verticalSpace,
-          const LoginForm(),
-          20.verticalSpace,
-          GestureDetector(
-            onTap: () {
-              context.pushNamed(Routes.signUpScreen);
-            },
-            child: RichText(
-              textAlign: TextAlign.center,
-              text: TextSpan(
-                children: [
-                  TextSpan(
-                    text: "Don't have an account? ",
-                    style: TextStyles.font14GreyRegular,
-                  ),
-                  TextSpan(
-                    text: "Sign Up",
-                    style: TextStyles.font16GreenMedium,
-                  ),
-                ],
+    return BlocConsumer<LoginCubit, LoginState>(
+      listener: (context, state) {
+        if (state is LoginLoading) {
+          showDialog(
+            context: context,
+            builder: (context) => const CustomLoading(),
+          );
+        } else if (state is LoginSuccess) {
+          const SnackBar(
+            elevation: 0,
+            behavior: SnackBarBehavior.floating,
+            backgroundColor: Colors.transparent,
+            duration: Duration(seconds: 5),
+            content: SnackBarContent(
+              message: "Login Success",
+            ),
+          );
+        } else if (state is LoginFailed) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              elevation: 0,
+              behavior: SnackBarBehavior.floating,
+              backgroundColor: Colors.transparent,
+              duration: const Duration(seconds: 5),
+              content: SnackBarContent(
+                message: state.errMessage,
               ),
             ),
+          );
+        }
+      },
+      builder: (context, state) {
+        return AppBody(
+          child: Column(
+            children: [
+              const LoginHeader(),
+              30.verticalSpace,
+              const LoginForm(),
+              20.verticalSpace,
+              const LoginFooter(),
+              20.verticalSpace,
+            ],
           ),
-          20.verticalSpace,
-        ],
-      ),
+        );
+      },
     );
   }
 }

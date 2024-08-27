@@ -5,8 +5,11 @@ class LoginView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: LoginBody(),
+    return Scaffold(
+      body: BlocProvider(
+        create: (context) => LoginCubit(AuthRepoImpl(ApiService(Dio()))),
+        child: const LoginBody(),
+      ),
     );
   }
 }
