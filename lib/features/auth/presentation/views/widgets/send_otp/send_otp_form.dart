@@ -18,6 +18,7 @@ class _SendOtpFormState extends State<SendOtpForm> {
         children: [
           AppTextFormField(
             hintText: "Email",
+            validator: (value){},
             prefixIcon: Icon(
               Clarity.email_line,
               size: 24.w,

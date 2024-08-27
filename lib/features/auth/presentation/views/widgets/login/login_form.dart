@@ -30,6 +30,9 @@ class _LoginFormState extends State<LoginForm> {
           AppTextFormField(
             hintText: "Email",
             controller: emailController,
+            validator: (value) {
+              return Validations.emailValidator(value);
+            },
             prefixIcon: Icon(
               Clarity.email_line,
               size: 24.w,
@@ -40,6 +43,9 @@ class _LoginFormState extends State<LoginForm> {
           AppTextFormField(
             hintText: "Password",
             controller: passwordController,
+            validator: (value) {
+              return Validations.passwordValidator(value);
+            },
             isObscureText: isObscureText,
             prefixIcon: Icon(
               Iconsax.lock_outline,
@@ -75,12 +81,14 @@ class _LoginFormState extends State<LoginForm> {
           20.verticalSpace,
           AppTextButton(
             onPressed: () {
-              cubit.login(
-                loginRequest: LoginRequest(
-                  email: emailController.text,
-                  password: passwordController.text,
-                ),
-              );
+              if (formKey.currentState!.validate()) {
+                cubit.login(
+                  loginRequest: LoginRequest(
+                    email: emailController.text,
+                    password: passwordController.text,
+                  ),
+                );
+              }
             },
             text: "Login",
           ),

@@ -1,4 +1,5 @@
 import 'package:warsha/core/helpers/common_imports.dart';
+import 'package:warsha/features/auth/presentation/manager/sign_up_cubit/sign_up_cubit.dart';
 
 class SignUpForm extends StatefulWidget {
   const SignUpForm({super.key});
@@ -8,17 +9,38 @@ class SignUpForm extends StatefulWidget {
 }
 
 class _SignUpFormState extends State<SignUpForm> {
+  final TextEditingController userNameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController phoneNumberController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
   final formKey = GlobalKey<FormState>();
   bool isObscureText = true;
 
   @override
+  void dispose() {
+    userNameController.dispose();
+    emailController.dispose();
+    phoneNumberController.dispose();
+    passwordController.dispose();
+    confirmPasswordController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final cubit = BlocProvider.of<SignUpCubit>(context);
     return Form(
       key: formKey,
       child: Column(
         children: [
           AppTextFormField(
             hintText: "Username",
+            controller: userNameController,
+            validator: (value) {
+              return Validations.userNameValidator(value);
+            },
             prefixIcon: Icon(
               Iconsax.user_outline,
               size: 24.w,
@@ -28,6 +50,10 @@ class _SignUpFormState extends State<SignUpForm> {
           10.verticalSpace,
           AppTextFormField(
             hintText: "Email",
+            controller: emailController,
+            validator: (value) {
+              return Validations.emailValidator(value);
+            },
             prefixIcon: Icon(
               Clarity.email_line,
               size: 24.w,
@@ -37,6 +63,10 @@ class _SignUpFormState extends State<SignUpForm> {
           10.verticalSpace,
           AppTextFormField(
             hintText: "Phone Number",
+            controller: phoneNumberController,
+            validator: (value) {
+              return Validations.phoneNumberValidator(value);
+            },
             prefixIcon: Icon(
               Bootstrap.telephone,
               size: 24.w,
@@ -51,6 +81,10 @@ class _SignUpFormState extends State<SignUpForm> {
           10.verticalSpace,
           AppTextFormField(
             hintText: "Password",
+            controller: passwordController,
+            validator: (value) {
+              return Validations.passwordValidator(value);
+            },
             isObscureText: isObscureText,
             prefixIcon: Icon(
               Iconsax.lock_outline,
@@ -73,6 +107,18 @@ class _SignUpFormState extends State<SignUpForm> {
           10.verticalSpace,
           AppTextFormField(
             hintText: "Confirm Password",
+            controller: confirmPasswordController,
+            validator: (value) {
+              String? error = Validations.passwordValidator(value);
+              if (error != null) {
+                return error;
+              }
+              if (passwordController.text != confirmPasswordController.text) {
+                return "Password doesn't match";
+              }
+              return null;
+            },
+
             isObscureText: isObscureText,
             prefixIcon: Icon(
               Iconsax.lock_outline,
@@ -93,7 +139,21 @@ class _SignUpFormState extends State<SignUpForm> {
             ),
           ),
           20.verticalSpace,
-          AppTextButton(onPressed: () {}, text: "Create Account"),
+          AppTextButton(
+              onPressed: () {
+                if (formKey.currentState!.validate()) {
+                  cubit.signUp(
+                    signUpRequest: SignUpRequest(
+                      email: emailController.text,
+                      username: userNameController.text,
+                      phone: phoneNumberController.text,
+                      password: passwordController.text,
+                      confirmPassword: confirmPasswordController.text,
+                    ),
+                  );
+                }
+              },
+              text: "Create Account"),
         ],
       ),
     );

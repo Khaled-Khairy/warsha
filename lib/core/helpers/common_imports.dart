@@ -15,6 +15,7 @@ export 'package:warsha/core/errors/failure.dart';
 // Core helpers
 export 'package:warsha/core/helpers/extensions.dart';
 export 'package:warsha/core/helpers/font_weight_helper.dart';
+export 'package:warsha/core/helpers/validations.dart';
 export 'package:warsha/core/networking/api_endpoints.dart';
 export 'package:warsha/core/networking/api_service.dart';
 // Core resources

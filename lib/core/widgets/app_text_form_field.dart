@@ -14,10 +14,25 @@ class AppTextFormField extends StatelessWidget {
   final TextInputType? textInputType;
   final List<TextInputFormatter>? textInputFormatter;
   final TextEditingController? controller;
+  final Function(String?) validator;
 
-  const AppTextFormField({super.key, required this.hintText, this.isObscureText, this.contentPadding, this.focusedBorder, this.enabledBorder, this.errorBorder, this.inputTextStyle, this.hintTextStyle, this.suffixIcon, this.prefixIcon, this.textInputType, this.textInputFormatter, this.controller});
-
-
+  const AppTextFormField({
+    super.key,
+    required this.hintText,
+    this.isObscureText,
+    this.contentPadding,
+    this.focusedBorder,
+    this.enabledBorder,
+    this.errorBorder,
+    this.inputTextStyle,
+    this.hintTextStyle,
+    this.suffixIcon,
+    this.prefixIcon,
+    this.textInputType,
+    this.textInputFormatter,
+    this.controller,
+    required this.validator,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +41,14 @@ class AppTextFormField extends StatelessWidget {
         style: inputTextStyle ?? TextStyles.font16offWhiteMedium,
         cursorColor: ColorsManager.mainGreen,
         controller: controller,
+        validator: (value) {
+          return validator(value);
+        },
+        onSaved: (value){
+          if (Form.of(context).validate()) {
+            Form.of(context).save();
+          }
+        },
         decoration: InputDecoration(
           isDense: true,
           filled: true,
@@ -46,8 +69,9 @@ class AppTextFormField extends StatelessWidget {
                 vertical: 18.h,
               ),
           enabledBorder: enabledBorder ?? _defaultEnabledBorder(),
-          errorBorder: errorBorder ?? _defaultErrorBorder(),
           focusedBorder: focusedBorder ?? _defaultFocusedBorder(),
+          errorBorder: errorBorder ?? _defaultErrorBorder(),
+          focusedErrorBorder: errorBorder ?? _defaultErrorBorder(),
         ),
         keyboardType: textInputType,
         inputFormatters: textInputFormatter);
