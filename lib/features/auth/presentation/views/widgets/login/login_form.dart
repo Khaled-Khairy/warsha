@@ -80,7 +80,7 @@ class _LoginFormState extends State<LoginForm> {
           ),
           20.verticalSpace,
           AppTextButton(
-            onPressed: () {
+            onPressed: () async {
               if (formKey.currentState!.validate()) {
                 cubit.login(
                   loginRequest: LoginRequest(
