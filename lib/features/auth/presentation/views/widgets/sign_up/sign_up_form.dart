@@ -1,5 +1,4 @@
 import 'package:warsha/core/helpers/common_imports.dart';
-import 'package:warsha/features/auth/presentation/manager/sign_up_cubit/sign_up_cubit.dart';
 
 class SignUpForm extends StatefulWidget {
   const SignUpForm({super.key});
@@ -118,7 +117,6 @@ class _SignUpFormState extends State<SignUpForm> {
               }
               return null;
             },
-
             isObscureText: isObscureText,
             prefixIcon: Icon(
               Iconsax.lock_outline,

@@ -1,5 +1,4 @@
 import 'package:warsha/core/helpers/common_imports.dart';
-import 'package:warsha/features/auth/presentation/manager/sign_up_cubit/sign_up_cubit.dart';
 
 class SignUpBody extends StatelessWidget {
   const SignUpBody({super.key});

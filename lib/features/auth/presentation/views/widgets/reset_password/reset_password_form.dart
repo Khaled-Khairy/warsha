@@ -19,7 +19,7 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
         children: [
           AppTextFormField(
             hintText: "New Password",
-            validator: (value){},
+            validator: (value) {},
             isObscureText: isObscureText,
             prefixIcon: Icon(
               Iconsax.lock_outline,
@@ -42,7 +42,7 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
           10.verticalSpace,
           AppTextFormField(
             hintText: "Confirm Password",
-            validator: (value){},
+            validator: (value) {},
             isObscureText: isObscureText,
             prefixIcon: Icon(
               Iconsax.lock_outline,

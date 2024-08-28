@@ -10,7 +10,7 @@ class OnboardingBody extends StatelessWidget {
     return SafeArea(
       child: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.symmetric( vertical: 30.h),
+          padding: EdgeInsets.symmetric(vertical: 30.h),
           child: Column(
             children: [
               const DocLogoAndName(),

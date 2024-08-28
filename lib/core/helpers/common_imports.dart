@@ -10,12 +10,14 @@ export 'package:get_it/get_it.dart';
 export 'package:icons_plus/icons_plus.dart';
 export 'package:lottie/lottie.dart';
 export 'package:pinput/pinput.dart';
+// Core dependencies
 export 'package:warsha/core/di/dependency_injection.dart';
 export 'package:warsha/core/errors/failure.dart';
 // Core helpers
 export 'package:warsha/core/helpers/extensions.dart';
 export 'package:warsha/core/helpers/font_weight_helper.dart';
 export 'package:warsha/core/helpers/validations.dart';
+// Core networking
 export 'package:warsha/core/networking/api_endpoints.dart';
 export 'package:warsha/core/networking/api_service.dart';
 // Core resources
@@ -33,6 +35,7 @@ export 'package:warsha/core/widgets/app_text_form_field.dart';
 export 'package:warsha/core/widgets/custom_loading.dart';
 export 'package:warsha/core/widgets/get_started_button.dart';
 export 'package:warsha/core/widgets/snack_bar_content.dart';
+// Authentication data models
 export 'package:warsha/features/auth/data/models/login_models/login_request.dart';
 export 'package:warsha/features/auth/data/models/login_models/login_response.dart';
 export 'package:warsha/features/auth/data/models/reset_password_models/reset_password_request.dart';
@@ -41,9 +44,12 @@ export 'package:warsha/features/auth/data/models/send_otp_models/send_otp_reques
 export 'package:warsha/features/auth/data/models/sign_up_models/sign_up_request.dart';
 export 'package:warsha/features/auth/data/models/validate_otp_models/validate_otp_request.dart';
 export 'package:warsha/features/auth/data/models/validate_otp_models/validate_otp_response.dart';
+// Authentication repository
 export 'package:warsha/features/auth/data/repos/auth_repo.dart';
 export 'package:warsha/features/auth/data/repos/auth_repo_impl.dart';
+// Authentication manager
 export 'package:warsha/features/auth/presentation/manager/login_cubit/login_cubit.dart';
+export 'package:warsha/features/auth/presentation/manager/sign_up_cubit/sign_up_cubit.dart';
 // Authentication views
 export 'package:warsha/features/auth/presentation/views/login_view.dart';
 export 'package:warsha/features/auth/presentation/views/reset_password_view.dart';

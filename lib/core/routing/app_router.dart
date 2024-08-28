@@ -1,7 +1,7 @@
 import 'package:warsha/core/helpers/common_imports.dart';
 
 class AppRouter {
-  Route<dynamic> generateRouter(RouteSettings settings) {
+  Route? generateRouter(RouteSettings settings) {
     // This arguments to be passed in any screen like this
     // ignore: unused_local_variable
     final arguments = settings.arguments;
@@ -42,15 +42,7 @@ class AppRouter {
           TransitionType.slideFromRight,
         );
       default:
-        return RouteAnimations.buildPageRoute(
-          Scaffold(
-            body: Center(
-              child: Text('No router defined for this ${settings.name}'),
-            ),
-          ),
-          settings,
-          TransitionType.none,
-        );
+        return null;
     }
   }
 }

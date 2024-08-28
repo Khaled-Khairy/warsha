@@ -44,7 +44,7 @@ class AppTextFormField extends StatelessWidget {
         validator: (value) {
           return validator(value);
         },
-        onSaved: (value){
+        onSaved: (value) {
           if (Form.of(context).validate()) {
             Form.of(context).save();
           }
