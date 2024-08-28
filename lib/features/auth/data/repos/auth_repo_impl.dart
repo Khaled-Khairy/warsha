@@ -77,4 +77,23 @@ class AuthRepoImpl extends AuthRepo {
       }
     }
   }
+
+  @override
+  Future<Either<Failure, ValidateOtpResponse>> validateOtpRequest(
+      {required ValidateOtpRequest validateOtpRequest}) async {
+    try {
+      final response = await apiService.post(
+        endPoint: ApiEndpoints.validateOtp,
+        data: validateOtpRequest.toJson(),
+      );
+      final validateOtpResponse = ValidateOtpResponse.fromJson(response);
+      return right(validateOtpResponse);
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioException(e));
+      } else {
+        return left(ServerFailure(e.toString()));
+      }
+    }
+  }
 }

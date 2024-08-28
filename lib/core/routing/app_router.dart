@@ -39,7 +39,9 @@ class AppRouter {
         );
       case Routes.resetPasswordScreen:
         return RouteAnimations.buildPageRoute(
-          const ResetPasswordView(),
+          ResetPasswordView(
+            token: arguments as String,
+          ),
           settings,
           TransitionType.slideFromRight,
         );

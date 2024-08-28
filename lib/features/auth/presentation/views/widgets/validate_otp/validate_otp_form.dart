@@ -1,4 +1,5 @@
 import 'package:warsha/core/helpers/common_imports.dart';
+import 'package:warsha/features/auth/presentation/manager/validate_otp_cubit/validate_otp_cubit.dart';
 
 class ValidateOtpForm extends StatefulWidget {
   const ValidateOtpForm({super.key, required this.resetPasswordEmail});
@@ -10,20 +11,36 @@ class ValidateOtpForm extends StatefulWidget {
 }
 
 class _ValidateOtpFormState extends State<ValidateOtpForm> {
+  final TextEditingController otpController = TextEditingController();
   final formKey = GlobalKey<FormState>();
 
   @override
+  void dispose() {
+    otpController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final cubit = BlocProvider.of<ValidateOtpCubit>(context);
     return Form(
       key: formKey,
       child: Column(
         children: [
-          const ValidateOtpPinPut(),
+          ValidateOtpPinPut(
+            otpController: otpController,
+          ),
           20.verticalSpace,
           AppTextButton(
             onPressed: () {
-              debugPrint(
-                  "===============================================\nEmail : ${widget.resetPasswordEmail}");
+              if (formKey.currentState!.validate()) {
+                cubit.validateOtp(
+                  validateOtpRequest: ValidateOtpRequest(
+                    email: widget.resetPasswordEmail,
+                    otp: otpController.text,
+                  ),
+                );
+              }
             },
             text: "Continue",
           ),

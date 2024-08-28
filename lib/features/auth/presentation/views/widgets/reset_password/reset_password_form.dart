@@ -1,7 +1,9 @@
 import 'package:warsha/core/helpers/common_imports.dart';
 
 class ResetPasswordForm extends StatefulWidget {
-  const ResetPasswordForm({super.key});
+  const ResetPasswordForm({super.key, required this.token});
+
+  final String token;
 
   @override
   State<ResetPasswordForm> createState() => _ResetPasswordFormState();
@@ -63,7 +65,10 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
             ),
           ),
           20.verticalSpace,
-          AppTextButton(onPressed: () {}, text: "Confirm"),
+          AppTextButton(
+            onPressed: () {},
+            text: "Confirm",
+          ),
         ],
       ),
     );

@@ -1,7 +1,9 @@
 import 'package:warsha/core/helpers/common_imports.dart';
 
 class ResetPasswordBody extends StatelessWidget {
-  const ResetPasswordBody({super.key});
+  const ResetPasswordBody({super.key, required this.token});
+
+  final String token;
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +12,9 @@ class ResetPasswordBody extends StatelessWidget {
         children: [
           const ResetPasswordHeader(),
           20.verticalSpace,
-          const ResetPasswordForm()
+          ResetPasswordForm(
+            token: token,
+          ),
         ],
       ),
     );

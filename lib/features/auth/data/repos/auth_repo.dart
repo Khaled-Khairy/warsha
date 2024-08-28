@@ -12,4 +12,7 @@ abstract class AuthRepo {
 
   Future<Either<Failure, SendOtpResponse>> sendOtpRequest(
       {required SendOtpRequest sendOtpRequest});
+
+  Future<Either<Failure, ValidateOtpResponse>> validateOtpRequest(
+      {required ValidateOtpRequest validateOtpRequest});
 }
