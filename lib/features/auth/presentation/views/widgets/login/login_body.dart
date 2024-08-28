@@ -26,7 +26,7 @@ class LoginBody extends StatelessWidget {
               ),
             ),
           );
-        } else if (state is LoginFailed) {
+        } else if (state is LoginFailure) {
           context.pop();
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(

@@ -4,4 +4,5 @@ class ApiEndpoints {
   static const String signUp = 'user/signup/';
   static const String sendOtp = 'user/send-otp/';
   static const String validateOtp = 'user/validate-otp/';
+  static const String resetPassword = 'user/reset-password/';
 }

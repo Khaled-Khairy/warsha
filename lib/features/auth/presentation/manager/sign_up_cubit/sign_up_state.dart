@@ -13,8 +13,8 @@ final class SignUpSuccess extends SignUpState {
   SignUpSuccess(this.signUpResponse);
 }
 
-final class SignUpFailed extends SignUpState {
+final class SignUpFailure extends SignUpState {
   final String errMessage;
 
-  SignUpFailed(this.errMessage);
+  SignUpFailure(this.errMessage);
 }

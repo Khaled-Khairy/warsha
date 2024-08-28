@@ -2,8 +2,6 @@ import 'package:warsha/core/helpers/common_imports.dart';
 
 class AppRouter {
   Route? generateRouter(RouteSettings settings) {
-    // This arguments to be passed in any screen like this
-    // ignore: unused_local_variable
     final arguments = settings.arguments;
 
     switch (settings.name) {

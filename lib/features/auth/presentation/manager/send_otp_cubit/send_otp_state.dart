@@ -10,8 +10,8 @@ final class SendOtpSuccess extends SendOtpState {
 
   SendOtpSuccess(this.sendOtpResponse);
 }
-final class SendOtpFailed extends SendOtpState {
+final class SendOtpFailure extends SendOtpState {
   final String errMessage;
 
-  SendOtpFailed(this.errMessage);
+  SendOtpFailure(this.errMessage);
 }

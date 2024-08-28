@@ -15,4 +15,7 @@ abstract class AuthRepo {
 
   Future<Either<Failure, ValidateOtpResponse>> validateOtpRequest(
       {required ValidateOtpRequest validateOtpRequest});
+
+  Future<Either<Failure, ResetPasswordResponse>> resetPasswordRequest(
+      {required ResetPasswordRequest resetPasswordRequest});
 }

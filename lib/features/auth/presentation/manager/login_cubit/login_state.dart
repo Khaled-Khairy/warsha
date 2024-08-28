@@ -13,8 +13,8 @@ final class LoginSuccess extends LoginState {
   LoginSuccess(this.loginResponse);
 }
 
-final class LoginFailed extends LoginState {
+final class LoginFailure extends LoginState {
   final String errMessage;
 
-  LoginFailed(this.errMessage);
+  LoginFailure(this.errMessage);
 }

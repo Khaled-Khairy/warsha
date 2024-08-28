@@ -32,7 +32,7 @@ class _SendOtpBodyState extends State<SendOtpBody> {
             Routes.validateOtpScreen,
             arguments: emailController.text,
           );
-        } else if (state is SendOtpFailed) {
+        } else if (state is SendOtpFailure) {
           context.pop();
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(

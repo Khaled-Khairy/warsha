@@ -17,7 +17,7 @@ class ValidateOtpHeader extends StatelessWidget {
                 context.pop();
               },
               icon: Icon(
-                CupertinoIcons.clear,
+                CupertinoIcons.arrow_left,
                 size: 24.w,
               ),
             ),

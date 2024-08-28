@@ -11,7 +11,7 @@ class ValidateOtpCubit extends Cubit<ValidateOtpState> {
     emit(ValidateOtpLoading());
     final response = await authRepo.validateOtpRequest(validateOtpRequest: validateOtpRequest);
     response.fold(
-      (failure) => emit(ValidateOtpFailed(failure.errorMessage)),
+      (failure) => emit(ValidateOtpFailure(failure.errorMessage)),
       (validateOtpResponse) => emit(ValidateOtpSuccess(validateOtpResponse)),
     );
   }

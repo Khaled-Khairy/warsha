@@ -18,9 +18,17 @@ class SignUpBody extends StatelessWidget {
           showDialog(
             context: context,
             barrierDismissible: false,
-            builder: (context) => const SuccessDialog(),
+            builder: (context) => SuccessDialog(
+              title: "Account Created Successfully",
+              subTitle:
+                  "You’r account has been created successfully. Please login to continue.",
+              onPressed: () {
+                context.pop();
+                context.pop();
+              },
+            ),
           );
-        } else if (state is SignUpFailed) {
+        } else if (state is SignUpFailure) {
           context.pop();
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(

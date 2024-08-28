@@ -21,7 +21,7 @@ class ValidateOtpBody extends StatelessWidget {
             Routes.resetPasswordScreen,
             arguments: state.validateOtpResponse.token,
           );
-        } else if (state is ValidateOtpFailed) {
+        } else if (state is ValidateOtpFailure) {
           context.pop();
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(

@@ -11,7 +11,7 @@ class SendOtpCubit extends Cubit<SendOtpState> {
     emit(SendOtpLoading());
     final response = await authRepo.sendOtpRequest(sendOtpRequest: sendOtpRequest);
     response.fold(
-      (failure) => emit(SendOtpFailed(failure.errorMessage)),
+      (failure) => emit(SendOtpFailure(failure.errorMessage)),
       (sendOtpResponse) => emit(SendOtpSuccess(sendOtpResponse)),
     );
   }

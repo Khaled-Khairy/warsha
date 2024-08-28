@@ -96,4 +96,23 @@ class AuthRepoImpl extends AuthRepo {
       }
     }
   }
+
+  @override
+  Future<Either<Failure, ResetPasswordResponse>> resetPasswordRequest(
+      {required ResetPasswordRequest resetPasswordRequest}) async {
+    try {
+      final response = await apiService.post(
+        endPoint: ApiEndpoints.resetPassword,
+        data: resetPasswordRequest.toJson(),
+      );
+      final resetPasswordResponse = ResetPasswordResponse.fromJson(response);
+      return right(resetPasswordResponse);
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioException(e));
+      } else {
+        return left(ServerFailure(e.toString()));
+      }
+    }
+  }
 }

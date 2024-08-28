@@ -13,8 +13,8 @@ final class ValidateOtpSuccess extends ValidateOtpState {
   ValidateOtpSuccess(this.validateOtpResponse);
 }
 
-final class ValidateOtpFailed extends ValidateOtpState {
+final class ValidateOtpFailure extends ValidateOtpState {
   final String errMessage;
 
-  ValidateOtpFailed(this.errMessage);
+  ValidateOtpFailure(this.errMessage);
 }

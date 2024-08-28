@@ -1,7 +1,14 @@
 import 'package:warsha/core/helpers/common_imports.dart';
 
 class SuccessDialog extends StatelessWidget {
-  const SuccessDialog({super.key});
+  const SuccessDialog(
+      {super.key,
+      required this.title,
+      required this.subTitle,
+      required this.onPressed});
+
+  final String title, subTitle;
+  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -26,21 +33,18 @@ class SuccessDialog extends StatelessWidget {
               fit: BoxFit.contain,
             ),
             Text(
-              "Account Created Successfully",
+              title,
               style: TextStyles.font26GreenBold,
               textAlign: TextAlign.center,
             ),
             Text(
-              "You’r account has been created successfully. Please login to continue.",
+              subTitle,
               style: TextStyles.font16GreyRegular,
               textAlign: TextAlign.center,
             ),
             10.verticalSpace,
             AppTextButton(
-              onPressed: () {
-                context.pop();
-                context.pop();
-              },
+              onPressed: onPressed,
               text: "Return to login",
             ),
           ],

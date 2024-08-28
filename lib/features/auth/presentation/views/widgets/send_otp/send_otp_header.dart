@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:warsha/core/helpers/common_imports.dart';
 
 class SendOtpHeader extends StatelessWidget {
@@ -14,7 +15,7 @@ class SendOtpHeader extends StatelessWidget {
               context.pop();
             },
             icon: Icon(
-              Icons.arrow_back,
+              CupertinoIcons.arrow_left,
               size: 24.w,
             ),
           ),
