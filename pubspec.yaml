@@ -50,6 +50,7 @@ dependencies:
   easy_localization:
   flutter_native_splash:
   shared_preferences:
+  flutter_secure_storage:
   lottie:
   url_launcher:
   cached_network_image:

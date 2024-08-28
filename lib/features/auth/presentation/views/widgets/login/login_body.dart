@@ -10,6 +10,7 @@ class LoginBody extends StatelessWidget {
         if (state is LoginLoading) {
           showDialog(
             context: context,
+            barrierDismissible: false,
             builder: (context) => const CustomLoading(),
           );
         } else if (state is LoginSuccess) {

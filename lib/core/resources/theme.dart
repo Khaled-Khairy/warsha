@@ -6,4 +6,7 @@ ThemeData theme = ThemeData(
     primary: ColorsManager.mainGreen,
   ),
   scaffoldBackgroundColor: ColorsManager.background,
+  iconTheme: const IconThemeData(
+    color: ColorsManager.offWhite,
+  ),
 );

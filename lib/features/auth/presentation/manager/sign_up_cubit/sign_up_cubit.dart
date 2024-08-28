@@ -6,7 +6,6 @@ part 'sign_up_state.dart';
 class SignUpCubit extends Cubit<SignUpState> {
   SignUpCubit(this.authRepo) : super(SignUpInitial());
   final AuthRepo authRepo;
-
   Future<void> signUp({required SignUpRequest signUpRequest}) async {
     emit(SignUpLoading());
     final response = await authRepo.signUpRequest(signUpRequest: signUpRequest);

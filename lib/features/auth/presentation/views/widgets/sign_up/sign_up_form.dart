@@ -138,20 +138,21 @@ class _SignUpFormState extends State<SignUpForm> {
           ),
           20.verticalSpace,
           AppTextButton(
-              onPressed: () {
-                if (formKey.currentState!.validate()) {
-                  cubit.signUp(
-                    signUpRequest: SignUpRequest(
-                      email: emailController.text,
-                      username: userNameController.text,
-                      phone: phoneNumberController.text,
-                      password: passwordController.text,
-                      confirmPassword: confirmPasswordController.text,
-                    ),
-                  );
-                }
-              },
-              text: "Create Account"),
+            onPressed: () async {
+              if (formKey.currentState!.validate()) {
+                cubit.signUp(
+                  signUpRequest: SignUpRequest(
+                    email: emailController.text,
+                    username: userNameController.text,
+                    phone: phoneNumberController.text,
+                    password: passwordController.text,
+                    confirmPassword: confirmPasswordController.text,
+                  ),
+                );
+              }
+            },
+            text: "Create Account",
+          ),
         ],
       ),
     );

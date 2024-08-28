@@ -1,7 +1,9 @@
 import 'package:warsha/core/helpers/common_imports.dart';
 
 class ValidateOtpForm extends StatefulWidget {
-  const ValidateOtpForm({super.key});
+  const ValidateOtpForm({super.key, required this.resetPasswordEmail});
+
+  final String resetPasswordEmail;
 
   @override
   State<ValidateOtpForm> createState() => _ValidateOtpFormState();
@@ -20,7 +22,8 @@ class _ValidateOtpFormState extends State<ValidateOtpForm> {
           20.verticalSpace,
           AppTextButton(
             onPressed: () {
-              context.pushReplacementNamed(Routes.resetPasswordScreen);
+              debugPrint(
+                  "===============================================\nEmail : ${widget.resetPasswordEmail}");
             },
             text: "Continue",
           ),

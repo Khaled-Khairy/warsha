@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:warsha/core/helpers/common_imports.dart';
-import 'package:warsha/core/helpers/shared_pref_helper.dart';
-import 'package:warsha/core/helpers/shared_pref_keys.dart';
+import 'package:warsha/core/networking/dio_factory.dart';
+import 'package:warsha/features/auth/data/models/send_otp_models/send_otp_response.dart';
 import 'package:warsha/features/auth/data/models/sign_up_models/sign_up_response.dart';
 
 class AuthRepoImpl extends AuthRepo {
@@ -19,15 +19,15 @@ class AuthRepoImpl extends AuthRepo {
       );
       final loginResponse = LoginResponse.fromJson(response);
       if (loginResponse.message == "Login successful") {
-        await SharedPrefHelper.clearAllData();
-        // await SharedPrefHelper.setData(
-        //   key: SharedPrefKeys.accessToken,
-        //   value: loginResponse.tokens.access,
-        // );
-        // await SharedPrefHelper.setData(
-        //   key: SharedPrefKeys.refreshToken,
-        //   value: loginResponse.tokens.refresh,
-        // );
+        await SharedPrefHelper.setSecuredString(
+          key: SharedPrefKeys.accessToken,
+          value: loginResponse.tokens.access,
+        );
+        await SharedPrefHelper.setSecuredString(
+          key: SharedPrefKeys.refreshToken,
+          value: loginResponse.tokens.refresh,
+        );
+        DioFactory.setTokenIntoHeaderAfterLogin(loginResponse.tokens.access);
       }
       return Right(loginResponse);
     } catch (e) {
@@ -50,6 +50,25 @@ class AuthRepoImpl extends AuthRepo {
       );
       final signUpResponse = SignUpResponse.fromJson(response);
       return right(signUpResponse);
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioException(e));
+      } else {
+        return left(ServerFailure(e.toString()));
+      }
+    }
+  }
+
+  @override
+  Future<Either<Failure, SendOtpResponse>> sendOtpRequest(
+      {required SendOtpRequest sendOtpRequest}) async {
+    try {
+      final response = await apiService.post(
+        endPoint: ApiEndpoints.sendOtp,
+        data: sendOtpRequest.toJson(),
+      );
+      final sendOtpResponse = SendOtpResponse.fromJson(response);
+      return right(sendOtpResponse);
     } catch (e) {
       if (e is DioException) {
         return left(ServerFailure.fromDioException(e));

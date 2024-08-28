@@ -16,18 +16,6 @@ void main() async {
   );
 }
 
-bool isLoggedUser = false;
-
-checkIfLoggedUser() async {
-  String? userToken =
-      await SharedPrefHelper.getString(key: SharedPrefKeys.accessToken);
-  if (userToken != null && userToken.isNotEmpty) {
-    isLoggedUser = true;
-  } else {
-    isLoggedUser = false;
-  }
-}
-
 class Warsha extends StatelessWidget {
   final AppRouter appRouter;
 
@@ -41,8 +29,7 @@ class Warsha extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: theme,
-        initialRoute:
-            isLoggedUser ? Routes.resetPasswordScreen : Routes.onboardingScreen,
+        initialRoute: Routes.onboardingScreen,
         onGenerateRoute: appRouter.generateRouter,
       ),
     );

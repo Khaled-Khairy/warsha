@@ -10,20 +10,15 @@ class SignUpBody extends StatelessWidget {
         if (state is SignUpLoading) {
           showDialog(
             context: context,
+            barrierDismissible: false,
             builder: (context) => const CustomLoading(),
           );
         } else if (state is SignUpSuccess) {
           context.pop();
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              elevation: 0,
-              behavior: SnackBarBehavior.floating,
-              backgroundColor: Colors.transparent,
-              duration: Duration(seconds: 5),
-              content: SnackBarContent(
-                message: "Login Success",
-              ),
-            ),
+          showDialog(
+            context: context,
+            barrierDismissible: false,
+            builder: (context) => const SuccessDialog(),
           );
         } else if (state is SignUpFailed) {
           context.pop();

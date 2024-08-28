@@ -45,7 +45,7 @@ class SnackBarContent extends StatelessWidget {
             },
             icon: Icon(
               CupertinoIcons.clear,
-              size: 24.w,
+              size: 20.w,
             ),
           ),
         ],

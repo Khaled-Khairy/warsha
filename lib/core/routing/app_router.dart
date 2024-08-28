@@ -31,7 +31,9 @@ class AppRouter {
         );
       case Routes.validateOtpScreen:
         return RouteAnimations.buildPageRoute(
-          const ValidateOtpView(),
+          ValidateOtpView(
+            resetPasswordEmail: arguments as String,
+          ),
           settings,
           TransitionType.slideFromRight,
         );
