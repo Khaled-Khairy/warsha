@@ -18,7 +18,8 @@ class AuthRepoImpl extends AuthRepo {
         data: loginRequest.toJson(),
       );
       final loginResponse = LoginResponse.fromJson(response);
-      if (loginResponse.message == "Login successful") {
+      if (loginResponse.message == "Login successful" ||
+          loginResponse.message.isNotEmpty) {
         await SharedPrefHelper.setSecuredString(
           key: SharedPrefKeys.accessToken,
           value: loginResponse.tokens.access,

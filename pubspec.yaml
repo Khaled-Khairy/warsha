@@ -47,6 +47,7 @@ dependencies:
   retrofit_generator:
   pretty_dio_logger:
   intl:
+  google_nav_bar:
   easy_localization:
   flutter_native_splash:
   shared_preferences:

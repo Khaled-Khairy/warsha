@@ -15,17 +15,7 @@ class LoginBody extends StatelessWidget {
           );
         } else if (state is LoginSuccess) {
           context.pop();
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              elevation: 0,
-              behavior: SnackBarBehavior.floating,
-              backgroundColor: Colors.transparent,
-              duration: Duration(seconds: 5),
-              content: SnackBarContent(
-                message: "Login Success",
-              ),
-            ),
-          );
+          context.pushReplacementNamed(Routes.homeScreen);
         } else if (state is LoginFailure) {
           context.pop();
           ScaffoldMessenger.of(context).showSnackBar(

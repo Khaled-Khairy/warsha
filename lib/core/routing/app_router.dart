@@ -1,7 +1,9 @@
 import 'package:warsha/core/helpers/common_imports.dart';
+import 'package:warsha/core/widgets/app_nav_bar.dart';
+import 'package:warsha/features/home/presentation/views/home_view.dart';
 
 class AppRouter {
-  Route? generateRouter(RouteSettings settings) {
+  Route<dynamic>? generateRouter(RouteSettings settings) {
     final arguments = settings.arguments;
 
     switch (settings.name) {
@@ -28,23 +30,41 @@ class AppRouter {
           TransitionType.slideFromRight,
         );
       case Routes.validateOtpScreen:
-        return RouteAnimations.buildPageRoute(
-          ValidateOtpView(
-            resetPasswordEmail: arguments as String,
-          ),
-          settings,
-          TransitionType.slideFromRight,
-        );
+        if (arguments is String) {
+          return RouteAnimations.buildPageRoute(
+            ValidateOtpView(
+              resetPasswordEmail: arguments,
+            ),
+            settings,
+            TransitionType.slideFromRight,
+          );
+        }
+        return null;
       case Routes.resetPasswordScreen:
+        if (arguments is String) {
+          return RouteAnimations.buildPageRoute(
+            ResetPasswordView(
+              token: arguments,
+            ),
+            settings,
+            TransitionType.slideFromRight,
+          );
+        }
+      case Routes.homeScreen:
         return RouteAnimations.buildPageRoute(
-          ResetPasswordView(
-            token: arguments as String,
-          ),
+          const HomeView(),
           settings,
-          TransitionType.slideFromRight,
+          TransitionType.slideFromBottom,
+        );
+      case Routes.appNavBar:
+        return RouteAnimations.buildPageRoute(
+          const AppNavBar(),
+          settings,
+          TransitionType.slideFromBottom,
         );
       default:
         return null;
     }
+    return null;
   }
 }
