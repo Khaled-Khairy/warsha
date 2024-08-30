@@ -35,6 +35,7 @@ class _SendOtpFormState extends State<SendOtpForm> {
           20.verticalSpace,
           AppTextButton(
             onPressed: () {
+              closeKeyboard(context);
               if (formKey.currentState!.validate()) {
                 cubit.sendOtp(
                   sendOtpRequest: SendOtpRequest(

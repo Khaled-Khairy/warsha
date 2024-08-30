@@ -138,7 +138,8 @@ class _SignUpFormState extends State<SignUpForm> {
           ),
           20.verticalSpace,
           AppTextButton(
-            onPressed: ()  {
+            onPressed: () {
+              closeKeyboard(context);
               if (formKey.currentState!.validate()) {
                 cubit.signUp(
                   signUpRequest: SignUpRequest(

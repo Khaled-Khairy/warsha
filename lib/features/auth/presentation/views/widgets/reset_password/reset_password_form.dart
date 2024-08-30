@@ -93,6 +93,7 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
           20.verticalSpace,
           AppTextButton(
             onPressed: () {
+              closeKeyboard(context);
               if (formKey.currentState!.validate()) {
                 cubit.resetPassword(
                   resetPasswordRequest: ResetPasswordRequest(

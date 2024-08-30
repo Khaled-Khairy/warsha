@@ -37,51 +37,52 @@ class AppTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-        obscureText: isObscureText ?? false,
-        style: inputTextStyle ?? TextStyles.font16offWhiteMedium,
-        cursorColor: ColorsManager.mainGreen,
-        controller: controller,
-        validator: (value) {
-          return validator(value);
-        },
-        onSaved: (value) {
-          if (Form.of(context).validate()) {
-            Form.of(context).save();
-          }
-        },
-        decoration: InputDecoration(
-          isDense: true,
-          filled: true,
-          fillColor: const Color(0xff212934),
-          hintText: hintText,
-          hintStyle: hintTextStyle ?? TextStyles.font16GreyMedium,
-          suffixIcon: suffixIcon,
-          suffixIconConstraints: BoxConstraints(
-            minWidth: 48.w,
-          ),
-          prefixIcon: prefixIcon,
-          prefixIconConstraints: BoxConstraints(
-            minWidth: 48.w,
-          ),
-          contentPadding: contentPadding ??
-              EdgeInsets.symmetric(
-                horizontal: 20.w,
-                vertical: 18.h,
-              ),
-          enabledBorder: enabledBorder ?? _defaultEnabledBorder(),
-          focusedBorder: focusedBorder ?? _defaultFocusedBorder(),
-          errorBorder: errorBorder ?? _defaultErrorBorder(),
-          focusedErrorBorder: errorBorder ?? _defaultErrorBorder(),
+      obscureText: isObscureText ?? false,
+      style: inputTextStyle ?? TextStyles.font16offWhiteMedium,
+      cursorColor: ColorsManager.mainGreen,
+      controller: controller,
+      validator: (value) {
+        return validator(value);
+      },
+      onSaved: (value) {
+        if (Form.of(context).validate()) {
+          Form.of(context).save();
+        }
+      },
+      decoration: InputDecoration(
+        isDense: true,
+        filled: true,
+        fillColor: ColorsManager.mainGrey,
+        hintText: hintText,
+        hintStyle: hintTextStyle ?? TextStyles.font16GreyMedium,
+        suffixIcon: suffixIcon,
+        suffixIconConstraints: BoxConstraints(
+          minWidth: 48.w,
         ),
-        keyboardType: textInputType,
-        inputFormatters: textInputFormatter);
+        prefixIcon: prefixIcon,
+        prefixIconConstraints: BoxConstraints(
+          minWidth: 48.w,
+        ),
+        contentPadding: contentPadding ??
+            EdgeInsets.symmetric(
+              horizontal: 20.w,
+              vertical: 18.h,
+            ),
+        enabledBorder: enabledBorder ?? _defaultEnabledBorder(),
+        focusedBorder: focusedBorder ?? _defaultFocusedBorder(),
+        errorBorder: errorBorder ?? _defaultErrorBorder(),
+        focusedErrorBorder: errorBorder ?? _defaultErrorBorder(),
+      ),
+      keyboardType: textInputType,
+      inputFormatters: textInputFormatter,
+    );
   }
 
   OutlineInputBorder _defaultEnabledBorder() {
     return OutlineInputBorder(
       borderRadius: BorderRadius.circular(12.w),
       borderSide: const BorderSide(
-        color: ColorsManager.darkerGrey,
+        color: ColorsManager.mainGrey,
       ),
     );
   }

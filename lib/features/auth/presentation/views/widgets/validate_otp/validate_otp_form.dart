@@ -33,6 +33,7 @@ class _ValidateOtpFormState extends State<ValidateOtpForm> {
           20.verticalSpace,
           AppTextButton(
             onPressed: () {
+              closeKeyboard(context);
               if (formKey.currentState!.validate()) {
                 cubit.validateOtp(
                   validateOtpRequest: ValidateOtpRequest(

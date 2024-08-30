@@ -1,3 +1,4 @@
+import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:warsha/core/helpers/common_imports.dart';
 import 'package:warsha/features/home/presentation/views/home_view.dart';
 
@@ -24,75 +25,57 @@ class _AppNavBarState extends State<AppNavBar> {
       body: Center(
         child: body[currentIndex],
       ),
-      bottomNavigationBar: Theme(
-        data: Theme.of(context).copyWith(
-          splashColor: Colors.transparent,
+      bottomNavigationBar: Container(
+        padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
+        decoration: BoxDecoration(
+          color: ColorsManager.mainGrey,
+          borderRadius: BorderRadius.only(
+            topRight: Radius.circular(12.w),
+            topLeft: Radius.circular(12.w),
+          ),
         ),
-        child: Container(
+        child: GNav(
+          onTabChange: (index) {
+            setState(() {
+              currentIndex = index;
+            });
+          },
+          selectedIndex: currentIndex,
+          haptic: false,
+          rippleColor: Colors.transparent,
+          hoverColor: Colors.transparent,
+          backgroundColor: ColorsManager.mainGrey,
+          duration: const Duration(milliseconds: 300),
+          color: ColorsManager.grey,
+          activeColor: ColorsManager.offWhite,
+          textStyle: TextStyles.font14offWhiteBold,
+          iconSize: 24.w,
           padding: EdgeInsets.symmetric(
-            horizontal: 8.w,
-            vertical: 6.h,
+            vertical: 12.h,
           ),
-          decoration: BoxDecoration(
-            color: ColorsManager.mainGreen,
-            borderRadius: BorderRadius.only(
-              topRight: Radius.circular(12.w),
-              topLeft: Radius.circular(12.w),
+          gap: 6.w,
+          tabs: const [
+            GButton(
+              icon: Iconsax.home_outline,
+              text: "Home",
             ),
-          ),
-          child: BottomNavigationBar(
-            currentIndex: currentIndex,
-            onTap: (index) {
-              setState(() {
-                currentIndex = index;
-              });
-            },
-            backgroundColor: ColorsManager.mainGreen,
-            iconSize: 24.w,
-            elevation: 0,
-            type: BottomNavigationBarType.fixed,
-            selectedItemColor: ColorsManager.offWhite,
-            unselectedItemColor: ColorsManager.background,
-            selectedFontSize: 12.sp,
-            unselectedFontSize: 12.sp,
-            items: [
-              BottomNavigationBarItem(
-                icon: Padding(
-                  padding: EdgeInsets.only(bottom: 2.w),
-                  child: const Icon(Iconsax.home_outline),
-                ),
-                label: "Home",
-              ),
-              BottomNavigationBarItem(
-                icon: Padding(
-                  padding: EdgeInsets.only(bottom: 2.w),
-                  child: const Icon(Iconsax.category_2_outline),
-                ),
-                label: "Categories",
-              ),
-              BottomNavigationBarItem(
-                icon: Padding(
-                  padding: EdgeInsets.only(bottom: 2.w),
-                  child: const Icon(Clarity.search_line),
-                ),
-                label: "Search",
-              ),
-              BottomNavigationBarItem(
-                icon: Padding(
-                  padding: EdgeInsets.only(bottom: 2.w),
-                  child: const Icon(Bootstrap.collection),
-                ),
-                label: "My library",
-              ),
-              BottomNavigationBarItem(
-                icon: Padding(
-                  padding: EdgeInsets.only(bottom: 2.w),
-                  child: const Icon(Clarity.settings_line),
-                ),
-                label: "Settings",
-              ),
-            ],
-          ),
+            GButton(
+              icon: Iconsax.category_2_outline,
+              text: "Category",
+            ),
+            GButton(
+              icon: Clarity.search_line,
+              text: "Search",
+            ),
+            GButton(
+              icon: Bootstrap.collection,
+              text: "My Courses",
+            ),
+            GButton(
+              icon: Clarity.menu_line,
+              text: "Menu",
+            ),
+          ],
         ),
       ),
     );

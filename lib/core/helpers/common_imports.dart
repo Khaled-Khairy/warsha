@@ -86,3 +86,5 @@ export 'package:warsha/features/onboarding/presentation/views/widgets/doctor_ima
 export 'package:warsha/features/onboarding/presentation/views/widgets/onboarding_body.dart';
 export 'package:warsha/features/onboarding/presentation/views/widgets/onboarding_footer.dart';
 export 'package:warsha/core/widgets/success_dialog.dart';
+export 'package:warsha/features/home/presentation/views/widgets/home_courses_list.dart';
+export 'package:warsha/features/home/presentation/views/widgets/home_top_section.dart';

@@ -81,6 +81,7 @@ class _LoginFormState extends State<LoginForm> {
           20.verticalSpace,
           AppTextButton(
             onPressed: () async {
+              closeKeyboard(context);
               if (formKey.currentState!.validate()) {
                 cubit.login(
                   loginRequest: LoginRequest(

@@ -15,7 +15,7 @@ class LoginBody extends StatelessWidget {
           );
         } else if (state is LoginSuccess) {
           context.pop();
-          context.pushReplacementNamed(Routes.homeScreen);
+          context.pushReplacementNamed(Routes.appNavBar);
         } else if (state is LoginFailure) {
           context.pop();
           ScaffoldMessenger.of(context).showSnackBar(

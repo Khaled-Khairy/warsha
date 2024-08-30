@@ -19,7 +19,7 @@ class DioFactory {
   }
 
   static void addDioHeaders() async {
-    final String? token = await SharedPrefHelper.getSecuredString(
+    final String? token = await SharedPrefHelper.getString(
         key: SharedPrefKeys.accessToken);
 
     if (token != null && token.isNotEmpty) {

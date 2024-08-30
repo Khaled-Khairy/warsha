@@ -13,6 +13,10 @@ abstract class TextStyles {
     fontSize: 26.sp,
     color: ColorsManager.offWhite,
     fontWeight: FontWeightHelper.bold,
+  );static TextStyle font20GreenBold = TextStyle(
+    fontSize: 20.sp,
+    color: ColorsManager.mainGreen,
+    fontWeight: FontWeightHelper.bold,
   );
   static TextStyle font26GreenBold = TextStyle(
     fontSize: 26.sp,
@@ -45,6 +49,15 @@ abstract class TextStyles {
     fontSize: 14.sp,
     color: ColorsManager.offWhite,
     fontWeight: FontWeightHelper.regular,
+  );static TextStyle font14offWhiteMedium = TextStyle(
+    fontSize: 14.sp,
+    color: ColorsManager.offWhite,
+    fontWeight: FontWeightHelper.medium,
+  );
+  static TextStyle font14offWhiteBold = TextStyle(
+    fontSize: 14.sp,
+    color: ColorsManager.offWhite,
+    fontWeight: FontWeightHelper.bold,
   );
 
   // Font Size: 16
@@ -57,6 +70,19 @@ abstract class TextStyles {
     fontSize: 16.sp,
     color: ColorsManager.mainGreen,
     fontWeight: FontWeightHelper.medium,
+  );
+  static TextStyle font12GreenMedium = TextStyle(
+    fontSize: 12.sp,
+    color: ColorsManager.mainGreen,
+    fontWeight: FontWeightHelper.medium,
+  );static TextStyle font14GreenMedium = TextStyle(
+    fontSize: 14.sp,
+    color: ColorsManager.mainGreen,
+    fontWeight: FontWeightHelper.medium,
+  );static TextStyle font16GreenBold = TextStyle(
+    fontSize: 16.sp,
+    color: ColorsManager.mainGreen,
+    fontWeight: FontWeightHelper.bold,
   );
   static TextStyle font16GreyMedium = TextStyle(
     fontSize: 16.sp,
@@ -74,5 +100,9 @@ abstract class TextStyles {
     fontSize: 14.sp,
     color: ColorsManager.grey,
     fontWeight: FontWeightHelper.regular,
+  );static TextStyle font14GreyMedium = TextStyle(
+    fontSize: 14.sp,
+    color: ColorsManager.grey,
+    fontWeight: FontWeightHelper.medium,
   );
 }
