@@ -21,7 +21,9 @@ class SubscribedCourseDetailHeader extends StatelessWidget {
           ),
         ),
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            context.pushNamed(Routes.watchCourseScreen);
+          },
           icon: Icon(
             Icons.play_arrow,
             size: 50.w,

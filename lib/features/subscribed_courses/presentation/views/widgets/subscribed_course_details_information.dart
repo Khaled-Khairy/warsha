@@ -74,7 +74,9 @@ class SubscribedCourseDetailsInformation extends StatelessWidget {
           ),
           20.verticalSpace,
           AppTextButton(
-            onPressed: () {},
+            onPressed: () {
+              context.pushNamed(Routes.watchCourseScreen);
+            },
             text: "Watch Course",
           ),
         ],
