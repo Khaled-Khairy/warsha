@@ -1,5 +1,5 @@
 import 'package:warsha/core/helpers/common_imports.dart';
-import 'package:warsha/core/widgets/app_nav_bar.dart';
+import 'package:warsha/features/subscribed_courses/presentation/views/subscribed_course_details_view.dart';
 
 class AppRouter {
   Route<dynamic>? generateRouter(RouteSettings settings) {
@@ -45,15 +45,33 @@ class AppRouter {
             TransitionType.slideFromRight,
           );
         }
+        return null;
       case Routes.appNavBar:
         return RouteAnimations.buildPageRoute(
           const AppNavBar(),
           settings,
           TransitionType.slideFromBottom,
         );
+      case Routes.courseDetailsScreen:
+        return RouteAnimations.buildPageRoute(
+          const CourseDetailsView(),
+          settings,
+          TransitionType.fadeThrough,
+        );
+      case Routes.subscribedCoursesScreen:
+        return RouteAnimations.buildPageRoute(
+          const SubscribedCoursesView(),
+          settings,
+          TransitionType.fadeThrough,
+        );
+      case Routes.subscribedCoursesDetailsScreen:
+        return RouteAnimations.buildPageRoute(
+          const SubscribedCourseDetailsView(),
+          settings,
+          TransitionType.fadeThrough,
+        );
       default:
         return null;
     }
-    return null;
   }
 }

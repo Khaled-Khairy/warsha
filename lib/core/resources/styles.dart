@@ -13,7 +13,8 @@ abstract class TextStyles {
     fontSize: 26.sp,
     color: ColorsManager.offWhite,
     fontWeight: FontWeightHelper.bold,
-  );static TextStyle font20GreenBold = TextStyle(
+  );
+  static TextStyle font20GreenBold = TextStyle(
     fontSize: 20.sp,
     color: ColorsManager.mainGreen,
     fontWeight: FontWeightHelper.bold,
@@ -49,7 +50,8 @@ abstract class TextStyles {
     fontSize: 14.sp,
     color: ColorsManager.offWhite,
     fontWeight: FontWeightHelper.regular,
-  );static TextStyle font14offWhiteMedium = TextStyle(
+  );
+  static TextStyle font14offWhiteMedium = TextStyle(
     fontSize: 14.sp,
     color: ColorsManager.offWhite,
     fontWeight: FontWeightHelper.medium,
@@ -75,11 +77,13 @@ abstract class TextStyles {
     fontSize: 12.sp,
     color: ColorsManager.mainGreen,
     fontWeight: FontWeightHelper.medium,
-  );static TextStyle font14GreenMedium = TextStyle(
+  );
+  static TextStyle font14GreenMedium = TextStyle(
     fontSize: 14.sp,
     color: ColorsManager.mainGreen,
     fontWeight: FontWeightHelper.medium,
-  );static TextStyle font16GreenBold = TextStyle(
+  );
+  static TextStyle font16GreenBold = TextStyle(
     fontSize: 16.sp,
     color: ColorsManager.mainGreen,
     fontWeight: FontWeightHelper.bold,
@@ -100,7 +104,8 @@ abstract class TextStyles {
     fontSize: 14.sp,
     color: ColorsManager.grey,
     fontWeight: FontWeightHelper.regular,
-  );static TextStyle font14GreyMedium = TextStyle(
+  );
+  static TextStyle font14GreyMedium = TextStyle(
     fontSize: 14.sp,
     color: ColorsManager.grey,
     fontWeight: FontWeightHelper.medium,

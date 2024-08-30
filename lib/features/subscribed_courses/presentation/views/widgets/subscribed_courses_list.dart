@@ -1,15 +1,15 @@
 import 'package:warsha/core/helpers/common_imports.dart';
 import 'package:warsha/core/widgets/course_content_card.dart';
 
-class HomeCoursesList extends StatelessWidget {
-  const HomeCoursesList({
+class SubscribedCoursesList extends StatelessWidget {
+  const SubscribedCoursesList({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: 10,
+      itemCount: 2,
       primary: false,
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
@@ -18,7 +18,7 @@ class HomeCoursesList extends StatelessWidget {
           padding: EdgeInsets.only(bottom: 12.h),
           child: GestureDetector(
             onTap: () {
-              context.pushNamed(Routes.courseDetailsScreen);
+              context.pushNamed(Routes.subscribedCoursesDetailsScreen);
             },
             child: const CourseContentCard(),
           ),

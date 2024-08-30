@@ -1,6 +1,4 @@
-import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:warsha/core/helpers/common_imports.dart';
-import 'package:warsha/features/home/presentation/views/home_view.dart';
 
 class AppNavBar extends StatefulWidget {
   const AppNavBar({super.key});
@@ -15,7 +13,7 @@ class _AppNavBarState extends State<AppNavBar> {
     const HomeView(),
     const Icon(Iconsax.category_2_outline),
     const Icon(Clarity.search_line),
-    const Icon(Bootstrap.collection),
+    const SubscribedCoursesView(),
     const Icon(Clarity.settings_line),
   ];
 

@@ -15,6 +15,7 @@ class LoginBody extends StatelessWidget {
           );
         } else if (state is LoginSuccess) {
           context.pop();
+          closeKeyboard(context);
           context.pushReplacementNamed(Routes.appNavBar);
         } else if (state is LoginFailure) {
           context.pop();

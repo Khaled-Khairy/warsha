@@ -35,10 +35,12 @@ export 'package:warsha/core/routing/route_animations.dart';
 export 'package:warsha/core/routing/routes.dart';
 // Core widgets
 export 'package:warsha/core/widgets/app_body.dart';
+export 'package:warsha/core/widgets/app_nav_bar.dart';
+export 'package:warsha/core/widgets/app_text_button.dart';
 export 'package:warsha/core/widgets/app_text_form_field.dart';
 export 'package:warsha/core/widgets/custom_loading.dart';
-export 'package:warsha/core/widgets/app_text_button.dart';
 export 'package:warsha/core/widgets/snack_bar_content.dart';
+export 'package:warsha/core/widgets/success_dialog.dart';
 // Authentication data models
 export 'package:warsha/features/auth/data/models/login_models/login_request.dart';
 export 'package:warsha/features/auth/data/models/login_models/login_response.dart';
@@ -78,6 +80,11 @@ export 'package:warsha/features/auth/presentation/views/widgets/validate_otp/val
 export 'package:warsha/features/auth/presentation/views/widgets/validate_otp/validate_otp_form.dart';
 export 'package:warsha/features/auth/presentation/views/widgets/validate_otp/validate_otp_header.dart';
 export 'package:warsha/features/auth/presentation/views/widgets/validate_otp/validate_otp_pin_put.dart';
+export 'package:warsha/features/course_details/presentation/views/course_details_view.dart';
+export 'package:warsha/features/course_details/presentation/views/widgets/course_details_header.dart';
+export 'package:warsha/features/course_details/presentation/views/widgets/course_details_information.dart';
+export 'package:warsha/features/home/presentation/views/widgets/home_courses_list.dart';
+export 'package:warsha/features/home/presentation/views/widgets/home_top_section.dart';
 // Onboarding view
 export 'package:warsha/features/onboarding/presentation/views/onboarding_view.dart';
 // Onboarding widgets
@@ -85,6 +92,7 @@ export 'package:warsha/features/onboarding/presentation/views/widgets/doc_logo_a
 export 'package:warsha/features/onboarding/presentation/views/widgets/doctor_image_and_text.dart';
 export 'package:warsha/features/onboarding/presentation/views/widgets/onboarding_body.dart';
 export 'package:warsha/features/onboarding/presentation/views/widgets/onboarding_footer.dart';
-export 'package:warsha/core/widgets/success_dialog.dart';
-export 'package:warsha/features/home/presentation/views/widgets/home_courses_list.dart';
-export 'package:warsha/features/home/presentation/views/widgets/home_top_section.dart';
+export 'package:warsha/features/subscribed_courses/presentation/views/subscribed_courses_view.dart';
+export 'package:google_nav_bar/google_nav_bar.dart';
+export 'package:warsha/features/home/presentation/views/home_view.dart';
+

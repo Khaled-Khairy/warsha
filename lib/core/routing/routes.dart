@@ -7,4 +7,7 @@ abstract class Routes {
   static const String resetPasswordScreen = '/resetPasswordScreen';
   static const String appNavBar = '/appNavBar';
   static const String homeScreen = '/homeScreen';
+  static const String courseDetailsScreen = '/courseDetailsScreen';
+  static const String subscribedCoursesScreen = '/subscribedCoursesScreen';
+  static const String subscribedCoursesDetailsScreen = '/subscribedCoursesDetailsScreen';
 }
