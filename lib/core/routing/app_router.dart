@@ -1,5 +1,4 @@
 import 'package:warsha/core/helpers/common_imports.dart';
-import 'package:warsha/features/watch_course/presentation/views/watch_course_view.dart';
 
 class AppRouter {
   Route<dynamic>? generateRouter(RouteSettings settings) {
@@ -63,6 +62,12 @@ class AppRouter {
           const WatchCourseView(),
           settings,
           TransitionType.fadeThrough,
+        );
+      case Routes.categoryCoursesView:
+        return RouteAnimations.buildPageRoute(
+          const CategoryCoursesView(),
+          settings,
+          TransitionType.slideFromRight,
         );
       default:
         return null;

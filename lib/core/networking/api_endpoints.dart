@@ -7,4 +7,7 @@ class ApiEndpoints {
   static const String resetPassword = 'user/reset-password/';
   static const String allCourses = 'courses/';
   static const String categories = 'categories/';
+  static String coursesByCategory(String category) {
+    return 'categories/$category/courses/';
+  }
 }

@@ -1,5 +1,5 @@
 import 'package:warsha/core/helpers/common_imports.dart';
-import 'package:warsha/features/course_categories/presentation/views/widgets/course_categories_success.dart';
+import 'package:warsha/features/course_categories/presentation/views/widgets/categories_grid_view.dart';
 
 class CourseCategoriesBody extends StatefulWidget {
   const CourseCategoriesBody({super.key});
@@ -26,7 +26,9 @@ class _CourseCategoriesBodyState extends State<CourseCategoriesBody> {
                 color: ColorsManager.mainGreen,
               );
             } else if (state is CategoriesSuccess) {
-              return  CourseCategoriesSuccess(categories: state.categories,);
+              return CategoriesGridView(
+                categories: state.categories,
+              );
             } else if (state is CategoriesFailure) {
               return Center(
                 child: Text(

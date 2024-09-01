@@ -1,8 +1,11 @@
 import 'package:warsha/core/helpers/common_imports.dart';
+import 'package:warsha/features/course_categories/presentation/views/widgets/categories_grid_view_item.dart';
 
-class CourseCategoriesSuccess extends StatelessWidget {
-  const CourseCategoriesSuccess({super.key, required this.categories});
+class CategoriesGridView extends StatelessWidget {
+  const CategoriesGridView({super.key, required this.categories});
+
   final List<Categories> categories;
+
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
@@ -15,19 +18,7 @@ class CourseCategoriesSuccess extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
       itemCount: categories.length,
       itemBuilder: (context, index) {
-        return Container(
-          decoration: BoxDecoration(
-            color: ColorsManager.mainGreen,
-            borderRadius: BorderRadius.circular(12.w),
-          ),
-          child: Center(
-            child: Text(
-              categories[index].name,
-              style: TextStyles.font20offWhiteSemiBold,
-              textAlign: TextAlign.center,
-            ),
-          ),
-        );
+        return CategoriesGridViewItem(category: categories[index]);
       },
     );
   }

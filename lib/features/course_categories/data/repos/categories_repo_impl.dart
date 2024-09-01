@@ -23,4 +23,25 @@ class CategoriesRepoImpl extends CategoriesRepo {
       }
     }
   }
+
+  @override
+  Future<Either<Failure, List<CourseModel>>> getCategoryCourses(
+      {required String category}) async {
+    try {
+      final response = await apiService.get(
+        endPoint: ApiEndpoints.coursesByCategory(category),
+      );
+      List<CourseModel> courses = [];
+      for (var item in response) {
+        courses.add(CourseModel.fromJson(item));
+      }
+      return Right(courses);
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioException(e));
+      } else {
+        return left(ServerFailure(e.toString()));
+      }
+    }
+  }
 }

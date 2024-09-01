@@ -103,4 +103,8 @@ export 'package:warsha/features/home/data/models/course_model.dart';
 export 'package:warsha/features/course_categories/data/repos/categories_repo_impl.dart';
 export 'package:warsha/features/course_categories/presentation/manager/categories_cubit/categories_cubit.dart';
 export 'package:warsha/features/course_categories/presentation/views/widgets/course_categories_body.dart';
-
+export 'package:warsha/features/course_categories/presentation/views/category_courses_view.dart';
+export 'package:warsha/features/watch_course/presentation/views/watch_course_view.dart';
+export 'package:warsha/features/home/presentation/views/widgets/course_content_card.dart';
+export 'package:warsha/features/course_categories/presentation/manager/category_list_cubit/category_list_cubit.dart';
+export 'package:warsha/features/course_categories/presentation/views/widgets/category_courses_list.dart';

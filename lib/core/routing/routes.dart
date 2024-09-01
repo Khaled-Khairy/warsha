@@ -11,4 +11,5 @@ abstract class Routes {
   static const String subscribedCoursesScreen = '/subscribedCoursesScreen';
   static const String subscribedCoursesDetailsScreen = '/subscribedCoursesDetailsScreen';
   static const String watchCourseScreen = '/watchCourseScreen';
+  static const String categoryCoursesView = '/categoryCoursesView';
 }
