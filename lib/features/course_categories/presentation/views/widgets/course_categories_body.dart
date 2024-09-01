@@ -17,28 +17,32 @@ class _CourseCategoriesBodyState extends State<CourseCategoriesBody> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<CategoriesCubit, CategoriesState>(
-      builder: (context, state) {
-        if (state is CategoriesLoading) {
-          return const CircularProgressIndicator(
-            color: ColorsManager.mainGreen,
-          );
-        } else if (state is CategoriesSuccess) {
-          return const CourseCategoriesSuccess();
-        } else if (state is CategoriesFailure) {
-          return Center(
-            child: Text(
-              "Failed",
-              style: TextStyles.font16offWhiteSemiBold,
-            ),
-          );
-        } else {
-          return Text(
-            "Unhandled Error",
-            style: TextStyles.font16offWhiteSemiBold,
-          );
-        }
-      },
+    return SafeArea(
+      child: Center(
+        child: BlocBuilder<CategoriesCubit, CategoriesState>(
+          builder: (context, state) {
+            if (state is CategoriesLoading) {
+              return const CircularProgressIndicator(
+                color: ColorsManager.mainGreen,
+              );
+            } else if (state is CategoriesSuccess) {
+              return  CourseCategoriesSuccess(categories: state.categories,);
+            } else if (state is CategoriesFailure) {
+              return Center(
+                child: Text(
+                  "Failed",
+                  style: TextStyles.font16offWhiteSemiBold,
+                ),
+              );
+            } else {
+              return Text(
+                "Unhandled Error",
+                style: TextStyles.font16offWhiteSemiBold,
+              );
+            }
+          },
+        ),
+      ),
     );
   }
 }

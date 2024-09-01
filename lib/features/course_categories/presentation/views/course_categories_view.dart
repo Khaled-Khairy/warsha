@@ -8,7 +8,7 @@ class CourseCategoriesView extends StatelessWidget {
     return Scaffold(
       body: BlocProvider(
         create: (context) => CategoriesCubit(getIt.get<CategoriesRepoImpl>()),
-        child: const Center(child: CourseCategoriesBody()),
+        child: const CourseCategoriesBody(),
       ),
     );
   }
