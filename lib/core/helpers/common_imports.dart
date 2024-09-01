@@ -81,7 +81,6 @@ export 'package:warsha/features/auth/presentation/views/widgets/validate_otp/val
 export 'package:warsha/features/auth/presentation/views/widgets/validate_otp/validate_otp_header.dart';
 export 'package:warsha/features/auth/presentation/views/widgets/validate_otp/validate_otp_pin_put.dart';
 export 'package:warsha/features/course_details/presentation/views/course_details_view.dart';
-export 'package:warsha/features/course_details/presentation/views/widgets/course_details_header.dart';
 export 'package:warsha/features/course_details/presentation/views/widgets/course_details_information.dart';
 export 'package:warsha/features/home/presentation/views/widgets/home_courses_list.dart';
 export 'package:warsha/features/home/presentation/views/widgets/home_top_section.dart';
@@ -92,7 +91,16 @@ export 'package:warsha/features/onboarding/presentation/views/widgets/doc_logo_a
 export 'package:warsha/features/onboarding/presentation/views/widgets/doctor_image_and_text.dart';
 export 'package:warsha/features/onboarding/presentation/views/widgets/onboarding_body.dart';
 export 'package:warsha/features/onboarding/presentation/views/widgets/onboarding_footer.dart';
-export 'package:warsha/features/subscribed_courses/presentation/views/subscribed_courses_view.dart';
 export 'package:google_nav_bar/google_nav_bar.dart';
 export 'package:warsha/features/home/presentation/views/home_view.dart';
+export 'package:warsha/features/home/data/repos/home_repos/home_repo_impl.dart';
+export 'package:warsha/features/home/presentation/manager/home_cubit/home_cubit.dart';
+export 'package:warsha/features/home/presentation/views/widgets/home_body.dart';
+export 'package:cached_network_image/cached_network_image.dart';
+export 'package:warsha/features/course_categories/data/models/categories.dart';
+export 'package:warsha/features/course_categories/data/repos/categories_repo.dart';
+export 'package:warsha/features/home/data/models/course_model.dart';
+export 'package:warsha/features/course_categories/data/repos/categories_repo_impl.dart';
+export 'package:warsha/features/course_categories/presentation/manager/categories_cubit/categories_cubit.dart';
+export 'package:warsha/features/course_categories/presentation/views/widgets/course_categories_body.dart';
 

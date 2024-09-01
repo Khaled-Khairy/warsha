@@ -1,4 +1,5 @@
 import 'package:warsha/core/helpers/common_imports.dart';
+import 'package:warsha/features/course_categories/presentation/views/course_categories_view.dart';
 
 class AppNavBar extends StatefulWidget {
   const AppNavBar({super.key});
@@ -9,19 +10,20 @@ class AppNavBar extends StatefulWidget {
 
 class _AppNavBarState extends State<AppNavBar> {
   int currentIndex = 0;
-  List<Widget> body = [
+  final List<Widget> _pages = [
     const HomeView(),
-    const Icon(Iconsax.category_2_outline),
+    const CourseCategoriesView(),
     const Icon(Clarity.search_line),
-    const SubscribedCoursesView(),
+    const Icon(Clarity.search_line),
     const Icon(Clarity.settings_line),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: body[currentIndex],
+      body: IndexedStack(
+        index: currentIndex,
+        children: _pages,
       ),
       bottomNavigationBar: Container(
         padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),

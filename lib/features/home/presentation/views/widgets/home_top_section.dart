@@ -28,11 +28,7 @@ class HomeTopSection extends StatelessWidget {
             ),
           ],
         ),
-        10.verticalSpace,
-        const Divider(
-          color: ColorsManager.mainGreen,
-        ),
-        // Text("All Courses", style: TextStyles.font26GreenBold),
+
       ],
     );
   }

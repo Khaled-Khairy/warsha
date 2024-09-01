@@ -4,99 +4,121 @@ import 'package:warsha/features/course_details/presentation/views/widgets/send_r
 class CourseDetailsInformation extends StatelessWidget {
   const CourseDetailsInformation({
     super.key,
+    required this.course,
   });
+
+  final CourseModel course;
 
   @override
   Widget build(BuildContext context) {
-    return AppBody(
-      verticalPadding: 5,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            "Comprehensive Guide to Quantum Computing: From Basics to Advanced Applications",
-            style: TextStyles.font18offWhiteSemiBold,
-          ),
-          4.verticalSpace,
-          RichText(
-            textAlign: TextAlign.center,
-            text: TextSpan(
-              children: [
-                TextSpan(
-                  text: "Author: ",
-                  style: TextStyles.font14GreyRegular,
-                ),
-                TextSpan(
-                  text: "Khaled Mohamed",
-                  style: TextStyles.font14GreenMedium,
-                ),
-              ],
+    return Column(
+      children: [
+        AspectRatio(
+          aspectRatio: 16 / 9,
+          child: ClipRRect(
+            borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(12.w),
+              bottomRight: Radius.circular(12.w),
+            ),
+            child: CachedNetworkImage(
+              fit: BoxFit.fill,
+              imageUrl:
+                  "http://image.tmdb.org/t/p/original/8cdWjvZQUExUUTzyp4t6EDMubfO.jpg",
+              placeholder: (context, url) => const Center(child: CircularProgressIndicator()),
+              errorWidget: (context, url, error) => const Icon(Icons.error),
             ),
           ),
-          4.verticalSpace,
-          Text(
-            "This course provides an in-depth exploration of quantum computing, starting with the fundamental principles such as qubits, superposition, and entanglement. You'll learn how quantum gates operate, understand quantum algorithms, and explore real-world applications. By the end of this course, you'll be equipped with the knowledge to understand and potentially contribute to the rapidly evolving field of quantum computing.",
-            style: TextStyles.font14GreyRegular,
-          ),
-          8.verticalSpace,
-          Row(
+        ),
+        AppBody(
+          verticalPadding: 5,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              Text(
+                course.title,
+                style: TextStyles.font18offWhiteSemiBold,
+              ),
+              4.verticalSpace,
+              RichText(
+                textAlign: TextAlign.center,
+                text: TextSpan(
+                  children: [
+                    TextSpan(
+                      text: "Author: ",
+                      style: TextStyles.font14offWhiteMedium,
+                    ),
+                    TextSpan(
+                      text: course.author,
+                      style: TextStyles.font14GreenSemiBold,
+                    ),
+                  ],
+                ),
+              ),
+              4.verticalSpace,
+              Text(
+                course.description,
+                style: TextStyles.font14GreyRegular,
+              ),
+              8.verticalSpace,
+              Row(
                 children: [
-                  Row(
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Icon(
-                        Bootstrap.collection,
-                        size: 16.w,
-                        color: ColorsManager.mainGreen,
+                      Row(
+                        children: [
+                          Icon(
+                            Bootstrap.collection,
+                            size: 16.w,
+                            color: ColorsManager.mainGreen,
+                          ),
+                          4.horizontalSpace,
+                          Text(
+                            "${course.numOfLessons} Lessons",
+                            style: TextStyles.font14offWhiteMedium,
+                          ),
+                        ],
                       ),
-                      4.horizontalSpace,
-                      Text(
-                        "11 Lessons",
-                        style: TextStyles.font14offWhiteMedium,
+                      2.verticalSpace,
+                      Row(
+                        children: [
+                          Icon(
+                            Iconsax.clock_outline,
+                            size: 16.w,
+                            color: ColorsManager.mainGreen,
+                          ),
+                          4.horizontalSpace,
+                          Text(
+                            convertMinToHour(course.duration),
+                            style: TextStyles.font14offWhiteMedium,
+                          ),
+                        ],
                       ),
                     ],
                   ),
-                  2.verticalSpace,
-                  Row(
-                    children: [
-                      Icon(
-                        Iconsax.clock_outline,
-                        size: 16.w,
-                        color: ColorsManager.mainGreen,
-                      ),
-                      4.horizontalSpace,
-                      Text(
-                        "5.4 hours",
-                        style: TextStyles.font14offWhiteMedium,
-                      ),
-                    ],
-                  ),
+                  const Spacer(),
+                  Text(
+                    "${course.cost} LE",
+                    style: TextStyles.font20GreenBold,
+                  )
                 ],
               ),
-              const Spacer(),
-              Text(
-                "120 LE",
-                style: TextStyles.font20GreenBold,
-              )
+              20.verticalSpace,
+              AppTextButton(
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) {
+                      return const SendReceipt();
+                    },
+                  );
+                },
+                text: "Buy Now",
+              ),
             ],
           ),
-          20.verticalSpace,
-          AppTextButton(
-            onPressed: () {
-              showDialog(
-                context: context,
-                builder: (context) {
-                  return const SendReceipt();
-                },
-              );
-            },
-            text: "Buy Now",
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
-

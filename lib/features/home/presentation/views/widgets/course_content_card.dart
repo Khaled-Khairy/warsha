@@ -3,7 +3,10 @@ import 'package:warsha/core/helpers/common_imports.dart';
 class CourseContentCard extends StatelessWidget {
   const CourseContentCard({
     super.key,
+    required this.course,
   });
+
+  final CourseModel course;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +23,14 @@ class CourseContentCard extends StatelessWidget {
             aspectRatio: 16 / 9,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(12.w),
-              child: Image.asset("assets/images/test.jpg"),
+              child: CachedNetworkImage(
+                fit: BoxFit.fill,
+                imageUrl:
+                    "http://image.tmdb.org/t/p/original/8cdWjvZQUExUUTzyp4t6EDMubfO.jpg",
+                placeholder: (context, url) =>
+                    const Center(child: CircularProgressIndicator()),
+                errorWidget: (context, url, error) => const Icon(Icons.error),
+              ),
             ),
           ),
           4.verticalSpace,
@@ -30,7 +40,7 @@ class CourseContentCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Fatty Liver",
+                  course.title,
                   style: TextStyles.font18offWhiteSemiBold,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
@@ -42,18 +52,18 @@ class CourseContentCard extends StatelessWidget {
                     children: [
                       TextSpan(
                         text: "Author: ",
-                        style: TextStyles.font14GreyRegular,
+                        style: TextStyles.font14offWhiteMedium,
                       ),
                       TextSpan(
-                        text: "Khaled Mohamed",
-                        style: TextStyles.font14offWhiteMedium,
+                        text: course.author,
+                        style: TextStyles.font14GreenSemiBold,
                       ),
                     ],
                   ),
                 ),
                 2.verticalSpace,
                 Text(
-                  "This is the first course",
+                  course.description,
                   style: TextStyles.font14GreyRegular,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
@@ -73,7 +83,7 @@ class CourseContentCard extends StatelessWidget {
                             ),
                             4.horizontalSpace,
                             Text(
-                              "11 Lessons",
+                              "${course.numOfLessons} Lessons",
                               style: TextStyles.font14offWhiteMedium,
                             ),
                           ],
@@ -87,7 +97,7 @@ class CourseContentCard extends StatelessWidget {
                             ),
                             4.horizontalSpace,
                             Text(
-                              "5.4 hours",
+                              convertMinToHour(course.duration),
                               style: TextStyles.font14offWhiteMedium,
                             ),
                           ],
@@ -96,7 +106,7 @@ class CourseContentCard extends StatelessWidget {
                     ),
                     const Spacer(),
                     Text(
-                      "120 LE",
+                      "${course.cost} LE",
                       style: TextStyles.font16GreenBold,
                     )
                   ],

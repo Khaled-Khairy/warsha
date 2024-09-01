@@ -82,6 +82,10 @@ abstract class TextStyles {
     fontSize: 14.sp,
     color: ColorsManager.mainGreen,
     fontWeight: FontWeightHelper.medium,
+  );static TextStyle font14GreenSemiBold = TextStyle(
+    fontSize: 14.sp,
+    color: ColorsManager.mainGreen,
+    fontWeight: FontWeightHelper.semiBold,
   );
   static TextStyle font16GreenBold = TextStyle(
     fontSize: 16.sp,

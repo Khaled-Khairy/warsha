@@ -4,7 +4,7 @@ bool isLoggedUser = false;
 
 checkIfLoggedUser() async {
   String? userToken =
-  await SharedPrefHelper.getString(key: SharedPrefKeys.accessToken);
+      await SharedPrefHelper.getString(key: SharedPrefKeys.accessToken);
   if (userToken != null && userToken.isNotEmpty) {
     isLoggedUser = true;
   } else {
@@ -18,4 +18,10 @@ void closeKeyboard(BuildContext context) {
     currentFocus.unfocus();
     FocusScope.of(context).requestFocus(FocusNode());
   }
+}
+
+String convertMinToHour(int min) {
+  int hours = min ~/ 60;
+  int minutes = min % 60;
+  return '$hours hours $minutes minutes';
 }

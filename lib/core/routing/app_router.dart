@@ -1,5 +1,4 @@
 import 'package:warsha/core/helpers/common_imports.dart';
-import 'package:warsha/features/subscribed_courses/presentation/views/subscribed_course_details_view.dart';
 import 'package:warsha/features/watch_course/presentation/views/watch_course_view.dart';
 
 class AppRouter {
@@ -37,7 +36,6 @@ class AppRouter {
             TransitionType.slideFromRight,
           );
         }
-        return null;
       case Routes.resetPasswordScreen:
         if (arguments is String) {
           return RouteAnimations.buildPageRoute(
@@ -46,7 +44,6 @@ class AppRouter {
             TransitionType.slideFromRight,
           );
         }
-        return null;
       case Routes.appNavBar:
         return RouteAnimations.buildPageRoute(
           const AppNavBar(),
@@ -54,23 +51,13 @@ class AppRouter {
           TransitionType.slideFromBottom,
         );
       case Routes.courseDetailsScreen:
-        return RouteAnimations.buildPageRoute(
-          const CourseDetailsView(),
-          settings,
-          TransitionType.fadeThrough,
-        );
-      case Routes.subscribedCoursesScreen:
-        return RouteAnimations.buildPageRoute(
-          const SubscribedCoursesView(),
-          settings,
-          TransitionType.fadeThrough,
-        );
-      case Routes.subscribedCoursesDetailsScreen:
-        return RouteAnimations.buildPageRoute(
-          const SubscribedCourseDetailsView(),
-          settings,
-          TransitionType.fadeThrough,
-        );
+        if (arguments is CourseModel) {
+          return RouteAnimations.buildPageRoute(
+            const CourseDetailsView(),
+            settings,
+            TransitionType.fadeThrough,
+          );
+        }
       case Routes.watchCourseScreen:
         return RouteAnimations.buildPageRoute(
           const WatchCourseView(),
@@ -80,5 +67,6 @@ class AppRouter {
       default:
         return null;
     }
+    return null;
   }
 }

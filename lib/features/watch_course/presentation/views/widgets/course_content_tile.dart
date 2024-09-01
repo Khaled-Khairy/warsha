@@ -25,7 +25,7 @@ class CourseContentTile extends StatelessWidget {
       collapsedBackgroundColor: Colors.transparent,
       childrenPadding: EdgeInsets.symmetric(horizontal: 12.w),
       expandedAlignment: Alignment.centerLeft,
-      tilePadding: EdgeInsets.symmetric(horizontal: 0),
+      tilePadding: EdgeInsets.zero,
       children: const [
         CourseContentLessons(),
       ],

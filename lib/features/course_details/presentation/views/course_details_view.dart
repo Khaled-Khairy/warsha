@@ -6,8 +6,11 @@ class CourseDetailsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: CourseDetailsBody(),
+    final course = ModalRoute.of(context)!.settings.arguments as CourseModel;
+    return Scaffold(
+      body: CourseDetailsBody(
+        course: course,
+      ),
     );
   }
 }
