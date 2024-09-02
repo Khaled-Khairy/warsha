@@ -27,10 +27,12 @@ class CategoriesGridViewItem extends StatelessWidget {
           borderRadius: BorderRadius.circular(12.w),
         ),
         child: Center(
-          child: Text(
-            category.name,
-            style: TextStyles.font18offWhiteSemiBold,
-            textAlign: TextAlign.center,
+          child: FittedBox(
+            child: Text(
+              category.name,
+              style: TextStyles.font18offWhiteSemiBold,
+              textAlign: TextAlign.center,
+            ),
           ),
         ),
       ),
