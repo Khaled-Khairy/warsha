@@ -1,6 +1,5 @@
 import 'package:warsha/core/helpers/common_imports.dart';
 import 'package:warsha/core/networking/dio_factory.dart';
-import 'package:warsha/features/course_details/data/repo/subscribe_repo_impl.dart';
 
 final getIt = GetIt.instance;
 

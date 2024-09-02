@@ -25,3 +25,23 @@ String convertMinToHour(int min) {
   int minutes = min % 60;
   return '$hours hours $minutes minutes';
 }
+
+void showSnackBar({required BuildContext context, required String message}) {
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(
+      elevation: 0,
+      behavior: SnackBarBehavior.floating,
+      backgroundColor: Colors.transparent,
+      duration: const Duration(seconds: 5),
+      content: SnackBarContent(message: message),
+    ),
+  );
+}
+
+appShowDialog({required BuildContext context, required Widget content}) {
+  return showDialog(
+    context: context,
+    barrierDismissible: false,
+    builder: (context) => content,
+  );
+}

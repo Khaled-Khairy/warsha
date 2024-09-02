@@ -5,9 +5,10 @@ class SuccessDialog extends StatelessWidget {
       {super.key,
       required this.title,
       required this.subTitle,
-      required this.onPressed});
+      required this.onPressed, this.buttonText});
 
   final String title, subTitle;
+  final String? buttonText;
   final VoidCallback onPressed;
 
   @override
@@ -45,7 +46,7 @@ class SuccessDialog extends StatelessWidget {
             10.verticalSpace,
             AppTextButton(
               onPressed: onPressed,
-              text: "Return to login",
+              text: buttonText??"Return to login",
             ),
           ],
         ),

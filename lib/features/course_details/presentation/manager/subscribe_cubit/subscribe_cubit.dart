@@ -1,8 +1,7 @@
-import 'package:warsha/features/course_details/data/models/subscribe_request.dart';
-import 'package:warsha/features/course_details/data/models/subscribe_response.dart';
-import 'package:warsha/features/course_details/data/repo/subscribe_repo.dart';
 
-import '../../../../../core/helpers/common_imports.dart';
+
+
+import 'package:warsha/core/helpers/common_imports.dart';
 
 part 'subscribe_state.dart';
 

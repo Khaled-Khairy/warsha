@@ -1,7 +1,3 @@
-import 'dart:io';
-
-import 'package:dotted_border/dotted_border.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:warsha/core/helpers/common_imports.dart';
 
 class UploadImage extends StatefulWidget {
@@ -22,14 +18,14 @@ class _UploadImageState extends State<UploadImage> {
       onTap: () {
         _pickImageFromGallery();
       },
-      child: AspectRatio(
-        aspectRatio: 1.6,
-        child: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12.w),
-          ),
-          child: selectedImage == null
-              ? DottedBorder(
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(12.w),
+        ),
+        child: selectedImage == null
+            ? AspectRatio(
+                aspectRatio: 1.6,
+                child: DottedBorder(
                   color: Colors.grey,
                   strokeWidth: 2.w,
                   dashPattern: const [10, 6],
@@ -42,15 +38,14 @@ class _UploadImageState extends State<UploadImage> {
                       color: Colors.grey,
                     ),
                   ),
-                )
-              : ClipRRect(
-                  borderRadius: BorderRadius.circular(12.w),
-                  child: Image.file(
-                    selectedImage!,
-                    fit: BoxFit.cover,
-                  ),
                 ),
-        ),
+              )
+            : ClipRRect(
+                borderRadius: BorderRadius.circular(12.w),
+                child: Image.file(
+                  selectedImage!,
+                ),
+              ),
       ),
     );
   }
