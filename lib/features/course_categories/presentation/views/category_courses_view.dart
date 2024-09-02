@@ -1,5 +1,4 @@
 import 'package:warsha/core/helpers/common_imports.dart';
-import 'package:warsha/features/course_categories/presentation/manager/category_list_cubit/category_list_cubit.dart';
 import 'package:warsha/features/course_categories/presentation/views/widgets/category_courses_body.dart';
 
 class CategoryCoursesView extends StatelessWidget {

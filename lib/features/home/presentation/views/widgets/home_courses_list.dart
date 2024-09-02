@@ -1,5 +1,4 @@
 import 'package:warsha/core/helpers/common_imports.dart';
-import 'package:warsha/features/home/presentation/views/widgets/course_content_card.dart';
 
 class HomeCoursesList extends StatelessWidget {
   const HomeCoursesList({

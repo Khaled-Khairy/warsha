@@ -7,7 +7,6 @@ class CategoryListCubit extends Cubit<CategoryListState> {
   final CategoriesRepo categoriesRepo;
 
   Future<void> getCategoryCourses({required String category}) async {
-    print("==========================");
     emit(CategoryListLoading());
     final response = await categoriesRepo.getCategoryCourses(category: category);
     response.fold(

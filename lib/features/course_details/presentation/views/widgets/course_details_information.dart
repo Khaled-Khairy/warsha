@@ -1,4 +1,6 @@
 import 'package:warsha/core/helpers/common_imports.dart';
+import 'package:warsha/features/course_details/data/repo/subscribe_repo_impl.dart';
+import 'package:warsha/features/course_details/presentation/manager/subscribe_cubit/subscribe_cubit.dart';
 import 'package:warsha/features/course_details/presentation/views/widgets/send_receipt.dart';
 
 class CourseDetailsInformation extends StatelessWidget {
@@ -23,8 +25,9 @@ class CourseDetailsInformation extends StatelessWidget {
             child: CachedNetworkImage(
               fit: BoxFit.fill,
               imageUrl:
-                  "http://image.tmdb.org/t/p/original/8cdWjvZQUExUUTzyp4t6EDMubfO.jpg",
-              placeholder: (context, url) => const Center(child: CircularProgressIndicator()),
+              "http://image.tmdb.org/t/p/original/8cdWjvZQUExUUTzyp4t6EDMubfO.jpg",
+              placeholder: (context, url) =>
+              const Center(child: CircularProgressIndicator()),
               errorWidget: (context, url, error) => const Icon(Icons.error),
             ),
           ),
@@ -109,7 +112,10 @@ class CourseDetailsInformation extends StatelessWidget {
                   showDialog(
                     context: context,
                     builder: (context) {
-                      return const SendReceipt();
+                      return BlocProvider(
+                        create: (context) => SubscribeCubit(getIt.get<SubscribeRepoImpl>()),
+                        child: const SendReceipt(),
+                      );
                     },
                   );
                 },

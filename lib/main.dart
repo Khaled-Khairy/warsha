@@ -25,12 +25,11 @@ class Warsha extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       designSize: const Size(360, 800),
-      
       minTextAdapt: true,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: theme,
-        initialRoute: Routes.appNavBar,
+        initialRoute: isLoggedUser ? Routes.appNavBar : Routes.onboardingScreen,
         onGenerateRoute: appRouter.generateRouter,
       ),
     );

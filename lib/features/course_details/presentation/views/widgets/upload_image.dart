@@ -5,7 +5,9 @@ import 'package:image_picker/image_picker.dart';
 import 'package:warsha/core/helpers/common_imports.dart';
 
 class UploadImage extends StatefulWidget {
-  const UploadImage({super.key});
+  const UploadImage({super.key, required this.onImageSelected});
+
+  final ValueChanged<File?> onImageSelected;
 
   @override
   State<UploadImage> createState() => _UploadImageState();
@@ -43,11 +45,11 @@ class _UploadImageState extends State<UploadImage> {
                 )
               : ClipRRect(
                   borderRadius: BorderRadius.circular(12.w),
-                child: Image.file(
+                  child: Image.file(
                     selectedImage!,
                     fit: BoxFit.cover,
                   ),
-              ),
+                ),
         ),
       ),
     );
@@ -57,6 +59,7 @@ class _UploadImageState extends State<UploadImage> {
     final image = await ImagePicker().pickImage(source: ImageSource.gallery);
     setState(() {
       selectedImage = File(image!.path);
+      widget.onImageSelected(selectedImage);
     });
   }
 }
