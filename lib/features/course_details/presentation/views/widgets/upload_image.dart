@@ -1,3 +1,4 @@
+import 'package:permission_handler/permission_handler.dart';
 import 'package:warsha/core/helpers/common_imports.dart';
 
 class UploadImage extends StatefulWidget {
@@ -50,11 +51,35 @@ class _UploadImageState extends State<UploadImage> {
     );
   }
 
-  Future _pickImageFromGallery() async {
-    final image = await ImagePicker().pickImage(source: ImageSource.gallery);
-    setState(() {
-      selectedImage = File(image!.path);
-      widget.onImageSelected(selectedImage);
-    });
+  _pickImageFromGallery() async {
+    var status = await Permission.photos.request();
+
+    if (status.isGranted) {
+      final image = await ImagePicker().pickImage(source: ImageSource.gallery);
+      if (image != null) {
+        setState(() {
+          selectedImage = File(image.path);
+          widget.onImageSelected(selectedImage);
+        });
+      }
+    } else if (status.isDenied || status.isPermanentlyDenied) {
+      _showPermissionDeniedMessage();
+    }
+  }
+
+  _showPermissionDeniedMessage() {
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: SnackBarContent(
+            message:
+                "Permission to access your photo gallery is required to select images. Please enable it in your device settings."),
+      ),
+    );
+    Future.delayed(
+      const Duration(seconds: 3),
+      () {
+        openAppSettings();
+      },
+    );
   }
 }

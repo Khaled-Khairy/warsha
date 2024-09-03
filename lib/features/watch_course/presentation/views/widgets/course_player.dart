@@ -1,6 +1,4 @@
 import 'package:warsha/core/helpers/common_imports.dart';
-import 'package:warsha/features/watch_course/presentation/views/widgets/course_content_tile.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class CoursePlayer extends StatefulWidget {
   const CoursePlayer({super.key});
@@ -15,9 +13,9 @@ class _CoursePlayerState extends State<CoursePlayer> {
 
   @override
   void initState() {
-    final videoId = YoutubePlayer.convertUrlToId(videoUrl)!;
+    final videoId = YoutubePlayer.convertUrlToId(videoUrl);
     _controller = YoutubePlayerController(
-      initialVideoId: videoId,
+      initialVideoId: videoId!,
       flags: const YoutubePlayerFlags(
         mute: false,
         autoPlay: true,
@@ -31,6 +29,13 @@ class _CoursePlayerState extends State<CoursePlayer> {
     super.initState();
   }
 
+  void _loadVideo(String videoUrl) {
+    final videoId = YoutubePlayer.convertUrlToId(videoUrl);
+    if (videoId != null) {
+      _controller.load(videoId);
+    }
+  }
+
   @override
   void dispose() {
     _controller.dispose();
@@ -39,6 +44,8 @@ class _CoursePlayerState extends State<CoursePlayer> {
 
   @override
   Widget build(BuildContext context) {
+    final cubit = BlocProvider.of<CourseUnitsCubit>(context);
+    final List<CourseUnit> units = cubit.courseUnits;
     return YoutubePlayerBuilder(
       onEnterFullScreen: () {
         SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
@@ -60,12 +67,15 @@ class _CoursePlayerState extends State<CoursePlayer> {
             player,
             Expanded(
               child: ListView.builder(
-                itemCount: 5,
+                itemCount: units.length,
                 itemBuilder: (context, index) {
-                  return const CourseContentTile();
+                  return CourseContentTile(
+                    unit: units[index],
+                    onLessonTap: _loadVideo,
+                  );
                 },
               ),
-            )
+            ),
           ],
         );
       },

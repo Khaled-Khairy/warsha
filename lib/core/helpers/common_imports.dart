@@ -119,3 +119,10 @@ export 'package:warsha/features/onboarding/presentation/views/widgets/doctor_ima
 export 'package:warsha/features/onboarding/presentation/views/widgets/onboarding_body.dart';
 export 'package:warsha/features/onboarding/presentation/views/widgets/onboarding_footer.dart';
 export 'package:warsha/features/watch_course/presentation/views/watch_course_view.dart';
+export 'package:warsha/features/watch_course/data/models/course_unit_model.dart';
+export 'package:warsha/features/watch_course/presentation/manager/course_units_cubit/course_units_cubit.dart';
+export 'package:warsha/features/watch_course/presentation/views/widgets/course_content_tile.dart';
+export 'package:youtube_player_flutter/youtube_player_flutter.dart';
+
+
+export 'package:warsha/features/watch_course/presentation/views/widgets/course_content_lessons.dart';
