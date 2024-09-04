@@ -1,6 +1,7 @@
-// Flutter and package imports
+// Dart and Flutter imports
 export 'dart:io';
 
+// Flutter packages
 export 'package:animations/animations.dart';
 export 'package:cached_network_image/cached_network_image.dart';
 export 'package:dio/dio.dart';
@@ -30,6 +31,7 @@ export 'package:warsha/core/helpers/validations.dart';
 // Core networking
 export 'package:warsha/core/networking/api_endpoints.dart';
 export 'package:warsha/core/networking/api_service.dart';
+export 'package:warsha/core/networking/dio_factory.dart';
 // Core resources
 export 'package:warsha/core/resources/assets.dart';
 export 'package:warsha/core/resources/colors.dart';
@@ -86,6 +88,7 @@ export 'package:warsha/features/auth/presentation/views/widgets/validate_otp/val
 export 'package:warsha/features/auth/presentation/views/widgets/validate_otp/validate_otp_form.dart';
 export 'package:warsha/features/auth/presentation/views/widgets/validate_otp/validate_otp_header.dart';
 export 'package:warsha/features/auth/presentation/views/widgets/validate_otp/validate_otp_pin_put.dart';
+// Course categories
 export 'package:warsha/features/course_categories/data/models/categories.dart';
 export 'package:warsha/features/course_categories/data/repos/categories_repo.dart';
 export 'package:warsha/features/course_categories/data/repos/categories_repo_impl.dart';
@@ -94,6 +97,7 @@ export 'package:warsha/features/course_categories/presentation/manager/category_
 export 'package:warsha/features/course_categories/presentation/views/category_courses_view.dart';
 export 'package:warsha/features/course_categories/presentation/views/widgets/category_courses_list.dart';
 export 'package:warsha/features/course_categories/presentation/views/widgets/course_categories_body.dart';
+// Course details
 export 'package:warsha/features/course_details/data/models/subscribe_request.dart';
 export 'package:warsha/features/course_details/data/models/subscribe_response.dart';
 export 'package:warsha/features/course_details/data/repo/subscribe_repo.dart';
@@ -103,6 +107,7 @@ export 'package:warsha/features/course_details/presentation/views/course_details
 export 'package:warsha/features/course_details/presentation/views/widgets/buy_now_body.dart';
 export 'package:warsha/features/course_details/presentation/views/widgets/course_details_information.dart';
 export 'package:warsha/features/course_details/presentation/views/widgets/upload_image.dart';
+// Home
 export 'package:warsha/features/home/data/models/course_model.dart';
 export 'package:warsha/features/home/data/repos/home_repos/home_repo_impl.dart';
 export 'package:warsha/features/home/presentation/manager/home_cubit/home_cubit.dart';
@@ -111,18 +116,17 @@ export 'package:warsha/features/home/presentation/views/widgets/course_content_c
 export 'package:warsha/features/home/presentation/views/widgets/home_body.dart';
 export 'package:warsha/features/home/presentation/views/widgets/home_courses_list.dart';
 export 'package:warsha/features/home/presentation/views/widgets/home_top_section.dart';
-// Onboarding view
+// Onboarding
 export 'package:warsha/features/onboarding/presentation/views/onboarding_view.dart';
-// Onboarding widgets
 export 'package:warsha/features/onboarding/presentation/views/widgets/doc_logo_and_name.dart';
 export 'package:warsha/features/onboarding/presentation/views/widgets/doctor_image_and_text.dart';
 export 'package:warsha/features/onboarding/presentation/views/widgets/onboarding_body.dart';
 export 'package:warsha/features/onboarding/presentation/views/widgets/onboarding_footer.dart';
-export 'package:warsha/features/watch_course/presentation/views/watch_course_view.dart';
+// Watch Course
 export 'package:warsha/features/watch_course/data/models/course_unit_model.dart';
+export 'package:warsha/features/watch_course/data/repos/course_unit_repo_impl.dart';
 export 'package:warsha/features/watch_course/presentation/manager/course_units_cubit/course_units_cubit.dart';
+export 'package:warsha/features/watch_course/presentation/views/watch_course_view.dart';
+export 'package:warsha/features/watch_course/presentation/views/widgets/course_content_lessons.dart';
 export 'package:warsha/features/watch_course/presentation/views/widgets/course_content_tile.dart';
 export 'package:youtube_player_flutter/youtube_player_flutter.dart';
-
-
-export 'package:warsha/features/watch_course/presentation/views/widgets/course_content_lessons.dart';

@@ -12,7 +12,7 @@ class ServerFailure extends Failure {
   factory ServerFailure.fromDioException(DioException dioException) {
     switch (dioException.type) {
       case DioExceptionType.connectionTimeout:
-        return ServerFailure('Connection lost');
+        return ServerFailure('Ops There was an Error, Please try again');
       case DioExceptionType.sendTimeout:
         return ServerFailure('Ops There was an Error, Please try again');
       case DioExceptionType.receiveTimeout:
@@ -22,7 +22,7 @@ class ServerFailure extends Failure {
       case DioExceptionType.badResponse:
         return ServerFailure.fromResponse(dioException.response);
       case DioExceptionType.cancel:
-        return ServerFailure('Request to ApiServer was canceled');
+        return ServerFailure('The request was canceled. Please try again.');
       case DioExceptionType.connectionError:
         return ServerFailure('Connection Error');
       case DioExceptionType.unknown:

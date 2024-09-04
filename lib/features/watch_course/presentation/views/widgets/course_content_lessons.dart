@@ -1,5 +1,4 @@
 import 'package:warsha/core/helpers/common_imports.dart';
-import 'package:warsha/features/watch_course/data/models/course_unit_model.dart';
 
 class CourseContentLessons extends StatelessWidget {
   const CourseContentLessons({
