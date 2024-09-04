@@ -1,5 +1,4 @@
 import 'package:warsha/core/helpers/common_imports.dart';
-import 'package:warsha/features/watch_course/presentation/manager/course_units_cubit/course_units_cubit.dart';
 import 'package:warsha/features/watch_course/presentation/views/widgets/course_player.dart';
 
 class WatchCourseBody extends StatelessWidget {

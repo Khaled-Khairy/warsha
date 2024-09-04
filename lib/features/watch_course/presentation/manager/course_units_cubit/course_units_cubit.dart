@@ -1,5 +1,3 @@
-import 'package:warsha/features/watch_course/data/models/course_unit_model.dart';
-import 'package:warsha/features/watch_course/data/repos/course_unit_repo_impl.dart';
 
 import '../../../../../core/helpers/common_imports.dart';
 

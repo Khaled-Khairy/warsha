@@ -130,3 +130,5 @@ export 'package:warsha/features/watch_course/presentation/views/watch_course_vie
 export 'package:warsha/features/watch_course/presentation/views/widgets/course_content_lessons.dart';
 export 'package:warsha/features/watch_course/presentation/views/widgets/course_content_tile.dart';
 export 'package:youtube_player_flutter/youtube_player_flutter.dart';
+export 'package:warsha/features/auth/data/models/send_otp_models/send_otp_response.dart';
+export 'package:warsha/features/watch_course/data/repos/course_unit_repo.dart';

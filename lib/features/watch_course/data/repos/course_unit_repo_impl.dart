@@ -1,7 +1,5 @@
 import 'package:dartz/dartz.dart';
 import 'package:warsha/core/helpers/common_imports.dart';
-import 'package:warsha/features/watch_course/data/models/course_unit_model.dart';
-import 'package:warsha/features/watch_course/data/repos/course_unit_repo.dart';
 
 class CourseUnitRepoImpl implements CourseUnitRepo {
   final ApiService apiService;
