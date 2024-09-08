@@ -1,5 +1,4 @@
 import 'package:warsha/core/helpers/common_imports.dart';
-import 'package:warsha/features/course_categories/presentation/views/course_categories_view.dart';
 
 class AppNavBar extends StatefulWidget {
   const AppNavBar({super.key});

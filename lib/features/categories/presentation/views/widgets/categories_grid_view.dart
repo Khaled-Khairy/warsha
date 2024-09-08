@@ -1,5 +1,5 @@
 import 'package:warsha/core/helpers/common_imports.dart';
-import 'package:warsha/features/course_categories/presentation/views/widgets/categories_grid_view_item.dart';
+import 'package:warsha/features/categories/presentation/views/widgets/categories_grid_view_item.dart';
 
 class CategoriesGridView extends StatelessWidget {
   const CategoriesGridView({super.key, required this.categories});

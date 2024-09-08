@@ -10,8 +10,8 @@ void main() async {
   );
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
-      systemNavigationBarColor: ColorsManager.mainGreen, // navigation bar color
-      statusBarColor: ColorsManager.mainGreen, // status bar color
+      systemNavigationBarColor: ColorsManager.mainGreen,
+      statusBarColor: ColorsManager.mainGreen,
     ),
   );
 }

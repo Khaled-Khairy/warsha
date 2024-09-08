@@ -55,6 +55,7 @@ export 'package:warsha/features/auth/data/models/login_models/login_response.dar
 export 'package:warsha/features/auth/data/models/reset_password_models/reset_password_request.dart';
 export 'package:warsha/features/auth/data/models/reset_password_models/reset_password_response.dart';
 export 'package:warsha/features/auth/data/models/send_otp_models/send_otp_request.dart';
+export 'package:warsha/features/auth/data/models/send_otp_models/send_otp_response.dart';
 export 'package:warsha/features/auth/data/models/sign_up_models/sign_up_request.dart';
 export 'package:warsha/features/auth/data/models/validate_otp_models/validate_otp_request.dart';
 export 'package:warsha/features/auth/data/models/validate_otp_models/validate_otp_response.dart';
@@ -89,14 +90,16 @@ export 'package:warsha/features/auth/presentation/views/widgets/validate_otp/val
 export 'package:warsha/features/auth/presentation/views/widgets/validate_otp/validate_otp_header.dart';
 export 'package:warsha/features/auth/presentation/views/widgets/validate_otp/validate_otp_pin_put.dart';
 // Course categories
-export 'package:warsha/features/course_categories/data/models/categories.dart';
-export 'package:warsha/features/course_categories/data/repos/categories_repo.dart';
-export 'package:warsha/features/course_categories/data/repos/categories_repo_impl.dart';
-export 'package:warsha/features/course_categories/presentation/manager/categories_cubit/categories_cubit.dart';
-export 'package:warsha/features/course_categories/presentation/manager/category_list_cubit/category_list_cubit.dart';
-export 'package:warsha/features/course_categories/presentation/views/category_courses_view.dart';
-export 'package:warsha/features/course_categories/presentation/views/widgets/category_courses_list.dart';
-export 'package:warsha/features/course_categories/presentation/views/widgets/course_categories_body.dart';
+export 'package:warsha/features/categories/data/models/categories.dart';
+export 'package:warsha/features/categories/data/repos/categories_repo.dart';
+export 'package:warsha/features/categories/data/repos/categories_repo_impl.dart';
+export 'package:warsha/features/categories/presentation/manager/categories_cubit/categories_cubit.dart';
+export 'package:warsha/features/categories/presentation/views/category_courses_view.dart';
+export 'package:warsha/features/categories/presentation/manager/category_list_cubit/category_courses_cubit.dart';
+export 'package:warsha/features/categories/presentation/views/course_categories_view.dart';
+export 'package:warsha/features/categories/presentation/views/widgets/categories_grid_view.dart';
+export 'package:warsha/features/categories/presentation/views/widgets/category_courses_list.dart';
+export 'package:warsha/features/categories/presentation/views/widgets/course_categories_body.dart';
 // Course details
 export 'package:warsha/features/course_details/data/models/subscribe_request.dart';
 export 'package:warsha/features/course_details/data/models/subscribe_response.dart';
@@ -124,11 +127,10 @@ export 'package:warsha/features/onboarding/presentation/views/widgets/onboarding
 export 'package:warsha/features/onboarding/presentation/views/widgets/onboarding_footer.dart';
 // Watch Course
 export 'package:warsha/features/watch_course/data/models/course_unit_model.dart';
+export 'package:warsha/features/watch_course/data/repos/course_unit_repo.dart';
 export 'package:warsha/features/watch_course/data/repos/course_unit_repo_impl.dart';
 export 'package:warsha/features/watch_course/presentation/manager/course_units_cubit/course_units_cubit.dart';
 export 'package:warsha/features/watch_course/presentation/views/watch_course_view.dart';
 export 'package:warsha/features/watch_course/presentation/views/widgets/course_content_lessons.dart';
 export 'package:warsha/features/watch_course/presentation/views/widgets/course_content_tile.dart';
 export 'package:youtube_player_flutter/youtube_player_flutter.dart';
-export 'package:warsha/features/auth/data/models/send_otp_models/send_otp_response.dart';
-export 'package:warsha/features/watch_course/data/repos/course_unit_repo.dart';

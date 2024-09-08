@@ -12,22 +12,21 @@ class CategoryCoursesBody extends StatefulWidget {
 class _CategoryCoursesBodyState extends State<CategoryCoursesBody> {
   @override
   void initState() {
-    BlocProvider.of<CategoryListCubit>(context)
-        .getCategoryCourses(category: widget.category);
+    BlocProvider.of<CategoryCoursesCubit>(context).getCategoryCourses(category: widget.category);
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<CategoryListCubit, CategoryListState>(
+    return BlocBuilder<CategoryCoursesCubit, CategoryCoursesState>(
       builder: (context, state) {
-        if (state is CategoryListLoading) {
+        if (state is CategoryCoursesLoading) {
           return const CircularProgressIndicator(
             color: ColorsManager.mainGreen,
           );
-        } else if (state is CategoryListSuccess) {
+        } else if (state is CategoryCoursesSuccess) {
           return CategoryCoursesList(courses: state.courses);
-        } else if (state is CategoryListFailure) {
+        } else if (state is CategoryCoursesFailure) {
           return Center(
             child: Text(
               "Failed",

@@ -1,5 +1,4 @@
 import 'package:warsha/core/helpers/common_imports.dart';
-import 'package:warsha/features/course_categories/presentation/views/widgets/categories_grid_view.dart';
 
 class CourseCategoriesBody extends StatefulWidget {
   const CourseCategoriesBody({super.key});
