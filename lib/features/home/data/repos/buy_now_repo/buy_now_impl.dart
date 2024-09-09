@@ -1,22 +1,20 @@
 import 'package:dartz/dartz.dart';
 import 'package:warsha/core/helpers/common_imports.dart';
+import 'package:warsha/features/home/data/repos/buy_now_repo/buy_now_repo.dart';
 
-
-class SubscribeRepoImpl extends SubscribeRepo {
+class BuyNowRepoImpl extends BuyNowRepo {
   final ApiService apiService;
 
-  SubscribeRepoImpl(this.apiService);
+  BuyNowRepoImpl(this.apiService);
 
   @override
-  Future<Either<Failure, SubscribeResponse>> subscribeCourse(
-      {required String slug,
-      required SubscribeRequest subscribeRequest}) async {
+  Future<Either<Failure, BuyNowResponse>> buyCourse({required String slug, required BuyNowRequest buyNowRequest}) async {
     try {
       final response = await apiService.postWithFormData(
         endPoint: ApiEndpoints.subscribeToCourse(slug),
-        formData: await subscribeRequest.toFormData(),
+        formData: await buyNowRequest.toFormData(),
       );
-      final subscribeResponse = SubscribeResponse.fromJson(response);
+      final subscribeResponse = BuyNowResponse.fromJson(response);
       return right(subscribeResponse);
     } catch (e) {
       if (e is DioException) {

@@ -1,4 +1,3 @@
-import 'package:permission_handler/permission_handler.dart';
 import 'package:warsha/core/helpers/common_imports.dart';
 
 class UploadImage extends StatefulWidget {

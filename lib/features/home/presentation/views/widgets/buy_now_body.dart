@@ -22,14 +22,14 @@ class _BuyNowBodyState extends State<BuyNowBody> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<SubscribeCubit, SubscribeState>(
+    return BlocConsumer<BuyNowCubit, SubscribeState>(
       listener: (context, state) {
-        if (state is SubscribeLoading) {
+        if (state is BuyNowLoading) {
           appShowDialog(
             context: context,
             content: const CustomLoading(),
           );
-        } else if (state is SubscribeSuccess) {
+        } else if (state is BuyNowSuccess) {
           context.pop();
           appShowDialog(
             context: context,
@@ -45,7 +45,7 @@ class _BuyNowBodyState extends State<BuyNowBody> {
               },
             ),
           );
-        } else if (state is SubscribeFailure) {
+        } else if (state is BuyNowFailure) {
           context.pop();
           showSnackBar(
             context: context,
@@ -112,14 +112,14 @@ class _BuyNowBodyState extends State<BuyNowBody> {
         return;
       }
 
-      final subscribeRequest = SubscribeRequest(
+      final buyNowRequest = BuyNowRequest(
         serialNumber: _serialNumberController.text,
         imageFile: selectedImage!,
       );
 
-      BlocProvider.of<SubscribeCubit>(context).subscribeToCourse(
+      BlocProvider.of<BuyNowCubit>(context).buyCourse(
         slug: widget.slug,
-        subscribeRequest: subscribeRequest,
+        buyNowRequest: buyNowRequest,
       );
     }
   }

@@ -10,11 +10,11 @@ class CategoryCoursesList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppBody(
+    return SafeArea(
       child: ListView.builder(
         itemCount: courses.length,
-        shrinkWrap: true,
-        physics: const NeverScrollableScrollPhysics(),
+        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
+        physics: const BouncingScrollPhysics(),
         itemBuilder: (context, index) {
           return Padding(
             padding: EdgeInsets.only(bottom: 12.h),

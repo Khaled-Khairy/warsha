@@ -8,7 +8,7 @@ class BuyNowView extends StatelessWidget {
     final slug = ModalRoute.of(context)!.settings.arguments as String;
     return Scaffold(
       body: BlocProvider(
-        create: (context) => SubscribeCubit(getIt.get<SubscribeRepoImpl>()),
+        create: (context) => BuyNowCubit(getIt.get<BuyNowRepoImpl>()),
         child: Center(
           child: BuyNowBody(
             slug: slug,

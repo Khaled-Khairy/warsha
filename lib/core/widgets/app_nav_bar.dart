@@ -13,7 +13,6 @@ class _AppNavBarState extends State<AppNavBar> {
     const HomeView(),
     const CourseCategoriesView(),
     const Icon(Clarity.search_line),
-    const Icon(Clarity.search_line),
     const Icon(Clarity.settings_line),
   ];
 
@@ -58,10 +57,6 @@ class _AppNavBarState extends State<AppNavBar> {
             GButton(
               icon: Iconsax.category_2_outline,
               text: "Category",
-            ),
-            GButton(
-              icon: Clarity.search_line,
-              text: "Search",
             ),
             GButton(
               icon: Bootstrap.collection,

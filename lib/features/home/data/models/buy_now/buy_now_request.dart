@@ -1,12 +1,10 @@
-import 'dart:io';
+import 'package:warsha/core/helpers/common_imports.dart';
 
-import 'package:dio/dio.dart';
-
-class SubscribeRequest {
+class BuyNowRequest {
   final String serialNumber;
   final File imageFile;
 
-  SubscribeRequest({
+  BuyNowRequest({
     required this.serialNumber,
     required this.imageFile,
   });

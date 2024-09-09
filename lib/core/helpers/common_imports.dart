@@ -101,18 +101,14 @@ export 'package:warsha/features/categories/presentation/views/widgets/categories
 export 'package:warsha/features/categories/presentation/views/widgets/category_courses_list.dart';
 export 'package:warsha/features/categories/presentation/views/widgets/course_categories_body.dart';
 // Course details
-export 'package:warsha/features/course_details/data/models/subscribe_request.dart';
-export 'package:warsha/features/course_details/data/models/subscribe_response.dart';
-export 'package:warsha/features/course_details/data/repo/subscribe_repo.dart';
-export 'package:warsha/features/course_details/data/repo/subscribe_repo_impl.dart';
-export 'package:warsha/features/course_details/presentation/manager/subscribe_cubit/subscribe_cubit.dart';
-export 'package:warsha/features/course_details/presentation/views/course_details_view.dart';
-export 'package:warsha/features/course_details/presentation/views/widgets/buy_now_body.dart';
-export 'package:warsha/features/course_details/presentation/views/widgets/course_details_information.dart';
-export 'package:warsha/features/course_details/presentation/views/widgets/upload_image.dart';
+export 'package:warsha/features/home/data/models/buy_now/buy_now_request.dart';
+export 'package:warsha/features/home/data/models/buy_now/buy_now_response.dart';
+export 'package:warsha/features/home/presentation/views/course_details_view.dart';
+export 'package:warsha/features/home/presentation/views/widgets/buy_now_body.dart';
+export 'package:warsha/features/home/presentation/views/widgets/course_details_information.dart';
+export 'package:warsha/features/home/presentation/views/widgets/upload_image.dart';
 // Home
 export 'package:warsha/features/home/data/models/course_model.dart';
-export 'package:warsha/features/home/data/repos/home_repos/home_repo_impl.dart';
 export 'package:warsha/features/home/presentation/manager/home_cubit/home_cubit.dart';
 export 'package:warsha/features/home/presentation/views/home_view.dart';
 export 'package:warsha/core/widgets/course_content_card.dart';
@@ -133,3 +129,9 @@ export 'package:warsha/features/watch_course/presentation/views/watch_course_vie
 export 'package:warsha/features/watch_course/presentation/views/widgets/course_content_lessons.dart';
 export 'package:warsha/features/watch_course/presentation/views/widgets/course_content_tile.dart';
 export 'package:youtube_player_flutter/youtube_player_flutter.dart';
+export 'package:bloc/bloc.dart';
+export 'package:warsha/features/home/data/repos/home_repo/home_repo.dart';
+export 'package:warsha/features/home/presentation/manager/buy_now_cubit/buy_now_cubit.dart';
+export 'package:permission_handler/permission_handler.dart';
+export 'package:warsha/features/home/data/repos/buy_now_repo/buy_now_impl.dart';
+export 'package:warsha/features/home/data/repos/home_repo/home_repo_impl.dart';

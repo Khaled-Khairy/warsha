@@ -1,5 +1,5 @@
 import 'package:warsha/core/helpers/common_imports.dart';
-import 'package:warsha/features/course_details/presentation/views/buy_now_view.dart';
+import 'package:warsha/features/home/presentation/views/buy_now_view.dart';
 
 class AppRouter {
   Route<dynamic>? generateRouter(RouteSettings settings) {
@@ -68,7 +68,7 @@ class AppRouter {
         return RouteAnimations.buildPageRoute(
           const CategoryCoursesView(),
           settings,
-          TransitionType.slideFromRight,
+          TransitionType.fadeThrough,
         );
         case Routes.buyNowView:
         return RouteAnimations.buildPageRoute(
