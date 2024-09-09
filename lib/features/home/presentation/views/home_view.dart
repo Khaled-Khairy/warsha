@@ -11,9 +11,7 @@ class HomeView extends StatelessWidget {
           getIt.get<HomeRepoImpl>(),
         )..getAllCourses(),
         child: const Center(
-          child: AppBody(
-            child: HomeBody(),
-          ),
+          child: HomeBody(),
         ),
       ),
     );

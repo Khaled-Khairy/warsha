@@ -3,8 +3,8 @@ import 'package:warsha/core/helpers/common_imports.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await setupGetIt();
-  await ScreenUtil.ensureScreenSize();
   await checkIfLoggedUser();
+  await ScreenUtil.ensureScreenSize();
   runApp(
     Warsha(appRouter: AppRouter()),
   );

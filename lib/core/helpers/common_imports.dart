@@ -115,10 +115,9 @@ export 'package:warsha/features/home/data/models/course_model.dart';
 export 'package:warsha/features/home/data/repos/home_repos/home_repo_impl.dart';
 export 'package:warsha/features/home/presentation/manager/home_cubit/home_cubit.dart';
 export 'package:warsha/features/home/presentation/views/home_view.dart';
-export 'package:warsha/features/home/presentation/views/widgets/course_content_card.dart';
+export 'package:warsha/core/widgets/course_content_card.dart';
 export 'package:warsha/features/home/presentation/views/widgets/home_body.dart';
 export 'package:warsha/features/home/presentation/views/widgets/home_courses_list.dart';
-export 'package:warsha/features/home/presentation/views/widgets/home_top_section.dart';
 // Onboarding
 export 'package:warsha/features/onboarding/presentation/views/onboarding_view.dart';
 export 'package:warsha/features/onboarding/presentation/views/widgets/doc_logo_and_name.dart';

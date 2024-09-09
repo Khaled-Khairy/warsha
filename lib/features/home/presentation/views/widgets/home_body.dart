@@ -1,5 +1,4 @@
 import 'package:warsha/core/helpers/common_imports.dart';
-import 'package:warsha/features/home/presentation/views/widgets/home_success_widget.dart';
 
 class HomeBody extends StatelessWidget {
   const HomeBody({super.key});
@@ -13,7 +12,11 @@ class HomeBody extends StatelessWidget {
             color: ColorsManager.mainGreen,
           );
         } else if (state is HomeSuccess) {
-          return const HomeSuccessWidget();
+          return SafeArea(
+            child: HomeCoursesList(
+              courses: state.courses,
+            ),
+          );
         } else if (state is HomeFailure) {
           return Center(
             child: Text(
