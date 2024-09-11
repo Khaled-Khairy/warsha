@@ -19,23 +19,25 @@ class ResetPasswordBody extends StatelessWidget {
         } else if (state is ResetPasswordSuccess) {
           FocusScope.of(context).unfocus();
           context.pop();
-          WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-            showDialog(
-              context: context,
-              barrierDismissible: false,
-              builder: (context) => SuccessDialog(
-                title: "Password Reset Successfully",
-                subTitle:
-                    "You’r password has been reset successfully. Please login to continue.",
-                onPressed: () {
-                  context.pop();
-                  context.pop();
-                  context.pop();
-                  context.pop();
-                },
-              ),
-            );
-          });
+          WidgetsBinding.instance.addPostFrameCallback(
+            (timeStamp) {
+              showDialog(
+                context: context,
+                barrierDismissible: false,
+                builder: (context) => SuccessDialog(
+                  title: "Password Reset Successfully",
+                  subTitle:
+                      "You’r password has been reset successfully. Please login to continue.",
+                  onPressed: () {
+                    context.pop();
+                    context.pop();
+                    context.pop();
+                    context.pop();
+                  },
+                ),
+              );
+            },
+          );
         } else if (state is ResetPasswordFailure) {
           context.pop();
           ScaffoldMessenger.of(context).showSnackBar(

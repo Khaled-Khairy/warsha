@@ -1,4 +1,5 @@
 import 'package:warsha/core/helpers/common_imports.dart';
+import 'package:warsha/features/menu/presentation/views/widgets/log_out_dialog.dart';
 
 class LogOutButton extends StatelessWidget {
   const LogOutButton({
@@ -8,6 +9,12 @@ class LogOutButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      onTap: () {
+        showDialog(
+          context: context,
+          builder: (context) => const LogoutDialog(),
+        );
+      },
       child: Row(
         children: [
           CircleAvatar(
@@ -29,3 +36,4 @@ class LogOutButton extends StatelessWidget {
     );
   }
 }
+

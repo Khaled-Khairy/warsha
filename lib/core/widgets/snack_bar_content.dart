@@ -4,10 +4,12 @@ import 'package:warsha/core/helpers/common_imports.dart';
 class SnackBarContent extends StatelessWidget {
   const SnackBarContent({
     super.key,
-    required this.message,
+    required this.message, this.icon, this.color,
   });
 
   final String message;
+  final IconData? icon;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
@@ -17,14 +19,14 @@ class SnackBarContent extends StatelessWidget {
         horizontal: 8.w,
       ),
       decoration: BoxDecoration(
-        color: ColorsManager.errorColor,
+        color: color ?? ColorsManager.errorColor,
         borderRadius: BorderRadius.circular(12.w),
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Icon(
-            Iconsax.info_circle_outline,
+            icon ?? Iconsax.info_circle_outline,
             size: 30.w,
           ),
           10.horizontalSpace,
