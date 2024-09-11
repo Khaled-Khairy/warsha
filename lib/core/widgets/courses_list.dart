@@ -1,10 +1,10 @@
 import 'package:warsha/core/helpers/common_imports.dart';
 
-class HomeCoursesList extends StatelessWidget {
-  const HomeCoursesList({super.key, required this.courses});
+class CoursesList extends StatelessWidget {
+  const CoursesList({super.key, required this.courses, this.onTap});
 
   final List<CourseModel> courses;
-
+  final void Function(int index)? onTap;
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
@@ -16,12 +16,12 @@ class HomeCoursesList extends StatelessWidget {
         return Padding(
           padding: EdgeInsets.only(bottom: 12.h),
           child: GestureDetector(
-            onTap: () {
-              context.pushNamed(
-                Routes.courseDetailsScreen,
-                arguments: courses[index],
-              );
-            },
+            onTap: onTap != null ? () => onTap!(index) : () {
+                  context.pushNamed(
+                    Routes.courseDetailsScreen,
+                    arguments: courses[index],
+                  );
+                },
             child: CourseContentCard(
               course: courses[index],
             ),

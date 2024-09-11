@@ -1,5 +1,6 @@
 import 'package:warsha/core/helpers/common_imports.dart';
 import 'package:warsha/features/menu/presentation/views/menu_view.dart';
+import 'package:warsha/features/my_courses/presentation/views/my_courses_view.dart';
 
 class AppNavBar extends StatefulWidget {
   const AppNavBar({super.key});
@@ -13,7 +14,7 @@ class _AppNavBarState extends State<AppNavBar> {
   final List<Widget> _pages = [
     const HomeView(),
     const CourseCategoriesView(),
-    const Icon(Clarity.search_line),
+    const MyCoursesView(),
     const MenuView(),
   ];
 

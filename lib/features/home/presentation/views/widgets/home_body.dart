@@ -1,4 +1,5 @@
 import 'package:warsha/core/helpers/common_imports.dart';
+import 'package:warsha/core/widgets/courses_list.dart';
 
 class HomeBody extends StatelessWidget {
   const HomeBody({super.key});
@@ -13,7 +14,7 @@ class HomeBody extends StatelessWidget {
           );
         } else if (state is HomeSuccess) {
           return SafeArea(
-            child: HomeCoursesList(
+            child: CoursesList(
               courses: state.courses,
             ),
           );

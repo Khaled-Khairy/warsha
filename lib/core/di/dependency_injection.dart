@@ -1,5 +1,7 @@
 import 'package:warsha/core/helpers/common_imports.dart';
 import 'package:warsha/features/menu/data/repos/menu_repo_impl.dart';
+import 'package:warsha/features/my_courses/data/repos/course_unit_repo/course_unit_repo_impl.dart';
+import 'package:warsha/features/my_courses/data/repos/my_courses_repo/my_courses_repo_impl.dart';
 
 
 final getIt = GetIt.instance;
@@ -15,4 +17,5 @@ Future<void> setupGetIt() async {
   getIt.registerSingleton<BuyNowRepoImpl>(BuyNowRepoImpl(getIt.get<ApiService>()));
   getIt.registerSingleton<CourseUnitRepoImpl>(CourseUnitRepoImpl(getIt.get<ApiService>()));
   getIt.registerSingleton<MenuRepoImpl>(MenuRepoImpl(getIt.get<ApiService>()));
+  getIt.registerSingleton<MyCoursesRepoImpl>(MyCoursesRepoImpl(getIt.get<ApiService>()));
 }

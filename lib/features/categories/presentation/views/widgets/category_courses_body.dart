@@ -1,20 +1,9 @@
 import 'package:warsha/core/helpers/common_imports.dart';
 
-class CategoryCoursesBody extends StatefulWidget {
+class CategoryCoursesBody extends StatelessWidget {
   const CategoryCoursesBody({super.key, required this.category});
 
   final String category;
-
-  @override
-  State<CategoryCoursesBody> createState() => _CategoryCoursesBodyState();
-}
-
-class _CategoryCoursesBodyState extends State<CategoryCoursesBody> {
-  @override
-  void initState() {
-    BlocProvider.of<CategoryCoursesCubit>(context).getCategoryCourses(category: widget.category);
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {

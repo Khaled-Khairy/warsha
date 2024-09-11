@@ -1,10 +1,9 @@
 import 'package:warsha/core/helpers/common_imports.dart';
 import 'package:warsha/features/home/presentation/views/buy_now_view.dart';
+import 'package:warsha/features/my_courses/presentation/views/course_player_view.dart';
 
 class AppRouter {
   Route<dynamic>? generateRouter(RouteSettings settings) {
-    final arguments = settings.arguments;
-
     switch (settings.name) {
       case Routes.onboardingScreen:
         return MaterialPageRoute(
@@ -29,21 +28,17 @@ class AppRouter {
           TransitionType.slideFromRight,
         );
       case Routes.validateOtpScreen:
-        if (arguments is String) {
-          return RouteAnimations.buildPageRoute(
-            const ValidateOtpView(),
-            settings,
-            TransitionType.slideFromRight,
-          );
-        }
+        return RouteAnimations.buildPageRoute(
+          const ValidateOtpView(),
+          settings,
+          TransitionType.slideFromRight,
+        );
       case Routes.resetPasswordScreen:
-        if (arguments is String) {
-          return RouteAnimations.buildPageRoute(
-            const ResetPasswordView(),
-            settings,
-            TransitionType.slideFromRight,
-          );
-        }
+        return RouteAnimations.buildPageRoute(
+          const ResetPasswordView(),
+          settings,
+          TransitionType.slideFromRight,
+        );
       case Routes.appNavBar:
         return RouteAnimations.buildPageRoute(
           const AppNavBar(),
@@ -51,16 +46,8 @@ class AppRouter {
           TransitionType.slideFromBottom,
         );
       case Routes.courseDetailsScreen:
-        if (arguments is CourseModel) {
-          return RouteAnimations.buildPageRoute(
-            const CourseDetailsView(),
-            settings,
-            TransitionType.fadeThrough,
-          );
-        }
-      case Routes.watchCourseScreen:
         return RouteAnimations.buildPageRoute(
-          const WatchCourseView(),
+          const CourseDetailsView(),
           settings,
           TransitionType.fadeThrough,
         );
@@ -70,15 +57,20 @@ class AppRouter {
           settings,
           TransitionType.fadeThrough,
         );
-        case Routes.buyNowView:
+      case Routes.buyNowView:
         return RouteAnimations.buildPageRoute(
           const BuyNowView(),
           settings,
           TransitionType.slideFromRight,
         );
+      case Routes.coursePlayerView:
+        return RouteAnimations.buildPageRoute(
+          const CoursePlayerView(),
+          settings,
+          TransitionType.slideFromBottom,
+        );
       default:
         return null;
     }
-    return null;
   }
 }

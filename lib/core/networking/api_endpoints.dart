@@ -8,7 +8,7 @@ class ApiEndpoints {
   static const String logOut = 'user/logout/';
   static const String allCourses = 'courses/';
   static const String categories = 'categories/';
-  static const String myCourses = 'my_courses/';
+  static const String myCourses = 'my_courses';
 
   static String coursesByCategory(String category) {
     return 'categories/$category/courses/';

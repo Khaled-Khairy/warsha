@@ -9,7 +9,7 @@ class CategoryCoursesView extends StatelessWidget {
     final category = ModalRoute.of(context)!.settings.arguments as String;
     return Scaffold(
       body: BlocProvider(
-        create: (context) => CategoryCoursesCubit(getIt.get<CategoriesRepoImpl>()),
+        create: (context) => CategoryCoursesCubit(getIt.get<CategoriesRepoImpl>())..getCategoryCourses(category: category),
         child: CategoryCoursesBody(
           category: category,
         ),

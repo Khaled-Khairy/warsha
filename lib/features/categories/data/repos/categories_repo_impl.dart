@@ -6,15 +6,19 @@ class CategoriesRepoImpl extends CategoriesRepo {
 
   CategoriesRepoImpl(this.apiService);
 
+  final List<Categories> _categories = [];
+
   @override
   Future<Either<Failure, List<Categories>>> getCategories() async {
     try {
-      final response = await apiService.get(endPoint: ApiEndpoints.categories);
-      List<Categories> categories = [];
-      for (var item in response) {
-        categories.add(Categories.fromJson(item));
+      if (_categories.isEmpty) {
+        final response =
+            await apiService.get(endPoint: ApiEndpoints.categories);
+        for (var item in response) {
+          _categories.add(Categories.fromJson(item));
+        }
       }
-      return Right(categories);
+      return Right(_categories);
     } catch (e) {
       if (e is DioException) {
         return left(ServerFailure.fromDioException(e));
@@ -31,7 +35,8 @@ class CategoriesRepoImpl extends CategoriesRepo {
       final response = await apiService.get(
         endPoint: ApiEndpoints.coursesByCategory(category),
       );
-      List<CourseModel> courses = [];
+      final List<CourseModel> courses = [];
+
       for (var item in response) {
         courses.add(CourseModel.fromJson(item));
       }

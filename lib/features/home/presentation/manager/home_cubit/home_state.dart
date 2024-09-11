@@ -9,7 +9,6 @@ final class HomeLoading extends HomeState {}
 
 final class HomeSuccess extends HomeState {
   final List<CourseModel> courses;
-  final List<CourseModel> coursesList = [];
   HomeSuccess(this.courses);
 }
 
