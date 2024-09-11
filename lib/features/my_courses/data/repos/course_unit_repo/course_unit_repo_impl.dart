@@ -9,14 +9,15 @@ class CourseUnitRepoImpl implements CourseUnitRepo {
   CourseUnitRepoImpl(this.apiService);
 
   @override
-  Future<Either<Failure, List<CourseUnit>>> getCourseUnit() async {
+  Future<Either<Failure, List<CourseUnit>>> getCourseUnit(
+      {required String slug}) async {
     try {
-      final response = await apiService.get(endPoint: "courses/e3d8be64-c910-4d03-bff9-f4137aec5ec7/units");
-      final List<CourseUnit> units = [];
+      final response = await apiService.get(endPoint: "courses/$slug/units");
+      final List<CourseUnit> unit = [];
       for (var item in response) {
-        units.add(CourseUnit.fromJson(item));
+        unit.add(CourseUnit.fromJson(item));
       }
-      return right(units);
+      return right(unit);
     } catch (e) {
       if (e is DioException) {
         return left(ServerFailure.fromDioException(e));
