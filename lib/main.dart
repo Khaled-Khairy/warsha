@@ -1,4 +1,3 @@
-import 'package:flutter_windowmanager/flutter_windowmanager.dart';
 import 'package:warsha/core/helpers/common_imports.dart';
 
 void main() async {
@@ -6,21 +5,21 @@ void main() async {
   await setupGetIt();
   await checkIfLoggedUser();
   await ScreenUtil.ensureScreenSize();
-  runApp(
-    Warsha(appRouter: AppRouter()),
-  );
-  WidgetsBinding.instance.addPostFrameCallback(
-        (timeStamp) async {
-      if (Platform.isAndroid) {
-        await FlutterWindowManager.addFlags(FlutterWindowManager.FLAG_SECURE);
-      }
-    },
-  );
+  // Set system UI styles and orientations before running the app
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
       systemNavigationBarColor: ColorsManager.mainGreen,
       statusBarColor: ColorsManager.mainGreen,
     ),
+  );
+  SystemChrome.setPreferredOrientations(
+    [
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ],
+  );
+  runApp(
+    Warsha(appRouter: AppRouter()),
   );
 }
 

@@ -47,11 +47,18 @@ class _VideoPlayerState extends State<VideoPlayer> {
         bufferedColor: Colors.transparent,
         backgroundColor: Colors.transparent,
       ),
+      controlsTimeOut: const Duration(seconds: 3),
       bottomActions: [
         8.horizontalSpace,
         const CurrentPosition(),
         const ProgressBar(
           isExpanded: true,
+          colors: ProgressBarColors(
+            backgroundColor: ColorsManager.mainGrey,
+            bufferedColor: ColorsManager.grey,
+            handleColor: ColorsManager.mainGreen,
+            playedColor: ColorsManager.mainGreen,
+          ),
         ),
         ValueListenableBuilder<YoutubePlayerValue>(
           valueListenable: _controller,
