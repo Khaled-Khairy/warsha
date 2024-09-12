@@ -1,5 +1,5 @@
 import 'package:warsha/core/helpers/common_imports.dart';
-import 'package:warsha/features/my_courses/presentation/views/widget/course_unit_success_state.dart';
+import 'package:warsha/features/my_courses/presentation/views/widget/video_player.dart';
 
 class CoursePlayerBody extends StatefulWidget {
   const CoursePlayerBody({super.key, required this.slug});
@@ -27,7 +27,7 @@ class _CoursePlayerBodyState extends State<CoursePlayerBody> {
           );
         } else if (state is CourseUnitSuccess) {
           return SafeArea(
-            child: CoursePlayerSuccess(units: state.courseUnit),
+            child: VideoPlayer(units: state.courseUnit),
           );
         } else if (state is CourseUnitFailure) {
           return Center(

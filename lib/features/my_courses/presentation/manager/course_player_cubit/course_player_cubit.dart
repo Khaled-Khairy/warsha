@@ -8,4 +8,11 @@ class CoursePlayerCubit extends Cubit<CoursePlayerState> {
   void updateVideoUrl(String videoUrl) {
     emit(CoursePlayerLoaded(videoUrl));
   }
+
+  String getVideoIdFromUrl(CoursePlayerState state) {
+    if (state is CoursePlayerLoaded) {
+      return YoutubePlayer.convertUrlToId(state.videoUrl) ?? '';
+    }
+    return '';
+  }
 }
