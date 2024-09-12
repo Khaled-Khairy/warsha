@@ -4,6 +4,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await setupGetIt();
   await checkIfLoggedUser();
+  // fixed screen util text bug in release mode
   await ScreenUtil.ensureScreenSize();
   // Set system UI styles and orientations before running the app
   SystemChrome.setSystemUIOverlayStyle(
@@ -12,6 +13,7 @@ void main() async {
       statusBarColor: ColorsManager.mainGreen,
     ),
   );
+  // disable landscape mode
   SystemChrome.setPreferredOrientations(
     [
       DeviceOrientation.portraitUp,
