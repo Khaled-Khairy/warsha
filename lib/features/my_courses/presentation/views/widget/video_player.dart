@@ -1,12 +1,9 @@
 import 'package:warsha/core/helpers/common_imports.dart';
-import 'package:warsha/features/my_courses/data/models/course_unit_model.dart';
-import 'package:warsha/features/my_courses/presentation/manager/course_player_cubit/course_player_cubit.dart';
-import 'package:warsha/features/my_courses/presentation/views/widget/expandable_unit.dart';
 
 class VideoPlayer extends StatefulWidget {
-  const VideoPlayer({super.key, required this.units});
+  const VideoPlayer({super.key, required this.videoUrl});
 
-  final List<CourseUnit> units;
+  final String videoUrl;
 
   @override
   State<VideoPlayer> createState() => _VideoPlayerState();
@@ -17,10 +14,9 @@ class _VideoPlayerState extends State<VideoPlayer> {
 
   @override
   void initState() {
-    super.initState();
-    final videoId = YoutubePlayer.convertUrlToId(widget.units[0].lessons[0].videoUrl)!;
+    final videoId = YoutubePlayer.convertUrlToId(widget.videoUrl);
     _controller = YoutubePlayerController(
-      initialVideoId: videoId,
+      initialVideoId: videoId!,
       flags: const YoutubePlayerFlags(
         mute: false,
         autoPlay: true,
@@ -29,15 +25,11 @@ class _VideoPlayerState extends State<VideoPlayer> {
         isLive: false,
         forceHD: false,
         enableCaption: false,
+        showLiveFullscreenButton: false,
+        useHybridComposition: true,
       ),
     );
-  }
-
-  void _loadVideo(String videoUrl) {
-    final videoId = YoutubePlayer.convertUrlToId(videoUrl);
-    if (videoId != null) {
-      _controller.load(videoId);
-    }
+    super.initState();
   }
 
   @override
@@ -48,46 +40,54 @@ class _VideoPlayerState extends State<VideoPlayer> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<CoursePlayerCubit, CoursePlayerState>(
-      builder: (context, state) {
-        if (state is CoursePlayerLoaded) {
-          _loadVideo(state.videoUrl);
-        }
-        return YoutubePlayerBuilder(
-          onEnterFullScreen: () {
-            SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
-          },
-          onExitFullScreen: () {
-            SystemChrome.setEnabledSystemUIMode(
-              SystemUiMode.manual,
-              overlays: SystemUiOverlay.values,
+    return YoutubePlayer(
+      progressColors: const ProgressBarColors(
+        playedColor: Colors.transparent,
+        handleColor: Colors.transparent,
+        bufferedColor: Colors.transparent,
+        backgroundColor: Colors.transparent,
+      ),
+      bottomActions: [
+        8.horizontalSpace,
+        const CurrentPosition(),
+        const ProgressBar(
+          isExpanded: true,
+        ),
+        ValueListenableBuilder<YoutubePlayerValue>(
+          valueListenable: _controller,
+          builder: (context, value, child) {
+            final duration = value.metaData.duration;
+            final durationString = _formatDuration(duration);
+            return Text(
+              durationString,
+              style: const TextStyle(color: Colors.white, fontSize: 14.0),
             );
           },
-          player: YoutubePlayer(
-            controller: _controller,
-            showVideoProgressIndicator: true,
-            aspectRatio: 2.12,
+        ),
+        const PlaybackSpeedButton(),
+        20.horizontalSpace,
+      ],
+      topActions: [
+        IconButton(
+          onPressed: () {
+            context.pop();
+          },
+          icon: Icon(
+            Icons.arrow_back_ios,
+            color: ColorsManager.mainGreen,
+            size: 10.w,
           ),
-          builder: (context, player) {
-            return Column(
-              children: [
-                if (state is CoursePlayerLoaded) player,
-                ListView.builder(
-                  itemCount: widget.units.length,
-                  shrinkWrap: true,
-                  itemBuilder: (context, index) {
-                    final unit = widget.units[index];
-                    return ExpandableUnit(
-                      unit: unit,
-                      index: index,
-                    );
-                  },
-                ),
-              ],
-            );
-          },
-        );
-      },
+        ),
+      ],
+      controller: _controller,
+      showVideoProgressIndicator: true,
+      aspectRatio: 2.12,
     );
+  }
+
+  String _formatDuration(Duration duration) {
+    final minutes = duration.inMinutes;
+    final seconds = duration.inSeconds % 60;
+    return '${minutes.toString().padLeft(2, '0')}:${seconds.toString().padLeft(2, '0')}';
   }
 }

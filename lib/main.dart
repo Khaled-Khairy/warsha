@@ -1,3 +1,4 @@
+import 'package:flutter_windowmanager/flutter_windowmanager.dart';
 import 'package:warsha/core/helpers/common_imports.dart';
 
 void main() async {
@@ -7,6 +8,13 @@ void main() async {
   await ScreenUtil.ensureScreenSize();
   runApp(
     Warsha(appRouter: AppRouter()),
+  );
+  WidgetsBinding.instance.addPostFrameCallback(
+        (timeStamp) async {
+      if (Platform.isAndroid) {
+        await FlutterWindowManager.addFlags(FlutterWindowManager.FLAG_SECURE);
+      }
+    },
   );
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(

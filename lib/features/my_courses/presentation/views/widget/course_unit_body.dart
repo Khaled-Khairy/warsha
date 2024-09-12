@@ -1,16 +1,16 @@
 import 'package:warsha/core/helpers/common_imports.dart';
-import 'package:warsha/features/my_courses/presentation/views/widget/video_player.dart';
+import 'package:warsha/features/my_courses/presentation/views/widget/expandable_unit.dart';
 
-class CoursePlayerBody extends StatefulWidget {
-  const CoursePlayerBody({super.key, required this.slug});
+class CourseUnitBody extends StatefulWidget {
+  const CourseUnitBody({super.key, required this.slug});
 
   final String slug;
 
   @override
-  State<CoursePlayerBody> createState() => _CoursePlayerBodyState();
+  State<CourseUnitBody> createState() => _CourseUnitBodyState();
 }
 
-class _CoursePlayerBodyState extends State<CoursePlayerBody> {
+class _CourseUnitBodyState extends State<CourseUnitBody> {
   @override
   void initState() {
     BlocProvider.of<CourseUnitCubit>(context).getCourseUnit(slug: widget.slug);
@@ -27,7 +27,17 @@ class _CoursePlayerBodyState extends State<CoursePlayerBody> {
           );
         } else if (state is CourseUnitSuccess) {
           return SafeArea(
-            child: VideoPlayer(units: state.courseUnit),
+            child: ListView.builder(
+              physics: const BouncingScrollPhysics(),
+              itemCount: state.courseUnit.length,
+              padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
+              itemBuilder: (context, index) {
+                return ExpandableUnit(
+                  unit: state.courseUnit[index],
+                  index: index,
+                );
+              },
+            ),
           );
         } else if (state is CourseUnitFailure) {
           return Center(

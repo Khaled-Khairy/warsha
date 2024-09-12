@@ -1,6 +1,7 @@
 import 'package:warsha/core/helpers/common_imports.dart';
 import 'package:warsha/features/home/presentation/views/buy_now_view.dart';
-import 'package:warsha/features/my_courses/presentation/views/course_player_view.dart';
+import 'package:warsha/features/my_courses/presentation/views/course_unit_view.dart';
+import 'package:warsha/features/my_courses/presentation/views/video_player_view.dart';
 
 class AppRouter {
   Route<dynamic>? generateRouter(RouteSettings settings) {
@@ -63,11 +64,17 @@ class AppRouter {
           settings,
           TransitionType.slideFromRight,
         );
-      case Routes.coursePlayerView:
+      case Routes.courseUnitView:
         return RouteAnimations.buildPageRoute(
-          const CoursePlayerView(),
+          const CourseUnitView(),
           settings,
           TransitionType.slideFromBottom,
+        );
+      case Routes.videoPlayerView:
+        return RouteAnimations.buildPageRoute(
+          const VideoPlayerView(),
+          settings,
+          TransitionType.fadeThrough,
         );
       default:
         return null;

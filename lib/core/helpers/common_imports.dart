@@ -129,4 +129,3 @@ export 'package:warsha/features/home/data/repos/buy_now_repo/buy_now_impl.dart';
 export 'package:warsha/features/home/data/repos/home_repo/home_repo_impl.dart';
 export 'package:warsha/features/my_courses/data/repos/course_unit_repo/course_unit_repo_impl.dart';
 export 'package:warsha/features/my_courses/presentation/manager/course_unit_cubit/course_unit_cubit.dart';
-export 'package:warsha/features/my_courses/presentation/views/widget/course_player_body.dart';

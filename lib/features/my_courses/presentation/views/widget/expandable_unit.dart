@@ -1,6 +1,5 @@
 import 'package:warsha/core/helpers/common_imports.dart';
 import 'package:warsha/features/my_courses/data/models/course_unit_model.dart';
-import 'package:warsha/features/my_courses/presentation/manager/course_player_cubit/course_player_cubit.dart';
 
 class ExpandableUnit extends StatefulWidget {
   const ExpandableUnit({super.key, required this.unit, required this.index});
@@ -84,8 +83,10 @@ class _ExpandableUnitState extends State<ExpandableUnit> {
                         EdgeInsets.symmetric(horizontal: 12.w, vertical: 4.h),
                     child: GestureDetector(
                       onTap: () {
-                        BlocProvider.of<CoursePlayerCubit>(context)
-                            .updateVideoUrl(lesson.videoUrl);
+                        context.pushNamed(
+                          Routes.videoPlayerView,
+                          arguments: lesson.videoUrl,
+                        );
                       },
                       child: Container(
                         padding: EdgeInsets.symmetric(
@@ -95,7 +96,7 @@ class _ExpandableUnitState extends State<ExpandableUnit> {
                           borderRadius: BorderRadius.circular(6.w),
                           boxShadow: const [
                             BoxShadow(
-                              color: ColorsManager.mainGreen,
+                              color: ColorsManager.darkerGrey,
                               offset: Offset(2, 2),
                               spreadRadius: 1,
                               blurRadius: 0.5,

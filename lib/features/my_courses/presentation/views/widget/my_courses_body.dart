@@ -20,7 +20,7 @@ class MyCoursesBody extends StatelessWidget {
                     courses: state.courses,
                     onTap: (index) {
                       context.pushNamed(
-                        Routes.coursePlayerView,
+                        Routes.courseUnitView,
                         arguments: state.courses[index].slug,
                       );
                     },
