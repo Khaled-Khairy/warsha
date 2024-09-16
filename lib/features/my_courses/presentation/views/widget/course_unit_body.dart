@@ -32,17 +32,20 @@ class _CourseUnitBodyState extends State<CourseUnitBody> {
               itemCount: state.courseUnit.length,
               padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
               itemBuilder: (context, index) {
-                return ExpandableUnit(
-                  unit: state.courseUnit[index],
-                  index: index,
-                );
+                if (state.courseUnit[index].active) {
+                  return ExpandableUnit(
+                    unit: state.courseUnit[index],
+                    order: state.courseUnit[index].order,
+                  );
+                }
+                return const SizedBox.shrink();
               },
             ),
           );
         } else if (state is CourseUnitFailure) {
           return Center(
             child: Text(
-              "Failed",
+              state.errMessage,
               style: TextStyles.font16offWhiteSemiBold,
             ),
           );

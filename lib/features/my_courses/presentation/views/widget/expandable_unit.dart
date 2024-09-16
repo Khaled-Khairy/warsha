@@ -2,10 +2,10 @@ import 'package:warsha/core/helpers/common_imports.dart';
 import 'package:warsha/features/my_courses/data/models/course_unit_model.dart';
 
 class ExpandableUnit extends StatefulWidget {
-  const ExpandableUnit({super.key, required this.unit, required this.index});
+  const ExpandableUnit({super.key, required this.unit, required this.order});
 
   final CourseUnit unit;
-  final int index;
+  final int order;
 
   @override
   State<ExpandableUnit> createState() => _ExpandableUnitState();
@@ -41,7 +41,7 @@ class _ExpandableUnitState extends State<ExpandableUnit> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "${widget.index + 1}.${widget.unit.title}",
+                          "${widget.order + 1}.${widget.unit.title}",
                           style: TextStyles.font18GreenSemiBold,
                         ),
                         Text(

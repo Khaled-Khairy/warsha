@@ -11,9 +11,7 @@ enum TransitionType {
 }
 
 class RouteAnimations {
-  static PageRouteBuilder buildPageRoute(
-      Widget page, RouteSettings settings, TransitionType transitionType,
-      {Duration duration = const Duration(milliseconds: 300)}) {
+  static PageRouteBuilder buildPageRoute(Widget page, RouteSettings settings, TransitionType transitionType, {Duration duration = const Duration(milliseconds: 300)}) {
     return PageRouteBuilder(
       settings: settings,
       transitionDuration: duration,
