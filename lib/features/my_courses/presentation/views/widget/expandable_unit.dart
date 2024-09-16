@@ -41,7 +41,7 @@ class _ExpandableUnitState extends State<ExpandableUnit> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "${widget.order + 1}.${widget.unit.title}",
+                          "${widget.order}.${widget.unit.title}",
                           style: TextStyles.font18GreenSemiBold,
                         ),
                         Text(
@@ -79,8 +79,7 @@ class _ExpandableUnitState extends State<ExpandableUnit> {
                 final lesson = widget.unit.lessons[index];
                 if (lesson.active) {
                   return Padding(
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 12.w, vertical: 4.h),
+                    padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 4.h),
                     child: GestureDetector(
                       onTap: () {
                         context.pushNamed(

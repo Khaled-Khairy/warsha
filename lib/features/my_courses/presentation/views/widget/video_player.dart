@@ -49,7 +49,7 @@ class _VideoPlayerState extends State<VideoPlayer> {
       ),
       controlsTimeOut: const Duration(seconds: 3),
       bottomActions: [
-        8.horizontalSpace,
+        20.horizontalSpace,
         const CurrentPosition(),
         const ProgressBar(
           isExpanded: true,
@@ -75,6 +75,7 @@ class _VideoPlayerState extends State<VideoPlayer> {
         20.horizontalSpace,
       ],
       topActions: [
+        12.horizontalSpace,
         IconButton(
           onPressed: () {
             context.pop();

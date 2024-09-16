@@ -12,13 +12,13 @@ class ServerFailure extends Failure {
   factory ServerFailure.fromDioException(DioException dioException) {
     switch (dioException.type) {
       case DioExceptionType.connectionTimeout:
-        return ServerFailure('Ops There was an Error, Please try again');
+        return ServerFailure('Oops There was an Error, Please try again');
       case DioExceptionType.sendTimeout:
-        return ServerFailure('Ops There was an Error, Please try again');
+        return ServerFailure('Oops There was an Error, Please try again');
       case DioExceptionType.receiveTimeout:
-        return ServerFailure('Ops There was an Error, Please try again');
+        return ServerFailure('Oops There was an Error, Please try again');
       case DioExceptionType.badCertificate:
-        return ServerFailure('Ops There was an Error, Please try again');
+        return ServerFailure('Oops There was an Error, Please try again');
       case DioExceptionType.badResponse:
         return ServerFailure.fromResponse(dioException.response);
       case DioExceptionType.cancel:
