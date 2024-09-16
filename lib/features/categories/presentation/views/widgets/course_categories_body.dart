@@ -1,4 +1,5 @@
 import 'package:warsha/core/helpers/common_imports.dart';
+import 'package:warsha/core/widgets/failure_state_error.dart';
 
 class CourseCategoriesBody extends StatelessWidget {
   const CourseCategoriesBody({super.key});
@@ -18,17 +19,9 @@ class CourseCategoriesBody extends StatelessWidget {
                 categories: state.categories,
               );
             } else if (state is CategoriesFailure) {
-              return Center(
-                child: Text(
-                  "Failed",
-                  style: TextStyles.font16offWhiteSemiBold,
-                ),
-              );
+              return const FailureStateError();
             } else {
-              return Text(
-                "Unhandled Error",
-                style: TextStyles.font16offWhiteSemiBold,
-              );
+              return const FailureStateError();
             }
           },
         ),

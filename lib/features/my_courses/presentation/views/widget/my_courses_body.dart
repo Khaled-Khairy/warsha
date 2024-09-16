@@ -1,5 +1,6 @@
 import 'package:warsha/core/helpers/common_imports.dart';
 import 'package:warsha/core/widgets/courses_list.dart';
+import 'package:warsha/core/widgets/failure_state_error.dart';
 import 'package:warsha/features/my_courses/presentation/manager/my_courses_cubit/my_courses_cubit.dart';
 
 class MyCoursesBody extends StatelessWidget {
@@ -52,19 +53,9 @@ class MyCoursesBody extends StatelessWidget {
                   ),
           );
         } else if (state is MyCoursesFailure) {
-          return Center(
-            child: Text(
-              "Failed",
-              style: TextStyles.font16offWhiteSemiBold,
-            ),
-          );
+          return const FailureStateError();
         } else {
-          return Center(
-            child: Text(
-              "Unhandled Error",
-              style: TextStyles.font16offWhiteSemiBold,
-            ),
-          );
+          return const FailureStateError();
         }
       },
     );

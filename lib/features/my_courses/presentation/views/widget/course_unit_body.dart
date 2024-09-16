@@ -1,4 +1,5 @@
 import 'package:warsha/core/helpers/common_imports.dart';
+import 'package:warsha/core/widgets/failure_state_error.dart';
 import 'package:warsha/features/my_courses/presentation/views/widget/expandable_unit.dart';
 
 class CourseUnitBody extends StatefulWidget {
@@ -43,19 +44,9 @@ class _CourseUnitBodyState extends State<CourseUnitBody> {
             ),
           );
         } else if (state is CourseUnitFailure) {
-          return Center(
-            child: Text(
-              state.errMessage,
-              style: TextStyles.font16offWhiteSemiBold,
-            ),
-          );
+          return const FailureStateError();
         } else {
-          return Center(
-            child: Text(
-              "Unhandled Error",
-              style: TextStyles.font16offWhiteSemiBold,
-            ),
-          );
+          return const FailureStateError();
         }
       },
     );

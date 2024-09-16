@@ -6,7 +6,7 @@ class ApiEndpoints {
   static const String validateOtp = 'user/validate-otp/';
   static const String resetPassword = 'user/reset-password/';
   static const String logOut = 'user/logout/';
-  static const String allCourses = 'courses/';
+  static const String allCourses = 'course/';
   static const String categories = 'categories/';
   static const String myCourses = 'my_courses';
 
