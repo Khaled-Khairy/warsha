@@ -1,6 +1,5 @@
 import 'package:dartz/dartz.dart';
 import 'package:warsha/core/helpers/common_imports.dart';
-import 'package:warsha/features/my_courses/data/repos/my_courses_repo/my_courses_repo.dart';
 
 class MyCoursesRepoImpl implements MyCoursesRepo {
   final ApiService apiService;
