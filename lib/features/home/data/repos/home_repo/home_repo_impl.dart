@@ -12,8 +12,7 @@ class HomeRepoImpl extends HomeRepo {
   Future<Either<Failure, List<CourseModel>>> getAllCourses() async {
     try {
       if (_courses.isEmpty) {
-        final response =
-            await apiService.get(endPoint: ApiEndpoints.allCourses);
+        final response = await apiService.get(endPoint: ApiEndpoints.allCourses);
         for (var item in response) {
           _courses.add(CourseModel.fromJson(item));
         }

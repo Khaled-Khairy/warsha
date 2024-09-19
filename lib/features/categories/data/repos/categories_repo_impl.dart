@@ -12,8 +12,7 @@ class CategoriesRepoImpl extends CategoriesRepo {
   Future<Either<Failure, List<Categories>>> getCategories() async {
     try {
       if (_categories.isEmpty) {
-        final response =
-            await apiService.get(endPoint: ApiEndpoints.categories);
+        final response = await apiService.get(endPoint: ApiEndpoints.categories);
         for (var item in response) {
           _categories.add(Categories.fromJson(item));
         }

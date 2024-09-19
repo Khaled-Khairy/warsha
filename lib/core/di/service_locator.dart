@@ -5,7 +5,7 @@ import 'package:warsha/features/my_courses/data/repos/my_courses_repo/my_courses
 
 final getIt = GetIt.instance;
 
-Future<void> setupGetIt() async {
+Future<void> setupServiceLocator() async {
   // Dio & ApiService
   Dio dio = await DioFactory.getDio();
   getIt.registerSingleton<ApiService>(ApiService(dio));

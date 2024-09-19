@@ -2,7 +2,7 @@ import 'package:warsha/core/helpers/common_imports.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await setupGetIt();
+  await setupServiceLocator();
   await checkIfLoggedUser();
   // fixed screen util text bug in release mode
   await ScreenUtil.ensureScreenSize();

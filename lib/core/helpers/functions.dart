@@ -1,15 +1,15 @@
 import 'package:warsha/core/helpers/common_imports.dart';
-import 'package:warsha/features/my_courses/data/models/course_unit_model.dart';
 
 bool isLoggedUser = false;
 
 /// Checks if the user is logged in
 checkIfLoggedUser() async {
-  String? userToken = await SharedPrefHelper.getString(key: SharedPrefKeys.accessToken);
-  if (userToken != null && userToken.isNotEmpty) {
-    isLoggedUser = true;
-  } else {
+  String? userToken =
+      await SharedPrefHelper.getString(key: SharedPrefKeys.accessToken);
+  if (userToken.isEmpty) {
     isLoggedUser = false;
+  } else {
+    isLoggedUser = true;
   }
 }
 
@@ -51,12 +51,3 @@ appShowDialog({required BuildContext context, required Widget content}) {
   );
 }
 
-int getUnitOrder({required List<CourseUnit> units}) {
-  int order = 0;
-  for (CourseUnit unit in units) {
-    if (unit.active) {
-      order++;
-    }
-  }
-  return order;
-}

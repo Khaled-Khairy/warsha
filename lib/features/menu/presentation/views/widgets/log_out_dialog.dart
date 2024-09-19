@@ -10,7 +10,8 @@ class LogoutDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => LogOutCubit(getIt.get<MenuRepoImpl>()),
+        create: (context) => LogOutCubit(getIt.get<MenuRepoImpl>()),
+
       child: BlocConsumer<LogOutCubit, LogOutState>(
         listener: (context, state) {
           if (state is LogOutSuccess) {

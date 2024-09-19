@@ -6,10 +6,12 @@ class MenuContainer extends StatelessWidget {
     required this.icon,
     required this.title,
     required this.subtitle,
+    required this.isLoading,
   });
 
   final IconData icon;
   final String title, subtitle;
+  final bool isLoading;
 
   @override
   Widget build(BuildContext context) {
@@ -34,14 +36,33 @@ class MenuContainer extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                title,
-                style: TextStyles.font16offWhiteMedium,
-              ),
-              Text(
-                subtitle,
-                style: TextStyles.font14GreyRegular,
-              )
+              isLoading
+                  ? Container(
+                      height: 10.h,
+                      width: 120.w,
+                      margin: EdgeInsets.only(bottom: 6.h),
+                      decoration: BoxDecoration(
+                        color: ColorsManager.darkerGrey,
+                        borderRadius: BorderRadius.circular(12.w),
+                      ),
+                    )
+                  : Text(
+                      title,
+                      style: TextStyles.font16offWhiteMedium,
+                    ),
+              isLoading
+                  ? Container(
+                      height: 10.h,
+                      width: 170.w,
+                      decoration: BoxDecoration(
+                        color: ColorsManager.darkerGrey,
+                        borderRadius: BorderRadius.circular(12.w),
+                      ),
+                    )
+                  : Text(
+                      subtitle,
+                      style: TextStyles.font14GreyRegular,
+                    ),
             ],
           )
         ],

@@ -19,7 +19,7 @@ export 'package:lottie/lottie.dart';
 export 'package:pinput/pinput.dart';
 export 'package:pretty_dio_logger/pretty_dio_logger.dart';
 // Core dependencies
-export 'package:warsha/core/di/dependency_injection.dart';
+export 'package:warsha/core/di/service_locator.dart';
 export 'package:warsha/core/errors/failure.dart';
 // Core helpers
 export 'package:warsha/core/helpers/extensions.dart';
