@@ -22,7 +22,6 @@ class _LoginFormState extends State<LoginForm> {
 
   @override
   Widget build(BuildContext context) {
-    final cubit = BlocProvider.of<LoginCubit>(context);
     return Form(
       key: formKey,
       child: Column(
@@ -83,7 +82,7 @@ class _LoginFormState extends State<LoginForm> {
             onPressed: () async {
               closeKeyboard(context);
               if (formKey.currentState!.validate()) {
-                cubit.login(
+                context.read<LoginCubit>().login(
                   loginRequest: LoginRequest(
                     email: emailController.text,
                     password: passwordController.text,

@@ -22,7 +22,6 @@ class _ValidateOtpFormState extends State<ValidateOtpForm> {
 
   @override
   Widget build(BuildContext context) {
-    final cubit = BlocProvider.of<ValidateOtpCubit>(context);
     return Form(
       key: formKey,
       child: Column(
@@ -35,12 +34,12 @@ class _ValidateOtpFormState extends State<ValidateOtpForm> {
             onPressed: () {
               closeKeyboard(context);
               if (formKey.currentState!.validate()) {
-                cubit.validateOtp(
-                  validateOtpRequest: ValidateOtpRequest(
-                    email: widget.resetPasswordEmail,
-                    otp: otpController.text,
-                  ),
-                );
+                context.read<ValidateOtpCubit>().validateOtp(
+                      validateOtpRequest: ValidateOtpRequest(
+                        email: widget.resetPasswordEmail,
+                        otp: otpController.text,
+                      ),
+                    );
               }
             },
             text: "Continue",

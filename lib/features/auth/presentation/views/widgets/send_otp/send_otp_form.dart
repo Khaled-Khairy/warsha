@@ -15,7 +15,6 @@ class _SendOtpFormState extends State<SendOtpForm> {
 
   @override
   Widget build(BuildContext context) {
-    final cubit = BlocProvider.of<SendOtpCubit>(context);
     return Form(
       key: formKey,
       child: Column(
@@ -37,7 +36,7 @@ class _SendOtpFormState extends State<SendOtpForm> {
             onPressed: () {
               closeKeyboard(context);
               if (formKey.currentState!.validate()) {
-                cubit.sendOtp(
+                context.read<SendOtpCubit>().sendOtp(
                   sendOtpRequest: SendOtpRequest(
                     email: widget.emailController.text,
                   ),

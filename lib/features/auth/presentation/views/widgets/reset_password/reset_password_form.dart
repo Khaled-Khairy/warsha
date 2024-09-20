@@ -25,7 +25,6 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
 
   @override
   Widget build(BuildContext context) {
-    final cubit = BlocProvider.of<ResetPasswordCubit>(context);
     return Form(
       key: formKey,
       child: Column(
@@ -93,7 +92,7 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
             onPressed: () {
               closeKeyboard(context);
               if (formKey.currentState!.validate()) {
-                cubit.resetPassword(
+                context.read<ResetPasswordCubit>().resetPassword(
                   resetPasswordRequest: ResetPasswordRequest(
                     token: widget.token,
                     newPassword: newPasswordController.text,

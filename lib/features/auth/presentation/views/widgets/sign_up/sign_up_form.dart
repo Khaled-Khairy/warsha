@@ -29,7 +29,6 @@ class _SignUpFormState extends State<SignUpForm> {
 
   @override
   Widget build(BuildContext context) {
-    final cubit = BlocProvider.of<SignUpCubit>(context);
     return Form(
       key: formKey,
       child: Column(
@@ -141,7 +140,7 @@ class _SignUpFormState extends State<SignUpForm> {
             onPressed: () {
               closeKeyboard(context);
               if (formKey.currentState!.validate()) {
-                cubit.signUp(
+                context.read<SignUpCubit>().signUp(
                   signUpRequest: SignUpRequest(
                     email: emailController.text,
                     username: userNameController.text,

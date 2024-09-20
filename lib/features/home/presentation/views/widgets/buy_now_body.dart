@@ -117,10 +117,10 @@ class _BuyNowBodyState extends State<BuyNowBody> {
         imageFile: selectedImage!,
       );
 
-      BlocProvider.of<BuyNowCubit>(context).buyCourse(
-        slug: widget.slug,
-        buyNowRequest: buyNowRequest,
-      );
+      context.read<BuyNowCubit>().buyCourse(
+            slug: widget.slug,
+            buyNowRequest: buyNowRequest,
+          );
     }
   }
 }
