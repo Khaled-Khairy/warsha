@@ -1,5 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:warsha/core/helpers/common_imports.dart';
+import 'package:warsha/features/menu/data/models/change_password/change_password_request.dart';
+import 'package:warsha/features/menu/data/models/change_password/change_password_response.dart';
 import 'package:warsha/features/menu/data/models/profile.dart';
 import 'package:warsha/features/menu/data/repos/menu_repo.dart';
 
@@ -44,6 +46,25 @@ class MenuRepoImpl extends MenuRepo {
       _cachedProfile = profile;
       _isProfileLoaded = true;
       return right(profile);
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioException(e));
+      } else {
+        return left(ServerFailure(e.toString()));
+      }
+    }
+  }
+
+  @override
+  Future<Either<Failure, ChangePasswordResponse>> changePassword(
+      {required ChangePasswordRequest changePasswordRequest}) async {
+    try {
+      final response = await apiService.post(
+        endPoint: ApiEndpoints.changePassword,
+        data: changePasswordRequest.toJson(),
+      );
+      final changePasswordResponse = ChangePasswordResponse.fromJson(response);
+      return right(changePasswordResponse);
     } catch (e) {
       if (e is DioException) {
         return left(ServerFailure.fromDioException(e));

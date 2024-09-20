@@ -9,13 +9,8 @@ class MenuView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: MultiBlocProvider(
-        providers: [
-          BlocProvider(
-            create: (context) =>
-                ProfileCubit(getIt.get<MenuRepoImpl>())..getProfile(),
-          ),
-        ],
+      body: BlocProvider(
+        create: (context) => ProfileCubit(getIt.get<MenuRepoImpl>())..getProfile(),
         child: const Center(child: AppBody(child: MenuBody())),
       ),
     );

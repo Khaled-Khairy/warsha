@@ -1,5 +1,6 @@
 import 'package:warsha/core/helpers/common_imports.dart';
 import 'package:warsha/features/home/presentation/views/buy_now_view.dart';
+import 'package:warsha/features/menu/presentation/views/change_password_view.dart';
 import 'package:warsha/features/my_courses/presentation/views/course_unit_view.dart';
 import 'package:warsha/features/my_courses/presentation/views/video_player_view.dart';
 
@@ -75,6 +76,12 @@ class AppRouter {
           const VideoPlayerView(),
           settings,
           TransitionType.fadeThrough,
+        );
+      case Routes.changePasswordView:
+        return RouteAnimations.buildPageRoute(
+          const ChangePasswordView(),
+          settings,
+          TransitionType.slideFromRight,
         );
       default:
         return null;

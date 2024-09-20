@@ -13,11 +13,16 @@ class MenuBody extends StatelessWidget {
       children: [
         const ProfileSection(),
         10.verticalSpace,
-        const MenuContainer(
-          icon: Iconsax.lock_outline,
-          title: "Reset Password",
-          subtitle: "reset your account password",
-          isLoading: false,
+        GestureDetector(
+          onTap: () {
+            context.pushNamed(Routes.changePasswordView);
+          },
+          child: const MenuContainer(
+            icon: Iconsax.lock_outline,
+            title: "Change Password",
+            subtitle: "Change your account password",
+            isLoading: false,
+          ),
         ),
         20.verticalSpace,
         const LogOutButton(),
@@ -25,4 +30,3 @@ class MenuBody extends StatelessWidget {
     );
   }
 }
-

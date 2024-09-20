@@ -12,6 +12,7 @@ void main() async {
 Future<void> _initializeApp() async {
   await setupServiceLocator();
   await checkIfLoggedUser();
+  // fixed screen util text bug in release mode
   await ScreenUtil.ensureScreenSize();
   _setSystemUIStyles();
   _lockPortraitMode();
