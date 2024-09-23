@@ -20,7 +20,7 @@ class HomeBody extends StatelessWidget {
             ),
           );
         } else if (state is HomeFailure) {
-          return const FailureStateError();
+          return  FailureStateError(message: state.errMessage,);
         } else {
           return Center(
             child: Text(

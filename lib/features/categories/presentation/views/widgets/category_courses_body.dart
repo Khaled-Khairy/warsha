@@ -17,9 +17,9 @@ class CategoryCoursesBody extends StatelessWidget {
         } else if (state is CategoryCoursesSuccess) {
           return CategoryCoursesList(courses: state.courses);
         } else if (state is CategoryCoursesFailure) {
-          return const FailureStateError();
+          return  FailureStateError(message: state.errMessage,);
         } else {
-          return const FailureStateError();
+          return const FailureStateError(message: '',);
         }
       },
     );

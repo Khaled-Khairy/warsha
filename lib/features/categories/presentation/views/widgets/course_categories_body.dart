@@ -19,9 +19,9 @@ class CourseCategoriesBody extends StatelessWidget {
                 categories: state.categories,
               );
             } else if (state is CategoriesFailure) {
-              return const FailureStateError();
+              return  FailureStateError(message: state.errMessage,);
             } else {
-              return const FailureStateError();
+              return const FailureStateError(message: "Unhandled Error",);
             }
           },
         ),

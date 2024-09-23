@@ -17,3 +17,5 @@ final class HomeFailure extends HomeState {
 
   HomeFailure(this.errMessage);
 }
+
+

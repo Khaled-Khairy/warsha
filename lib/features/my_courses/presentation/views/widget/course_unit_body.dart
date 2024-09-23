@@ -44,9 +44,13 @@ class _CourseUnitBodyState extends State<CourseUnitBody> {
             ),
           );
         } else if (state is CourseUnitFailure) {
-          return const FailureStateError();
+          return FailureStateError(
+            message: state.errMessage,
+          );
         } else {
-          return const FailureStateError();
+          return const FailureStateError(
+            message: 'Unhandled Error',
+          );
         }
       },
     );

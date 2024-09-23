@@ -1,12 +1,30 @@
 import 'package:warsha/core/helpers/common_imports.dart';
+import 'package:warsha/features/home/presentation/manager/update_nav_index/update_nav_index_cubit.dart';
 
-class CourseDetailsInformation extends StatelessWidget {
+class CourseDetailsInformation extends StatefulWidget {
   const CourseDetailsInformation({
     super.key,
     required this.course,
+    required this.subscribedCourses,
   });
 
   final CourseModel course;
+  final List<CourseModel> subscribedCourses;
+
+  @override
+  State<CourseDetailsInformation> createState() =>
+      _CourseDetailsInformationState();
+}
+
+class _CourseDetailsInformationState extends State<CourseDetailsInformation> {
+  bool subscribed = false;
+
+  @override
+  void initState() {
+    subscribed = widget.subscribedCourses
+        .any((subscribedCourse) => subscribedCourse.slug == widget.course.slug);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +51,7 @@ class CourseDetailsInformation extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                course.title,
+                widget.course.title,
                 style: TextStyles.font18offWhiteSemiBold,
               ),
               4.verticalSpace,
@@ -46,7 +64,7 @@ class CourseDetailsInformation extends StatelessWidget {
                       style: TextStyles.font14offWhiteMedium,
                     ),
                     TextSpan(
-                      text: course.author,
+                      text: widget.course.author,
                       style: TextStyles.font14GreenSemiBold,
                     ),
                   ],
@@ -54,7 +72,7 @@ class CourseDetailsInformation extends StatelessWidget {
               ),
               4.verticalSpace,
               Text(
-                course.description,
+                widget.course.description,
                 style: TextStyles.font14GreyRegular,
               ),
               8.verticalSpace,
@@ -72,7 +90,7 @@ class CourseDetailsInformation extends StatelessWidget {
                           ),
                           4.horizontalSpace,
                           Text(
-                            "${course.numOfLessons} Lessons",
+                            "${widget.course.numOfLessons} Lessons",
                             style: TextStyles.font14offWhiteMedium,
                           ),
                         ],
@@ -87,7 +105,9 @@ class CourseDetailsInformation extends StatelessWidget {
                           ),
                           4.horizontalSpace,
                           Text(
-                            convertMinToHour(course.duration),
+                            convertMinToHour(
+                              widget.course.duration,
+                            ),
                             style: TextStyles.font14offWhiteMedium,
                           ),
                         ],
@@ -96,21 +116,46 @@ class CourseDetailsInformation extends StatelessWidget {
                   ),
                   const Spacer(),
                   Text(
-                    "${course.cost} LE",
+                    "${widget.course.cost} LE",
                     style: TextStyles.font20GreenBold,
-                  )
+                  ),
                 ],
               ),
               20.verticalSpace,
-              AppTextButton(
-                onPressed: () {
-                  context.pushNamed(
-                    Routes.buyNowView,
-                    arguments: course.slug,
-                  );
-                },
-                text: "Buy Now",
-              ),
+              subscribed
+                  ? Row(
+                      children: [
+                        Icon(
+                          Iconsax.info_circle_outline,
+                          size: 30.w,
+                          color: ColorsManager.mainGreen,
+                        ),
+                        10.horizontalSpace,
+                        Expanded(
+                          child: Text(
+                            "You have already purchased this course.",
+                            style: TextStyles.font16offWhiteMedium,
+                          ),
+                        ),
+                      ],
+                    )
+                  : const SizedBox.shrink(),
+              20.verticalSpace,
+              subscribed
+                  ? AppTextButton(
+                      onPressed: () {
+                        context.read<UpdateNavIndexCubit>().updateIndex(2);
+                        context.pop();
+                      },
+                      text: "Go to MyCourses",
+                    )
+                  : AppTextButton(
+                      onPressed: () {
+                        context.pushNamed(Routes.buyNowView,
+                            arguments: widget.course.slug);
+                      },
+                      text: "Buy Now",
+                    ),
             ],
           ),
         ),
