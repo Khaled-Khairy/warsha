@@ -52,19 +52,31 @@ class _CourseDetailsInformationState extends State<CourseDetailsInformation> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(widget.course.title, style: TextStyles.font18offWhiteSemiBold,),
+              Text(
+                widget.course.title,
+                style: TextStyles.font18offWhiteSemiBold,
+              ),
               4.verticalSpace,
               RichText(
                 textAlign: TextAlign.center,
                 text: TextSpan(
                   children: [
-                    TextSpan(text: "Author: ", style: TextStyles.font14offWhiteMedium),
-                    TextSpan(text: widget.course.author, style: TextStyles.font14GreenSemiBold),
+                    TextSpan(
+                      text: "Author: ",
+                      style: TextStyles.font14offWhiteMedium,
+                    ),
+                    TextSpan(
+                      text: widget.course.author,
+                      style: TextStyles.font14GreenSemiBold,
+                    ),
                   ],
                 ),
               ),
               4.verticalSpace,
-              Text(widget.course.description, style: TextStyles.font14GreyRegular),
+              Text(
+                widget.course.description,
+                style: TextStyles.font14GreyRegular,
+              ),
               8.verticalSpace,
               Row(
                 children: [
@@ -73,40 +85,63 @@ class _CourseDetailsInformationState extends State<CourseDetailsInformation> {
                     children: [
                       Row(
                         children: [
-                          Icon(Bootstrap.collection, size: 16.w, color: ColorsManager.mainGreen),
+                          Icon(
+                            Bootstrap.collection,
+                            size: 16.w,
+                            color: ColorsManager.mainGreen,
+                          ),
                           4.horizontalSpace,
-                          Text("${widget.course.numOfLessons} Lessons", style: TextStyles.font14offWhiteMedium),
+                          Text(
+                            "${widget.course.numOfLessons} Lessons",
+                            style: TextStyles.font14offWhiteMedium,
+                          ),
                         ],
                       ),
                       2.verticalSpace,
                       Row(
                         children: [
-                          Icon(Iconsax.clock_outline, size: 16.w, color: ColorsManager.mainGreen),
+                          Icon(
+                            Iconsax.clock_outline,
+                            size: 16.w,
+                            color: ColorsManager.mainGreen,
+                          ),
                           4.horizontalSpace,
-                          Text(convertMinToHour(widget.course.duration), style: TextStyles.font14offWhiteMedium),
+                          Text(
+                            convertMinToHour(
+                              widget.course.duration,
+                            ),
+                            style: TextStyles.font14offWhiteMedium,
+                          ),
                         ],
                       ),
                     ],
                   ),
                   const Spacer(),
-                  Text("${widget.course.cost} LE", style: TextStyles.font20GreenBold),
+                  Text(
+                    "${widget.course.cost} LE",
+                    style: TextStyles.font20GreenBold,
+                  ),
                 ],
               ),
               20.verticalSpace,
-              Row(
-                children: [
-                  Icon(
-                    Iconsax.info_circle_outline,
-                    size: 30.w,
-                    color: ColorsManager.mainGreen,
-                  ),
-                  10.horizontalSpace,
-                  Text(
-                    "You have subscribed to this course.",
-                    style: TextStyles.font16offWhiteMedium,
-                  ),
-                ],
-              ),
+              subscribed
+                  ? Row(
+                      children: [
+                        Icon(
+                          Iconsax.info_circle_outline,
+                          size: 30.w,
+                          color: ColorsManager.mainGreen,
+                        ),
+                        10.horizontalSpace,
+                        Expanded(
+                          child: Text(
+                            "You have already purchased this course.",
+                            style: TextStyles.font16offWhiteMedium,
+                          ),
+                        ),
+                      ],
+                    )
+                  : const SizedBox.shrink(),
               20.verticalSpace,
               subscribed
                   ? AppTextButton(

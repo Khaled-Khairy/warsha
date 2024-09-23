@@ -6,18 +6,17 @@ class HomeRepoImpl extends HomeRepo {
 
   HomeRepoImpl(this.apiService);
 
-  final List<CourseModel> _courses = [];
 
   @override
   Future<Either<Failure, List<CourseModel>>> getAllCourses() async {
     try {
-      if (_courses.isEmpty) {
-        final response = await apiService.get(endPoint: ApiEndpoints.allCourses);
-        for (var item in response) {
-          _courses.add(CourseModel.fromJson(item));
-        }
+      final response = await apiService.get(endPoint: ApiEndpoints.allCourses);
+      final List<CourseModel> courses = [];
+
+      for (var item in response) {
+        courses.add(CourseModel.fromJson(item));
       }
-      return Right(_courses);
+      return Right(courses);
     } catch (e) {
       if (e is DioException) {
         return left(ServerFailure.fromDioException(e));
