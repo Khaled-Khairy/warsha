@@ -1,5 +1,3 @@
-
-
 import 'package:warsha/core/helpers/common_imports.dart';
 
 part 'home_state.dart';
@@ -17,4 +15,6 @@ class HomeCubit extends Cubit<HomeState> {
       (course) => emit(HomeSuccess(course)),
     );
   }
+
+
 }

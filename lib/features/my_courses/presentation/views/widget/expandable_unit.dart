@@ -1,5 +1,4 @@
 import 'package:warsha/core/helpers/common_imports.dart';
-import 'package:warsha/features/my_courses/data/models/course_unit_model.dart';
 
 class ExpandableUnit extends StatefulWidget {
   const ExpandableUnit({super.key, required this.unit, required this.order});

@@ -33,9 +33,8 @@ class _AppNavBarState extends State<AppNavBar> {
         ),
         child: GNav(
           onTabChange: (index) {
-            setState(() {
-              currentIndex = index;
-            });
+            currentIndex = index;
+            setState(() {});
           },
           selectedIndex: currentIndex,
           haptic: false,

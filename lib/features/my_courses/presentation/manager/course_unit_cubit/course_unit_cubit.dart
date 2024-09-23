@@ -1,4 +1,3 @@
-import 'package:warsha/features/my_courses/data/models/course_unit_model.dart';
 
 import '../../../../../core/helpers/common_imports.dart';
 
