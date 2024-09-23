@@ -3,7 +3,10 @@ import 'package:warsha/core/helpers/common_imports.dart';
 class FailureStateError extends StatelessWidget {
   const FailureStateError({
     super.key,
+    required this.message,
   });
+
+  final String message;
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +29,11 @@ class FailureStateError extends StatelessWidget {
           Text(
             "An error occurred while processing your request. Please try again later.",
             style: TextStyles.font16GreyRegular,
+            textAlign: TextAlign.center,
+          ),
+          Text(
+            message,
+            style: TextStyles.font26GreenBold,
             textAlign: TextAlign.center,
           ),
         ],

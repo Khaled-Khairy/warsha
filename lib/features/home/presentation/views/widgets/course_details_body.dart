@@ -23,7 +23,7 @@ class CourseDetailsBody extends StatelessWidget {
             ),
           );
         } else if (state is MyCoursesFailure) {
-          return const FailureStateError();
+          return  FailureStateError(message: state.errMessage,);
         } else {
           return Center(
             child: Text(

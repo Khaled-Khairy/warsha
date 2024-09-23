@@ -53,9 +53,9 @@ class MyCoursesBody extends StatelessWidget {
                   ),
           );
         } else if (state is MyCoursesFailure) {
-          return const FailureStateError();
+          return  FailureStateError(message: state.errMessage,);
         } else {
-          return const FailureStateError();
+          return  const FailureStateError(message: 'Unhandled error',);
         }
       },
     );
