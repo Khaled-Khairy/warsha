@@ -1,6 +1,7 @@
 import 'package:warsha/core/helpers/common_imports.dart';
 import 'package:warsha/core/widgets/courses_list.dart';
 import 'package:warsha/core/widgets/failure_state_error.dart';
+import 'package:warsha/core/widgets/nothing_found.dart';
 
 class HomeBody extends StatelessWidget {
   const HomeBody({super.key});
@@ -15,12 +16,20 @@ class HomeBody extends StatelessWidget {
           );
         } else if (state is HomeSuccess) {
           return SafeArea(
-            child: CoursesList(
-              courses: state.courses,
-            ),
+            child: state.courses.isNotEmpty
+                ? CoursesList(
+                    courses: state.courses,
+                  )
+                : const NothingFound(
+              title: "No Courses Available",
+              subTitle: "New courses will be added soon. Stay tuned!",
+            )
+            ,
           );
         } else if (state is HomeFailure) {
-          return  FailureStateError(message: state.errMessage,);
+          return FailureStateError(
+            message: state.errMessage,
+          );
         } else {
           return Center(
             child: Text(
@@ -33,4 +42,3 @@ class HomeBody extends StatelessWidget {
     );
   }
 }
-

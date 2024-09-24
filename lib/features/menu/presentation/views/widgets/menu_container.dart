@@ -33,37 +33,35 @@ class MenuContainer extends StatelessWidget {
             ),
           ),
           10.horizontalSpace,
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              isLoading
-                  ? Container(
-                      height: 10.h,
-                      width: 120.w,
-                      margin: EdgeInsets.only(bottom: 6.h),
-                      decoration: BoxDecoration(
-                        color: ColorsManager.darkerGrey,
-                        borderRadius: BorderRadius.circular(12.w),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                if (isLoading) Container(
+                        height: 10.h,
+                        width: 120.w,
+                        margin: EdgeInsets.only(bottom: 6.h),
+                        decoration: BoxDecoration(
+                          color: ColorsManager.darkerGrey,
+                          borderRadius: BorderRadius.circular(12.w),
+                        ),
+                      ) else Text(
+                        title,
+                        style: TextStyles.font16offWhiteMedium,
                       ),
-                    )
-                  : Text(
-                      title,
-                      style: TextStyles.font16offWhiteMedium,
-                    ),
-              isLoading
-                  ? Container(
-                      height: 10.h,
-                      width: 170.w,
-                      decoration: BoxDecoration(
-                        color: ColorsManager.darkerGrey,
-                        borderRadius: BorderRadius.circular(12.w),
+                if (isLoading) Container(
+                        height: 10.h,
+                        width: 170.w,
+                        decoration: BoxDecoration(
+                          color: ColorsManager.darkerGrey,
+                          borderRadius: BorderRadius.circular(12.w),
+                        ),
+                      ) else Text(
+                        subtitle,
+                        style: TextStyles.font14GreyRegular,
                       ),
-                    )
-                  : Text(
-                      subtitle,
-                      style: TextStyles.font14GreyRegular,
-                    ),
-            ],
+              ],
+            ),
           )
         ],
       ),
