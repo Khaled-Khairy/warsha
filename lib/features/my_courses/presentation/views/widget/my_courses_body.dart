@@ -11,8 +11,10 @@ class MyCoursesBody extends StatelessWidget {
     return BlocBuilder<MyCoursesCubit, MyCoursesState>(
       builder: (context, state) {
         if (state is MyCoursesLoading) {
-          return const CircularProgressIndicator(
-            color: ColorsManager.mainGreen,
+          return const Center(
+            child: CircularProgressIndicator(
+              color: ColorsManager.mainGreen,
+            ),
           );
         } else if (state is MyCoursesSuccess) {
           return SafeArea(

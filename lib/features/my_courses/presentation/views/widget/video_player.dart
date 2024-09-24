@@ -11,7 +11,6 @@ class VideoPlayer extends StatefulWidget {
 
 class _VideoPlayerState extends State<VideoPlayer> {
   late YoutubePlayerController _controller;
-
   @override
   void initState() {
     final videoId = YoutubePlayer.convertUrlToId(widget.videoUrl);
@@ -49,7 +48,6 @@ class _VideoPlayerState extends State<VideoPlayer> {
       ),
       controlsTimeOut: const Duration(seconds: 3),
       bottomActions: [
-        20.horizontalSpace,
         const CurrentPosition(),
         const ProgressBar(
           isExpanded: true,
@@ -72,10 +70,8 @@ class _VideoPlayerState extends State<VideoPlayer> {
           },
         ),
         const PlaybackSpeedButton(),
-        20.horizontalSpace,
       ],
       topActions: [
-        12.horizontalSpace,
         IconButton(
           onPressed: () {
             context.pop();
@@ -83,13 +79,12 @@ class _VideoPlayerState extends State<VideoPlayer> {
           icon: Icon(
             Icons.arrow_back_ios,
             color: ColorsManager.mainGreen,
-            size: 10.w,
+            size: 12.w,
           ),
         ),
       ],
       controller: _controller,
       showVideoProgressIndicator: true,
-      aspectRatio: 2.12,
     );
   }
 
