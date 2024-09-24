@@ -24,7 +24,7 @@ class CourseContentCard extends StatelessWidget {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(12.w),
               child: CachedNetworkImage(
-                fit: BoxFit.fill,
+                fit: BoxFit.contain,
                 imageUrl:
                     "http://image.tmdb.org/t/p/original/8cdWjvZQUExUUTzyp4t6EDMubfO.jpg",
                 placeholder: (context, url) =>
