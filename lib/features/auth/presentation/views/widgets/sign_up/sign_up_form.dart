@@ -142,11 +142,11 @@ class _SignUpFormState extends State<SignUpForm> {
               if (formKey.currentState!.validate()) {
                 context.read<SignUpCubit>().signUp(
                   signUpRequest: SignUpRequest(
-                    email: emailController.text,
-                    username: userNameController.text,
-                    phone: phoneNumberController.text,
-                    password: passwordController.text,
-                    confirmPassword: confirmPasswordController.text,
+                    email: emailController.text.trim(),
+                    username: userNameController.text.trim(),
+                    phone: phoneNumberController.text.trim(),
+                    password: passwordController.text.trim(),
+                    confirmPassword: confirmPasswordController.text.trim(),
                   ),
                 );
               }

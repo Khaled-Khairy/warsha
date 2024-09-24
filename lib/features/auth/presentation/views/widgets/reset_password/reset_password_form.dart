@@ -95,8 +95,8 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
                 context.read<ResetPasswordCubit>().resetPassword(
                   resetPasswordRequest: ResetPasswordRequest(
                     token: widget.token,
-                    newPassword: newPasswordController.text,
-                    confirmPassword: confirmNewPasswordController.text,
+                    newPassword: newPasswordController.text.trim(),
+                    confirmPassword: confirmNewPasswordController.text.trim(),
                   ),
                 );
               }

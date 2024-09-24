@@ -38,7 +38,7 @@ class _SendOtpFormState extends State<SendOtpForm> {
               if (formKey.currentState!.validate()) {
                 context.read<SendOtpCubit>().sendOtp(
                   sendOtpRequest: SendOtpRequest(
-                    email: widget.emailController.text,
+                    email: widget.emailController.text.trim(),
                   ),
                 );
               }
