@@ -19,8 +19,7 @@ class DioFactory {
   }
 
   static void addDioHeaders() async {
-    final String token = await SharedPrefHelper.getString(
-        key: SharedPrefKeys.accessToken);
+    final String token = await SharedPrefHelper.getString(key: SharedPrefKeys.accessToken);
 
     if (token.isNotEmpty) {
       dio?.options.headers = {

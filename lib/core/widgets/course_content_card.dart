@@ -26,6 +26,8 @@ class CourseContentCard extends StatelessWidget {
               child: CachedNetworkImage(
                 fit: BoxFit.contain,
                 imageUrl: "http://16.171.151.13:8000/media/course_images/1354376.jpeg",
+                fit: BoxFit.fill,
+                imageUrl: "http://16.171.151.13:8000/${course.image}",
                 placeholder: (context, url) =>
                     const Center(child: CircularProgressIndicator()),
                 errorWidget: (context, url, error) => const Icon(Icons.error),

@@ -39,10 +39,8 @@ class _CourseDetailsInformationState extends State<CourseDetailsInformation> {
             ),
             child: CachedNetworkImage(
               fit: BoxFit.fill,
-              imageUrl:
-                  "http://image.tmdb.org/t/p/original/8cdWjvZQUExUUTzyp4t6EDMubfO.jpg",
-              placeholder: (context, url) =>
-                  const Center(child: CircularProgressIndicator()),
+              imageUrl: "http://16.171.151.13:8000/${course.image}",
+              placeholder: (context, url) => const Center(child: CircularProgressIndicator()),
               errorWidget: (context, url, error) => const Icon(Icons.error),
             ),
           ),
