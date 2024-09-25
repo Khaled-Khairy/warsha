@@ -24,7 +24,7 @@ class CourseContentCard extends StatelessWidget {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(12.w),
               child: CachedNetworkImage(
-                fit: BoxFit.fill,
+                fit: BoxFit.contain,
                 imageUrl: "http://16.171.151.13:8000/${course.image}",
                 placeholder: (context, url) =>
                     const Center(child: CircularProgressIndicator()),

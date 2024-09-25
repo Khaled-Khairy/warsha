@@ -35,8 +35,14 @@ class _VideoPlayerViewState extends State<VideoPlayerView> {
   Widget build(BuildContext context) {
     final videoUrl = ModalRoute.of(context)!.settings.arguments as String;
     return Scaffold(
-      body: VideoPlayer(
-        videoUrl: videoUrl,
+      backgroundColor: Colors.black,
+      body: Center(
+        child: FittedBox(
+          fit: BoxFit.fill,
+          child: VideoPlayer(
+            videoUrl: videoUrl,
+          ),
+        ),
       ),
     );
   }

@@ -36,8 +36,8 @@ class _ValidateOtpFormState extends State<ValidateOtpForm> {
               if (formKey.currentState!.validate()) {
                 context.read<ValidateOtpCubit>().validateOtp(
                       validateOtpRequest: ValidateOtpRequest(
-                        email: widget.resetPasswordEmail,
-                        otp: otpController.text,
+                        email: widget.resetPasswordEmail.trim(),
+                        otp: otpController.text.trim(),
                       ),
                     );
               }

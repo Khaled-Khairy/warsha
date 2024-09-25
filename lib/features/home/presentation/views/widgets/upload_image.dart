@@ -51,9 +51,6 @@ class _UploadImageState extends State<UploadImage> {
   }
 
   _pickImageFromGallery() async {
-    var status = await Permission.photos.request();
-
-    if (status.isGranted) {
       final image = await ImagePicker().pickImage(source: ImageSource.gallery);
       if (image != null) {
         setState(() {
@@ -61,24 +58,5 @@ class _UploadImageState extends State<UploadImage> {
           widget.onImageSelected(selectedImage);
         });
       }
-    } else if (status.isDenied || status.isPermanentlyDenied) {
-      _showPermissionDeniedMessage();
-    }
-  }
-
-  _showPermissionDeniedMessage() {
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: SnackBarContent(
-            message:
-                "Permission to access your photo gallery is required to select images. Please enable it in your device settings."),
-      ),
-    );
-    Future.delayed(
-      const Duration(seconds: 3),
-      () {
-        openAppSettings();
-      },
-    );
   }
 }

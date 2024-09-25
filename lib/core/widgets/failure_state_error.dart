@@ -31,9 +31,10 @@ class FailureStateError extends StatelessWidget {
             style: TextStyles.font16GreyRegular,
             textAlign: TextAlign.center,
           ),
+          4.verticalSpace,
           Text(
             message,
-            style: TextStyles.font26GreenBold,
+            style: TextStyles.font16GreyRegular,
             textAlign: TextAlign.center,
           ),
         ],
