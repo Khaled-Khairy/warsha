@@ -29,10 +29,10 @@ class Validations {
 
   static String? phoneNumberValidator(String? value) {
     if (value == null || value.isEmpty) {
-      return 'Email cannot be empty!';
+      return 'Phone Number cannot be empty!';
     }
     if (!AppRegex.isPhoneNumberValid(value)) {
-      return 'Please enter valid email';
+      return 'Please enter valid Phone Number';
     }
     return null;
   }
