@@ -123,9 +123,9 @@ class _ChangePasswordFormState extends State<ChangePasswordForm> {
               if (formKey.currentState!.validate()) {
                 context.read<ChangePasswordCubit>().changePassword(
                       changePasswordRequest: ChangePasswordRequest(
-                        currentPassword: currentPasswordController.text,
-                        newPassword: newPasswordController.text,
-                        repeatPassword: repeatPasswordController.text,
+                        currentPassword: currentPasswordController.text.trim(),
+                        newPassword: newPasswordController.text.trim(),
+                        repeatPassword: repeatPasswordController.text.trim(),
                       ),
                     );
               }

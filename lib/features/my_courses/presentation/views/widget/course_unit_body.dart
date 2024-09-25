@@ -23,8 +23,10 @@ class _CourseUnitBodyState extends State<CourseUnitBody> {
     return BlocBuilder<CourseUnitCubit, CourseUnitState>(
       builder: (context, state) {
         if (state is CourseUnitLoading) {
-          return const CircularProgressIndicator(
-            color: ColorsManager.mainGreen,
+          return const Center(
+            child: CircularProgressIndicator(
+              color: ColorsManager.mainGreen,
+            ),
           );
         } else if (state is CourseUnitSuccess) {
           return SafeArea(
@@ -44,8 +46,10 @@ class _CourseUnitBodyState extends State<CourseUnitBody> {
             ),
           );
         } else if (state is CourseUnitFailure) {
-          return FailureStateError(
-            message: state.errMessage,
+          return Center(
+            child: FailureStateError(
+              message: state.errMessage,
+            ),
           );
         } else {
           return const FailureStateError(
