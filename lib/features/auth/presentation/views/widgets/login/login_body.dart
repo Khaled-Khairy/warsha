@@ -16,7 +16,7 @@ class LoginBody extends StatelessWidget {
         } else if (state is LoginSuccess) {
           context.pop();
           closeKeyboard(context);
-          context.pushReplacementNamed(Routes.appNavBar);
+          context.pushNamedAndRemoveUntil(Routes.appNavBar, predicate: (route) => false);
         } else if (state is LoginFailure) {
           context.pop();
           ScaffoldMessenger.of(context).showSnackBar(

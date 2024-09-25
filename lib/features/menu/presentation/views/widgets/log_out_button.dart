@@ -1,5 +1,4 @@
 import 'package:warsha/core/helpers/common_imports.dart';
-import 'package:warsha/features/home/presentation/manager/update_nav_index/update_nav_index_cubit.dart';
 import 'package:warsha/features/menu/presentation/views/widgets/log_out_dialog.dart';
 
 class LogOutButton extends StatelessWidget {
@@ -15,7 +14,6 @@ class LogOutButton extends StatelessWidget {
           context: context,
           builder: (context) => const LogoutDialog(),
         );
-        context.read<UpdateNavIndexCubit>().updateIndex(0);
       },
       child: Row(
         children: [

@@ -22,7 +22,7 @@ void _setSystemUIStyles() {
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
       systemNavigationBarColor: ColorsManager.background,
-      statusBarColor: ColorsManager.mainGreen,
+      statusBarColor: ColorsManager.background,
     ),
   );
 }

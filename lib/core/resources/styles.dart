@@ -26,6 +26,11 @@ abstract class TextStyles {
     color: ColorsManager.mainGreen,
     fontWeight: FontWeightHelper.bold,
   );
+  static TextStyle font20GreenSemiBold = TextStyle(
+    fontSize: 20.sp,
+    color: ColorsManager.mainGreen,
+    fontWeight: FontWeightHelper.semiBold,
+  );
   static TextStyle font20offWhiteSemiBold = TextStyle(
     fontSize: 20.sp,
     color: ColorsManager.offWhite,
@@ -59,13 +64,20 @@ abstract class TextStyles {
     fontSize: 16.sp,
     color: ColorsManager.mainGreen,
     fontWeight: FontWeightHelper.medium,
-  );static TextStyle font16GreenSemiBold = TextStyle(
+  );
+  static TextStyle font16GreenSemiBold = TextStyle(
     fontSize: 16.sp,
     color: ColorsManager.mainGreen,
     fontWeight: FontWeightHelper.semiBold,
-  );static TextStyle font18GreenSemiBold = TextStyle(
+  );
+  static TextStyle font18GreenSemiBold = TextStyle(
     fontSize: 18.sp,
     color: ColorsManager.mainGreen,
+    fontWeight: FontWeightHelper.semiBold,
+  );
+  static TextStyle font18RedSemiBold = TextStyle(
+    fontSize: 18.sp,
+    color: ColorsManager.errorColor,
     fontWeight: FontWeightHelper.semiBold,
   );
   static TextStyle font16offWhiteMedium = TextStyle(
