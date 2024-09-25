@@ -8,7 +8,7 @@ class DocLogoAndName extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        SvgPicture.asset(Assets.docDocLogo),
+        SvgPicture.asset(Assets.docDocLogo, height: 40.h),
         10.horizontalSpace,
         Text(
           "Warsha",

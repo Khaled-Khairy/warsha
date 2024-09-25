@@ -2,6 +2,8 @@ import 'package:warsha/core/helpers/common_imports.dart';
 import 'package:warsha/core/widgets/failure_state_error.dart';
 import 'package:warsha/features/my_courses/presentation/views/widget/expandable_unit.dart';
 
+import '../../../../../core/widgets/animate_list.dart';
+
 class CourseUnitBody extends StatefulWidget {
   const CourseUnitBody({super.key, required this.slug});
 
@@ -12,9 +14,12 @@ class CourseUnitBody extends StatefulWidget {
 }
 
 class _CourseUnitBodyState extends State<CourseUnitBody> {
+  bool myAnimation = false;
+
   @override
   void initState() {
     BlocProvider.of<CourseUnitCubit>(context).getCourseUnit(slug: widget.slug);
+
     super.initState();
   }
 
@@ -29,6 +34,11 @@ class _CourseUnitBodyState extends State<CourseUnitBody> {
             ),
           );
         } else if (state is CourseUnitSuccess) {
+          WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+            setState(() {
+              myAnimation = true;
+            });
+          });
           return SafeArea(
             child: ListView.builder(
               physics: const BouncingScrollPhysics(),
@@ -36,9 +46,13 @@ class _CourseUnitBodyState extends State<CourseUnitBody> {
               padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
               itemBuilder: (context, index) {
                 if (state.courseUnit[index].active) {
-                  return ExpandableUnit(
-                    unit: state.courseUnit[index],
-                    order: state.courseUnit[index].order,
+                  return AnimateList(
+                    myAnimation: myAnimation,
+                    index: index,
+                    child: ExpandableUnit(
+                      unit: state.courseUnit[index],
+                      order: state.courseUnit[index].order,
+                    ),
                   );
                 }
                 return const SizedBox.shrink();
@@ -60,3 +74,4 @@ class _CourseUnitBodyState extends State<CourseUnitBody> {
     );
   }
 }
+
