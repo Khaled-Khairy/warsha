@@ -41,7 +41,7 @@ class AppNavBar extends StatelessWidget {
               color: ColorsManager.grey,
               activeColor: ColorsManager.offWhite,
               textStyle: TextStyles.font14offWhiteBold,
-              iconSize: 24.w,
+              iconSize: 24.r,
               padding: EdgeInsets.symmetric(vertical: 12.h),
               gap: 6.w,
               tabs: const [

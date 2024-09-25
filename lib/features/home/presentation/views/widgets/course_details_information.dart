@@ -145,7 +145,7 @@ class _CourseDetailsInformationState extends State<CourseDetailsInformation> {
                   ? AppTextButton(
                       onPressed: () {
                         context.read<UpdateNavIndexCubit>().updateIndex(2);
-                        context.pop();
+                        context.pushReplacementNamed(Routes.appNavBar);
                       },
                       text: "Go to MyCourses",
                     )

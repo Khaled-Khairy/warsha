@@ -21,10 +21,9 @@ class HomeBody extends StatelessWidget {
                     courses: state.courses,
                   )
                 : const NothingFound(
-              title: "No Courses Available",
-              subTitle: "New courses will be added soon. Stay tuned!",
-            )
-            ,
+                    title: "No Courses Available",
+                    subTitle: "New courses will be added soon. Stay tuned!",
+                  ),
           );
         } else if (state is HomeFailure) {
           return FailureStateError(

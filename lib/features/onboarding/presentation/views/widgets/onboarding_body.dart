@@ -15,7 +15,19 @@ class OnboardingBody extends StatelessWidget {
             children: [
               const DocLogoAndName(),
               30.verticalSpace,
-              const DoctorImageAndText(),
+              LayoutBuilder(
+                builder: (context, constraints) {
+                  if (constraints.maxWidth > 500) {
+                    return const DoctorImageAndText(
+                      isTablet: true,
+                    );
+                  } else {
+                    return const DoctorImageAndText(
+                      isTablet: false,
+                    );
+                  }
+                },
+              ),
               const OnboardingFooter(),
             ],
           ),

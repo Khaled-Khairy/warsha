@@ -24,10 +24,9 @@ class CourseContentCard extends StatelessWidget {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(12.w),
               child: CachedNetworkImage(
-                fit: BoxFit.contain,
+                fit: BoxFit.cover,
                 imageUrl: "http://16.171.151.13:8000/${course.image}",
-                placeholder: (context, url) =>
-                    const Center(child: CircularProgressIndicator()),
+                placeholder: (context, url) => const Center(child: CircularProgressIndicator()),
                 errorWidget: (context, url, error) => const Icon(Icons.error),
               ),
             ),
@@ -61,13 +60,13 @@ class CourseContentCard extends StatelessWidget {
                   ),
                 ),
                 2.verticalSpace,
-                Text(
-                  course.description,
-                  style: TextStyles.font14GreyRegular,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                ),
-                2.verticalSpace,
+                // Text(
+                //   course.description,
+                //   style: TextStyles.font14GreyRegular,
+                //   maxLines: 2,
+                //   overflow: TextOverflow.ellipsis,
+                // ),
+                4.verticalSpace,
                 Row(
                   children: [
                     Column(

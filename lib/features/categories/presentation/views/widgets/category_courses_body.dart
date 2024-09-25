@@ -12,8 +12,10 @@ class CategoryCoursesBody extends StatelessWidget {
     return BlocBuilder<CategoryCoursesCubit, CategoryCoursesState>(
       builder: (context, state) {
         if (state is CategoryCoursesLoading) {
-          return const CircularProgressIndicator(
-            color: ColorsManager.mainGreen,
+          return const Center(
+            child: CircularProgressIndicator(
+              color: ColorsManager.mainGreen,
+            ),
           );
         } else if (state is CategoryCoursesSuccess) {
           return state.courses.isNotEmpty

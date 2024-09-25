@@ -21,7 +21,7 @@ Future<void> _initializeApp() async {
 void _setSystemUIStyles() {
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
-      systemNavigationBarColor: ColorsManager.mainGreen,
+      systemNavigationBarColor: ColorsManager.background,
       statusBarColor: ColorsManager.mainGreen,
     ),
   );
