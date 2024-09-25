@@ -26,7 +26,8 @@ class CourseContentCard extends StatelessWidget {
               child: CachedNetworkImage(
                 fit: BoxFit.cover,
                 imageUrl: "http://16.171.151.13:8000/${course.image}",
-                placeholder: (context, url) => const Center(child: CircularProgressIndicator()),
+                placeholder: (context, url) =>
+                    const Center(child: CircularProgressIndicator()),
                 errorWidget: (context, url, error) => const Icon(Icons.error),
               ),
             ),
@@ -43,6 +44,13 @@ class CourseContentCard extends StatelessWidget {
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ),
+                2.verticalSpace,
+                 SizedBox(
+                   width: 220.w,
+                   child: const Divider(
+                     color: ColorsManager.darkerGrey,
+                   ),
+                 ),
                 2.verticalSpace,
                 RichText(
                   textAlign: TextAlign.center,

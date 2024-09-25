@@ -45,7 +45,7 @@ class _ExpandableUnitState extends State<ExpandableUnit> {
                         ),
                         Text(
                           widget.unit.description,
-                          style: TextStyles.font14offWhiteMedium,
+                          style: TextStyles.font14GreyRegular,
                         ),
                       ],
                     ),
@@ -78,7 +78,8 @@ class _ExpandableUnitState extends State<ExpandableUnit> {
                 final lesson = widget.unit.lessons[index];
                 if (lesson.active) {
                   return Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 4.h),
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 12.w, vertical: 4.h),
                     child: GestureDetector(
                       onTap: () {
                         context.pushNamed(
@@ -88,16 +89,18 @@ class _ExpandableUnitState extends State<ExpandableUnit> {
                       },
                       child: Container(
                         padding: EdgeInsets.symmetric(
-                            horizontal: 12.w, vertical: 16.h),
+                          horizontal: 12.w,
+                          vertical: 16.h,
+                        ),
                         decoration: BoxDecoration(
                           color: ColorsManager.mainGrey,
                           borderRadius: BorderRadius.circular(6.w),
                           boxShadow: const [
                             BoxShadow(
-                              color: ColorsManager.darkerGrey,
+                              color: ColorsManager.mainGreen,
                               offset: Offset(2, 2),
-                              spreadRadius: 1,
-                              blurRadius: 0.5,
+                              spreadRadius: 0.2,
+                              blurRadius: 1,
                             ),
                             BoxShadow(
                               color: Colors.transparent,
@@ -109,7 +112,7 @@ class _ExpandableUnitState extends State<ExpandableUnit> {
                         ),
                         child: Text(
                           "${lesson.order}. ${lesson.title}",
-                          style: TextStyles.font16offWhiteMedium,
+                          style: TextStyles.font14offWhiteMedium,
                         ),
                       ),
                     ),
