@@ -20,7 +20,7 @@ class AppNavBar extends StatelessWidget {
         return Scaffold(
           body: pages[currentIndex],
           bottomNavigationBar: Container(
-            padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
+            padding: EdgeInsets.symmetric(horizontal: 28.w, vertical: 6.h),
             decoration: BoxDecoration(
               color: ColorsManager.mainGrey,
               borderRadius: BorderRadius.only(
@@ -41,8 +41,8 @@ class AppNavBar extends StatelessWidget {
               color: ColorsManager.grey,
               activeColor: ColorsManager.offWhite,
               textStyle: TextStyles.font14offWhiteBold,
-              iconSize: 24.r,
-              padding: EdgeInsets.symmetric(vertical: 12.h),
+              iconSize: 26.r,
+              padding: EdgeInsets.symmetric(vertical: 10.h),
               gap: 6.w,
               tabs: const [
                 GButton(icon: Iconsax.home_outline, text: "Home"),

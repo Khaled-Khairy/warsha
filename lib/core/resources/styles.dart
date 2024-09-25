@@ -101,7 +101,7 @@ abstract class TextStyles {
     fontWeight: FontWeightHelper.medium,
   );
   static TextStyle font14offWhiteBold = TextStyle(
-    fontSize: 14.w,
+    fontSize: 14.sp,
     color: ColorsManager.offWhite,
     fontWeight: FontWeightHelper.bold,
   );
