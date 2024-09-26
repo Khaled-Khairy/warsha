@@ -4,8 +4,13 @@ plugins {
     // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id "dev.flutter.flutter-gradle-plugin"
 }
-
+def keystoreProperties = new Properties()
+def keystorePropertiesFile = rootProject.file('key.properties')
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+}
 android {
+
     namespace = "com.example.warsha"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
@@ -29,7 +34,14 @@ android {
         versionCode = flutter.versionCode
         versionName = flutter.versionName
     }
-
+    signingConfigs {
+        release {
+            keyAlias = keystoreProperties['warsha']
+            keyPassword = keystoreProperties['khaled']
+            storeFile = keystoreProperties['warsha.jks'] ? file(keystoreProperties['warsha.jks']) : null
+            storePassword = keystoreProperties['khaled']
+        }
+    }
     buildTypes {
         release {
             // TODO: Add your own signing config for the release build.

@@ -35,8 +35,7 @@ class _BuyNowBodyState extends State<BuyNowBody> {
             context: context,
             content: SuccessDialog(
               title: "Receipt Sent Successfully",
-              subTitle:
-                  "We’ve received your receipt. Please allow some time for us to review and process it. Check back later for updates on the status of your request.",
+              subTitle: "We’ve received your receipt. Please allow some time for us to review and process it. Check back later for updates on the status of your request.",
               buttonText: "Done",
               onPressed: () {
                 context.pop();

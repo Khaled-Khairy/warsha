@@ -39,7 +39,7 @@ class _CourseDetailsInformationState extends State<CourseDetailsInformation> {
             ),
             child: CachedNetworkImage(
               fit: BoxFit.cover,
-              imageUrl: "http://16.171.151.13:8000/${widget.course.image}",
+              imageUrl: "http://13.60.30.244:8000${widget.course.image}",
               placeholder: (context, url) => const Center(child: CircularProgressIndicator()),
               errorWidget: (context, url, error) => const Icon(Icons.error),
             ),

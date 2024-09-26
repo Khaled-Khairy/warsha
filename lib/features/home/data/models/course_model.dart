@@ -7,37 +7,37 @@ class CourseModel {
   final String author;
   final int numOfLessons;
   final int duration;
-  final String cost;
-
-  CourseModel({
-    required this.slug,
-    required this.title,
-    required this.description,
-    required this.categories,
-    required this.image,
-    required this.author,
-    required this.numOfLessons,
-    required this.duration,
-    required this.cost,
-  });
+  final int cost;
+  final String telegram;
 
   factory CourseModel.fromJson(Map<String, dynamic> json) {
     return CourseModel(
       slug: json['slug'],
       title: json['title'],
       description: json['description'],
-      categories: (json['categories'] as List<dynamic>)
-          .map((category) => Category.fromJson(category as Map<String, dynamic>))
-          .toList(),
+      categories: (json['categories'] as List<dynamic>).map((category) => Category.fromJson(category as Map<String, dynamic>)).toList(),
       image: json['image'],
       author: json['author'],
       numOfLessons: json['num_of_lessons'],
       duration: json['duration'],
       cost: json['cost'],
+      telegram: json['telegram'],
     );
   }
 
+  CourseModel(
+      {required this.slug,
+      required this.title,
+      required this.description,
+      required this.categories,
+      required this.image,
+      required this.author,
+      required this.numOfLessons,
+      required this.duration,
+      required this.cost,
+      required this.telegram});
 }
+
 class Category {
   final String name;
 
@@ -48,5 +48,4 @@ class Category {
       name: json['name'],
     );
   }
-
 }
