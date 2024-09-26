@@ -21,9 +21,14 @@ class MyCoursesBody extends StatelessWidget {
                 ? CoursesList(
               courses: state.courses,
               onTap: (index) {
+                final String slug = state.courses[index].slug;
+                final String telegramUrl = state.courses[index].telegram;
                 context.pushNamed(
-                  Routes.courseStatusView,
-                  arguments: state.courses[index].slug,
+                  Routes.courseUnitView,
+                  arguments: {
+                    'slug': slug,
+                    'telegramUrl': telegramUrl
+                  },
                 );
               },
             )

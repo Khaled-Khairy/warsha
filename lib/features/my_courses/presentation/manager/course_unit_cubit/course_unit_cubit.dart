@@ -19,10 +19,7 @@ class CourseUnitCubit extends Cubit<CourseUnitState> {
     emit(CourseStatusLoading());
     final response = await courseUnitRepoImpl.getSubscriptionStatus(slug: slug);
     response.fold(
-      (failure) => emit(CourseStatusFailure(errMessage: failure.errorMessage)),
-      (subscriptionStatus) {
-        emit(CourseStatusSuccess(subscriptionStatus));
-      },
-    );
+        (failure) => emit(CourseStatusFailure(errMessage: failure.errorMessage)),
+        (subscriptionStatus) => emit(CourseStatusSuccess(subscriptionStatus)));
   }
 }

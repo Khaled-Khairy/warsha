@@ -1,11 +1,10 @@
 import 'package:warsha/core/helpers/common_imports.dart';
 
 class BuyNowView extends StatelessWidget {
-  const BuyNowView({super.key});
-
+  const BuyNowView({super.key, required this.slug});
+  final String slug;
   @override
   Widget build(BuildContext context) {
-    final slug = ModalRoute.of(context)!.settings.arguments as String;
     return Scaffold(
       body: BlocProvider(
         create: (context) => BuyNowCubit(getIt.get<BuyNowRepoImpl>()),

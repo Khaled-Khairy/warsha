@@ -3,11 +3,10 @@ import 'package:warsha/features/home/presentation/views/widgets/course_details_b
 import 'package:warsha/features/my_courses/data/repos/my_courses_repo/my_courses_repo_impl.dart';
 
 class CourseDetailsView extends StatelessWidget {
-  const CourseDetailsView({super.key});
-
+  const CourseDetailsView({super.key, required this.course});
+  final CourseModel course;
   @override
   Widget build(BuildContext context) {
-    final course = ModalRoute.of(context)!.settings.arguments as CourseModel;
     return Scaffold(
       body: MultiBlocProvider(
         providers: [
