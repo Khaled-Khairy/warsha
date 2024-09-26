@@ -24,7 +24,7 @@ class CourseUnitBlocBuilder extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
               itemBuilder: (context, index) {
                 if (courseUnitState.courseUnit[index].active) {
-                  return AnimateList(
+                  return AnimateWidget(
                     index: index,
                     child: ExpandableUnit(
                       unit: courseUnitState.courseUnit[index],

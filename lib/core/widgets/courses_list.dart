@@ -15,7 +15,7 @@ class CoursesList extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
       physics: const BouncingScrollPhysics(),
       itemBuilder: (context, index) {
-        return AnimateList(
+        return AnimateWidget(
           index: index,
           child: Padding(
             padding: EdgeInsets.only(bottom: 12.h),

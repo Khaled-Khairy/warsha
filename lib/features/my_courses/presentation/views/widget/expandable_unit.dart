@@ -78,7 +78,7 @@ class _ExpandableUnitState extends State<ExpandableUnit> {
               itemBuilder: (context, index) {
                 final lesson = widget.unit.lessons[index];
                 if (lesson.active) {
-                  return AnimateList(
+                  return AnimateWidget(
                     index: index,
                     child: Padding(
                       padding:

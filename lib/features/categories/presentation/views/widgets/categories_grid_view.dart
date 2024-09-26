@@ -19,7 +19,7 @@ class CategoriesGridView extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
       itemCount: categories.length,
       itemBuilder: (context, index) {
-        return AnimateList(
+        return AnimateWidget(
         index: index,
         child: CategoriesGridViewItem(category: categories[index]));
       },

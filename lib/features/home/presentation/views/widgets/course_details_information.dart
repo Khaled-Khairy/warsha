@@ -1,6 +1,6 @@
 import 'package:warsha/core/helpers/common_imports.dart';
 
-class CourseDetailsInformation extends StatefulWidget {
+class CourseDetailsInformation extends StatelessWidget {
   const CourseDetailsInformation({
     super.key,
     required this.course,
@@ -9,30 +9,19 @@ class CourseDetailsInformation extends StatefulWidget {
   final CourseModel course;
 
   @override
-  State<CourseDetailsInformation> createState() =>
-      _CourseDetailsInformationState();
-}
-
-class _CourseDetailsInformationState extends State<CourseDetailsInformation> {
-
-
-  @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        AspectRatio(
-          aspectRatio: 16 / 9,
-          child: ClipRRect(
-            borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(12.w),
-              bottomRight: Radius.circular(12.w),
-            ),
-            child: CachedNetworkImage(
-              fit: BoxFit.cover,
-              imageUrl: "http://13.60.30.244:8000${widget.course.image}",
-              placeholder: (context, url) => const Center(child: CircularProgressIndicator()),
-              errorWidget: (context, url, error) => const Icon(Icons.error),
-            ),
+        ClipRRect(
+          borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(12.w),
+            bottomRight: Radius.circular(12.w),
+          ),
+          child: CachedNetworkImage(
+            fit: BoxFit.cover,
+            imageUrl: "http://13.60.30.244:8000${course.image}",
+            placeholder: (context, url) => const Center(child: CircularProgressIndicator()),
+            errorWidget: (context, url, error) => const Icon(Icons.error),
           ),
         ),
         AppBody(
@@ -41,7 +30,7 @@ class _CourseDetailsInformationState extends State<CourseDetailsInformation> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                widget.course.title,
+                course.title,
                 style: TextStyles.font18offWhiteSemiBold,
               ),
               4.verticalSpace,
@@ -54,7 +43,7 @@ class _CourseDetailsInformationState extends State<CourseDetailsInformation> {
                       style: TextStyles.font14offWhiteMedium,
                     ),
                     TextSpan(
-                      text: widget.course.author,
+                      text: course.author,
                       style: TextStyles.font14GreenSemiBold,
                     ),
                   ],
@@ -62,7 +51,7 @@ class _CourseDetailsInformationState extends State<CourseDetailsInformation> {
               ),
               4.verticalSpace,
               Text(
-                widget.course.description,
+                course.description,
                 style: TextStyles.font14GreyRegular,
               ),
               8.verticalSpace,
@@ -80,7 +69,7 @@ class _CourseDetailsInformationState extends State<CourseDetailsInformation> {
                           ),
                           4.horizontalSpace,
                           Text(
-                            "${widget.course.numOfLessons} Lessons",
+                            "${course.numOfLessons} Lessons",
                             style: TextStyles.font14offWhiteMedium,
                           ),
                         ],
@@ -96,7 +85,7 @@ class _CourseDetailsInformationState extends State<CourseDetailsInformation> {
                           4.horizontalSpace,
                           Text(
                             convertMinToHour(
-                              widget.course.duration,
+                              course.duration,
                             ),
                             style: TextStyles.font14offWhiteMedium,
                           ),
@@ -106,7 +95,7 @@ class _CourseDetailsInformationState extends State<CourseDetailsInformation> {
                   ),
                   const Spacer(),
                   Text(
-                    "${widget.course.cost} LE",
+                    "${course.cost} LE",
                     style: TextStyles.font20GreenBold,
                   ),
                 ],
@@ -115,7 +104,7 @@ class _CourseDetailsInformationState extends State<CourseDetailsInformation> {
                AppTextButton(
                       onPressed: () {
                         context.pushNamed(Routes.buyNowView,
-                            arguments: widget.course.slug);
+                            arguments: course.slug);
                       },
                       text: "Buy Now",
                     ),

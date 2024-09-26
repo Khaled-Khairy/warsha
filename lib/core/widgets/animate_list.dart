@@ -1,21 +1,21 @@
 import 'package:warsha/core/helpers/common_imports.dart';
 
-class AnimateList extends StatefulWidget {
-  const AnimateList({
+class AnimateWidget extends StatefulWidget {
+  const AnimateWidget({
     super.key,
-    required this.index,
-    required this.child,
+    required this.child, required this.index,
   });
 
   final int index;
   final Widget child;
 
   @override
-  State<AnimateList> createState() => _AnimateListState();
+  State<AnimateWidget> createState() => _AnimateWidgetState();
 }
 
-class _AnimateListState extends State<AnimateList> {
+class _AnimateWidgetState extends State<AnimateWidget> {
   bool myAnimation = false;
+
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
@@ -25,10 +25,11 @@ class _AnimateListState extends State<AnimateList> {
     });
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
-      duration: Duration(milliseconds: 400 + (widget.index * 100)),
+      duration: Duration(milliseconds: 400 + (widget.index  * 100)),
       curve: Curves.easeIn,
       transform: Matrix4.translationValues(
         myAnimation ? 0 : 360.w,

@@ -58,9 +58,7 @@ class SlideFromRightTransition implements PageTransition {
 }
 
 class RouteAnimations {
-  static PageRouteBuilder buildPageRoute(
-      Widget page, RouteSettings settings, TransitionType transitionType,
-      {Duration duration = const Duration(milliseconds: 300)}) {
+  static PageRouteBuilder buildPageRoute(Widget page, RouteSettings settings, TransitionType transitionType, {Duration duration = const Duration(milliseconds: 300)}) {
     PageTransition transition;
 
     switch (transitionType) {

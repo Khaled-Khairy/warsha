@@ -12,7 +12,14 @@ class CourseStatusBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<CourseUnitCubit, CourseUnitState>(
+    return BlocConsumer<CourseUnitCubit, CourseUnitState>(
+      listener: (context, state) {
+        if (state is CourseStatusSuccess) {
+          if (state.subscriptionStatus.state == "confirmed") {
+            context.read<CourseUnitCubit>().getCourseUnit(slug: slug);
+          }
+        }
+      },
       builder: (context, state) {
         return _handleState(state, context);
       },
@@ -56,7 +63,10 @@ class CourseStatusBody extends StatelessWidget {
     return SafeArea(
       child: Column(
         children: [
-          TelegramButton(telegramUrl: telegramUrl),
+          AnimateWidget(
+            index: 0,
+            child: TelegramButton(telegramUrl: telegramUrl),
+          ),
           Expanded(
             child: ListView.builder(
               physics: const BouncingScrollPhysics(),
@@ -64,7 +74,7 @@ class CourseStatusBody extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
               itemBuilder: (context, index) {
                 if (state.courseUnit[index].active) {
-                  return AnimateList(
+                  return AnimateWidget(
                     index: index,
                     child: ExpandableUnit(
                       unit: state.courseUnit[index],
@@ -97,9 +107,6 @@ class CourseStatusBody extends StatelessWidget {
           state: "Rejected",
           message: state.subscriptionStatus.reason,
         );
-      case "confirmed":
-        context.read<CourseUnitCubit>().getCourseUnit(slug: slug);
-        return const SizedBox.shrink();
       default:
         return const FailureStateError(message: "Unhandled Error");
     }
