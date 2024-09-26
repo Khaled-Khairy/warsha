@@ -1,5 +1,4 @@
 import 'package:warsha/core/helpers/common_imports.dart';
-import 'package:warsha/features/home/presentation/manager/update_nav_index/update_nav_index_cubit.dart';
 
 class Warsha extends StatelessWidget {
   final AppRouter appRouter;
