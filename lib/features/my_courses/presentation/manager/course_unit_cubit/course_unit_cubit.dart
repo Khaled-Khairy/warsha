@@ -1,4 +1,3 @@
-
 import '../../../../../core/helpers/common_imports.dart';
 
 part 'course_unit_state.dart';
@@ -15,12 +14,15 @@ class CourseUnitCubit extends Cubit<CourseUnitState> {
       (courseUnits) => emit(CourseUnitSuccess(courseUnits)),
     );
   }
-  Future<void> getSubscriptionStatus({required String slug}) async {
+
+  Future<void> getCourseStatus({required String slug}) async {
     emit(CourseStatusLoading());
     final response = await courseUnitRepoImpl.getSubscriptionStatus(slug: slug);
     response.fold(
       (failure) => emit(CourseStatusFailure(errMessage: failure.errorMessage)),
-      (subscriptionStatus) => emit(CourseStatusSuccessSuccess(subscriptionStatus)),
+      (subscriptionStatus) {
+        emit(CourseStatusSuccess(subscriptionStatus));
+      },
     );
   }
 }

@@ -19,9 +19,9 @@ final class CourseUnitFailure extends CourseUnitState {
   CourseUnitFailure(this.errMessage);
 }
 final class CourseStatusLoading extends CourseUnitState {}
-final class CourseStatusSuccessSuccess extends CourseUnitState {
+final class CourseStatusSuccess extends CourseUnitState {
   final BuyNowResponse subscriptionStatus;
-  CourseStatusSuccessSuccess(this.subscriptionStatus);
+  CourseStatusSuccess(this.subscriptionStatus);
 }
 final class CourseStatusFailure extends CourseUnitState {
   final String errMessage;

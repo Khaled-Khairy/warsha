@@ -137,3 +137,8 @@ export 'package:warsha/core/widgets/courses_list.dart';
 export 'package:warsha/core/widgets/failure_state_error.dart';
 export 'package:warsha/core/widgets/nothing_found.dart';
 export 'package:warsha/features/my_courses/presentation/manager/my_courses_cubit/my_courses_cubit.dart';
+export 'package:warsha/features/home/presentation/views/buy_now_view.dart';
+export 'package:warsha/features/menu/presentation/views/change_password_view.dart';
+export 'package:warsha/features/my_courses/presentation/views/course_status_view.dart';
+export 'package:warsha/features/my_courses/presentation/views/course_unit_view.dart';
+export 'package:warsha/features/my_courses/presentation/views/video_player_view.dart';
