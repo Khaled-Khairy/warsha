@@ -4,24 +4,9 @@ import 'package:warsha/features/my_courses/presentation/views/widget/expandable_
 
 import '../../../../../core/widgets/animate_list.dart';
 
-class CourseUnitBody extends StatefulWidget {
-  const CourseUnitBody({super.key, required this.slug});
+class CourseUnitBody extends StatelessWidget {
+  const CourseUnitBody({super.key});
 
-  final String slug;
-
-  @override
-  State<CourseUnitBody> createState() => _CourseUnitBodyState();
-}
-
-class _CourseUnitBodyState extends State<CourseUnitBody> {
-  bool myAnimation = false;
-
-  @override
-  void initState() {
-    BlocProvider.of<CourseUnitCubit>(context).getCourseUnit(slug: widget.slug);
-
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,11 +19,6 @@ class _CourseUnitBodyState extends State<CourseUnitBody> {
             ),
           );
         } else if (state is CourseUnitSuccess) {
-          WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-            setState(() {
-              myAnimation = true;
-            });
-          });
           return SafeArea(
             child: ListView.builder(
               physics: const BouncingScrollPhysics(),
@@ -47,7 +27,6 @@ class _CourseUnitBodyState extends State<CourseUnitBody> {
               itemBuilder: (context, index) {
                 if (state.courseUnit[index].active) {
                   return AnimateList(
-                    myAnimation: myAnimation,
                     index: index,
                     child: ExpandableUnit(
                       unit: state.courseUnit[index],
@@ -74,4 +53,3 @@ class _CourseUnitBodyState extends State<CourseUnitBody> {
     );
   }
 }
-

@@ -1,4 +1,5 @@
 import 'package:warsha/core/helpers/common_imports.dart';
+import 'package:warsha/core/widgets/animate_list.dart';
 import 'package:warsha/features/categories/presentation/views/widgets/categories_grid_view_item.dart';
 
 class CategoriesGridView extends StatelessWidget {
@@ -18,7 +19,9 @@ class CategoriesGridView extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
       itemCount: categories.length,
       itemBuilder: (context, index) {
-        return CategoriesGridViewItem(category: categories[index]);
+        return AnimateList(
+        index: index,
+        child: CategoriesGridViewItem(category: categories[index]));
       },
     );
   }

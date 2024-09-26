@@ -13,7 +13,6 @@ class ExpandableUnit extends StatefulWidget {
 
 class _ExpandableUnitState extends State<ExpandableUnit> {
   bool isExpanded = false;
-  bool myAnimation = false;
 
   @override
   Widget build(BuildContext context) {
@@ -25,11 +24,6 @@ class _ExpandableUnitState extends State<ExpandableUnit> {
             onTap: () {
               setState(() {
                 isExpanded = !isExpanded;
-                WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-                  setState(() {
-                    myAnimation = !myAnimation;
-                  });
-                });
               });
             },
             child: Container(
@@ -85,7 +79,6 @@ class _ExpandableUnitState extends State<ExpandableUnit> {
                 final lesson = widget.unit.lessons[index];
                 if (lesson.active) {
                   return AnimateList(
-                    myAnimation: myAnimation,
                     index: index,
                     child: Padding(
                       padding:

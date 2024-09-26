@@ -44,16 +44,9 @@ class CourseUnitView extends StatelessWidget {
         backgroundColor: ColorsManager.background,
         elevation: 0,
       ),
-      body: MultiBlocProvider(
-        providers: [
-          BlocProvider(
-            create: (context) =>
-                CourseUnitCubit(getIt.get<CourseUnitRepoImpl>()),
-          ),
-        ],
-        child: CourseUnitBody(
-          slug: slug,
-        ),
+      body: BlocProvider(
+        create: (context) => CourseUnitCubit(getIt.get<CourseUnitRepoImpl>())..getCourseUnit(slug: slug),
+        child: const CourseUnitBody(),
       ),
     );
   }
