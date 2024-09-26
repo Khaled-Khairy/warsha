@@ -19,4 +19,7 @@ class ApiEndpoints {
   static String subscribeToCourse(String slug) {
     return 'courses/$slug/subscribe/';
   }
+  static String getSubscriptionStatus(String slug) {
+    return 'courses/$slug/subscribe/';
+  }
 }

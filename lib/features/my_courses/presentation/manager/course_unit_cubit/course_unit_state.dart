@@ -18,3 +18,14 @@ final class CourseUnitFailure extends CourseUnitState {
 
   CourseUnitFailure(this.errMessage);
 }
+final class SubscriptionStateLoading extends CourseUnitState {}
+final class SubscriptionStateSuccess extends CourseUnitState {
+  final BuyNowResponse subscriptionStatus;
+  SubscriptionStateSuccess(this.subscriptionStatus);
+}
+final class SubscriptionStateFailure extends CourseUnitState {
+  final String errMessage;
+
+  SubscriptionStateFailure({required this.errMessage});
+
+}

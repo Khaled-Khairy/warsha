@@ -1,15 +1,12 @@
 import 'package:warsha/core/helpers/common_imports.dart';
-import 'package:warsha/features/home/presentation/manager/update_nav_index/update_nav_index_cubit.dart';
 
 class CourseDetailsInformation extends StatefulWidget {
   const CourseDetailsInformation({
     super.key,
     required this.course,
-    required this.subscribedCourses,
   });
 
   final CourseModel course;
-  final List<CourseModel> subscribedCourses;
 
   @override
   State<CourseDetailsInformation> createState() =>
@@ -17,14 +14,7 @@ class CourseDetailsInformation extends StatefulWidget {
 }
 
 class _CourseDetailsInformationState extends State<CourseDetailsInformation> {
-  bool subscribed = false;
 
-  @override
-  void initState() {
-    subscribed = widget.subscribedCourses
-        .any((subscribedCourse) => subscribedCourse.slug == widget.course.slug);
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -122,34 +112,7 @@ class _CourseDetailsInformationState extends State<CourseDetailsInformation> {
                 ],
               ),
               20.verticalSpace,
-              subscribed
-                  ? Row(
-                      children: [
-                        Icon(
-                          Iconsax.info_circle_outline,
-                          size: 30.w,
-                          color: ColorsManager.mainGreen,
-                        ),
-                        10.horizontalSpace,
-                        Expanded(
-                          child: Text(
-                            "You have already purchased this course.",
-                            style: TextStyles.font16offWhiteMedium,
-                          ),
-                        ),
-                      ],
-                    )
-                  : const SizedBox.shrink(),
-              20.verticalSpace,
-              subscribed
-                  ? AppTextButton(
-                      onPressed: () {
-                        context.read<UpdateNavIndexCubit>().updateIndex(2);
-                        context.pushNamedAndRemoveUntil(Routes.appNavBar,predicate: (route) => false);
-                      },
-                      text: "Go to MyCourses",
-                    )
-                  : AppTextButton(
+               AppTextButton(
                       onPressed: () {
                         context.pushNamed(Routes.buyNowView,
                             arguments: widget.course.slug);

@@ -133,3 +133,7 @@ export 'package:warsha/features/onboarding/presentation/views/widgets/onboarding
 export 'package:warsha/warsha.dart';
 // Watch Course
 export 'package:youtube_player_flutter/youtube_player_flutter.dart';
+export 'package:warsha/core/widgets/courses_list.dart';
+export 'package:warsha/core/widgets/failure_state_error.dart';
+export 'package:warsha/core/widgets/nothing_found.dart';
+export 'package:warsha/features/my_courses/presentation/manager/my_courses_cubit/my_courses_cubit.dart';
