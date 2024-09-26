@@ -11,15 +11,12 @@ class Warsha extends StatelessWidget {
     return ScreenUtilInit(
       designSize: const Size(360, 800),
       minTextAdapt: true,
-      child: BlocProvider(
-        create: (context) => UpdateNavIndexCubit(),
-        child: MaterialApp(
-          debugShowCheckedModeBanner: false,
-          theme: theme,
-          initialRoute: isLoggedUser ? Routes.appNavBar : Routes
-              .onboardingScreen,
-          onGenerateRoute: appRouter.generateRouter,
-        ),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: theme,
+        initialRoute: isLoggedUser ? Routes.appNavBar : Routes
+            .onboardingScreen,
+        onGenerateRoute: appRouter.generateRouter,
       ),
     );
   }

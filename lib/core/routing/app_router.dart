@@ -48,13 +48,13 @@ class AppRouter {
         return RouteAnimations.buildPageRoute(
           const CourseDetailsView(),
           settings,
-          TransitionType.fadeThrough,
+          TransitionType.slideFromRight,
         );
       case Routes.categoryCoursesView:
         return RouteAnimations.buildPageRoute(
           const CategoryCoursesView(),
           settings,
-          TransitionType.fadeThrough,
+          TransitionType.slideFromRight,
         );
       case Routes.buyNowView:
         return RouteAnimations.buildPageRoute(
@@ -72,13 +72,13 @@ class AppRouter {
         return RouteAnimations.buildPageRoute(
           const CourseUnitView(),
           settings,
-          TransitionType.none,
+          TransitionType.slideFromBottom,
         );
       case Routes.videoPlayerView:
         return RouteAnimations.buildPageRoute(
           const VideoPlayerView(),
           settings,
-          TransitionType.fadeThrough,
+          TransitionType.none,
         );
       case Routes.changePasswordView:
         return RouteAnimations.buildPageRoute(

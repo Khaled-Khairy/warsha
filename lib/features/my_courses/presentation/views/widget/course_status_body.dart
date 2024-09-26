@@ -12,8 +12,10 @@ class CourseStatusBody extends StatelessWidget {
       listener: (context, state) {
         if (state is CourseStatusSuccess) {
           if (state.subscriptionStatus.state == "confirmed") {
-            context.pushReplacementNamed(Routes.courseUnitView,
-                arguments: slug);
+            context.pushReplacementNamed(
+              Routes.courseUnitView,
+              arguments: slug,
+            );
           }
         }
       },
@@ -25,26 +27,7 @@ class CourseStatusBody extends StatelessWidget {
             ),
           );
         } else if (courseStatusState is CourseStatusSuccess) {
-          if (courseStatusState.subscriptionStatus.state == "under_review") {
-            return const CourseStatus(
-              lottie: "assets/lotties/under_review.json",
-              state: "Under Review",
-              message:
-                  "Thank you for your purchase! We’re reviewing your request and will notify you once the process is complete. \nWe appreciate your patience.",
-            );
-          } else if (courseStatusState.subscriptionStatus.state == "rejected") {
-            return CourseStatus(
-              lottie: "assets/lotties/rejected.json",
-              state: "Rejected",
-              message: courseStatusState.subscriptionStatus.reason,
-            );
-          } else if (courseStatusState.subscriptionStatus.state == "confirmed") {
-            return const CircularProgressIndicator();
-          } else {
-            return const FailureStateError(
-              message: "Unhandled Error",
-            );
-          }
+          return _buildSubscriptionStatus(courseStatusState, context);
         } else if (courseStatusState is CourseStatusFailure) {
           return Center(
             child: FailureStateError(
@@ -58,5 +41,28 @@ class CourseStatusBody extends StatelessWidget {
         }
       },
     );
+  }
+
+  Widget _buildSubscriptionStatus(
+      CourseStatusSuccess state, BuildContext context) {
+    switch (state.subscriptionStatus.state) {
+      case "under_review":
+        return const CourseStatus(
+          lottie: "assets/lotties/under_review.json",
+          state: "Under Review",
+          message:
+              "Thank you for your purchase! We’re reviewing your request and will notify you once the process is complete. We appreciate your patience.",
+        );
+      case "rejected":
+        return CourseStatus(
+          lottie: "assets/lotties/rejected.json",
+          state: "Rejected",
+          message: state.subscriptionStatus.reason,
+        );
+      case "confirmed":
+        return const SizedBox.shrink();
+      default:
+        return const FailureStateError(message: "Unhandled Error");
+    }
   }
 }
