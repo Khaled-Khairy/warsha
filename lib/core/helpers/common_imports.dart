@@ -41,7 +41,6 @@ export 'package:warsha/core/resources/styles.dart';
 export 'package:warsha/core/resources/theme.dart';
 // Core routing
 export 'package:warsha/core/routing/app_router.dart';
-export 'package:warsha/core/routing/route_animations.dart';
 export 'package:warsha/core/routing/routes.dart';
 // Core widgets
 export 'package:warsha/core/widgets/app_body.dart';

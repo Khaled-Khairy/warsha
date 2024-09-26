@@ -1,4 +1,5 @@
 import 'package:warsha/core/helpers/common_imports.dart';
+import 'package:warsha/core/routing/route_animations.dart';
 
 class AppRouter {
   Route<dynamic>? generateRouter(RouteSettings settings) {
