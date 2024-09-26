@@ -16,11 +16,11 @@ class CourseUnitCubit extends Cubit<CourseUnitState> {
     );
   }
   Future<void> getSubscriptionStatus({required String slug}) async {
-    emit(SubscriptionStateLoading());
+    emit(CourseStatusLoading());
     final response = await courseUnitRepoImpl.getSubscriptionStatus(slug: slug);
     response.fold(
-      (failure) => emit(SubscriptionStateFailure(errMessage: failure.errorMessage)),
-      (subscriptionStatus) => emit(SubscriptionStateSuccess(subscriptionStatus)),
+      (failure) => emit(CourseStatusFailure(errMessage: failure.errorMessage)),
+      (subscriptionStatus) => emit(CourseStatusSuccessSuccess(subscriptionStatus)),
     );
   }
 }

@@ -3,8 +3,8 @@ import 'package:warsha/features/my_courses/presentation/views/widget/course_stat
 
 import 'course_unit_bloc_builder.dart';
 
-class CourseUnitBody extends StatelessWidget {
-  const CourseUnitBody({super.key, required this.slug});
+class CourseStatusBody extends StatelessWidget {
+  const CourseStatusBody({super.key, required this.slug});
 
   final String slug;
 
@@ -12,13 +12,13 @@ class CourseUnitBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<CourseUnitCubit, CourseUnitState>(
       builder: (context, state) {
-        if (state is SubscriptionStateLoading) {
+        if (state is CourseStatusLoading) {
           return const Center(
             child: CircularProgressIndicator(
               color: ColorsManager.mainGreen,
             ),
           );
-        } else if (state is SubscriptionStateSuccess) {
+        } else if (state is CourseStatusSuccessSuccess) {
           if (state.subscriptionStatus.state == "under_review") {
             return const CourseStatus(
               lottie: "assets/lotties/under_review.json",
@@ -40,7 +40,7 @@ class CourseUnitBody extends StatelessWidget {
               message: "Unhandled Error",
             );
           }
-        } else if (state is SubscriptionStateFailure) {
+        } else if (state is CourseStatusFailure) {
           return Center(
             child: FailureStateError(
               message: state.errMessage,

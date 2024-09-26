@@ -67,7 +67,7 @@ class AppRouter {
         );
       case Routes.courseUnitView:
         return RouteAnimations.buildPageRoute(
-          const CourseUnitView(),
+          const CourseStatusView(),
           settings,
           TransitionType.slideFromBottom,
         );
