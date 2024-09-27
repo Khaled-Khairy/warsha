@@ -63,15 +63,15 @@ class HomeRepoImpl extends HomeRepo {
   }
 
   @override
-  Future<Either<Failure, BuyNowResponse>> updateReceipt(
+  Future<Either<Failure, String>> updateReceipt(
       {required String slug, required BuyNowRequest buyNowRequest}) async {
     try {
       final response = await apiService.putWithFormData(
         endPoint: ApiEndpoints.subscribeToCourse(slug),
         formData: await buyNowRequest.toFormData(),
       );
-      final subscribeResponse = BuyNowResponse.fromJson(response);
-      return right(subscribeResponse);
+      final message = response["message"];
+      return right(message);
     } catch (e) {
       if (e is DioException) {
         return left(ServerFailure.fromDioException(e));

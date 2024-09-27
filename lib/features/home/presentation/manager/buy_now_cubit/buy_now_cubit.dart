@@ -27,7 +27,7 @@ class BuyNowCubit extends Cubit<SubscribeState> {
     );
     response.fold(
       (failure) => emit(BuyNowFailure(failure.errorMessage)),
-      (buyNowResponse) => emit(BuyNowSuccess(buyNowResponse)),
+      (message) => emit(UpdateReceiptSuccess(message)),
     );
   }
 }

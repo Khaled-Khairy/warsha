@@ -6,7 +6,7 @@ abstract class HomeRepo {
   Future<Either<Failure,BuyNowResponse>> getCourseStatus({required String slug});
 
   Future<Either<Failure, BuyNowResponse>> buyCourse({required String slug,required BuyNowRequest buyNowRequest});
-  Future<Either<Failure, BuyNowResponse>> updateReceipt({required String slug,required BuyNowRequest buyNowRequest});
+  Future<Either<Failure, String>> updateReceipt({required String slug,required BuyNowRequest buyNowRequest});
   Future<Either<Failure,List<CourseModel>>> checkSubscription();
 
 }

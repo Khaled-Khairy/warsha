@@ -12,9 +12,11 @@ class CourseDetailsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: BlocProvider(
-        create: (context) => HomeCubit(getIt.get<HomeRepoImpl>()),
+        create: (context) => HomeCubit(getIt.get<HomeRepoImpl>())..checkSubscription(),
         child: SafeArea(
-          child: CourseDetailsBody(course: course),
+          child: CourseDetailsBody(
+            course: course,
+          ),
         ),
       ),
     );

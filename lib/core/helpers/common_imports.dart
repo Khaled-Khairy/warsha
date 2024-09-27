@@ -114,7 +114,6 @@ export 'package:warsha/features/home/presentation/manager/home_cubit/home_cubit.
 export 'package:warsha/features/home/presentation/views/course_details_view.dart';
 export 'package:warsha/features/home/presentation/views/home_view.dart';
 export 'package:warsha/features/home/presentation/views/widgets/buy_now_body.dart';
-export 'package:warsha/features/home/presentation/views/widgets/course_details_information.dart';
 export 'package:warsha/features/home/presentation/views/widgets/home_body.dart';
 export 'package:warsha/features/home/presentation/views/widgets/upload_image.dart';
 export 'package:warsha/features/my_courses/data/models/course_unit_model.dart';

@@ -1,5 +1,6 @@
 import 'package:warsha/core/helpers/common_imports.dart';
 import 'package:warsha/core/widgets/app_network_image.dart';
+import 'package:warsha/features/home/presentation/views/widgets/buy_button_bloc_builder.dart';
 
 class CourseDetailsBody extends StatelessWidget {
   const CourseDetailsBody({
@@ -100,18 +101,7 @@ class CourseDetailsBody extends StatelessWidget {
                 ],
               ),
               20.verticalSpace,
-              AppTextButton(
-                onPressed: () {
-                  context.pushNamed(
-                    Routes.buyNowView,
-                    arguments: {
-                      "slug": course.slug,
-                      "course_state": "under_review",
-                    },
-                  );
-                },
-                text: "Buy Course",
-              ),
+              BuyButtonBlocBuilder(course: course),
             ],
           ),
         ),
