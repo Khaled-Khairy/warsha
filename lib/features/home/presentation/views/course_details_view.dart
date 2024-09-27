@@ -15,7 +15,7 @@ class CourseDetailsView extends StatelessWidget {
         create: (context) => HomeCubit(getIt.get<HomeRepoImpl>())..checkSubscription(),
         child: SafeArea(
           child: CourseDetailsBody(
-            course: course,
+            course: course, index: index,
           ),
         ),
       ),

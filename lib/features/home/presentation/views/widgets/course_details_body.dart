@@ -6,9 +6,11 @@ class CourseDetailsBody extends StatelessWidget {
   const CourseDetailsBody({
     super.key,
     required this.course,
+    required this.index,
   });
 
   final CourseModel course;
+  final int index;
 
   @override
   Widget build(BuildContext context) {
@@ -101,7 +103,10 @@ class CourseDetailsBody extends StatelessWidget {
                 ],
               ),
               20.verticalSpace,
-              BuyButtonBlocBuilder(course: course),
+              BuyButtonBlocBuilder(
+                course: course,
+                index: index,
+              ),
             ],
           ),
         ),

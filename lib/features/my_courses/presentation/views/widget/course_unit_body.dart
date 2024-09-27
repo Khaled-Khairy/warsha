@@ -102,8 +102,7 @@ class CourseStatusBody extends StatelessWidget {
         return const CourseStatus(
           lottie: "assets/lotties/under_review.json",
           state: "Under Review",
-          message:
-              "Thank you for your purchase! We’re reviewing your request and will notify you once the process is complete. We appreciate your patience.",
+          message: "Thank you for your purchase! We’re reviewing your request and will notify you once the process is complete. We appreciate your patience.",
         );
       case "rejected":
         return CourseStatus(
