@@ -1,5 +1,10 @@
-import 'package:warsha/core/helpers/common_imports.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:warsha/core/resources/colors.dart';
 import 'package:warsha/core/widgets/animate_list.dart';
+import 'package:warsha/core/widgets/failure_state_error.dart';
+import 'package:warsha/features/my_courses/presentation/manager/course_unit_cubit/course_unit_cubit.dart';
 import 'package:warsha/features/my_courses/presentation/views/widget/course_status.dart';
 import 'package:warsha/features/my_courses/presentation/views/widget/expandable_unit.dart';
 import 'package:warsha/features/my_courses/presentation/views/widget/telegram_button.dart';

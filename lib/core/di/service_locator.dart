@@ -13,7 +13,6 @@ Future<void> setupServiceLocator() async {
   getIt.registerSingleton<AuthRepoImpl>(AuthRepoImpl(getIt.get<ApiService>()));
   getIt.registerSingleton<HomeRepoImpl>(HomeRepoImpl(getIt.get<ApiService>()));
   getIt.registerSingleton<CategoriesRepoImpl>(CategoriesRepoImpl(getIt.get<ApiService>()));
-  getIt.registerSingleton<BuyNowRepoImpl>(BuyNowRepoImpl(getIt.get<ApiService>()));
   getIt.registerSingleton<CourseUnitRepoImpl>(CourseUnitRepoImpl(getIt.get<ApiService>()));
   getIt.registerSingleton<MenuRepoImpl>(MenuRepoImpl(getIt.get<ApiService>()));
   getIt.registerSingleton<MyCoursesRepoImpl>(MyCoursesRepoImpl(getIt.get<ApiService>()));

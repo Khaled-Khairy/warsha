@@ -107,7 +107,6 @@ export 'package:warsha/features/home/data/models/buy_now/buy_now_request.dart';
 export 'package:warsha/features/home/data/models/buy_now/buy_now_response.dart';
 // Home
 export 'package:warsha/features/home/data/models/course_model.dart';
-export 'package:warsha/features/home/data/repos/buy_now_repo/buy_now_impl.dart';
 export 'package:warsha/features/home/data/repos/home_repo/home_repo.dart';
 export 'package:warsha/features/home/data/repos/home_repo/home_repo_impl.dart';
 export 'package:warsha/features/home/presentation/manager/buy_now_cubit/buy_now_cubit.dart';
@@ -122,7 +121,6 @@ export 'package:warsha/features/my_courses/data/models/course_unit_model.dart';
 export 'package:warsha/features/my_courses/data/repos/course_unit_repo/course_unit_repo.dart';
 export 'package:warsha/features/my_courses/data/repos/course_unit_repo/course_unit_repo_impl.dart';
 export 'package:warsha/features/my_courses/data/repos/my_courses_repo/my_courses_repo.dart';
-export 'package:warsha/features/my_courses/presentation/manager/course_unit_cubit/course_unit_cubit.dart';
 // Onboarding
 export 'package:warsha/features/onboarding/presentation/views/onboarding_view.dart';
 export 'package:warsha/features/onboarding/presentation/views/widgets/doc_logo_and_name.dart';

@@ -18,4 +18,16 @@ final class HomeFailure extends HomeState {
   HomeFailure(this.errMessage);
 }
 
+final class CourseStatusLoading extends HomeState {}
+final class CourseStatusSuccess extends HomeState {
+  final BuyNowResponse courseStatus;
+
+  CourseStatusSuccess(this.courseStatus);
+
+}
+final class CourseStatusFailure extends HomeState {
+  final String errMessage;
+
+  CourseStatusFailure(this.errMessage);
+}
 

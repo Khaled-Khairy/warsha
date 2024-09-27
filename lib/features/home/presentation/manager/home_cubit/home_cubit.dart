@@ -16,5 +16,12 @@ class HomeCubit extends Cubit<HomeState> {
     );
   }
 
-
+  Future<void> getCourseStatus({required String slug}) async {
+    emit(CourseStatusLoading());
+    final response = await homeRepo.getCourseStatus(slug: slug);
+    response.fold(
+      (failure) => emit(CourseStatusFailure(failure.errorMessage)),
+      (subscriptionStatus) => emit(CourseStatusSuccess(subscriptionStatus)),
+    );
+  }
 }

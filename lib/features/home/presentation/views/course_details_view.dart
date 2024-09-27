@@ -9,9 +9,14 @@ class CourseDetailsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: CourseDetailsBody(
-          course: course,
+      body: BlocProvider(
+        create: (context) => HomeCubit(
+          getIt.get<HomeRepoImpl>(),
+        )..getCourseStatus(slug: course.slug),
+        child: SafeArea(
+          child: CourseDetailsBody(
+            course: course,
+          ),
         ),
       ),
     );

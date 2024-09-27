@@ -12,9 +12,7 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: BlocProvider(
-        create: (context) => HomeCubit(
-          getIt.get<HomeRepoImpl>(),
-        )..getAllCourses(),
+        create: (context) => HomeCubit(getIt.get<HomeRepoImpl>(),)..getAllCourses(),
         child: const Center(
           child: HomeBody(),
         ),

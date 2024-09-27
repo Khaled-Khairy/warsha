@@ -78,11 +78,13 @@ class AppRouter {
           );
         }
       case Routes.buyNowView:
-        if (arguments is String) {
-          final slug = arguments;
+        if (arguments is Map<String, dynamic>) {
+          final slug = arguments['slug'] as String;
+          final courseState = arguments['course_state'] as String;
           return RouteAnimations.buildPageRoute(
             BuyNowView(
               slug: slug,
+              courseState: courseState,
             ),
             settings,
             TransitionType.slideFromRight,

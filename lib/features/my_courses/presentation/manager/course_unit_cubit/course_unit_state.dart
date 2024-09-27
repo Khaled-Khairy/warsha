@@ -26,6 +26,7 @@ final class CourseStatusSuccess extends CourseUnitState {
 final class CourseStatusFailure extends CourseUnitState {
   final String errMessage;
 
-  CourseStatusFailure({required this.errMessage});
+  CourseStatusFailure(this.errMessage);
+
 
 }
