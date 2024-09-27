@@ -15,13 +15,19 @@ class BuyButtonBlocBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<HomeCubit, HomeState>(
       listener: (context, state) {
-        if (state is MyCoursesSuccess && state.subscribedCourses.isNotEmpty && state.subscribedCourses[index].slug == course.slug) {
-          context.read<HomeCubit>().checkStatus(slug: course.slug);
+        if (state is MyCoursesSuccess) {
+          final isSubscribed = state.subscribedCourses.any((subscribedCourse) => subscribedCourse.slug == course.slug);
+          if (isSubscribed) {
+            context.read<HomeCubit>().checkStatus(slug: course.slug);
+          }
         }
       },
       builder: (context, state) {
         if (state is MyCoursesLoading || state is CourseStatusLoading) {
-          return const Center(child: CircularProgressIndicator());
+          return Padding(
+            padding: EdgeInsets.symmetric(vertical: 30.h),
+            child: const Center(child: CircularProgressIndicator()),
+          );
         } else if (state is MyCoursesFailure) {
           return FailureStateError(message: state.errMessage);
         } else if (state is CourseStatusFailure) {
@@ -38,28 +44,35 @@ class BuyButtonBlocBuilder extends StatelessWidget {
   }
 
   // Reusable method to build course action button based on the status
-  Widget _buildCourseActionButton(BuildContext context, String courseState,
-      String reason) {
+  Widget _buildCourseActionButton(
+      BuildContext context, String courseState, String reason) {
     switch (courseState) {
       case "under_review":
       case "rejected":
         return Column(
           children: [
-            _buildStatusRow(reason),
-            5.verticalSpace,
+            reason.isNotEmpty? _buildStatusRow(reason):const SizedBox.shrink(),
             AppTextButton(
               onPressed: () => _navigateToBuyNow(context, courseState),
               text: "Update Receipt",
             ),
+            20.verticalSpace,
           ],
         );
       case "confirmed":
-        return AppTextButton(
-          onPressed: () {
-            context.read<UpdateNavIndexCubit>().updateIndex(2);
-            context.pop();
-          },
-          text: "Go to MyCourse",
+        return Column(
+          children: [
+            _buildStatusRow("You have subscribed to this course"),
+            10.verticalSpace,
+            AppTextButton(
+              onPressed: () {
+                context.read<UpdateNavIndexCubit>().updateIndex(2);
+                context.pushNamedAndRemoveUntil(Routes.appNavBar,
+                    predicate: (route) => false);
+              },
+              text: "Go to My Courses",
+            ),
+          ],
         );
       default:
         return _buildBuyButton(context);
@@ -74,14 +87,14 @@ class BuyButtonBlocBuilder extends StatelessWidget {
           child: Icon(
             Icons.error_outline,
             color: ColorsManager.mainGreen,
-            size: 26.w,
+            size: 30.w,
           ),
         ),
         4.horizontalSpace,
         Expanded(
           child: Text(
             reason,
-            style: TextStyles.font18offWhiteSemiBold,
+            style: TextStyles.font14offWhiteMedium,
           ),
         ),
       ],

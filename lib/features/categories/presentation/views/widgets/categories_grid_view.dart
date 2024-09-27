@@ -9,20 +9,26 @@ class CategoriesGridView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GridView.builder(
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        crossAxisSpacing: 8,
-        mainAxisSpacing: 8,
-        childAspectRatio: 16 / 9,
-      ),
-      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
-      itemCount: categories.length,
-      itemBuilder: (context, index) {
-        return AnimateWidget(
-        index: index,
-        child: CategoriesGridViewItem(category: categories[index]));
+    return RefreshIndicator(
+      onRefresh: () async {
+        context.read<CategoriesCubit>().getCategories();
       },
+      backgroundColor: ColorsManager.mainGrey,
+      child: GridView.builder(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          crossAxisSpacing: 8,
+          mainAxisSpacing: 8,
+          childAspectRatio: 16 / 9,
+        ),
+        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
+        itemCount: categories.length,
+        itemBuilder: (context, index) {
+          return AnimateWidget(
+              index: index,
+              child: CategoriesGridViewItem(category: categories[index]));
+        },
+      ),
     );
   }
 }

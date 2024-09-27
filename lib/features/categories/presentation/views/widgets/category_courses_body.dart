@@ -17,7 +17,10 @@ class CategoryCoursesBody extends StatelessWidget {
           );
         } else if (state is CategoryCoursesSuccess) {
           return state.courses.isNotEmpty
-              ? CategoryCoursesList(courses: state.courses)
+              ? CategoryCoursesList(
+                  courses: state.courses,
+                  category: category,
+                )
               : const NothingFound(
                   title: "No Courses Available",
                   subTitle: "No courses found in this category at the moment.",

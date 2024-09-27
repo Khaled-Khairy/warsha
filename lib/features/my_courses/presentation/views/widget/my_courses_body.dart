@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:warsha/core/helpers/extensions.dart';
@@ -28,29 +27,31 @@ class MyCoursesBody extends StatelessWidget {
           return SafeArea(
             child: state.courses.isNotEmpty
                 ? CoursesList(
-              courses: state.courses,
-              onTap: (index) {
-                final String slug = state.courses[index].slug;
-                final String telegramUrl = state.courses[index].telegram??"";
-                context.pushNamed(
-                  Routes.courseUnitView,
-                  arguments: {
-                    'slug': slug,
-                    'telegramUrl': telegramUrl
-                  },
-                );
-              },
-            )
+                    onRefresh: () async {
+                      context.read<MyCoursesCubit>().getSubscribedCourses();
+                    },
+                    courses: state.courses,
+                    onTap: (index) {
+                      final String slug = state.courses[index].slug;
+                      final String telegramUrl =
+                          state.courses[index].telegram ?? "";
+                      context.pushNamed(
+                        Routes.courseUnitView,
+                        arguments: {'slug': slug, 'telegramUrl': telegramUrl},
+                      );
+                    },
+                  )
                 : const NothingFound(
-              title: 'No Courses Purchased Yet',
-              subTitle: "It looks like you haven't purchased any courses yet. Browse our courses to find and buy courses that interest you!",
-            ),
+                    title: 'No Courses Purchased Yet',
+                    subTitle:
+                        "It looks like you haven't purchased any courses yet. Browse our courses to find and buy courses that interest you!",
+                  ),
           );
         } else if (state is MyCoursesFailure) {
           return Center(
               child: FailureStateError(
-                message: state.errMessage,
-              ));
+            message: state.errMessage,
+          ));
         } else {
           return const FailureStateError(
             message: 'Unhandled error',

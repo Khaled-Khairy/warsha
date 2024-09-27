@@ -15,6 +15,9 @@ class HomeBody extends StatelessWidget {
           return SafeArea(
             child: state.courses.isNotEmpty
                 ? CoursesList(
+                    onRefresh: () async {
+                      context.read<HomeCubit>().getAllCourses();
+                    },
                     courses: state.courses,
                   )
                 : const NothingFound(

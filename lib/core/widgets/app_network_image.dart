@@ -12,7 +12,7 @@ class AppNetworkImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return CachedNetworkImage(
       fit: BoxFit.cover,
-      imageUrl: "http://13.60.30.244:8000${course.image}",
+      imageUrl: "http://192.168.1.4:8000${course.image}",
       placeholder: (context, url) => const Center(child: CircularProgressIndicator()),
       errorWidget: (context, url, error) => Icon(
         Icons.error,
