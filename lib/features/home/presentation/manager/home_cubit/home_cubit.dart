@@ -24,4 +24,12 @@ class HomeCubit extends Cubit<HomeState> {
       (subscriptionStatus) => emit(CourseStatusSuccess(subscriptionStatus)),
     );
   }
+  Future<void> checkSubscription() async {
+    emit(MyCoursesLoading());
+    final response = await homeRepo.checkSubscription();
+    response.fold(
+      (failure) => emit(MyCoursesFailure(failure.errorMessage)),
+      (subscribedCourses) => emit(MyCoursesSuccess(subscribedCourses)),
+    );
+  }
 }

@@ -80,4 +80,21 @@ class HomeRepoImpl extends HomeRepo {
       }
     }
   }
+  @override
+  Future<Either<Failure, List<CourseModel>>> checkSubscription() async {
+    try {
+      final response = await apiService.get(endPoint: ApiEndpoints.myCourses);
+      List<CourseModel> courses = [];
+      for (var item in response) {
+        courses.add(CourseModel.fromJson(item));
+      }
+      return Right(courses);
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioException(e));
+      } else {
+        return left(ServerFailure(e.toString()));
+      }
+    }
+  }
 }

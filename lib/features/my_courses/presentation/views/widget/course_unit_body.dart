@@ -10,8 +10,7 @@ import 'package:warsha/features/my_courses/presentation/views/widget/expandable_
 import 'package:warsha/features/my_courses/presentation/views/widget/telegram_button.dart';
 
 class CourseStatusBody extends StatelessWidget {
-  const CourseStatusBody(
-      {super.key, required this.slug, required this.telegramUrl});
+  const CourseStatusBody({super.key, required this.slug, required this.telegramUrl});
 
   final String slug, telegramUrl;
 

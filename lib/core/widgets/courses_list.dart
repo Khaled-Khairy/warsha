@@ -25,7 +25,10 @@ class CoursesList extends StatelessWidget {
                   : () {
                       context.pushNamed(
                         Routes.courseDetailsScreen,
-                        arguments: courses[index],
+                        arguments: {
+                          'course': courses[index],
+                          'index': index,
+                        },
                       );
                     },
               child: CourseContentCard(

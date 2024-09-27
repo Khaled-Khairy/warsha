@@ -1,4 +1,13 @@
-import 'package:warsha/core/helpers/common_imports.dart';
+
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:warsha/core/helpers/extensions.dart';
+import 'package:warsha/core/resources/colors.dart';
+import 'package:warsha/core/routing/routes.dart';
+import 'package:warsha/core/widgets/courses_list.dart';
+import 'package:warsha/core/widgets/failure_state_error.dart';
+import 'package:warsha/core/widgets/nothing_found.dart';
+import 'package:warsha/features/my_courses/presentation/manager/my_courses_cubit/my_courses_cubit.dart';
 
 class MyCoursesBody extends StatelessWidget {
   const MyCoursesBody({

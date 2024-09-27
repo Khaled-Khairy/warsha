@@ -56,11 +56,12 @@ class AppRouter {
           TransitionType.slideFromBottom,
         );
       case Routes.courseDetailsScreen:
-        if (arguments is CourseModel) {
-          final course = arguments;
+        if (arguments is Map<String, dynamic>) {
+          final course = arguments['course'] as CourseModel;
+          final index = arguments['index'] as int;
           return RouteAnimations.buildPageRoute(
             CourseDetailsView(
-              course: course,
+              course: course, index: index,
             ),
             settings,
             TransitionType.slideFromRight,
