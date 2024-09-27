@@ -37,9 +37,13 @@ class CourseDetailsBody extends StatelessWidget {
         } else if (state is CourseStatusLoading) {
           return const Center(child: CircularProgressIndicator());
         } else if (state is CourseStatusFailure) {
-          return FailureStateError(message: state.errMessage);
+          return Center(
+            child: FailureStateError(message: state.errMessage),
+          );
         } else {
-          return const FailureStateError(message: "Unhandled Error");
+          return const Center(
+            child: FailureStateError(message: "Unhandled Error"),
+          );
         }
       },
     );

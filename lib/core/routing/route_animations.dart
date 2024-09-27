@@ -8,22 +8,26 @@ enum TransitionType {
 }
 
 abstract class PageTransition {
-  Widget buildTransition(
-    Animation<double> animation,
-    Animation<double> secondaryAnimation,
-    Widget child,
-  );
+  Widget buildTransition(Animation<double> animation,
+      Animation<double> secondaryAnimation, Widget child,
+      {Curve curve = Curves.easeInOut});
 }
 
 class SlideFromBottomTransition implements PageTransition {
   @override
   Widget buildTransition(Animation<double> animation,
-      Animation<double> secondaryAnimation, Widget child) {
+      Animation<double> secondaryAnimation, Widget child,
+      {Curve curve = Curves.easeInOut}) {
     return SlideTransition(
       position: Tween<Offset>(
         begin: const Offset(0.0, 1.0),
         end: Offset.zero,
-      ).animate(animation),
+      ).animate(
+        CurvedAnimation(
+          parent: animation,
+          curve: curve,
+        ),
+      ),
       child: child,
     );
   }
@@ -32,12 +36,13 @@ class SlideFromBottomTransition implements PageTransition {
 class SlideFromLeftTransition implements PageTransition {
   @override
   Widget buildTransition(Animation<double> animation,
-      Animation<double> secondaryAnimation, Widget child) {
+      Animation<double> secondaryAnimation, Widget child,
+      {Curve curve = Curves.easeInOut}) {
     return SlideTransition(
       position: Tween<Offset>(
         begin: const Offset(-1.0, 0.0),
         end: Offset.zero,
-      ).animate(animation),
+      ).animate(CurvedAnimation(parent: animation, curve: curve)),
       child: child,
     );
   }
@@ -46,19 +51,23 @@ class SlideFromLeftTransition implements PageTransition {
 class SlideFromRightTransition implements PageTransition {
   @override
   Widget buildTransition(Animation<double> animation,
-      Animation<double> secondaryAnimation, Widget child) {
+      Animation<double> secondaryAnimation, Widget child,
+      {Curve curve = Curves.easeInOut}) {
     return SlideTransition(
       position: Tween<Offset>(
         begin: const Offset(1.0, 0.0),
         end: Offset.zero,
-      ).animate(animation),
+      ).animate(CurvedAnimation(parent: animation, curve: curve)),
       child: child,
     );
   }
 }
 
 class RouteAnimations {
-  static PageRouteBuilder buildPageRoute(Widget page, RouteSettings settings, TransitionType transitionType, {Duration duration = const Duration(milliseconds: 300)}) {
+  static PageRouteBuilder buildPageRoute(
+      Widget page, RouteSettings settings, TransitionType transitionType,
+      {Duration duration = const Duration(milliseconds: 300),
+      Curve curve = Curves.decelerate}) {
     PageTransition transition;
 
     switch (transitionType) {
@@ -82,7 +91,12 @@ class RouteAnimations {
       reverseTransitionDuration: duration,
       pageBuilder: (context, animation, secondaryAnimation) => page,
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
-        return transition.buildTransition(animation, secondaryAnimation, child);
+        return transition.buildTransition(
+          animation,
+          secondaryAnimation,
+          child,
+          curve: curve,
+        );
       },
     );
   }

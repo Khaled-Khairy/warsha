@@ -20,8 +20,7 @@ class SignUpBody extends StatelessWidget {
             barrierDismissible: false,
             builder: (context) => SuccessDialog(
               title: "Account Created Successfully",
-              subTitle:
-                  "You’r account has been created successfully. Please login to continue.",
+              subTitle: "You’r account has been created successfully. Please login to continue.",
               onPressed: () {
                 context.pop();
                 context.pop();

@@ -8,7 +8,7 @@ class CourseModel {
   final int numOfLessons;
   final int duration;
   final int cost;
-  final String telegram;
+  final String? telegram;
 
   factory CourseModel.fromJson(Map<String, dynamic> json) {
     return CourseModel(
@@ -21,7 +21,7 @@ class CourseModel {
       numOfLessons: json['num_of_lessons'],
       duration: json['duration'],
       cost: json['cost'],
-      telegram: json['telegram'],
+      telegram: json['telegram']??"",
     );
   }
 
