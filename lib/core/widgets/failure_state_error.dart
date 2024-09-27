@@ -22,8 +22,8 @@ class FailureStateError extends StatelessWidget {
           ),
           10.verticalSpace,
           Text(
-            "Oops! Something Went Wrong",
-            style: TextStyles.font26GreenBold,
+            "Oops! Something went wrong",
+            style: TextStyles.font22GreenBold,
             textAlign: TextAlign.center,
           ),
           Text(

@@ -18,6 +18,10 @@ abstract class TextStyles {
     fontSize: 26.sp,
     color: ColorsManager.mainGreen,
     fontWeight: FontWeightHelper.bold,
+  );static TextStyle font22GreenBold = TextStyle(
+    fontSize: 22.sp,
+    color: ColorsManager.mainGreen,
+    fontWeight: FontWeightHelper.bold,
   );
 
   // Font Size: 20
