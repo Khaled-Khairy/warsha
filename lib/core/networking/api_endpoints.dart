@@ -1,5 +1,6 @@
 class ApiEndpoints {
-  static const String baseUrl = 'http://16.171.151.13:8000/api/';
+  // static const String baseUrl = 'http://13.60.30.244:8000/api/';
+  static const String baseUrl = 'http://192.168.1.4:8000/api/';
   static const String login = 'user/login/';
   static const String signUp = 'user/signup/';
   static const String sendOtp = 'user/send-otp/';
@@ -17,6 +18,9 @@ class ApiEndpoints {
   }
 
   static String subscribeToCourse(String slug) {
+    return 'courses/$slug/subscribe/';
+  }
+  static String getSubscriptionStatus(String slug) {
     return 'courses/$slug/subscribe/';
   }
 }

@@ -1,4 +1,5 @@
 import 'package:warsha/core/helpers/common_imports.dart';
+import 'package:warsha/core/widgets/animate_list.dart';
 
 class ExpandableUnit extends StatefulWidget {
   const ExpandableUnit({super.key, required this.unit, required this.order});
@@ -45,7 +46,7 @@ class _ExpandableUnitState extends State<ExpandableUnit> {
                         ),
                         Text(
                           widget.unit.description,
-                          style: TextStyles.font14offWhiteMedium,
+                          style: TextStyles.font14GreyRegular,
                         ),
                       ],
                     ),
@@ -77,39 +78,45 @@ class _ExpandableUnitState extends State<ExpandableUnit> {
               itemBuilder: (context, index) {
                 final lesson = widget.unit.lessons[index];
                 if (lesson.active) {
-                  return Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 4.h),
-                    child: GestureDetector(
-                      onTap: () {
-                        context.pushNamed(
-                          Routes.videoPlayerView,
-                          arguments: lesson.videoUrl,
-                        );
-                      },
-                      child: Container(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 12.w, vertical: 16.h),
-                        decoration: BoxDecoration(
-                          color: ColorsManager.mainGrey,
-                          borderRadius: BorderRadius.circular(6.w),
-                          boxShadow: const [
-                            BoxShadow(
-                              color: ColorsManager.darkerGrey,
-                              offset: Offset(2, 2),
-                              spreadRadius: 1,
-                              blurRadius: 0.5,
-                            ),
-                            BoxShadow(
-                              color: Colors.transparent,
-                              offset: Offset(-2, -2),
-                              spreadRadius: 1,
-                              blurRadius: 2,
-                            ),
-                          ],
-                        ),
-                        child: Text(
-                          "${lesson.order}. ${lesson.title}",
-                          style: TextStyles.font16offWhiteMedium,
+                  return AnimateWidget(
+                    index: index,
+                    child: Padding(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 12.w, vertical: 4.h),
+                      child: GestureDetector(
+                        onTap: () {
+                          context.pushNamed(
+                            Routes.videoPlayerView,
+                            arguments: lesson.videoUrl,
+                          );
+                        },
+                        child: Container(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 12.w,
+                            vertical: 16.h,
+                          ),
+                          decoration: BoxDecoration(
+                            color: ColorsManager.mainGrey,
+                            borderRadius: BorderRadius.circular(6.w),
+                            boxShadow: const [
+                              BoxShadow(
+                                color: ColorsManager.mainGreen,
+                                offset: Offset(2, 2),
+                                spreadRadius: 0.2,
+                                blurRadius: 1,
+                              ),
+                              BoxShadow(
+                                color: Colors.transparent,
+                                offset: Offset(-2, -2),
+                                spreadRadius: 1,
+                                blurRadius: 2,
+                              ),
+                            ],
+                          ),
+                          child: Text(
+                            "${lesson.order}. ${lesson.title}",
+                            style: TextStyles.font14offWhiteMedium,
+                          ),
                         ),
                       ),
                     ),

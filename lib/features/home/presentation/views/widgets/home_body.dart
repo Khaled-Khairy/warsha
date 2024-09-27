@@ -1,7 +1,4 @@
 import 'package:warsha/core/helpers/common_imports.dart';
-import 'package:warsha/core/widgets/courses_list.dart';
-import 'package:warsha/core/widgets/failure_state_error.dart';
-import 'package:warsha/core/widgets/nothing_found.dart';
 
 class HomeBody extends StatelessWidget {
   const HomeBody({super.key});
@@ -18,13 +15,15 @@ class HomeBody extends StatelessWidget {
           return SafeArea(
             child: state.courses.isNotEmpty
                 ? CoursesList(
+                    onRefresh: () async {
+                      context.read<HomeCubit>().getAllCourses();
+                    },
                     courses: state.courses,
                   )
                 : const NothingFound(
-              title: "No Courses Available",
-              subTitle: "New courses will be added soon. Stay tuned!",
-            )
-            ,
+                    title: "No Courses Available",
+                    subTitle: "New courses will be added soon. Stay tuned!",
+                  ),
           );
         } else if (state is HomeFailure) {
           return FailureStateError(

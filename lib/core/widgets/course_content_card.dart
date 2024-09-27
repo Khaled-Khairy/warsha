@@ -1,4 +1,5 @@
 import 'package:warsha/core/helpers/common_imports.dart';
+import 'package:warsha/core/widgets/app_network_image.dart';
 
 class CourseContentCard extends StatelessWidget {
   const CourseContentCard({
@@ -23,13 +24,7 @@ class CourseContentCard extends StatelessWidget {
             aspectRatio: 16 / 9,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(12.w),
-              child: CachedNetworkImage(
-                fit: BoxFit.contain,
-                imageUrl: "http://16.171.151.13:8000/${course.image}",
-                placeholder: (context, url) =>
-                    const Center(child: CircularProgressIndicator()),
-                errorWidget: (context, url, error) => const Icon(Icons.error),
-              ),
+              child: AppNetworkImage(course: course),
             ),
           ),
           4.verticalSpace,
@@ -43,6 +38,13 @@ class CourseContentCard extends StatelessWidget {
                   style: TextStyles.font18offWhiteSemiBold,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
+                ),
+                2.verticalSpace,
+                SizedBox(
+                  width: 220.w,
+                  child: const Divider(
+                    color: ColorsManager.darkerGrey,
+                  ),
                 ),
                 2.verticalSpace,
                 RichText(
@@ -61,13 +63,13 @@ class CourseContentCard extends StatelessWidget {
                   ),
                 ),
                 2.verticalSpace,
-                Text(
-                  course.description,
-                  style: TextStyles.font14GreyRegular,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                ),
-                2.verticalSpace,
+                // Text(
+                //   course.description,
+                //   style: TextStyles.font14GreyRegular,
+                //   maxLines: 2,
+                //   overflow: TextOverflow.ellipsis,
+                // ),
+                4.verticalSpace,
                 Row(
                   children: [
                     Column(
@@ -118,3 +120,4 @@ class CourseContentCard extends StatelessWidget {
     );
   }
 }
+

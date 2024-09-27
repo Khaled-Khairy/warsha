@@ -16,5 +16,20 @@ class HomeCubit extends Cubit<HomeState> {
     );
   }
 
-
+  Future<void> checkSubscription() async {
+    emit(MyCoursesLoading());
+    final response = await homeRepo.checkSubscription();
+    response.fold(
+      (failure) => emit(MyCoursesFailure(failure.errorMessage)),
+      (subscribedCourses) => emit(MyCoursesSuccess(subscribedCourses)),
+    );
+  }
+  Future<void> checkStatus({required String slug}) async {
+    emit(CourseStatusLoading());
+    final response = await homeRepo.getCourseStatus(slug: slug);
+    response.fold(
+      (failure) => emit(CourseStatusFailure(failure.errorMessage)),
+      (courseStatus) => emit(CourseStatusSuccess(courseStatus)),
+    );
+  }
 }

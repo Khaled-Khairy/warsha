@@ -1,11 +1,9 @@
 import 'package:warsha/core/helpers/common_imports.dart';
-import 'package:warsha/features/home/presentation/views/buy_now_view.dart';
-import 'package:warsha/features/menu/presentation/views/change_password_view.dart';
-import 'package:warsha/features/my_courses/presentation/views/course_unit_view.dart';
-import 'package:warsha/features/my_courses/presentation/views/video_player_view.dart';
+import 'package:warsha/core/routing/route_animations.dart';
 
 class AppRouter {
   Route<dynamic>? generateRouter(RouteSettings settings) {
+    final arguments = settings.arguments;
     switch (settings.name) {
       case Routes.onboardingScreen:
         return MaterialPageRoute(
@@ -30,17 +28,27 @@ class AppRouter {
           TransitionType.slideFromRight,
         );
       case Routes.validateOtpScreen:
-        return RouteAnimations.buildPageRoute(
-          const ValidateOtpView(),
-          settings,
-          TransitionType.slideFromRight,
-        );
+        if (arguments is String) {
+          final resetPasswordEmail = arguments;
+          return RouteAnimations.buildPageRoute(
+            ValidateOtpView(
+              resetPasswordEmail: resetPasswordEmail,
+            ),
+            settings,
+            TransitionType.slideFromRight,
+          );
+        }
       case Routes.resetPasswordScreen:
-        return RouteAnimations.buildPageRoute(
-          const ResetPasswordView(),
-          settings,
-          TransitionType.slideFromRight,
-        );
+        if (arguments is String) {
+          final token = arguments;
+          return RouteAnimations.buildPageRoute(
+            ResetPasswordView(
+              token: token,
+            ),
+            settings,
+            TransitionType.slideFromRight,
+          );
+        }
       case Routes.appNavBar:
         return RouteAnimations.buildPageRoute(
           const AppNavBar(),
@@ -48,35 +56,65 @@ class AppRouter {
           TransitionType.slideFromBottom,
         );
       case Routes.courseDetailsScreen:
-        return RouteAnimations.buildPageRoute(
-          const CourseDetailsView(),
-          settings,
-          TransitionType.fadeThrough,
-        );
+        if (arguments is Map<String, dynamic>) {
+          final course = arguments['course'] as CourseModel;
+          final index = arguments['index'] as int;
+          return RouteAnimations.buildPageRoute(
+            CourseDetailsView(
+              course: course, index: index,
+            ),
+            settings,
+            TransitionType.slideFromRight,
+          );
+        }
       case Routes.categoryCoursesView:
-        return RouteAnimations.buildPageRoute(
-          const CategoryCoursesView(),
-          settings,
-          TransitionType.fadeThrough,
-        );
+        if (arguments is String) {
+          final category = arguments;
+          return RouteAnimations.buildPageRoute(
+            CategoryCoursesView(
+              category: category,
+            ),
+            settings,
+            TransitionType.slideFromRight,
+          );
+        }
       case Routes.buyNowView:
-        return RouteAnimations.buildPageRoute(
-          const BuyNowView(),
-          settings,
-          TransitionType.slideFromRight,
-        );
+        if (arguments is Map<String, dynamic>) {
+          final slug = arguments['slug'] as String;
+          final courseState = arguments['course_state'] as String;
+          return RouteAnimations.buildPageRoute(
+            BuyNowView(
+              slug: slug,
+              courseState: courseState,
+            ),
+            settings,
+            TransitionType.slideFromRight,
+          );
+        }
       case Routes.courseUnitView:
-        return RouteAnimations.buildPageRoute(
-          const CourseUnitView(),
-          settings,
-          TransitionType.slideFromBottom,
-        );
+        if (arguments is Map<String, dynamic>) {
+          final slug = arguments['slug'] as String;
+          final telegramUrl = arguments['telegramUrl'] as String;
+          return RouteAnimations.buildPageRoute(
+            CourseUnitView(
+              slug: slug,
+              telegramUrl: telegramUrl,
+            ),
+            settings,
+            TransitionType.slideFromBottom,
+          );
+        }
       case Routes.videoPlayerView:
-        return RouteAnimations.buildPageRoute(
-          const VideoPlayerView(),
-          settings,
-          TransitionType.fadeThrough,
-        );
+        if (arguments is String) {
+          final videoUrl = arguments;
+          return RouteAnimations.buildPageRoute(
+            VideoPlayerView(
+              videoUrl: videoUrl,
+            ),
+            settings,
+            TransitionType.none,
+          );
+        }
       case Routes.changePasswordView:
         return RouteAnimations.buildPageRoute(
           const ChangePasswordView(),
@@ -86,5 +124,6 @@ class AppRouter {
       default:
         return null;
     }
+    return null;
   }
 }

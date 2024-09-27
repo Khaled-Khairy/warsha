@@ -12,10 +12,9 @@ class _SignUpFormState extends State<SignUpForm> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController phoneNumberController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  final TextEditingController confirmPasswordController =
-      TextEditingController();
+  final TextEditingController confirmPasswordController = TextEditingController();
   final formKey = GlobalKey<FormState>();
-  bool isObscureText = true;
+  final ValueNotifier<bool> isObscureTextNotifier = ValueNotifier(true);
 
   @override
   void dispose() {
@@ -24,7 +23,34 @@ class _SignUpFormState extends State<SignUpForm> {
     phoneNumberController.dispose();
     passwordController.dispose();
     confirmPasswordController.dispose();
+    isObscureTextNotifier.dispose();
     super.dispose();
+  }
+
+  Widget buildTextFormField({
+    required String hintText,
+    required TextEditingController controller,
+    required String? Function(String?) validator,
+    required IconData prefixIcon,
+    TextInputType? textInputType,
+    List<TextInputFormatter>? textInputFormatter,
+    bool isObscureText = false,
+    GestureDetector? suffixIcon,
+  }) {
+    return AppTextFormField(
+      hintText: hintText,
+      controller: controller,
+      validator: validator,
+      prefixIcon: Icon(
+        prefixIcon,
+        size: 24.w,
+        color: ColorsManager.grey,
+      ),
+      textInputType: textInputType,
+      textInputFormatter: textInputFormatter,
+      isObscureText: isObscureText,
+      suffixIcon: suffixIcon,
+    );
   }
 
   @override
@@ -33,43 +59,25 @@ class _SignUpFormState extends State<SignUpForm> {
       key: formKey,
       child: Column(
         children: [
-          AppTextFormField(
+          buildTextFormField(
             hintText: "Username",
             controller: userNameController,
-            validator: (value) {
-              return Validations.userNameValidator(value);
-            },
-            prefixIcon: Icon(
-              Iconsax.user_outline,
-              size: 24.w,
-              color: ColorsManager.grey,
-            ),
+            validator: (value) => Validations.userNameValidator(value),
+            prefixIcon: Iconsax.user_outline,
           ),
           10.verticalSpace,
-          AppTextFormField(
+          buildTextFormField(
             hintText: "Email",
             controller: emailController,
-            validator: (value) {
-              return Validations.emailValidator(value);
-            },
-            prefixIcon: Icon(
-              Clarity.email_line,
-              size: 24.w,
-              color: ColorsManager.grey,
-            ),
+            validator: (value) => Validations.emailValidator(value),
+            prefixIcon: Clarity.email_line,
           ),
           10.verticalSpace,
-          AppTextFormField(
+          buildTextFormField(
             hintText: "Phone Number",
             controller: phoneNumberController,
-            validator: (value) {
-              return Validations.phoneNumberValidator(value);
-            },
-            prefixIcon: Icon(
-              Bootstrap.telephone,
-              size: 24.w,
-              color: ColorsManager.grey,
-            ),
+            validator: (value) => Validations.phoneNumberValidator(value),
+            prefixIcon: Bootstrap.telephone,
             textInputType: TextInputType.phone,
             textInputFormatter: [
               FilteringTextInputFormatter.digitsOnly,
@@ -77,63 +85,57 @@ class _SignUpFormState extends State<SignUpForm> {
             ],
           ),
           10.verticalSpace,
-          AppTextFormField(
-            hintText: "Password",
-            controller: passwordController,
-            validator: (value) {
-              return Validations.passwordValidator(value);
+          ValueListenableBuilder<bool>(
+            valueListenable: isObscureTextNotifier,
+            builder: (context, isObscure, child) {
+              return buildTextFormField(
+                hintText: "Password",
+                controller: passwordController,
+                validator: (value) => Validations.passwordValidator(value),
+                prefixIcon: Iconsax.lock_outline,
+                isObscureText: isObscure,
+                suffixIcon: GestureDetector(
+                  onTap: () {
+                    isObscureTextNotifier.value = !isObscureTextNotifier.value;
+                  },
+                  child: Icon(
+                    isObscure ? Iconsax.eye_slash_outline : Iconsax.eye_outline,
+                    size: 24.w,
+                    color: ColorsManager.grey,
+                  ),
+                ),
+              );
             },
-            isObscureText: isObscureText,
-            prefixIcon: Icon(
-              Iconsax.lock_outline,
-              size: 24.w,
-              color: ColorsManager.grey,
-            ),
-            suffixIcon: GestureDetector(
-              onTap: () {
-                setState(() {
-                  isObscureText = !isObscureText;
-                });
-              },
-              child: Icon(
-                isObscureText ? Iconsax.eye_slash_outline : Iconsax.eye_outline,
-                size: 24.w,
-                color: ColorsManager.grey,
-              ),
-            ),
           ),
           10.verticalSpace,
-          AppTextFormField(
-            hintText: "Confirm Password",
-            controller: confirmPasswordController,
-            validator: (value) {
-              String? error = Validations.passwordValidator(value);
-              if (error != null) {
-                return error;
-              }
-              if (passwordController.text != confirmPasswordController.text) {
-                return "Password doesn't match";
-              }
-              return null;
+          ValueListenableBuilder<bool>(
+            valueListenable: isObscureTextNotifier,
+            builder: (context, isObscure, child) {
+              return buildTextFormField(
+                hintText: "Confirm Password",
+                controller: confirmPasswordController,
+                validator: (value) {
+                  String? error = Validations.passwordValidator(value);
+                  if (error != null) return error;
+                  if (passwordController.text != confirmPasswordController.text) {
+                    return "Password doesn't match";
+                  }
+                  return null;
+                },
+                prefixIcon: Iconsax.lock_outline,
+                isObscureText: isObscure,
+                suffixIcon: GestureDetector(
+                  onTap: () {
+                    isObscureTextNotifier.value = !isObscureTextNotifier.value;
+                  },
+                  child: Icon(
+                    isObscure ? Iconsax.eye_slash_outline : Iconsax.eye_outline,
+                    size: 24.w,
+                    color: ColorsManager.grey,
+                  ),
+                ),
+              );
             },
-            isObscureText: isObscureText,
-            prefixIcon: Icon(
-              Iconsax.lock_outline,
-              size: 24.w,
-              color: ColorsManager.grey,
-            ),
-            suffixIcon: GestureDetector(
-              onTap: () {
-                setState(() {
-                  isObscureText = !isObscureText;
-                });
-              },
-              child: Icon(
-                isObscureText ? Iconsax.eye_slash_outline : Iconsax.eye_outline,
-                size: 24.w,
-                color: ColorsManager.grey,
-              ),
-            ),
           ),
           20.verticalSpace,
           AppTextButton(
@@ -141,14 +143,14 @@ class _SignUpFormState extends State<SignUpForm> {
               closeKeyboard(context);
               if (formKey.currentState!.validate()) {
                 context.read<SignUpCubit>().signUp(
-                  signUpRequest: SignUpRequest(
-                    email: emailController.text.trim(),
-                    username: userNameController.text.trim(),
-                    phone: phoneNumberController.text.trim(),
-                    password: passwordController.text.trim(),
-                    confirmPassword: confirmPasswordController.text.trim(),
-                  ),
-                );
+                      signUpRequest: SignUpRequest(
+                        email: emailController.text.trim(),
+                        username: userNameController.text.trim(),
+                        phone: phoneNumberController.text.trim(),
+                        password: passwordController.text.trim(),
+                        confirmPassword: confirmPasswordController.text.trim(),
+                      ),
+                    );
               }
             },
             text: "Create Account",

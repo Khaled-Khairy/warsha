@@ -2,8 +2,8 @@ import 'package:warsha/core/helpers/common_imports.dart';
 import 'package:warsha/features/my_courses/presentation/views/widget/video_player.dart';
 
 class VideoPlayerView extends StatefulWidget {
-  const VideoPlayerView({super.key});
-
+  const VideoPlayerView({super.key, required this.videoUrl});
+  final String videoUrl;
   @override
   State<VideoPlayerView> createState() => _VideoPlayerViewState();
 }
@@ -33,14 +33,13 @@ class _VideoPlayerViewState extends State<VideoPlayerView> {
 
   @override
   Widget build(BuildContext context) {
-    final videoUrl = ModalRoute.of(context)!.settings.arguments as String;
     return Scaffold(
       backgroundColor: Colors.black,
       body: Center(
         child: FittedBox(
           fit: BoxFit.fill,
           child: VideoPlayer(
-            videoUrl: videoUrl,
+            videoUrl: widget.videoUrl,
           ),
         ),
       ),

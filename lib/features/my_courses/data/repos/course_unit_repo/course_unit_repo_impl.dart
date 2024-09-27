@@ -25,4 +25,19 @@ class CourseUnitRepoImpl implements CourseUnitRepo {
       }
     }
   }
+
+  @override
+  Future<Either<Failure, BuyNowResponse>> getSubscriptionStatus({required String slug}) async{
+    try {
+      final response = await apiService.get(endPoint: ApiEndpoints.getSubscriptionStatus(slug));
+      final BuyNowResponse subscriptionStatus = BuyNowResponse.fromJson(response[0]);
+      return right(subscriptionStatus);
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioException(e));
+      } else {
+        return left(ServerFailure(e.toString()));
+      }
+    }
+  }
 }

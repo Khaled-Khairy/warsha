@@ -1,6 +1,4 @@
 import 'package:warsha/core/helpers/common_imports.dart';
-import 'package:warsha/core/widgets/failure_state_error.dart';
-import 'package:warsha/core/widgets/nothing_found.dart';
 
 class CourseCategoriesBody extends StatelessWidget {
   const CourseCategoriesBody({super.key});

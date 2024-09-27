@@ -1,4 +1,5 @@
 import 'package:warsha/core/helpers/common_imports.dart';
+import 'package:warsha/features/home/presentation/manager/update_nav_index/update_nav_index_cubit.dart';
 import 'package:warsha/features/menu/data/repos/menu_repo_impl.dart';
 import 'package:warsha/features/menu/presentation/manager/log_out_cubit/log_out_cubit.dart';
 
@@ -10,13 +11,11 @@ class LogoutDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-        create: (context) => LogOutCubit(getIt.get<MenuRepoImpl>()),
-
+      create: (context) => LogOutCubit(getIt.get<MenuRepoImpl>()),
       child: BlocConsumer<LogOutCubit, LogOutState>(
         listener: (context, state) {
           if (state is LogOutSuccess) {
-            context.pushNamedAndRemoveUntil(Routes.onboardingScreen,
-                predicate: (route) => false);
+            context.pushNamedAndRemoveUntil(Routes.onboardingScreen, predicate: (route) => false);
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 elevation: 0,
@@ -30,6 +29,7 @@ class LogoutDialog extends StatelessWidget {
                 ),
               ),
             );
+            context.read<UpdateNavIndexCubit>().updateIndex(0);
           } else if (state is LogOutFailed) {
             context.pop();
             showSnackBar(context: context, message: state.errMessage);
@@ -38,34 +38,48 @@ class LogoutDialog extends StatelessWidget {
         builder: (context, state) {
           return Dialog(
             child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 24.h),
+              padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
               decoration: BoxDecoration(
                 color: ColorsManager.background,
                 borderRadius: BorderRadius.circular(12.w),
               ),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
-                    "Are you sure you want to log out?",
-                    style: TextStyles.font26GreenBold,
-                    textAlign: TextAlign.center,
+                    "Log out",
+                    style: TextStyles.font20GreenSemiBold,
+                    textAlign: TextAlign.start,
+                  ),
+                  Text(
+                    "You will need to log in again to access your account.",
+                    style: TextStyles.font16GreyMedium,
+                    textAlign: TextAlign.start,
                   ),
                   10.verticalSpace,
-                  AppTextButton(
-                      onPressed: () {
-                        BlocProvider.of<LogOutCubit>(context).logOut();
-                      },
-                      text: "Log out"),
-                  10.verticalSpace,
-                  AppTextButton(
-                    onPressed: () {
-                      context.pop();
-                    },
-                    text: "Cancel",
-                    backgroundColor: ColorsManager.mainGrey,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      TextButton(
+                        onPressed: () {
+                          context.pop();
+                        },
+                        child: Text(
+                          "Cancel",
+                          style: TextStyles.font16offWhiteMedium,
+                        ),
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          context.read<LogOutCubit>().logOut();
+                        },
+                        child: Text(
+                          "Log out",
+                          style: TextStyles.font18GreenSemiBold,
+                        ),
+                      )
+                    ],
                   )
                 ],
               ),

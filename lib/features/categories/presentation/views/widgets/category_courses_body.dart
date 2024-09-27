@@ -1,6 +1,4 @@
 import 'package:warsha/core/helpers/common_imports.dart';
-import 'package:warsha/core/widgets/failure_state_error.dart';
-import 'package:warsha/core/widgets/nothing_found.dart';
 
 class CategoryCoursesBody extends StatelessWidget {
   const CategoryCoursesBody({super.key, required this.category});
@@ -12,12 +10,17 @@ class CategoryCoursesBody extends StatelessWidget {
     return BlocBuilder<CategoryCoursesCubit, CategoryCoursesState>(
       builder: (context, state) {
         if (state is CategoryCoursesLoading) {
-          return const CircularProgressIndicator(
-            color: ColorsManager.mainGreen,
+          return const Center(
+            child: CircularProgressIndicator(
+              color: ColorsManager.mainGreen,
+            ),
           );
         } else if (state is CategoryCoursesSuccess) {
           return state.courses.isNotEmpty
-              ? CategoryCoursesList(courses: state.courses)
+              ? CategoryCoursesList(
+                  courses: state.courses,
+                  category: category,
+                )
               : const NothingFound(
                   title: "No Courses Available",
                   subTitle: "No courses found in this category at the moment.",
