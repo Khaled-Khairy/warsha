@@ -1,4 +1,5 @@
 import 'package:warsha/core/helpers/common_imports.dart';
+import 'package:warsha/core/widgets/app_network_image.dart';
 import 'package:warsha/features/home/presentation/manager/update_nav_index/update_nav_index_cubit.dart';
 
 class CourseDetails extends StatelessWidget {
@@ -22,17 +23,7 @@ class CourseDetails extends StatelessWidget {
               bottomLeft: Radius.circular(12.w),
               bottomRight: Radius.circular(12.w),
             ),
-            child: CachedNetworkImage(
-              fit: BoxFit.cover,
-              imageUrl: "http://13.60.30.244:8000${course.image}",
-              placeholder: (context, url) =>
-                  const Center(child: CircularProgressIndicator()),
-              errorWidget: (context, url, error) => Icon(
-                Icons.error,
-                size: 20.w,
-                color: ColorsManager.mainGreen,
-              ),
-            ),
+            child: AppNetworkImage(course: course),
           ),
         ),
         AppBody(

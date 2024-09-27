@@ -27,6 +27,7 @@ class _BuyNowBodyState extends State<BuyNowBody> {
         if (state is BuyNowLoading) {
           _showLoadingDialog(context);
         } else if (state is BuyNowSuccess) {
+          _subscribedToCourse();
           _showSuccessDialog(context);
         } else if (state is BuyNowFailure) {
           _handleFailure(context, state.errMessage);
@@ -90,10 +91,10 @@ class _BuyNowBodyState extends State<BuyNowBody> {
   }
 
   AppTextButton _buildAppTextButton() {
-    final isUnderReview = widget.courseState == "under_review";
+    final isUpdate = widget.courseState == "under_review" || widget.courseState == "rejected";
     return AppTextButton(
-      text: isUnderReview ? "Update Receipt" : "Confirm",
-      onPressed: isUnderReview ? _onUpdate : _onSubmit,
+      text: isUpdate ? "Update Receipt" : "Confirm",
+      onPressed: isUpdate ? _onUpdate : _onSubmit,
     );
   }
 
@@ -147,7 +148,8 @@ class _BuyNowBodyState extends State<BuyNowBody> {
       context: context,
       content: SuccessDialog(
         title: "Receipt Sent Successfully",
-        subTitle: "We’ve received your receipt. Please allow some time for us to review and process it. Check back later for updates on the status of your request.",
+        subTitle:
+            "We’ve received your receipt. Please allow some time for us to review and process it. Check back later for updates on the status of your request.",
         buttonText: "Done",
         onPressed: () {
           context.pushNamedAndRemoveUntil(
@@ -162,5 +164,12 @@ class _BuyNowBodyState extends State<BuyNowBody> {
   void _handleFailure(BuildContext context, String errorMessage) {
     context.pop();
     showSnackBar(context: context, message: errorMessage);
+  }
+
+  void _subscribedToCourse() async {
+    await SharedPrefHelper.setData(
+      key: SharedPrefKeys.isSubscribed,
+      value: true,
+    );
   }
 }

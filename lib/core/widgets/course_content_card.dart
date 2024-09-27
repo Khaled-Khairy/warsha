@@ -1,4 +1,5 @@
 import 'package:warsha/core/helpers/common_imports.dart';
+import 'package:warsha/core/widgets/app_network_image.dart';
 
 class CourseContentCard extends StatelessWidget {
   const CourseContentCard({
@@ -23,13 +24,7 @@ class CourseContentCard extends StatelessWidget {
             aspectRatio: 16 / 9,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(12.w),
-              child: CachedNetworkImage(
-                fit: BoxFit.cover,
-                imageUrl: "http://13.60.30.244:8000${course.image}",
-                placeholder: (context, url) =>
-                    const Center(child: CircularProgressIndicator()),
-                errorWidget: (context, url, error) => const Icon(Icons.error),
-              ),
+              child: AppNetworkImage(course: course),
             ),
           ),
           4.verticalSpace,
@@ -45,12 +40,12 @@ class CourseContentCard extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                 ),
                 2.verticalSpace,
-                 SizedBox(
-                   width: 220.w,
-                   child: const Divider(
-                     color: ColorsManager.darkerGrey,
-                   ),
-                 ),
+                SizedBox(
+                  width: 220.w,
+                  child: const Divider(
+                    color: ColorsManager.darkerGrey,
+                  ),
+                ),
                 2.verticalSpace,
                 RichText(
                   textAlign: TextAlign.center,
@@ -125,3 +120,4 @@ class CourseContentCard extends StatelessWidget {
     );
   }
 }
+

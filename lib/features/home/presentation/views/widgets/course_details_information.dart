@@ -1,4 +1,5 @@
 import 'package:warsha/core/helpers/common_imports.dart';
+import 'package:warsha/core/widgets/app_network_image.dart';
 
 class CourseDetailsInformation extends StatelessWidget {
   const CourseDetailsInformation({
@@ -17,12 +18,7 @@ class CourseDetailsInformation extends StatelessWidget {
             bottomLeft: Radius.circular(12.w),
             bottomRight: Radius.circular(12.w),
           ),
-          child: CachedNetworkImage(
-            fit: BoxFit.cover,
-            imageUrl: "http://13.60.30.244:8000${course.image}",
-            placeholder: (context, url) => const Center(child: CircularProgressIndicator()),
-            errorWidget: (context, url, error) => const Icon(Icons.error),
-          ),
+          child: AppNetworkImage(course: course),
         ),
         AppBody(
           verticalPadding: 5,
@@ -101,13 +97,12 @@ class CourseDetailsInformation extends StatelessWidget {
                 ],
               ),
               20.verticalSpace,
-               AppTextButton(
-                      onPressed: () {
-                        context.pushNamed(Routes.buyNowView,
-                            arguments: course.slug);
-                      },
-                      text: "Buy Now",
-                    ),
+              AppTextButton(
+                onPressed: () {
+                  context.pushNamed(Routes.buyNowView, arguments: course.slug);
+                },
+                text: "Buy Now",
+              ),
             ],
           ),
         ),

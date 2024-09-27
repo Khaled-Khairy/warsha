@@ -1,105 +1,121 @@
 import 'package:warsha/core/helpers/common_imports.dart';
-import 'package:warsha/features/home/presentation/views/widgets/course_details.dart';
+import 'package:warsha/core/widgets/app_network_image.dart';
 
 class CourseDetailsBody extends StatelessWidget {
   const CourseDetailsBody({
     super.key,
     required this.course,
-    required this.index,
   });
 
   final CourseModel course;
-  final int index;
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<HomeCubit, HomeState>(
-      listener: (context, state) {
-        if (state is MyCoursesSuccess) {
-          if (state.subscribedCourses.isEmpty || index >= state.subscribedCourses.length) {
-            context.read<HomeCubit>().getCourseStatus(slug: course.slug);
-          }
-        }
-      },
-      builder: (context, state) {
-        if (state is MyCoursesLoading) {
-          return const Center(child: CircularProgressIndicator());
-        } else if (state is MyCoursesSuccess) {
-          if (state is CourseStatusLoading) {
-            return const Text("a7a");
-          }else if(state is CourseStatusSuccess){
-            return const Text("a7oosaa");
-
-          }else if(state is CourseStatusFailure){
-            return const Text("a7ooaaaaaaaaaaaasda");
-
-          } else {
-            return const Text("a7ooasda");
-          }
-        } else if (state is MyCoursesFailure) {
-          return _buildErrorMessage(state.errMessage);
-        } else {
-          return const Center(
-            child: FailureStateError(message: "Unhandled Error"),
-          );
-        }
-      },
-    );
-  }
-
-  Widget _buildCourseDetails(BuildContext context, MyCoursesSuccess state) {
-    if (state.subscribedCourses.isEmpty ||
-        index >= state.subscribedCourses.length) {
-      return CourseDetails(
-        course: course,
-        courseState: 'default',
-      );
-    }
-
-    final isMatchingCourse = state.subscribedCourses[index].slug == course.slug;
-    if (isMatchingCourse) {
-      return _checkCourseStatus(state);
-    } else {
-      return CourseDetails(
-        course: course,
-        courseState: 'default',
-      );
-    }
-  }
-
-  Widget _checkCourseStatus(HomeState state) {
-    if (state is CourseStatusSuccess) {
-      return CourseDetails(
-        course: course,
-        courseState: _mapCourseState(state.courseStatus.state),
-      );
-    } else if (state is CourseStatusLoading) {
-      return const Center(child: CircularProgressIndicator());
-    } else if (state is CourseStatusFailure) {
-      return _buildErrorMessage(state.errMessage);
-    } else {
-      return const Center(
-        child: FailureStateError(message: "Unhandled Error"),
-      );
-    }
-  }
-
-  String _mapCourseState(String courseState) {
-    switch (courseState) {
-      case "under_review":
-        return 'under_review';
-      case "confirmed":
-        return 'confirmed';
-      case "rejected":
-        return 'rejected';
-      default:
-        return 'default';
-    }
-  }
-
-  Widget _buildErrorMessage(String message) {
-    return Center(
-      child: FailureStateError(message: message),
+    return Column(
+      children: [
+        AspectRatio(
+          aspectRatio: 16 / 9,
+          child: ClipRRect(
+            borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(12.w),
+              bottomRight: Radius.circular(12.w),
+            ),
+            child: AppNetworkImage(course: course),
+          ),
+        ),
+        AppBody(
+          verticalPadding: 5,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                course.title,
+                style: TextStyles.font18offWhiteSemiBold,
+              ),
+              4.verticalSpace,
+              RichText(
+                textAlign: TextAlign.center,
+                text: TextSpan(
+                  children: [
+                    TextSpan(
+                      text: "Author: ",
+                      style: TextStyles.font14offWhiteMedium,
+                    ),
+                    TextSpan(
+                      text: course.author,
+                      style: TextStyles.font14GreenSemiBold,
+                    ),
+                  ],
+                ),
+              ),
+              4.verticalSpace,
+              Text(
+                course.description,
+                style: TextStyles.font14GreyRegular,
+              ),
+              8.verticalSpace,
+              Row(
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          Icon(
+                            Bootstrap.collection,
+                            size: 20.w,
+                            color: ColorsManager.mainGreen,
+                          ),
+                          4.horizontalSpace,
+                          Text(
+                            "${course.numOfLessons} Lessons",
+                            style: TextStyles.font14offWhiteMedium,
+                          ),
+                        ],
+                      ),
+                      2.verticalSpace,
+                      Row(
+                        children: [
+                          Icon(
+                            Iconsax.clock_outline,
+                            size: 20.w,
+                            color: ColorsManager.mainGreen,
+                          ),
+                          4.horizontalSpace,
+                          Text(
+                            convertMinToHour(
+                              course.duration,
+                            ),
+                            style: TextStyles.font14offWhiteMedium,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                  const Spacer(),
+                  Text(
+                    "${course.cost} LE",
+                    style: TextStyles.font20GreenBold,
+                  ),
+                ],
+              ),
+              20.verticalSpace,
+              AppTextButton(
+                onPressed: () {
+                  context.pushNamed(
+                    Routes.buyNowView,
+                    arguments: {
+                      "slug": course.slug,
+                      "course_state": "under_review",
+                    },
+                  );
+                },
+                text: "Buy Course",
+              ),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }
