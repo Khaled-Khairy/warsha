@@ -16,7 +16,8 @@ class BuyButtonBlocBuilder extends StatelessWidget {
     return BlocConsumer<HomeCubit, HomeState>(
       listener: (context, state) {
         if (state is MyCoursesSuccess) {
-          final isSubscribed = state.subscribedCourses.any((subscribedCourse) => subscribedCourse.slug == course.slug);
+          final isSubscribed = state.subscribedCourses
+              .any((subscribedCourse) => subscribedCourse.slug == course.slug);
           if (isSubscribed) {
             context.read<HomeCubit>().checkStatus(slug: course.slug);
           }
@@ -51,7 +52,10 @@ class BuyButtonBlocBuilder extends StatelessWidget {
       case "rejected":
         return Column(
           children: [
-            reason.isNotEmpty? _buildStatusRow(reason):const SizedBox.shrink(),
+            reason.isNotEmpty
+                ? _buildStatusRow(reason)
+                : const SizedBox.shrink(),
+            10.verticalSpace,
             AppTextButton(
               onPressed: () => _navigateToBuyNow(context, courseState),
               text: "Update Receipt",
@@ -105,7 +109,7 @@ class BuyButtonBlocBuilder extends StatelessWidget {
   Widget _buildBuyButton(BuildContext context) {
     return AppTextButton(
       onPressed: () => _navigateToBuyNow(context, ""),
-      text: "Buy Course",
+      text: "Enroll Now",
     );
   }
 

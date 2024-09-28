@@ -30,7 +30,7 @@ class _AnimateWidgetState extends State<AnimateWidget> {
   Widget build(BuildContext context) {
     return AnimatedContainer(
       duration: Duration(milliseconds: 400 + (widget.index  * 100)),
-      curve: Curves.easeIn,
+      curve: Curves.decelerate,
       transform: Matrix4.translationValues(
         myAnimation ? 0 : 360.w,
         0,
