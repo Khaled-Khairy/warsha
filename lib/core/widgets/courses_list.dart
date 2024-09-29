@@ -17,11 +17,10 @@ class CoursesList extends StatelessWidget {
       backgroundColor: ColorsManager.mainGrey,
       child: ListView.builder(
         itemCount: courses.length,
-        primary: false,
         physics: const ClampingScrollPhysics(),
         padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
         itemBuilder: (context, index) {
-          return AnimateWidget(
+          return AnimateListItem(
             index: index,
             child: Padding(
               padding: EdgeInsets.only(bottom: 12.h),

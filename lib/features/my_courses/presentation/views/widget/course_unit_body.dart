@@ -67,7 +67,7 @@ class CourseStatusBody extends StatelessWidget {
     return SafeArea(
       child: Column(
         children: [
-          AnimateWidget(
+          AnimateListItem(
             index: 0,
             child: TelegramButton(telegramUrl: telegramUrl),
           ),
@@ -78,7 +78,7 @@ class CourseStatusBody extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
               itemBuilder: (context, index) {
                 if (state.courseUnit[index].active) {
-                  return AnimateWidget(
+                  return AnimateListItem(
                     index: index,
                     child: ExpandableUnit(
                       unit: state.courseUnit[index],

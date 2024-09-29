@@ -1,7 +1,7 @@
 import 'package:warsha/core/helpers/common_imports.dart';
 
-class AnimateWidget extends StatefulWidget {
-  const AnimateWidget({
+class AnimateListItem extends StatefulWidget {
+  const AnimateListItem({
     super.key,
     required this.child, required this.index,
   });
@@ -10,10 +10,10 @@ class AnimateWidget extends StatefulWidget {
   final Widget child;
 
   @override
-  State<AnimateWidget> createState() => _AnimateWidgetState();
+  State<AnimateListItem> createState() => _AnimateListItemState();
 }
 
-class _AnimateWidgetState extends State<AnimateWidget> {
+class _AnimateListItemState extends State<AnimateListItem> {
   bool myAnimation = false;
 
   @override
