@@ -3,44 +3,48 @@ import 'package:warsha/core/helpers/common_imports.dart';
 class DioFactory {
   DioFactory._();
 
-  static Dio? dio;
+  static Dio? _dio;
 
   static Future<Dio> getDio() async {
-    Duration timeOut = const Duration(seconds: 30);
-    if (dio == null) {
-      dio = Dio();
-      dio!
-        ..options.receiveTimeout = timeOut
-        ..options.connectTimeout = timeOut;
-      addDioHeaders();
-      addDioInterceptors();
+    if (_dio == null) {
+      final dioInstance = Dio();
+      const timeout = Duration(seconds: 30);
+
+      dioInstance
+        ..options.receiveTimeout = timeout
+        ..options.connectTimeout = timeout
+        ..options.sendTimeout = timeout;
+
+      await _addDioHeaders(dioInstance);
+      _addDioInterceptors(dioInstance);
+
+      _dio = dioInstance;
     }
-    return dio!;
+    return _dio!;
   }
 
-  static void addDioHeaders() async {
-    final String token = await SharedPrefHelper.getString(key: SharedPrefKeys.accessToken);
+  static Future<void> _addDioHeaders(Dio dio) async {
+    try {
+      final token = await SharedPrefHelper.getString(key: SharedPrefKeys.accessToken);
 
-    if (token.isNotEmpty) {
-      dio?.options.headers = {
+      dio.options.headers = {
         'Accept': 'application/json',
-        'Authorization': 'Bearer $token',
+        if (token.isNotEmpty) 'Authorization': 'Bearer $token',
       };
-    } else {
-      dio?.options.headers = {
+    } catch (e) {
+      // Handle the error properly, like logging it
+      dio.options.headers = {
         'Accept': 'application/json',
       };
     }
   }
 
   static void setTokenIntoHeaderAfterLogin(String token) {
-    dio?.options.headers = {
-      'Authorization': 'Bearer $token',
-    };
+    _dio?.options.headers['Authorization'] = 'Bearer $token';
   }
 
-  static void addDioInterceptors() {
-    dio?.interceptors.add(
+  static void _addDioInterceptors(Dio dio) {
+    dio.interceptors.add(
       PrettyDioLogger(
         requestBody: true,
         requestHeader: true,
@@ -48,5 +52,10 @@ class DioFactory {
         responseHeader: true,
       ),
     );
+  }
+
+  /// Reset or clear Dio instance
+  static void resetDio() {
+    _dio = null;
   }
 }

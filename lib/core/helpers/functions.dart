@@ -3,12 +3,12 @@ import 'package:warsha/core/helpers/common_imports.dart';
 bool isLoggedUser = false;
 
 /// Checks if the user is logged in
-checkIfLoggedUser() async {
-  String? userToken = await SharedPrefHelper.getString(key: SharedPrefKeys.accessToken);
-  if (userToken == null || userToken.isEmpty) {
+Future<void> checkIfLoggedUser() async {
+  try {
+    final String userToken = await SharedPrefHelper.getString(key: SharedPrefKeys.accessToken);
+    isLoggedUser = userToken.isNotEmpty;
+  } catch (e) {
     isLoggedUser = false;
-  } else {
-    isLoggedUser = true;
   }
 }
 
@@ -49,4 +49,3 @@ appShowDialog({required BuildContext context, required Widget content}) {
     builder: (context) => content,
   );
 }
-

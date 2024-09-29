@@ -12,11 +12,11 @@ class ServerFailure extends Failure {
   factory ServerFailure.fromDioException(DioException dioException) {
     switch (dioException.type) {
       case DioExceptionType.connectionTimeout:
-        return ServerFailure('Oops There was an Error, Please try again');
+        return ServerFailure('Connection timed out. Please check your internet and try again.');
       case DioExceptionType.sendTimeout:
-        return ServerFailure('Oops There was an Error, Please try again');
+        return ServerFailure('Request timed out. Check your connection and try again.');
       case DioExceptionType.receiveTimeout:
-        return ServerFailure('Oops There was an Error, Please try again');
+        return ServerFailure('Server response timed out. Check your connection or try again later.');
       case DioExceptionType.badCertificate:
         return ServerFailure('Oops There was an Error, Please try again');
       case DioExceptionType.badResponse:
@@ -24,7 +24,7 @@ class ServerFailure extends Failure {
       case DioExceptionType.cancel:
         return ServerFailure('The request was canceled. Please try again.');
       case DioExceptionType.connectionError:
-        return ServerFailure('Connection Error');
+        return ServerFailure('Unable to connect. Please check your internet connection and try again.');
       case DioExceptionType.unknown:
         if (dioException.message != null &&
             dioException.message!.contains('SocketException')) {

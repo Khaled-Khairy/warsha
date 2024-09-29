@@ -19,9 +19,7 @@ class MenuRepoImpl extends MenuRepo {
       final response = await apiService.post(
         endPoint: ApiEndpoints.logOut,
         data: {
-          "refresh": await SharedPrefHelper.getString(
-            key: SharedPrefKeys.refreshToken,
-          ),
+          "refresh": await SharedPrefHelper.getString(key: SharedPrefKeys.refreshToken),
         },
       );
       await SharedPrefHelper.clearAllData();
