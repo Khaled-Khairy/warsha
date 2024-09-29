@@ -18,40 +18,35 @@ class MyCoursesBody extends StatelessWidget {
     return BlocBuilder<MyCoursesCubit, MyCoursesState>(
       builder: (context, state) {
         if (state is MyCoursesLoading) {
-          return const Center(
-            child: CircularProgressIndicator(
-              color: ColorsManager.mainGreen,
-            ),
+          return const CircularProgressIndicator(
+            color: ColorsManager.mainGreen,
           );
         } else if (state is MyCoursesSuccess) {
-          return SafeArea(
-            child: state.courses.isNotEmpty
-                ? CoursesList(
-                    onRefresh: () async {
-                      context.read<MyCoursesCubit>().getSubscribedCourses();
-                    },
-                    courses: state.courses,
-                    onTap: (index) {
-                      final String slug = state.courses[index].slug;
-                      final String telegramUrl =
-                          state.courses[index].telegram ?? "";
-                      context.pushNamed(
-                        Routes.courseUnitView,
-                        arguments: {'slug': slug, 'telegramUrl': telegramUrl},
-                      );
-                    },
-                  )
-                : const NothingFound(
-                    title: 'No Courses Purchased Yet',
-                    subTitle:
-                        "It looks like you haven't purchased any courses yet. Browse our courses to find and buy courses that interest you!",
-                  ),
-          );
+          return state.courses.isNotEmpty
+              ? CoursesList(
+                  onRefresh: () async {
+                    context.read<MyCoursesCubit>().getSubscribedCourses();
+                  },
+                  courses: state.courses,
+                  onTap: (index) {
+                    final String slug = state.courses[index].slug;
+                    final String telegramUrl =
+                        state.courses[index].telegram ?? "";
+                    context.pushNamed(
+                      Routes.courseUnitView,
+                      arguments: {'slug': slug, 'telegramUrl': telegramUrl},
+                    );
+                  },
+                )
+              : const NothingFound(
+                  title: 'No Courses Purchased Yet',
+                  subTitle:
+                      "It looks like you haven't purchased any courses yet. Browse our courses to find and buy courses that interest you!",
+                );
         } else if (state is MyCoursesFailure) {
-          return Center(
-              child: FailureStateError(
-            message: state.errMessage,
-          ));
+          return FailureStateError(
+                      message: state.errMessage,
+                    );
         } else {
           return const FailureStateError(
             message: 'Unhandled error',

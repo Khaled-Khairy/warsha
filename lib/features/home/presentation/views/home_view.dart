@@ -10,8 +10,10 @@ class HomeView extends StatelessWidget {
         create: (context) => HomeCubit(
           getIt.get<HomeRepoImpl>(),
         )..getAllCourses(),
-        child: const Center(
-          child: HomeBody(),
+        child: const SafeArea(
+          child: Center(
+            child: HomeBody(),
+          ),
         ),
       ),
     );

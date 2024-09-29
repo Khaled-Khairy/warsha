@@ -10,8 +10,9 @@ class MyCoursesView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: BlocProvider(
-        create: (context) => MyCoursesCubit(getIt.get<MyCoursesRepoImpl>())..getSubscribedCourses(),
-        child: const MyCoursesBody(),
+        create: (context) => MyCoursesCubit(getIt.get<MyCoursesRepoImpl>())
+          ..getSubscribedCourses(),
+        child: const SafeArea(child: Center(child: MyCoursesBody())),
       ),
     );
   }

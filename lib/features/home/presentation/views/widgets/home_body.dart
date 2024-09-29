@@ -12,29 +12,24 @@ class HomeBody extends StatelessWidget {
             color: ColorsManager.mainGreen,
           );
         } else if (state is HomeSuccess) {
-          return SafeArea(
-            child: state.courses.isNotEmpty
-                ? CoursesList(
-                    onRefresh: () async {
-                      context.read<HomeCubit>().getAllCourses();
-                    },
-                    courses: state.courses,
-                  )
-                : const NothingFound(
-                    title: "No Courses Available",
-                    subTitle: "New courses will be added soon. Stay tuned!",
-                  ),
-          );
+          return state.courses.isNotEmpty
+              ? CoursesList(
+                  onRefresh: () async {
+                    context.read<HomeCubit>().getAllCourses();
+                  },
+                  courses: state.courses,
+                )
+              : const NothingFound(
+                  title: "No Courses Available",
+                  subTitle: "New courses will be added soon. Stay tuned!",
+                );
         } else if (state is HomeFailure) {
           return FailureStateError(
             message: state.errMessage,
           );
         } else {
-          return Center(
-            child: Text(
-              "Unhandled Error",
-              style: TextStyles.font16offWhiteSemiBold,
-            ),
+          return const FailureStateError(
+            message: "Unhandled Error",
           );
         }
       },

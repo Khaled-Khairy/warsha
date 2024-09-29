@@ -9,8 +9,12 @@ class CategoryCoursesView extends StatelessWidget {
     return Scaffold(
       body: BlocProvider(
         create: (context) => CategoryCoursesCubit(getIt.get<CategoriesRepoImpl>())..getCategoryCourses(category: category),
-        child: CategoryCoursesBody(
-          category: category,
+        child: SafeArea(
+          child: Center(
+            child: CategoryCoursesBody(
+              category: category,
+            ),
+          ),
         ),
       ),
     );
