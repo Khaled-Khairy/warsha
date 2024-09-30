@@ -28,7 +28,7 @@ class AppNavBar extends StatelessWidget {
           child: Scaffold(
             body: pages[currentIndex],
             bottomNavigationBar: Container(
-              padding: EdgeInsets.symmetric(horizontal: 28.w, vertical: 6.h),
+              padding: EdgeInsets.symmetric(horizontal: 32.w, vertical: 6.h),
               decoration: BoxDecoration(
                 color: ColorsManager.mainGrey,
                 borderRadius: BorderRadius.only(
