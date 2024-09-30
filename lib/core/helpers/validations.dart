@@ -55,4 +55,24 @@ class Validations {
     }
     return null;
   }
+
+  static String? passwordConfirmValidator(String? value, String? password) {
+    if (value == null || value.isEmpty) {
+      return 'Password confirmation is required.';
+    }
+    if (value != password) {
+      return 'Passwords do not match.';
+    }
+    return null;
+  }
+
+  static String? loginPasswordValidator(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Password is required.';
+    }
+    if (value.length < 8) {
+      return 'Password should be at least 8 characters long.';
+    }
+    return null;
+  }
 }

@@ -12,7 +12,8 @@ class ResetPasswordForm extends StatefulWidget {
 
 class _ResetPasswordFormState extends State<ResetPasswordForm> {
   final TextEditingController newPasswordController = TextEditingController();
-  final TextEditingController confirmNewPasswordController = TextEditingController();
+  final TextEditingController confirmNewPasswordController =
+      TextEditingController();
   final formKey = GlobalKey<FormState>();
   bool isObscureText = true;
 
@@ -32,6 +33,7 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
           AppTextFormField(
             hintText: "New Password",
             controller: newPasswordController,
+            enableCopyPaste: false,
             validator: (value) {
               return Validations.passwordValidator(value);
             },
@@ -58,15 +60,12 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
           AppTextFormField(
             hintText: "Confirm Password",
             controller: confirmNewPasswordController,
+            enableCopyPaste: false,
             validator: (value) {
-              String? error = Validations.passwordValidator(value);
-              if (error != null) {
-                return error;
-              }
-              if (newPasswordController.text != confirmNewPasswordController.text) {
-                return "Password doesn't match";
-              }
-              return null;
+              return Validations.passwordConfirmValidator(
+                value,
+                newPasswordController.text.trim(),
+              );
             },
             isObscureText: isObscureText,
             prefixIcon: Icon(
@@ -93,12 +92,13 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
               closeKeyboard(context);
               if (formKey.currentState!.validate()) {
                 context.read<ResetPasswordCubit>().resetPassword(
-                  resetPasswordRequest: ResetPasswordRequest(
-                    token: widget.token,
-                    newPassword: newPasswordController.text.trim(),
-                    confirmPassword: confirmNewPasswordController.text.trim(),
-                  ),
-                );
+                      resetPasswordRequest: ResetPasswordRequest(
+                        token: widget.token,
+                        newPassword: newPasswordController.text.trim(),
+                        confirmPassword:
+                            confirmNewPasswordController.text.trim(),
+                      ),
+                    );
               }
             },
             text: "Confirm",

@@ -35,8 +35,9 @@ class _ChangePasswordFormState extends State<ChangePasswordForm> {
           AppTextFormField(
             hintText: "Current Password",
             controller: currentPasswordController,
+            enableCopyPaste: false,
             validator: (value) {
-              return Validations.passwordValidator(value);
+              return Validations.loginPasswordValidator(value);
             },
             isObscureText: isObscureText,
             prefixIcon: Icon(
@@ -60,6 +61,7 @@ class _ChangePasswordFormState extends State<ChangePasswordForm> {
           10.verticalSpace,
           AppTextFormField(
             hintText: "New Password",
+            enableCopyPaste: false,
             controller: newPasswordController,
             validator: (value) {
               return Validations.passwordValidator(value);
@@ -86,16 +88,13 @@ class _ChangePasswordFormState extends State<ChangePasswordForm> {
           10.verticalSpace,
           AppTextFormField(
             hintText: "Confirm Password",
+            enableCopyPaste: false,
             controller: repeatPasswordController,
             validator: (value) {
-              String? error = Validations.passwordValidator(value);
-              if (error != null) {
-                return error;
-              }
-              if (newPasswordController.text != repeatPasswordController.text) {
-                return "Password doesn't match";
-              }
-              return null;
+              return Validations.passwordConfirmValidator(
+                value,
+                newPasswordController.text.trim(),
+              );
             },
             isObscureText: isObscureText,
             prefixIcon: Icon(

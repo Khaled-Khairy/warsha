@@ -12,7 +12,8 @@ class _SignUpFormState extends State<SignUpForm> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController phoneNumberController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  final TextEditingController confirmPasswordController = TextEditingController();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
   final formKey = GlobalKey<FormState>();
   final ValueNotifier<bool> isObscureTextNotifier = ValueNotifier(true);
 
@@ -36,9 +37,11 @@ class _SignUpFormState extends State<SignUpForm> {
     List<TextInputFormatter>? textInputFormatter,
     bool isObscureText = false,
     GestureDetector? suffixIcon,
+    bool enableCopyPaste = true,
   }) {
     return AppTextFormField(
       hintText: hintText,
+      enableCopyPaste: enableCopyPaste,
       controller: controller,
       validator: validator,
       prefixIcon: Icon(
@@ -92,6 +95,7 @@ class _SignUpFormState extends State<SignUpForm> {
                 hintText: "Password",
                 controller: passwordController,
                 validator: (value) => Validations.passwordValidator(value),
+                enableCopyPaste: false,
                 prefixIcon: Iconsax.lock_outline,
                 isObscureText: isObscure,
                 suffixIcon: GestureDetector(
@@ -114,13 +118,12 @@ class _SignUpFormState extends State<SignUpForm> {
               return buildTextFormField(
                 hintText: "Confirm Password",
                 controller: confirmPasswordController,
+                enableCopyPaste: false,
                 validator: (value) {
-                  String? error = Validations.passwordValidator(value);
-                  if (error != null) return error;
-                  if (passwordController.text != confirmPasswordController.text) {
-                    return "Password doesn't match";
-                  }
-                  return null;
+                  return Validations.passwordConfirmValidator(
+                    value,
+                    passwordController.text.trim(),
+                  );
                 },
                 prefixIcon: Iconsax.lock_outline,
                 isObscureText: isObscure,

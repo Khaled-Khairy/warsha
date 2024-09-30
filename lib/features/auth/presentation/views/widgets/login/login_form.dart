@@ -43,8 +43,9 @@ class _LoginFormState extends State<LoginForm> {
             hintText: "Password",
             controller: passwordController,
             validator: (value) {
-              return Validations.passwordValidator(value);
+              return Validations.loginPasswordValidator(value);
             },
+            enableCopyPaste: false,
             isObscureText: isObscureText,
             prefixIcon: Icon(
               Iconsax.lock_outline,

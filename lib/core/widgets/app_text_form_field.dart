@@ -15,7 +15,7 @@ class AppTextFormField extends StatelessWidget {
   final List<TextInputFormatter>? textInputFormatter;
   final TextEditingController? controller;
   final Function(String?) validator;
-
+  final bool? enableCopyPaste;
   const AppTextFormField({
     super.key,
     required this.hintText,
@@ -31,7 +31,7 @@ class AppTextFormField extends StatelessWidget {
     this.textInputType,
     this.textInputFormatter,
     this.controller,
-    required this.validator,
+    required this.validator, this.enableCopyPaste,
   });
 
   @override
@@ -41,6 +41,7 @@ class AppTextFormField extends StatelessWidget {
       style: inputTextStyle ?? TextStyles.font16offWhiteMedium,
       cursorColor: ColorsManager.mainGreen,
       controller: controller,
+      enableInteractiveSelection: enableCopyPaste,
       validator: (value) {
         return validator(value);
       },
