@@ -42,9 +42,7 @@ class ServerFailure extends Failure {
       final errorMessage = errorResponse.getErrorMessages();
       return ServerFailure(errorMessage);
     }
-    if (response?.statusCode == 400 ||
-        response?.statusCode == 401 ||
-        response?.statusCode == 403) {
+    if (response?.statusCode == 400 || response?.statusCode == 401 || response?.statusCode == 403) {
       return ServerFailure('Your request not found, Please try later!');
     } else if (response?.statusCode == 404) {
       return ServerFailure('Your request not found, Please try later!');

@@ -63,8 +63,7 @@ class HomeRepoImpl extends HomeRepo {
   }
 
   @override
-  Future<Either<Failure, String>> updateReceipt(
-      {required String slug, required BuyNowRequest buyNowRequest}) async {
+  Future<Either<Failure, String>> updateReceipt({required String slug, required BuyNowRequest buyNowRequest}) async {
     try {
       final response = await apiService.putWithFormData(
         endPoint: ApiEndpoints.subscribeToCourse(slug),

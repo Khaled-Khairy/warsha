@@ -1,5 +1,4 @@
 import 'package:warsha/core/helpers/common_imports.dart';
-import 'package:warsha/features/home/presentation/manager/update_nav_index/update_nav_index_cubit.dart';
 import 'package:warsha/features/menu/data/repos/menu_repo_impl.dart';
 import 'package:warsha/features/menu/presentation/manager/log_out_cubit/log_out_cubit.dart';
 
@@ -15,7 +14,8 @@ class LogoutDialog extends StatelessWidget {
       child: BlocConsumer<LogOutCubit, LogOutState>(
         listener: (context, state) {
           if (state is LogOutSuccess) {
-            context.pushNamedAndRemoveUntil(Routes.onboardingScreen, predicate: (route) => false);
+            context.pushNamedAndRemoveUntil(Routes.onboardingScreen,
+                predicate: (route) => false);
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 elevation: 0,
@@ -29,10 +29,9 @@ class LogoutDialog extends StatelessWidget {
                 ),
               ),
             );
-            context.read<UpdateNavIndexCubit>().updateIndex(0);
           } else if (state is LogOutFailed) {
             context.pop();
-            showSnackBar(context: context, message: state.errMessage);
+            showSnackBar(context: context, message: "Logout Failed");
           }
         },
         builder: (context, state) {

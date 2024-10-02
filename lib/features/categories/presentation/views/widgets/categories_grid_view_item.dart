@@ -12,9 +12,10 @@ class CategoriesGridViewItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
+        String encodedCategoryName = Uri.encodeComponent(category.name);
         context.pushNamed(
           Routes.categoryCoursesView,
-          arguments: category.name,
+          arguments: encodedCategoryName,
         );
       },
       borderRadius: BorderRadius.circular(12.w),
