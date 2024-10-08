@@ -32,7 +32,6 @@ class DioFactory {
         if (token.isNotEmpty) 'Authorization': 'Bearer $token',
       };
     } catch (e) {
-      // Handle the error properly, like logging it
       dio.options.headers = {
         'Accept': 'application/json',
       };
@@ -52,10 +51,5 @@ class DioFactory {
         responseHeader: true,
       ),
     );
-  }
-
-  /// Reset or clear Dio instance
-  static void resetDio() {
-    _dio = null;
   }
 }

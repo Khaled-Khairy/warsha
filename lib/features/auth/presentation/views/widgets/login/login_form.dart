@@ -11,6 +11,7 @@ class _LoginFormState extends State<LoginForm> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final formKey = GlobalKey<FormState>();
+  AutovalidateMode autoValidateMode = AutovalidateMode.disabled;
   bool isObscureText = true;
 
   @override
@@ -24,6 +25,7 @@ class _LoginFormState extends State<LoginForm> {
   Widget build(BuildContext context) {
     return Form(
       key: formKey,
+      autovalidateMode: autoValidateMode,
       child: Column(
         children: [
           AppTextFormField(
@@ -80,15 +82,19 @@ class _LoginFormState extends State<LoginForm> {
           ),
           20.verticalSpace,
           AppTextButton(
-            onPressed: () async {
+            onPressed: () {
               closeKeyboard(context);
               if (formKey.currentState!.validate()) {
                 context.read<LoginCubit>().login(
-                  loginRequest: LoginRequest(
-                    email: emailController.text.trim(),
-                    password: passwordController.text.trim(),
-                  ),
-                );
+                      loginRequest: LoginRequest(
+                        email: emailController.text.trim(),
+                        password: passwordController.text.trim(),
+                      ),
+                    );
+              } else {
+                setState(() {
+                  autoValidateMode = AutovalidateMode.always;
+                });
               }
             },
             text: "Login",

@@ -12,11 +12,13 @@ class SendOtpForm extends StatefulWidget {
 
 class _SendOtpFormState extends State<SendOtpForm> {
   final formKey = GlobalKey<FormState>();
+  AutovalidateMode autoValidateMode = AutovalidateMode.disabled;
 
   @override
   Widget build(BuildContext context) {
     return Form(
       key: formKey,
+      autovalidateMode: autoValidateMode,
       child: Column(
         children: [
           AppTextFormField(
@@ -37,10 +39,14 @@ class _SendOtpFormState extends State<SendOtpForm> {
               closeKeyboard(context);
               if (formKey.currentState!.validate()) {
                 context.read<SendOtpCubit>().sendOtp(
-                  sendOtpRequest: SendOtpRequest(
-                    email: widget.emailController.text.trim(),
-                  ),
-                );
+                      sendOtpRequest: SendOtpRequest(
+                        email: widget.emailController.text.trim(),
+                      ),
+                    );
+              } else {
+                setState(() {
+                  autoValidateMode = AutovalidateMode.always;
+                });
               }
             },
             text: "Continue",

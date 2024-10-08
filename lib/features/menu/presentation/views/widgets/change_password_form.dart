@@ -16,6 +16,8 @@ class _ChangePasswordFormState extends State<ChangePasswordForm> {
   final TextEditingController repeatPasswordController =
       TextEditingController();
   final formKey = GlobalKey<FormState>();
+  AutovalidateMode autoValidateMode = AutovalidateMode.disabled;
+
   bool isObscureText = true;
 
   @override
@@ -30,6 +32,7 @@ class _ChangePasswordFormState extends State<ChangePasswordForm> {
   Widget build(BuildContext context) {
     return Form(
       key: formKey,
+      autovalidateMode: autoValidateMode,
       child: Column(
         children: [
           AppTextFormField(
@@ -127,6 +130,10 @@ class _ChangePasswordFormState extends State<ChangePasswordForm> {
                         repeatPassword: repeatPasswordController.text.trim(),
                       ),
                     );
+              } else {
+                setState(() {
+                  autoValidateMode = AutovalidateMode.always;
+                });
               }
             },
             text: "Confirm",

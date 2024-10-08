@@ -13,6 +13,7 @@ class ValidateOtpForm extends StatefulWidget {
 class _ValidateOtpFormState extends State<ValidateOtpForm> {
   final TextEditingController otpController = TextEditingController();
   final formKey = GlobalKey<FormState>();
+  AutovalidateMode autoValidateMode = AutovalidateMode.disabled;
 
   @override
   void dispose() {
@@ -24,6 +25,7 @@ class _ValidateOtpFormState extends State<ValidateOtpForm> {
   Widget build(BuildContext context) {
     return Form(
       key: formKey,
+      autovalidateMode: autoValidateMode,
       child: Column(
         children: [
           ValidateOtpPinPut(
@@ -40,6 +42,11 @@ class _ValidateOtpFormState extends State<ValidateOtpForm> {
                         otp: otpController.text.trim(),
                       ),
                     );
+              } else {
+                setState(() {
+                  autoValidateMode = AutovalidateMode.always;
+
+                });
               }
             },
             text: "Continue",

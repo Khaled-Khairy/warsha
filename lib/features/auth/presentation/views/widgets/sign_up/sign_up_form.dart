@@ -16,6 +16,7 @@ class _SignUpFormState extends State<SignUpForm> {
       TextEditingController();
   final formKey = GlobalKey<FormState>();
   final ValueNotifier<bool> isObscureTextNotifier = ValueNotifier(true);
+  AutovalidateMode autoValidateMode = AutovalidateMode.disabled;
 
   @override
   void dispose() {
@@ -60,6 +61,7 @@ class _SignUpFormState extends State<SignUpForm> {
   Widget build(BuildContext context) {
     return Form(
       key: formKey,
+      autovalidateMode: autoValidateMode,
       child: Column(
         children: [
           buildTextFormField(
@@ -154,6 +156,10 @@ class _SignUpFormState extends State<SignUpForm> {
                         confirmPassword: confirmPasswordController.text.trim(),
                       ),
                     );
+              } else {
+                setState(() {
+                  autoValidateMode = AutovalidateMode.always;
+                });
               }
             },
             text: "Create Account",
