@@ -1,16 +1,32 @@
-# warsha
+# Warsha
 
-A new Flutter project.
+⚠️ **Archived / Legacy Project**
 
-## Getting Started
+This repository contains an old Flutter project that was created earlier in my development journey. It is kept publicly available for reference, learning purposes, and project history.
 
-This project is a starting point for a Flutter application.
+## Important Note
 
-A few resources to get you started if this is your first Flutter project:
+This project does **not** represent my current Flutter development skills, coding standards, architecture knowledge, or best practices. Since building this project, I have gained significantly more experience in:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+* Flutter application architecture
+* State management (Bloc/Cubit)
+* Clean Architecture principles
+* Dependency Injection
+* Performance optimization
+* API integration
+* Real-time applications
+* Production-ready mobile development
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+As a result, parts of this codebase may contain outdated patterns, suboptimal implementations, or approaches that I would not use in current projects.
+
+## Why This Repository Still Exists
+
+* To preserve project history
+* To showcase my learning progression
+* To serve as a reference for older work
+
+## Looking for My Recent Work?
+
+For a better representation of my current capabilities, please refer to my newer repositories and recent projects.
+
+Thank you for visiting this repository.
